@@ -59,10 +59,6 @@ const DischargeConstruction = () => {
       rowspan: 2,
       align: 'left',
       minWidth: 300,
-      elm: (row: any) =>
-        row.donvi_hanhchinh?.tenXa && row.donvi_hanhchinh?.tenXa != null
-          ? `${row.donvi_hanhchinh?.tenXa}, ${row.donvi_hanhchinh?.tenHuyen}, Tỉnh Quảng Ngãi`
-          : ''
     },
     {
       id: '#',

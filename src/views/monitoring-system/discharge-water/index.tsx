@@ -86,7 +86,6 @@ const DischargewaterMonitoring = () => {
       setLoading(true);
       getData('cong-trinh/danh-sach', paramsFilter)
         .then((data) => {
-          console.log(data)
           if (isMounted.current) {
             setResData(data);
           }
@@ -140,7 +139,7 @@ const DischargewaterMonitoring = () => {
         item['loaiCT']?.['maLoaiCT']?.toString().toLowerCase().includes(keyword.toLowerCase())
       )
     );
-    setDataFiltered(filteredData); console.log(filteredData);
+    setDataFiltered(filteredData);
     setTotal(filteredData.length);
   }, [initConsType, resData]);
 

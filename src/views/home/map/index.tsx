@@ -42,7 +42,18 @@ const HomeMap = () => {
 
     const getDataConstruction = async () => {
         setLoading(true);
-        getData('cong-trinh/danh-sach', {})
+        getData('cong-trinh/danh-sach', {
+            tenct: '',
+            loai_ct: 0,
+            huyen: 0,
+            xa: 0,
+            song: 0,
+            luuvuc: 0,
+            tieu_luuvuc: 0,
+            tang_chuanuoc: 0,
+            tochuc_canhan: 0,
+            nguonnuoc_kt: ''
+        })
             .then((data) => {
                 if (isMounted.current) {
                     setResData(data);

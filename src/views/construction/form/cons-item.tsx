@@ -263,7 +263,6 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
 
   const handleSave = () => {
     if (newConsItem.tenHangMuc !== undefined) {
-      console.log(newConsItemIndex);
       if (newConsItemIndex >= 0) {
         setConstructionItems(prevItems => {
           const updatedItems = [...prevItems];

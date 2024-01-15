@@ -4,21 +4,21 @@ import { Grid, Button, TextField, DialogActions } from "@mui/material";
 import { useState } from 'react';
 import { saveData } from 'src/api/axios';
 
-const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
+const Form = ({ setPostSuccess, closeDialogs }: any) => {
 
+  const [currPassword, setCurrPassword] = useState<any>(null);
   const [newPassword, setNewPassword] = useState<any>(null);
   const [confirmPassword, setConfirmPassword] = useState<any>(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(newPassword);
-    console.log(confirmPassword);
 
     if (newPassword === confirmPassword) {
       try {
-        const res = await saveData('Auth/set-password', {
-          model: data,
+        const res = await saveData('Auth/change-password', {
+          currentPassword: currPassword,
           newPassword: newPassword,
+          newConfirmPassword: confirmPassword
         });
 
         if (res) {
@@ -30,7 +30,6 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
       }
     } else {
       console.log("Mật khẩu xác nhận phải giống mật khẩu mới");
-
     }
   };
 
@@ -42,7 +41,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     <form onSubmit={handleSubmit}>
       <Grid container>
         <Grid item xs={12} md={12} sx={{ my: 3 }}>
-          <TextField disabled size='small' type='password' fullWidth label='Mật khẩu cũ' placeholder='' defaultValue='' />
+          <TextField size='small' type='password' fullWidth label='Mật khẩu cũ' placeholder='' defaultValue='' onChange={(e) => setCurrPassword(e.target.value)} />
         </Grid>
         <Grid item xs={12} md={12} sx={{ my: 3 }}>
           <TextField size='small' type='password' fullWidth label='Mật khẩu mới' placeholder='' defaultValue='' onChange={(e) => setNewPassword(e.target.value)} />
@@ -59,14 +58,14 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   );
 };
 
-const ChangePassword = ({ data, setPostSuccess }: any) => {
+const ChangePassword = ({ setPostSuccess }: any) => {
   const formTitle = 'Thay đổi mật khẩu';
 
   return (
     <DialogsControl>
       {(openDialogs: (content: React.ReactNode, title: React.ReactNode) => void, closeDialogs: () => void) => (
         <>
-          <LockOpen className='tableActionBtn' onClick={() => openDialogs(<Form data={data} setPostSuccess={setPostSuccess} closeDialogs={closeDialogs} />, formTitle)} />
+          <LockOpen className='tableActionBtn' onClick={() => openDialogs(<Form setPostSuccess={setPostSuccess} closeDialogs={closeDialogs} />, formTitle)} />
         </>
       )}
     </DialogsControl>

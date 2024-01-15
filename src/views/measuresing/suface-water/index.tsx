@@ -86,7 +86,6 @@ const SurfaceWaterMeasuresing = () => {
       setLoading(true);
       getData('GiamSatSoLieu/danhsach', paramsFilter)
         .then((data) => {
-          console.log(data);
           if (isMounted.current) {
             setResData(data);
           }

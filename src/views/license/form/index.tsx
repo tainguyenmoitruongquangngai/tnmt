@@ -145,9 +145,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
           const saveConsItem = await saveData('hang-muc-ct/luu', e);
           if (saveConsItem && e.thongso !== null) {
             {
-              console.log({ ...e.thongso, idCT: null, idHangMucCT: saveConsItem.id })
-              
-              // await saveData('thong-so-ct/luu', { ...e.thongso, idCT: null, idHangMucCT: saveConsItem.id })
+              await saveData('thong-so-ct/luu', { ...e.thongso, idCT: null, idHangMucCT: saveConsItem.id })
             }
           }
         }) : ""
@@ -192,8 +190,6 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
 
         if (saveLic) {
           if (newfileGiayPhep?.fileName && newfileGiayPhep?.fileName !== null && newfileGiayPhep?.file && newfileGiayPhep?.file !== null) {
-            // console.log(newfileGiayPhep)
-
             await uploadFile(newfileGiayPhep)
           }
           if (newfileDonXinCP.fileName && newfileDonXinCP.fileName !== null && newfileDonXinCP.file && newfileDonXinCP.file !== null) {

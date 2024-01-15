@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Paper, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { Button, Paper, TextField } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import MapLegend from 'src/views/construction/MapLegend';
 import dynamic from 'next/dynamic';
 import proj4 from 'proj4';
-import { getData } from 'src/api/axios';
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
@@ -12,32 +10,15 @@ const Construction = () => {
 
     const [mapCenter,] = useState([15.012172, 108.676488]);
     const [mapZoom,] = useState(9);
+    const [coodinate, setCoodinate] = useState({ x: 0, y: 0 });
 
-    const [initConsType, setInitConstype] = useState<any>([
-        "nuocmat",
-        "thuydien",
-        "hochua",
-        "trambom",
-        "tramcapnuoc",
-        "cong",
-        "nhamaynuoc",
-        "nuocduoidat",
-        "khaithac",
-        "thamdo",
-        "congtrinh_nuocduoidatkhac",
-        "xathai",
-        "khu_cumcn_taptrung",
-        "sx_tieuthu_cn",
-        "congtrinhkhac_xt"
+    const [data, SetData] = useState<any>([
+        {
+            loaiCT: { maLoaiCT: 4 },
+            x: 0,
+            y: 0
+        }
     ])
-
-    const [resData, setResData] = useState([]);
-
-    const handleConsTypeChange = (data: any) => {
-        setInitConstype(data);
-    };
-
-
 
     const N_DEC_WGS84 = 8;
 
@@ -59,33 +40,24 @@ const Construction = () => {
 
         return result;
     }
-    const [coodinate, setCoodinate] = useState({ x: 0, y: 0 });
 
-
+    const handleConvert = () => {
+        const xy = converter(coodinate.x, coodinate.y)
+        console.log(xy);
+        SetData(
+            [
+                {
+                    loaiCT: { maLoaiCT: 4 },
+                    x: coodinate.x,
+                    y: coodinate.y
+                }
+            ]
+        )
+    }
 
     const handleChange = (prop: any) => (value: any) => {
         setCoodinate({ ...coodinate, [prop]: value })
     }
-
-    useEffect(() => {
-        console.log(converter(coodinate.x, coodinate.y));
-        const getDataConstruction = async () => {
-            try {
-                const data = await getData('cong-trinh/danh-sach');
-                console.log(initConsType)
-                const filteredData = data.filter((item: { [key: string]: any }) =>
-                    initConsType.some((keyword: any) =>
-                        item['constructionTypeSlug']?.toString().toLowerCase().includes(keyword.toLowerCase())
-                    )
-                );
-                setResData(filteredData);
-            } catch (error) {
-                setResData([]);
-            } finally {
-            }
-        };
-        getDataConstruction();
-    }, [coodinate.x, coodinate.y, initConsType]);
 
     return (
 
@@ -112,12 +84,12 @@ const Construction = () => {
                     onChange={(e) => handleChange('y')(e.target.value)}
                 />
             </Grid>
+            <Grid sx={{ my: 2 }}>
+                <Button variant='outlined' size='small' onClick={handleConvert}>Convert</Button>
+            </Grid>
             <Grid xs={12} md={12} sx={{ height: 'calc(100vh - 82px)', overflow: 'hidden' }}>
                 <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
-                    <Box className="map-legend" sx={{ background: 'white' }}>
-                        <MapLegend onChange={handleConsTypeChange} />
-                    </Box>
-                    <Map center={mapCenter} zoom={mapZoom} mapData={null} mapMarkerData={resData} />
+                    <Map center={mapCenter} zoom={mapZoom} mapData={data} mapMarkerData={data} />
                 </Paper>
             </Grid>
         </Grid>

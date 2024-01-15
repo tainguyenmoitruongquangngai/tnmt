@@ -186,6 +186,7 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       title: 'Thông tin - Dữ liệu',
+      primaryPath: 'thong-tin-du-lieu',
       children: [
         {
           sectionTitle: 'Số lượng, chất lượng nước',
@@ -272,10 +273,12 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       title: 'Báo cáo biểu mẫu',
+      primaryPath: 'bao-cao-bieu-mau',
       path: '/bao-cao-bieu-mau'
     },
     {
       title: 'KN tiếp nhận nước thải',
+      primaryPath: 'kn-tiep-nhan-nuoc-thai',
       children: [
         {
           sectionTitle: 'Nguồn nước sông,suối',
@@ -340,30 +343,36 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       title: 'Dữ liệu',
-      primaryPath: 'he-thong',
+      primaryPath: 'du-lieu',
       children: [
         {
           title: 'Loại công trình',
+          primaryPath: 'loai-cong-trinh',
           path: '/loai-cong-trinh'
         },
         {
           title: 'Loại giấy phép',
+          primaryPath: 'loai-giay-phep',
           path: '/loai-giay-phep'
         },
         {
           title: 'Doanh nghiệp',
+          primaryPath: 'doanh-nghiep',
           path: '/doanh-nghiep'
         },
         {
           title: 'Sông',
+          primaryPath: 'song',
           path: '/song'
         },
         {
           title: 'Lưu vực',
+          primaryPath: 'luu-vuc',
           path: '/luu-vuc'
         },
         {
           title: 'Tầng chứa nước',
+          primaryPath: 'tang-chua-nuoc',
           path: '/tang-chua-nuoc'
         },
         {
@@ -394,7 +403,7 @@ const navigation = (): VerticalNavItemsType => {
         {
           title: 'Các chức năng',
           icon: Functions,
-          path: '#'
+          path: '/function'
         },
       ]
     },

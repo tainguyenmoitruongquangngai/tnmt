@@ -28,7 +28,6 @@ export async function saveData(url: string, data: any) {
     const filteredData = Object.fromEntries(
         Object.entries(data).map(([key, value]) => [key, value === "" ? null : value])
     );
-    console.log(url, filteredData);
     
     try {
         const response = await axios.post(`${apiUrl}/${url}`, filteredData, {

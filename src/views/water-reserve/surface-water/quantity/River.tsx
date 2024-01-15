@@ -43,8 +43,6 @@ const RiverQuantity = () => {
 
     getDataRiverQuantity()
   }, [])
-  console.log(data);
-  
 
   return (
     <Paper sx={{ p: 8 }}>

@@ -42,8 +42,6 @@ const SurfaceWaterTotal = () => {
 
     getDataSurfaceWaterTotal()
   }, [])
-  console.log(data);
-  
 
   return (
     <Paper sx={{ p: 8 }}>

@@ -175,7 +175,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
         const communeFiltered = communes.filter((item: any) => item.idHuyen == congtrinh?.idHuyen?.toString())
         setCommune(communeFiltered)
       } catch (error) {
-        //console.log(error)
+        console.log(error)
       } finally {
         setLoading(false)
       }

@@ -59,10 +59,6 @@ const SurfaceConstruction = () => {
       rowspan: 2,
       align: 'left',
       minWidth: 300,
-      elm: (row: any) =>
-        row.donvi_hanhchinh?.tenXa && row.donvi_hanhchinh?.tenXa != null
-          ? `${row.donvi_hanhchinh?.tenXa}, ${row.donvi_hanhchinh?.tenHuyen}, Tỉnh Quảng Ngãi`
-          : ''
     },
     {
       id: '#',
@@ -505,6 +501,7 @@ const SurfaceConstruction = () => {
         .then(data => {
           if (isMounted.current) {
             setResData(data)
+            
           }
         })
         .catch(error => {
