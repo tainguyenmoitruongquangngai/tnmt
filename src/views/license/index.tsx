@@ -137,11 +137,22 @@ const ListLicenses = () => {
         <Grid container spacing={3}>
             <Grid item xs={12} md={12}>
                 <Paper elevation={3} sx={{ py: 1, px: 3 }}>
-                    <Typography variant='overline'>Giấy phép/nước mặt</Typography>
+                    <Typography variant='overline'>Giấy phép/
+                        {
+                            GetConstructionTypeId(router) == 1 ? "Nước mặt" :
+                                GetConstructionTypeId(router) == 3 ? "Xả thải" :
+                                    GetConstructionTypeId(router) == 7 ? "Nước dưới đất/Khai thác sử dụng" :
+                                        GetConstructionTypeId(router) == 8 ? "Nước dưới đất/Thăm dò" :
+                                            GetConstructionTypeId(router) == 9 ? "Nước dưới đất/Hành nghề khoan"
+                                                : ""
+                        }
+                    </Typography>
                 </Paper>
             </Grid>
             <Grid item xs={12} md={3} sx={{ height: '45vh' }}>
-                <CountLicense data={resData} />
+                <Paper elevation={3} sx={{ py: 1, px: 3, height: "100%" }}>
+                    <CountLicense data={resData} />
+                </Paper>
             </Grid>
             <Grid item xs={12} md={9}>
                 <Paper elevation={3} sx={{ height: '45vh', p: 1 }}>

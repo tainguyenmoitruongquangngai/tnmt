@@ -18,6 +18,7 @@ import LogoutVariant from 'mdi-material-ui/LogoutVariant'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
 
 import jwt_decode from 'jwt-decode';
+import ChangePassword from 'src/views/manage/account-settings/ChangePassword'
 
 interface DecodedToken {
   [key: string]: any;
@@ -129,6 +130,12 @@ const UserDropdown = () => {
           <Box sx={styles}>
             <AccountOutline sx={{ marginRight: 2 }} />
             Thông tin
+          </Box>
+        </MenuItem>
+        <Divider sx={{ mt: 0, mb: 1 }} />
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
+          <Box sx={styles}>
+            <ChangePassword />
           </Box>
         </MenuItem>
         <Divider />

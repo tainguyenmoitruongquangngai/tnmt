@@ -1,38 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import DialogsControl from 'src/@core/components/dialog-control';
+import { LockOpen } from "@mui/icons-material";
+import { Grid, Button, TextField, DialogActions } from "@mui/material";
+import { useState } from 'react';
+import { saveData } from 'src/api/axios';
 
-function ChangePasswordForm() {
-    const [newPassword, setNewPassword] = useState('');
-    const model = {};
+const Form = ({ user, setPostSuccess, closeDialogs }: any) => {
+
+    const [newPassword, setNewPassword] = useState<any>(null);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`/api/set-password`, {
-                modle: model,
+            const res = await saveData('Auth/set-password', {
+                user: user,
                 newPassword: newPassword,
             });
 
-            console.log(response.data.message); // Display success or error message
+            if (res) {
+                typeof (setPostSuccess) === 'function' ? setPostSuccess(true) : '';
+                closeDialogs();
+            }
         } catch (error) {
             console.error(error);
         }
     };
 
+    const handleClose = () => {
+        closeDialogs();
+    }
+    
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="New Password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-            />
-            {/* Input fields for 'modle' (UserModel) data */}
-            {/* ... */}
-            <button type="submit">Change Password</button>
+            <Grid container>
+                <Grid item xs={12} md={12} sx={{ my: 3 }}>
+                    <TextField size='small' type='text' disabled fullWidth label='Họ Tên' placeholder='' value={user.fullName} />
+                </Grid>
+                <Grid item xs={12} md={12} sx={{ my: 3 }}>
+                    <TextField size='small' type='text' disabled fullWidth label='Tài khoản' placeholder='' value={user.userName} />
+                </Grid>
+                <Grid item xs={12} md={12} sx={{ my: 3 }}>
+                    <TextField size='small' type='password' fullWidth label='Mật khẩu mới' placeholder='' defaultValue='' onChange={(e) => setNewPassword(e.target.value)} />
+                </Grid>
+            </Grid>
+            <DialogActions sx={{ p: 0 }}>
+                <Button onClick={() => handleClose()} className='btn cancleBtn'>Hủy</Button>
+                <Button type="submit" className='btn saveBtn'>Lưu</Button>
+            </DialogActions>
         </form>
     );
-}
+};
 
-export default ChangePasswordForm;
+const ChangePassword = ({ user, setPostSuccess }: any) => {
+    const formTitle = 'Đặt lại mật khẩu';
+
+    return (
+        <DialogsControl>
+            {(openDialogs: (content: React.ReactNode, title: React.ReactNode) => void, closeDialogs: () => void) => (
+                <>
+                    <LockOpen className='tableActionBtn' sx={{ marginRight: 2 }} onClick={() => openDialogs(<Form user={user} setPostSuccess={setPostSuccess} closeDialogs={closeDialogs} />, formTitle)} />
+                </>
+            )}
+        </DialogsControl>
+    );
+};
+
+export default ChangePassword;

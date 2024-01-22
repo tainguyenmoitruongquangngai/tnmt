@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { IconButton, Box } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 import SetRole from './AssignRole';
-import ChangePassword from './ChangePassword';
 import FormAccount from './FormAccount';
 import TableComponent from 'src/@core/components/table';
 import { getData } from 'src/api/axios';
+import SetPassword from '../set-password';
 
 
 const ListAccount = () => {
@@ -50,8 +50,8 @@ const ListAccount = () => {
             <IconButton aria-label="setRole">
               <SetRole data={row} setPostSuccess={handlePostSuccess} />
             </IconButton>
-            <IconButton aria-label="changePasword">
-              <ChangePassword setPostSuccess={handlePostSuccess} />
+            <IconButton aria-label="setPassword">
+              <SetPassword user={row} setPostSuccess={handlePostSuccess} />
             </IconButton>
             <IconButton aria-label="edit">
               <FormAccount data={row} setPostSuccess={handlePostSuccess} isEdit={true} />

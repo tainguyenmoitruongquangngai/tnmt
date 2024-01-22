@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, Divider } from '@mui/material';
+import { Box, Typography, Divider } from '@mui/material';
 import { useEffect, useState } from 'react'
 
 const CountLicense = (props: any) => {
@@ -34,7 +34,7 @@ const CountLicense = (props: any) => {
 
 
     return (
-        <Paper elevation={3} sx={{ height: '100%' }}>
+        <Box>
             <Box sx={{ width: '100%', px: 5, py: 1 }}>
                 <Box sx={{ display: 'flex', p: 1, bgcolor: 'background.paper', borderRadius: 1 }} >
                     <Box sx={{ flexGrow: 1, alignItems: 'center' }}>
@@ -98,7 +98,7 @@ const CountLicense = (props: any) => {
                     </Box>
                 </Box>
             </Box>
-        </Paper>
+        </Box>
     )
 }
 

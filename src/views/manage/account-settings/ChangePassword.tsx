@@ -64,9 +64,10 @@ const ChangePassword = ({ setPostSuccess }: any) => {
   return (
     <DialogsControl>
       {(openDialogs: (content: React.ReactNode, title: React.ReactNode) => void, closeDialogs: () => void) => (
-        <>
-          <LockOpen className='tableActionBtn' onClick={() => openDialogs(<Form setPostSuccess={setPostSuccess} closeDialogs={closeDialogs} />, formTitle)} />
-        </>
+        <span style={{ display: 'flex', alignItems: 'center' }} onClick={() => openDialogs(<Form setPostSuccess={setPostSuccess} closeDialogs={closeDialogs} />, formTitle)}>
+          <LockOpen sx={{ marginRight: 2 }} />
+          Đổi mật khẩu
+        </ span>
       )}
     </DialogsControl>
   );

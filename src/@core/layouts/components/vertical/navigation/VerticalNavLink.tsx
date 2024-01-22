@@ -71,6 +71,7 @@ const MenuNavSection = styled(ListItemButton)<ListItemButtonProps & { component?
   color: `rgba(231, 227, 252, 0.87) !important`,
   fontSize: 13,
   textTransform: 'uppercase',
+  cursor: "default",
   padding: theme.spacing(2.25, 3.5),
   '&.nav-section::after': {
     content: '""',
