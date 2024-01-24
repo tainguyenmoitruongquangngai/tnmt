@@ -112,67 +112,44 @@ const LoginPage = () => {
   };
 
   return (
-    <Box className='content-center'>
-      <Card sx={{ zIndex: 1 }}>
-        <CardContent sx={{ padding: theme => `${theme.spacing(12, 9, 7)} !important` }}>
-          <Box sx={{ mb: 3, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/images/logos/logo_sotnmt.png" width={70} height={70} alt="logo-page" />
-            <Typography
-              variant='h6'
-              align='center'
-              sx={{
-                color: '#dc3545 !important',
-                mt: 2,
-                mx: 3,
-                lineHeight: 1,
-                fontWeight: 600,
-                width: '100%',
-                textTransform: 'uppercase',
-                fontSize: '1.5rem !important'
-              }}
-            >
-              {themeConfig.templateName}
-            </Typography>
-          </Box>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant='overline' align='center' sx={{ fontWeight: 600, marginBottom: 1.5 }}>
-              HỆ THỐNG QUẢN LÝ CƠ SỞ DỮ LIỆU TÀI NGUYÊN NƯỚC
-            </Typography>
-          </Box>
-          {isError ? (<Box sx={{ mb: 3 }}> <Alert severity="error">Tài khoản hoặc mật khẩu không chính xác!</Alert> </Box>) : ""}
-          <form noValidate autoComplete='off' onSubmit={handleSubmit}>
-            <TextField autoFocus fullWidth
-              id='username'
-              label={<Typography variant='overline' sx={{ fontSize: 14, fontWeight: 600, lineHeight: 0, transformOrigin: 'center' }}>
-                Tài khoản
-              </Typography>}
-              sx={{ marginBottom: 4 }}
-              value={values.username}
-              onChange={handleChange('username')}
-              inputProps={{
-                style: {
-                  paddingTop: 10,
-                  paddingBottom: 10,
-                  fontSize: 15
-                }
-              }}
-            />
-            <FormControl fullWidth>
-              <InputLabel htmlFor='auth-login-password'>
-                <Typography variant='overline' sx={{ fontSize: 14, fontWeight: 600, lineHeight: 0, transformOrigin: 'center' }}>
-                  Mật khẩu
-                </Typography>
-              </InputLabel>
-              <OutlinedInput
-                label={
-                  <Typography variant='overline' sx={{ fontSize: 14, fontWeight: 600, lineHeight: 0, transformOrigin: 'center' }}>
-                    Mật khẩu
-                  </Typography>
-                }
-                value={values.password}
-                id='auth-login-password'
-                onChange={handleChange('password')}
-                type={values.showPassword ? 'text' : 'password'}
+    <Box className="bg">
+      <Box className='content-center'>
+        <Card sx={{ zIndex: 1 }}>
+          <CardContent sx={{ padding: theme => `${theme.spacing(12, 9, 7)} !important` }}>
+            <Box sx={{ mb: 3, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
+              <img src="/images/logos/logo_sotnmt.png" width={70} height={70} alt="logo-page" />
+              <Typography
+                variant='h6'
+                align='center'
+                sx={{
+                  color: '#dc3545 !important',
+                  mt: 2,
+                  mx: 3,
+                  lineHeight: 1,
+                  fontWeight: 600,
+                  width: '100%',
+                  textTransform: 'uppercase',
+                  fontSize: '1.5rem !important'
+                }}
+              >
+                {themeConfig.templateName}
+              </Typography>
+            </Box>
+            <Box sx={{ mb: 6 }}>
+              <Typography variant='overline' align='center' sx={{ fontWeight: 600, marginBottom: 1.5 }}>
+                HỆ THỐNG QUẢN LÝ CƠ SỞ DỮ LIỆU TÀI NGUYÊN NƯỚC
+              </Typography>
+            </Box>
+            {isError ? (<Box sx={{ mb: 3 }}> <Alert severity="error">Tài khoản hoặc mật khẩu không chính xác!</Alert> </Box>) : ""}
+            <form noValidate autoComplete='off' onSubmit={handleSubmit}>
+              <TextField autoFocus fullWidth
+                id='username'
+                label={<Typography variant='overline' sx={{ fontSize: 14, fontWeight: 600, lineHeight: 0, transformOrigin: 'center' }}>
+                  Tài khoản
+                </Typography>}
+                sx={{ marginBottom: 4 }}
+                value={values.username}
+                onChange={handleChange('username')}
                 inputProps={{
                   style: {
                     paddingTop: 10,
@@ -180,42 +157,67 @@ const LoginPage = () => {
                     fontSize: 15
                   }
                 }}
-                endAdornment={
-                  <InputAdornment position='end'>
-                    <IconButton
-                      edge='end'
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      aria-label='toggle password visibility'
-                    >
-                      {values.showPassword ? <EyeOutline /> : <EyeOffOutline />}
-                    </IconButton>
-                  </InputAdornment>
-                }
               />
-            </FormControl>
-            <Box
-              sx={{ mb: 4, display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}
-            >
-              <FormControlLabel control={<Checkbox value={values.rememberMe} onChange={handleChange('rememberMe')} />} label='Lưu đăng nhập' />
-              <Link passHref href='/'>
-                <LinkStyled onClick={e => e.preventDefault()}>Quên mật khẩu?</LinkStyled>
-              </Link>
-            </Box>
-            <Button
-              fullWidth
-              size='large'
-              variant='contained'
-              sx={{ marginBottom: 7 }}
-              type="submit"
-              disabled={isLoading}
-              endIcon={isLoading ? <CircularProgress color='inherit' size={20} /> : <Login />}
-            >
-              Đăng nhập
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+              <FormControl fullWidth>
+                <InputLabel htmlFor='auth-login-password'>
+                  <Typography variant='overline' sx={{ fontSize: 14, fontWeight: 600, lineHeight: 0, transformOrigin: 'center' }}>
+                    Mật khẩu
+                  </Typography>
+                </InputLabel>
+                <OutlinedInput
+                  label={
+                    <Typography variant='overline' sx={{ fontSize: 14, fontWeight: 600, lineHeight: 0, transformOrigin: 'center' }}>
+                      Mật khẩu
+                    </Typography>
+                  }
+                  value={values.password}
+                  id='auth-login-password'
+                  onChange={handleChange('password')}
+                  type={values.showPassword ? 'text' : 'password'}
+                  inputProps={{
+                    style: {
+                      paddingTop: 10,
+                      paddingBottom: 10,
+                      fontSize: 15
+                    }
+                  }}
+                  endAdornment={
+                    <InputAdornment position='end'>
+                      <IconButton
+                        edge='end'
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        aria-label='toggle password visibility'
+                      >
+                        {values.showPassword ? <EyeOutline /> : <EyeOffOutline />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+              <Box
+                sx={{ mb: 4, display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}
+              >
+                <FormControlLabel control={<Checkbox value={values.rememberMe} onChange={handleChange('rememberMe')} />} label='Lưu đăng nhập' />
+                <Link passHref href='/'>
+                  <LinkStyled onClick={e => e.preventDefault()}>Quên mật khẩu?</LinkStyled>
+                </Link>
+              </Box>
+              <Button
+                fullWidth
+                size='large'
+                variant='contained'
+                sx={{ marginBottom: 7 }}
+                type="submit"
+                disabled={isLoading}
+                endIcon={isLoading ? <CircularProgress color='inherit' size={20} /> : <Login />}
+              >
+                Đăng nhập
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </Box>
     </Box>
   )
 }

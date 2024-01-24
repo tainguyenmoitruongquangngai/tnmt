@@ -410,3 +410,9 @@ code[class*='language-'] {
   right: 0 !important;
   box-shadow: inset rgba(0, 0, 0, 0.45) 10px 0px 20px -20px;
 }
+
+.bg {
+  background: #00467F;
+  background: -webkit-linear-gradient(to right, #A5CC82, #00467F);
+  background: linear-gradient(to right, #A5CC82, #00467F);
+}

@@ -23,7 +23,10 @@ const BlankLayoutWrapper = styled(Box)<BoxProps>(({ theme }) => ({
     display: 'flex',
     minHeight: '100vh',
     overflowX: 'hidden',
-    position: 'relative'
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'right',
+    padding: theme.spacing(5)
   }
 }))
 
