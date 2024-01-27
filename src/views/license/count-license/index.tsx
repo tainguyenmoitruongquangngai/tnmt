@@ -34,7 +34,7 @@ const CountLicense = (props: any) => {
 
 
     return (
-        <Box>
+        <Box sx={{ width: '100%' }}>
             <Box sx={{ width: '100%', px: 5, py: 1 }}>
                 <Box sx={{ display: 'flex', p: 1, bgcolor: 'background.paper', borderRadius: 1 }} >
                     <Box sx={{ flexGrow: 1, alignItems: 'center' }}>
