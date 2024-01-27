@@ -20,12 +20,14 @@ import { getData } from 'src/api/axios';
 import DeleteData from 'src/@core/components/delete-data';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
 import TableComponent, { TableColumn } from 'src/@core/components/table';
+import { ConverterCood } from 'src/@core/components/map/convert-coord';
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
 const ListLicenses = () => {
-    const [mapCenter] = useState([15.012172, 108.676488]);
-    const [mapZoom] = useState(9);
+    const [mapCenter, setMapCenter] = useState([15.012172, 108.676488]);
+    const [mapZoom, setMapZoom] = useState(9);
+    const [mapData, setMapData] = useState<any[]>([]);
 
     const [postSuccess, setPostSuccess] = useState(false);
     const handlePostSuccess = () => {
@@ -34,7 +36,10 @@ const ListLicenses = () => {
     const [loading, setLoading] = useState(false);
     const [resData, setResData] = useState([]);
 
-    //xoa
+    const zoomConstruction = (coords: any) => {
+        setMapCenter(coords)
+        setMapZoom(13)
+    }
 
     const router = useRouter();
 
@@ -59,7 +64,13 @@ const ListLicenses = () => {
         },
         {
             id: "congtrinh", label: "Công trình", align: 'left', children: [
-                { id: "tenCT", label: "Tên", rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (row.tenCT) },
+                {
+                    id: "tenCT", label: "Tên", rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (
+                        <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
+                            {row.tenCT}
+                        </Typography>
+                    )
+                },
                 { id: "viTriCT", label: "Địa điểm", rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (row.viTriCT) },
                 { id: "loaiCT-tenLoaiCT", label: "Loại công trình", rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (row.loaiCT?.tenLoaiCT) },
                 { id: "nguonNuocKT", label: "Nguồn nước khai thác", rowspan: 2, align: 'left', minWidth: 300, },
@@ -102,6 +113,27 @@ const ListLicenses = () => {
             .then((data) => {
                 if (isMounted.current) {
                     setResData(data);
+
+                    // Tạo một mảng mới để chứa các phần tử có tên là Construction
+                    const newArray: any[] = [];
+
+                    // Lọc mảng License theo tên
+                    const filteredArray = data.filter((item: any) => item.congtrinh);
+
+                    // Duyệt qua mảng đã lọc và kiểm tra xem phần tử đó đã có trong mảng mới chưa
+                    // Nếu chưa có, thì đẩy nó vào mảng mới
+                    filteredArray.forEach((item: any) => {
+                        // Check if item.congtrinh is not already in newArray based on its id
+                        const existsInNewArray = newArray.some((c: any) => c.id === item.congtrinh.id);
+
+                        if (!existsInNewArray) {
+                            newArray.push(item.congtrinh);
+                        }
+                    });
+
+                    // In ra mảng mới
+                    setMapData(newArray);
+
                 }
             })
             .catch((error) => {
@@ -155,7 +187,7 @@ const ListLicenses = () => {
             </Grid>
             <Grid item xs={12} md={9}>
                 <Paper elevation={3} sx={{ height: '45vh', p: 1 }}>
-                    <Map center={mapCenter} zoom={mapZoom} mapData={null} />
+                    <Map center={mapCenter} zoom={mapZoom} mapData={mapData} showLabel={true} />
                 </Paper>
             </Grid>
             <Grid item xs={12} md={12}>
