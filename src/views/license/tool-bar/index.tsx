@@ -432,9 +432,15 @@ const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange, onExport }) => {
                         Bộ lọc
                     </Button>
                 </Grid>
-                <Grid item xs={6} md={1.5} py={0}>
-                    <ExportToExcel resData={onExport.data} columnsTable={onExport.column} />
-                </Grid>
+                {
+                    onExport.data && onExport.data !== null && onExport.column && onExport.column !== null
+                        ?
+                        (<Grid item xs={6} md={1.5} py={0}>
+                            <ExportToExcel resData={onExport.data} columnsTable={onExport.column} />
+                        </Grid>)
+                        : ''
+                }
+
                 {
                     router.pathname.split('/')[2] == "nuoc-mat" || router.pathname.split('/')[2] == "nuoc-duoi-dat" || router.pathname.split('/')[2] == "xa-thai" ?
                         <Grid item xs={6} md={1.5} py={0}>

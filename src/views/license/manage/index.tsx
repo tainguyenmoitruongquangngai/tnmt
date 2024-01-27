@@ -52,11 +52,11 @@ const ManageLicense = () => {
             setDataFolowConsTypes(DataFolowConsTypes)
 
             const DataForChart = await getData('giay-phep/thong-ke-gp', paramsFilter)
-            .catch((e)=>{
-                console.error(e)
-            }).finally(() => {
-                setLoading(false)
-            });
+                .catch((e) => {
+                    console.error(e)
+                }).finally(() => {
+                    setLoading(false)
+                });
             setDataForChart(DataForChart)
         };
         getDataLicense();
@@ -72,7 +72,10 @@ const ManageLicense = () => {
             <CountLicenseForManage data={dataFolowConsTypes} />
             <Grid xs={12} sm={12} md={12}>
                 <Paper elevation={3}>
-                    <LicenseToolBar onChange={handleFilterChange} />
+                    <LicenseToolBar onChange={handleFilterChange} onExport={{
+                        data: undefined,
+                        column: []
+                    }} />
                     {loading ? <BoxLoading /> : <ApexChartLicense series={dataForChart.series} year={dataForChart.year} color={dataForChart.color} />}
                 </Paper>
             </Grid>
