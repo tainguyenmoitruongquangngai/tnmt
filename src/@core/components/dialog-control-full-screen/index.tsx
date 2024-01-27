@@ -40,12 +40,12 @@ const DialogsControlFullScreen = ({ children }: DialogControlProps) => {
         {dialogContent && (
           <>
             <AppBar sx={{ position: 'relative' }}>
-              <Toolbar sx={{maxHeight: 45, minHeight: 45}}>
+              <Toolbar sx={{ maxHeight: 45, minHeight: 45 }}>
                 <Typography sx={{ ml: 2, flex: 1, color: `#fff` }} variant="h6" component="div">
                   {dialogTitle}
                 </Typography>
-                <Button className='btn closeBtn'  sx={{p: 2, mr: -2}}>
-                  <CloseIcon onClick={closeDialogs} />
+                <Button className='btn closeBtn' sx={{ p: 2, mr: -2 }} onClick={closeDialogs}>
+                  <CloseIcon />
                 </Button>
               </Toolbar>
             </AppBar>
