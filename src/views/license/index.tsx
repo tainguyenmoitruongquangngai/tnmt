@@ -21,7 +21,6 @@ import DeleteData from 'src/@core/components/delete-data';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
 import TableComponent, { TableColumn } from 'src/@core/components/table';
 
-
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
 const ListLicenses = () => {
@@ -61,8 +60,8 @@ const ListLicenses = () => {
         {
             id: "congtrinh", label: "Công trình", align: 'left', children: [
                 { id: "tenCT", label: "Tên", rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (row.tenCT) },
-                { id: "viTriCT", label: "Địa điểm", rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (row.donvi_hanhchinh?.tenXa && row.donvi_hanhchinh?.tenXa != null ? `${row.donvi_hanhchinh?.tenXa}, ${row.donvi_hanhchinh?.tenHuyen}, Tỉnh Quảng Ngãi` : "") },
-                { id: "loaiCT", label: "Loại công trình", rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (row.loaiCT?.tenLoaiCT) },
+                { id: "viTriCT", label: "Địa điểm", rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (row.viTriCT) },
+                { id: "loaiCT-tenLoaiCT", label: "Loại công trình", rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (row.loaiCT?.tenLoaiCT) },
                 { id: "nguonNuocKT", label: "Nguồn nước khai thác", rowspan: 2, align: 'left', minWidth: 300, },
                 { id: "luuvuc", label: "Lưu vực", rowspan: 2, align: 'left', minWidth: 300, },
                 { id: "tieuvung_quyhoach", label: "Tiểu vùng quy hoạch", rowspan: 2, align: 'left', minWidth: 300, },
@@ -161,7 +160,7 @@ const ListLicenses = () => {
             </Grid>
             <Grid item xs={12} md={12}>
                 <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
-                    <LicenseToolBar onChange={handleFilterChange} />
+                    <LicenseToolBar onChange={handleFilterChange} onExport={{ data: resData, column: columnsTable }} />
                     <TableComponent columns={columnsTable} rows={resData} loading={loading} pagination
                         actions={(row: any) => (
                             <Box display={'flex'}>

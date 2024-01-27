@@ -68,12 +68,13 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
 
 const MenuNavSection = styled(ListItemButton)<ListItemButtonProps & { component?: ElementType; target?: '_blank' | undefined }>(({ theme }) => ({
   width: '100%',
-  color: `rgba(231, 227, 252, 0.87) !important`,
-  fontSize: 13,
+  color: `#feef !important`,
+  fontSize: 14,
   textTransform: 'uppercase',
   cursor: "default",
+  fontWeight: 'bold',
   padding: theme.spacing(2.25, 3.5),
-  '&.nav-section::after': {
+  '&.nav-section::after': { 
     content: '""',
     position: 'absolute',
     top: 'calc(50% - 5px)',
@@ -82,7 +83,7 @@ const MenuNavSection = styled(ListItemButton)<ListItemButtonProps & { component?
     width: '10px',
     height: '10px',
     borderRadius: '50%',
-    backgroundColor: `#005589`,
+    backgroundColor: `#fff`,
   },
   '&.nav-section::before': {
     content: '""',
@@ -91,7 +92,7 @@ const MenuNavSection = styled(ListItemButton)<ListItemButtonProps & { component?
     left: 0,
     width: 2,
     height: '50%',
-    backgroundColor: `#005589`,
+    backgroundColor: `#fff`,
   },
 }))
 

@@ -59,7 +59,7 @@ const GlobalStyles = (theme: Theme) => {
       left: 0,
       width: 2,
       height: '100%',
-      backgroundColor: `#005589`,
+      backgroundColor: `#fff`,
     },
     '&.sub__nav &.active::before': {
       content: '""',

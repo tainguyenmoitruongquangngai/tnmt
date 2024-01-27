@@ -8,11 +8,14 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import GetConstructionTypeId from "src/@core/components/get-construction-type";
+import ExportToExcel from "src/@core/components/export-excel";
+import { TableColumn } from "src/@core/components/table";
 
 interface LicenseToolBarProps {
     onChange: (data: any, postSuccess?: boolean | undefined) => void;
+    onExport: { data: any, column: TableColumn[] };
 }
-const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange }) => {
+const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange, onExport }) => {
     const [postSucceed, setPostSucceed] = useState(false);
     const router = useRouter();
     const [licenseTypes, setLicenseTypes] = useState([]);
@@ -101,7 +104,6 @@ const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange }) => {
             return newParamsFilter;
         });
     }
-
 
     useEffect(() => {
         let isMounted = true;
@@ -429,6 +431,9 @@ const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange }) => {
                     <Button variant='outlined' size='small' fullWidth sx={{ borderRadius: 0 }} startIcon={<FilterList />} onClick={handleOpenAdvanceSearch}>
                         Bộ lọc
                     </Button>
+                </Grid>
+                <Grid item xs={6} md={1.5} py={0}>
+                    <ExportToExcel resData={onExport.data} columnsTable={onExport.column} />
                 </Grid>
                 {
                     router.pathname.split('/')[2] == "nuoc-mat" || router.pathname.split('/')[2] == "nuoc-duoi-dat" || router.pathname.split('/')[2] == "xa-thai" ?
