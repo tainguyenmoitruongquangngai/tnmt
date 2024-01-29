@@ -81,8 +81,8 @@ const SurfaceConstruction = () => {
       label: 'Thông số công trình',
       align: 'left',
       children: [
-        { id: 'capCT', label: 'Cấp công trình', rowspan: 2, align: 'left', },
-        { id: 'dienTichLuuVuc', label: 'Diện tích lưu vực', rowspan: 2, align: 'left' },
+        { id: 'capCT', label: 'Cấp công trình', align: 'left', },
+        { id: 'dienTichLuuVuc', label: 'Diện tích lưu vực', align: 'left' },
         {
           id: 'muaTrungBinhNam',
           label: (
@@ -91,7 +91,7 @@ const SurfaceConstruction = () => {
             </span>
           ),
 
-          rowspan: 2,
+
           align: 'left'
         },
         {
@@ -101,15 +101,13 @@ const SurfaceConstruction = () => {
               Q <sub>TB năm</sub>(m3/s)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
-        { id: 'congSuatLM', label: 'Công suất lắp máy', rowspan: 2, align: 'left' },
-        { id: 'congSuatDamBao', label: 'Công suất đảm bảo', rowspan: 2, align: 'left' },
-        { id: 'chieuCaoDap', label: 'Chiều cao đập', rowspan: 2, align: 'left' },
-        { id: 'chieuDaiDap', label: 'Chiều dài đập', rowspan: 2, align: 'left' },
-        { id: 'caoTrinhDap', label: 'Cao trình đập', rowspan: 2, align: 'left' },
+        { id: 'congSuatLM', label: 'Công suất lắp máy', align: 'left' },
+        { id: 'congSuatDamBao', label: 'Công suất đảm bảo', align: 'left' },
+        { id: 'chieuCaoDap', label: 'Chiều cao đập', align: 'left' },
+        { id: 'chieuDaiDap', label: 'Chiều dài đập', align: 'left' },
+        { id: 'caoTrinhDap', label: 'Cao trình đập', align: 'left' },
         {
           id: 'qmaxNM',
           label: (
@@ -117,8 +115,6 @@ const SurfaceConstruction = () => {
               Q<sub>max</sub>(m<sup>3</sup>/s)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -128,8 +124,6 @@ const SurfaceConstruction = () => {
               Q<sub>TT</sub>(m<sup>3</sup>/s)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -139,8 +133,6 @@ const SurfaceConstruction = () => {
               Q<sub>đảm bảo</sub>(m<sup>3</sup>/s)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -150,8 +142,6 @@ const SurfaceConstruction = () => {
               H<sub>max</sub> (m)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -161,8 +151,6 @@ const SurfaceConstruction = () => {
               H<sub>min</sub> (m)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -172,14 +160,12 @@ const SurfaceConstruction = () => {
               H<sub>TT</sub> (m)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
-        { id: 'mnc', label: 'MNC', rowspan: 2, align: 'left' },
-        { id: 'mndbt', label: 'MNDBT(m)', rowspan: 2, align: 'left' },
-        { id: 'mnltk', label: 'MNLTK(m)', rowspan: 2, align: 'left' },
-        { id: 'mnlkt', label: 'MNLKT(m)', rowspan: 2, align: 'left' },
+        { id: 'mnc', label: 'MNC', align: 'left' },
+        { id: 'mndbt', label: 'MNDBT(m)', align: 'left' },
+        { id: 'mnltk', label: 'MNLTK(m)', align: 'left' },
+        { id: 'mnlkt', label: 'MNLKT(m)', align: 'left' },
         {
           id: 'dungTichToanBo',
           label: (
@@ -187,8 +173,6 @@ const SurfaceConstruction = () => {
               W<sub>toàn bộ</sub>(triệu m<sup>3</sup>)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -198,8 +182,6 @@ const SurfaceConstruction = () => {
               W<sub> chết </sub>(triệu m<sup>3</sup>)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -209,14 +191,12 @@ const SurfaceConstruction = () => {
               W<sub>hữu ích</sub>(triệu m<sup>3</sup>)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
           id: 'soLuongMayBom',
           label: 'Số máy bơm',
-          rowspan: 2,
+
 
           align: 'left'
         },
@@ -227,8 +207,6 @@ const SurfaceConstruction = () => {
               Q<sub>TK</sub> (m<sup>3</sup>/h)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -238,8 +216,6 @@ const SurfaceConstruction = () => {
               Q<sub>TT</sub> (m<sup>3</sup>/h)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -249,8 +225,6 @@ const SurfaceConstruction = () => {
               F<sub>tưới TK</sub> (ha)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -260,8 +234,6 @@ const SurfaceConstruction = () => {
               F<sub>tưới TT</sub> (ha)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -271,8 +243,6 @@ const SurfaceConstruction = () => {
               T<sub>bơm TB</sub>(h)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -282,8 +252,6 @@ const SurfaceConstruction = () => {
               T<sub>bơm min</sub>(h)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -293,8 +261,6 @@ const SurfaceConstruction = () => {
               T<sub>bơm max</sub>(h)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         }
       ]
@@ -309,13 +275,12 @@ const SurfaceConstruction = () => {
         {
           id: 'soGP',
           label: 'Số GP',
-          rowspan: 2,
           align: 'left',
           pinned: 'left',
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />
         },
-        { id: 'thoihan', label: 'Thời hạn', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
+        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
       ]
     },
     {
@@ -326,13 +291,12 @@ const SurfaceConstruction = () => {
         {
           id: 'soQDTCQ',
           label: 'Số QĐ',
-          rowspan: 2,
           align: 'left',
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
         },
-        { id: 'ngayKy', label: 'Ngày ký', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
+        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
+        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
       ]
     },
 
@@ -501,7 +465,7 @@ const SurfaceConstruction = () => {
         .then(data => {
           if (isMounted.current) {
             setResData(data)
-            
+
           }
         })
         .catch(error => {

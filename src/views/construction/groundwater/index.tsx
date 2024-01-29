@@ -98,8 +98,6 @@ const GroundConstruction = () => {
               Q<sub>khai thác</sub> (m<sup>3</sup>/ng.đêm)
             </span>
           ),
-
-          rowspan: 2,
           align: 'left'
         },
         {
@@ -109,8 +107,6 @@ const GroundConstruction = () => {
               H<sub>giếng khai thác</sub>
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
 
@@ -121,8 +117,6 @@ const GroundConstruction = () => {
               H<sub>giếng quan trắc</sub>
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
@@ -132,40 +126,31 @@ const GroundConstruction = () => {
               Q<sub>TT</sub>(m<sup>3</sup>/s)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
         {
           id: 'cheDoKT',
           label: 'Chế độ KT (giờ/ng.đêm)',
-          rowspan: 2,
           align: 'left'
         },
         {
           id: 'mucNuocTinh',
           label: 'Chiều sâu MN tĩnh(m)',
-          rowspan: 2,
           align: 'left'
         },
         {
           id: 'mucNuocDong',
           label: 'Chiều sâu MN động (m)',
-          rowspan: 2,
-
           align: 'left'
         },
         {
           id: 'tangChuaNuocKT',
           label: 'Tầng chứa nước KT',
-          rowspan: 2,
-
           align: 'left'
         },
         {
           id: 'hHaThap',
           label: 'Mực nước hạ thấp',
-          rowspan: 2,
           align: 'left'
         },
       ]
@@ -180,13 +165,12 @@ const GroundConstruction = () => {
         {
           id: 'soGP',
           label: 'Số GP',
-          rowspan: 2,
           align: 'left',
           pinned: 'left',
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />
         },
-        { id: 'thoihan', label: 'Thời hạn', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
+        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
       ]
     },
     {
@@ -197,13 +181,12 @@ const GroundConstruction = () => {
         {
           id: 'soQDTCQ',
           label: 'Số QĐ',
-          rowspan: 2,
           align: 'left',
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
         },
-        { id: 'ngayKy', label: 'Ngày ký', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
+        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
+        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
       ]
     },
 

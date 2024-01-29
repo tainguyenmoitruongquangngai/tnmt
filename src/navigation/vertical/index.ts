@@ -81,15 +81,15 @@ const navigation = (): VerticalNavItemsType => {
       ]
     },
     {
-      title: 'Trữ lượng nước',
-      primaryPath: 'tru-luong-nuoc',
+      title: 'Kiểm kê TNN',
+      primaryPath: 'kiem-ke-tnn',
       children: [
         {
           sectionTitle: 'Nước mưa',
         },
         {
           title: 'Nước mưa',
-          path: '/tru-luong-nuoc/nuoc-mua'
+          path: '/kiem-ke-tnn/nuoc-mua'
         },
 
         //
@@ -97,16 +97,16 @@ const navigation = (): VerticalNavItemsType => {
           sectionTitle: 'Nước mặt',
         },
         {
-          title: 'Số lượng',
-          path: '/tru-luong-nuoc/nuoc-mat/so-luong'
+          title: 'Số lượng nguồn nước mặt',
+          path: '/kiem-ke-tnn/nuoc-mat/so-luong'
         },
         {
           title: 'Tổng lượng',
-          path: '/tru-luong-nuoc/nuoc-mat/tong-luong'
+          path: '/kiem-ke-tnn/nuoc-mat/tong-luong'
         },
         {
           title: 'Chất lượng nước',
-          path: '/tru-luong-nuoc/nuoc-mat/chat-luong-nuoc'
+          path: '/kiem-ke-tnn/nuoc-mat/chat-luong-nuoc'
         },
 
         //
@@ -115,11 +115,11 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Số lượng NDĐ',
-          path: '/tru-luong-nuoc/nuoc-duoi-dat/so-luong'
+          path: '/kiem-ke-tnn/nuoc-duoi-dat/so-luong'
         },
         {
           title: 'Tổng lượng NDĐ',
-          path: '/tru-luong-nuoc/nuoc-duoi-dat/tong-luong'
+          path: '/kiem-ke-tnn/nuoc-duoi-dat/tong-luong'
         },
         {
           title: 'Chất lượng NDĐ',

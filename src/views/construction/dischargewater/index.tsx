@@ -87,8 +87,6 @@ const DischargeConstruction = () => {
               Q<sub>xả trung bình</sub> (m<sup>3</sup>/ngày đêm){' '}
             </span>
           ),
-
-          rowspan: 2,
           align: 'left'
         },
         {
@@ -98,15 +96,12 @@ const DischargeConstruction = () => {
               Q<sub>xả lớn nhất</sub> (m<sup>3</sup>/ngày đêm)
             </span>
           ),
-          rowspan: 2,
-
           align: 'left'
         },
 
         {
           id: 'kqKf',
           label: 'Chất lượng nước thải (hệ số Kq và Kf)',
-          rowspan: 2,
           align: 'left'
         },
 
@@ -122,13 +117,12 @@ const DischargeConstruction = () => {
         {
           id: 'soGP',
           label: 'Số GP',
-          rowspan: 2,
           align: 'left',
           pinned: 'left',
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />
         },
-        { id: 'thoihan', label: 'Thời hạn', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
+        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
       ]
     },
     {
@@ -139,13 +133,12 @@ const DischargeConstruction = () => {
         {
           id: 'soQDTCQ',
           label: 'Số QĐ',
-          rowspan: 2,
           align: 'left',
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
         },
-        { id: 'ngayKy', label: 'Ngày ký', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', rowspan: 2, align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
+        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
+        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
       ]
     },
 

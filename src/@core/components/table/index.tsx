@@ -61,6 +61,9 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
     }
   }
 
+console.log(tableColumns);
+
+
   // ** States
   const [page, setPage] = useState<number>(0)
   const [rowsPerPage, setRowsPerPage] = useState<number>(10)
@@ -94,9 +97,45 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
                 {tableColumns.map((column) =>
                   column.children ? (
                     column.children.map((childColumn, index) => (
-                      <TableCell size='small' align='center' key={index}>
-                        {childColumn.label}
-                      </TableCell>
+                      childColumn.label ?
+                        <TableCell size='small' align='center' key={index} rowSpan={childColumn.rowspan} colSpan={childColumn.colspan}>
+                          {childColumn.label}
+                        </TableCell>
+                        : null
+                    ))
+                  ) : null
+                )}
+              </TableRow>
+              <TableRow>
+                {tableColumns.map((column) =>
+                  column.children ? (
+                    column.children.map((childColumn) => (
+                      childColumn?.children ? (
+                        childColumn?.children.map((childColumn, index) => (
+                          <TableCell size='small' align='center' key={index} rowSpan={childColumn.rowspan} colSpan={childColumn.colspan}>
+                            {childColumn.label}
+                          </TableCell>
+                        ))
+                      ) : null
+                    ))
+                  ) : null
+                )}
+              </TableRow>
+              <TableRow>
+                {tableColumns.map((column) =>
+                  column.children ? (
+                    column.children.map((childColumn) => (
+                      childColumn?.children ? (
+                        childColumn?.children.map((childColumn) => (
+                          childColumn?.children ? (
+                            childColumn?.children.map((childColumn, index) => (
+                              <TableCell size='small' align='center' key={index}>
+                                {childColumn.label}
+                              </TableCell>
+                            ))
+                          ) : null
+                        ))
+                      ) : null
                     ))
                   ) : null
                 )}

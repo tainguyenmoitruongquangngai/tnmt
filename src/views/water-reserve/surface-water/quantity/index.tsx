@@ -19,8 +19,8 @@ const QuantitySFWater = () => {
                     <Tab label="Ao,hồ,đầm,phá" value="2" />
                 </TabList>
             </Box>
-            <TabPanel value="1"><LakeQuantity /></TabPanel>
-            <TabPanel value="2"><RiverQuantity /></TabPanel>
+            <TabPanel value="1"><RiverQuantity /></TabPanel>
+            <TabPanel value="2"><LakeQuantity /></TabPanel>
            
         </TabContext>
     )

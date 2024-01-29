@@ -1,7 +1,9 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
-import TotalBasin from "./total-basin";
+import InterprovincialRiverBasin from "./interprovincial-river-basin";
+import HydrologyStations from "./hydrology-stations";
+import IntraProvincialRiverBasin from "./intra-provincial-river-basin";
 
 
 const TotalSFWater = () => {
@@ -15,13 +17,15 @@ const TotalSFWater = () => {
         <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList onChange={handleChange} aria-label="ground water reserve">
-                    <Tab label="Theo lưu vực" value="1" />
-                    <Tab label="Theo trạm" value="2" />
+                    <Tab label="Lưu vực sông liên tỉnh" value="1" />
+                    <Tab label="Lưu vực sông nội tỉnh" value="2" />
+                    <Tab label="Trạm thủy văn" value="3" />
                 </TabList>
             </Box>
-            <TabPanel value="1"><TotalBasin /></TabPanel>
-            <TabPanel value="2"><TotalBasin /></TabPanel>
-           
+            <TabPanel value="1"><InterprovincialRiverBasin /></TabPanel>
+            <TabPanel value="2"><IntraProvincialRiverBasin /></TabPanel>
+            <TabPanel value="3"><HydrologyStations /></TabPanel>
+
         </TabContext>
     )
 }

@@ -44,7 +44,7 @@ const RainWater = () => {
 
     getDataRainWater()
   }, [])
-  
+
 
   return (
     <Paper sx={{ p: 8 }}>
@@ -95,13 +95,22 @@ const RainWater = () => {
                     Năm kết thúc quan trắc
                   </TableCell>
                   <TableCell size='small' align='center' colSpan={2}>
-                   Vị trí
+                    Vị trí
                   </TableCell>
                   <TableCell size='small' align='center' colSpan={12}>
-                   Tháng
+                    Tháng
+                  </TableCell>
+                  <TableCell size='small' align='center' rowSpan={2}>
+                    Mùa mưa
+                  </TableCell>
+                  <TableCell size='small' align='center' rowSpan={2}>
+                    Mùa khô
+                  </TableCell>
+                  <TableCell size='small' align='center' rowSpan={2}>
+                    Cả năm
                   </TableCell>
                   <TableCell size='small' align='center' rowSpan={3}>
-                   Thao tác
+                    Thao tác
                   </TableCell>
                 </TableRow>
 
@@ -155,59 +164,68 @@ const RainWater = () => {
 
                 <TableRow>
                   <TableCell size='small' align='center'>
-                    (1)&nbsp;
+                    (1)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (2)&nbsp;
+                    (2)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (3)&nbsp;
+                    (3)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (4)&nbsp;
+                    (4)
                   </TableCell>
 
                   <TableCell size='small' align='center'>
-                    (5)&nbsp;
+                    (5)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (6)&nbsp;
+                    (6)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (7)&nbsp;
+                    (7)
                   </TableCell>
 
                   <TableCell size='small' align='center'>
-                    (8)&nbsp;
+                    (8)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (9)&nbsp;
+                    (9)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (10)&nbsp;
+                    (10)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (11)&nbsp;
+                    (11)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (12)&nbsp;
+                    (12)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (13)&nbsp;
+                    (13)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (14)&nbsp;
+                    (14)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (15)&nbsp;
+                    (15)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (16)&nbsp;
+                    (16)
                   </TableCell>
                   <TableCell size='small' align='center'>
-                    (17)&nbsp;
+                    (17)
                   </TableCell>
-                  
+                  <TableCell size='small' align='center'>
+                    (18)
+                  </TableCell>
+                  <TableCell size='small' align='center'>
+                    (19)
+                  </TableCell>
+                  <TableCell size='small' align='center'>
+                    (20)
+                  </TableCell>
+
                 </TableRow>
               </TableHead>
 
@@ -233,11 +251,11 @@ const RainWater = () => {
                     <TableCell className="text-center  size='small' align-middle font-13">{item.thang11}</TableCell>
                     <TableCell className="text-center  size='small' align-middle font-13">{item.thang12}</TableCell>
                     <TableCell className="text-center  size='small' align-middle font-13">
-                    <Box>
-                    {/* <CreateReport2 isEdit={true} data={item} setPostSuccess={handlePostSuccess} /> */}
-                    {/* <DeleteData url={'BieuMauSoHai'} data={item} setPostSuccess={handlePostSuccess} /> */}
+                      <Box>
+                        {/* <CreateReport2 isEdit={true} data={item} setPostSuccess={handlePostSuccess} /> */}
+                        {/* <DeleteData url={'BieuMauSoHai'} data={item} setPostSuccess={handlePostSuccess} /> */}
 
-                </Box>
+                      </Box>
                     </TableCell>
                   </TableRow>
                 ))}

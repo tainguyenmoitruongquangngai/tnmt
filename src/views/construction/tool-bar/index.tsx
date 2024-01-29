@@ -1,5 +1,5 @@
-import { FilterList, Replay, Search } from "@mui/icons-material";
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Collapse, TextField, Toolbar, Typography, Autocomplete, ListSubheader } from "@mui/material";
+import { Replay, Search } from "@mui/icons-material";
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Toolbar, Autocomplete, ListSubheader } from "@mui/material";
 import { ChangeEvent, FC, useEffect, useState } from "react"
 import CreateLicense from "../form";
 import { useRouter } from "next/router";
@@ -13,7 +13,6 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
     const [postSucceed, setPostSucceed] = useState(false);
     const router = useRouter();
     const [consTypes, setConsTypes] = useState([])
-    const [businesses, setBusinesses] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [communes, setCommunes] = useState([]);
 
@@ -26,16 +25,15 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
         luuvuc: 0,
         tieu_luuvuc: 0,
         tang_chuanuoc: 0,
-        tochuc_canhan: 0,
         nguonnuoc_kt: ''
     });
 
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
 
-    //Actions on page
-    const handleOpenAdvanceSearch = () => {
-        setOpen((prev) => !prev);
-    };
+    // //Actions on page
+    // const handleOpenAdvanceSearch = () => {
+    //     setOpen((prev) => !prev);
+    // };
 
     const handleChange = (event: SelectChangeEvent | ChangeEvent<HTMLInputElement> | null) => (column: string) => {
         if (event) {
@@ -67,7 +65,6 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
                 luuvuc: 0,
                 tieu_luuvuc: 0,
                 tang_chuanuoc: 0,
-                tochuc_canhan: 0,
                 nguonnuoc_kt: ''
             };
             onChange({ ...newParamsFilter });
@@ -84,9 +81,6 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
 
                 // constructiom type
                 const ConsTypesData = await getData('loai-ct/danh-sach');
-
-                //businesses
-                const businessData = await getData('to-chuc-ca-nhan/danh-sach');
 
                 // district
                 const districtsData = await getData('hanh-chinh/huyen/danh-sach');
@@ -128,8 +122,6 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
                             }
                         })
                     );
-
-                    setBusinesses(businessData);
                     setDistricts(districtsData);
                 }
             } catch (error) {
@@ -194,24 +186,55 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
                     <Autocomplete
                         size="small"
                         fullWidth
-                        options={businesses}
-                        getOptionLabel={(option: any) => option.tenTCCN}
-                        value={businesses.find((item: any) => item.id === paramsFilter.tochuc_canhan) || null}
+                        options={districts}
+                        getOptionLabel={(option: any) => option.tenHuyen}
+                        value={districts.find((item: any) => item.idHuyen === paramsFilter.huyen) || null}
                         onChange={(_, newValue) => {
-                            handleChange(newValue?.id)('tochuc_canhan');
+                            handleChange(newValue?.idHuyen)('huyen');
                         }}
                         clearOnEscape={true}
                         renderInput={(params) => (
                             <TextField
                                 {...params}
-                                label="TC/Cá nhân được CP"
+                                label="Huyện"
                                 variant="outlined"
                             />
                         )}
                     />
                 </Grid>
+                <Grid item xs={12} md={2} py={0}>
+                    <Autocomplete
+                        size="small"
+                        disabled={paramsFilter.huyen <= 0}
+                        fullWidth
+                        options={communes}
+                        getOptionLabel={(option: any) => option.tenXa}
+                        value={communes.find((item: any) => item.idXa === paramsFilter.xa) || null}
+                        onChange={(_, newValue) => {
+                            handleChange(newValue?.idXa)('xa');
+                        }}
+                        clearOnEscape={true}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Xã"
+                                variant="outlined"
+                            />
+                        )}
+                    />
+                </Grid>
+                <Grid item xs={12} md={3} py={0}>
+                    <TextField
+                        sx={{ p: 0 }}
+                        size="small"
+                        fullWidth
+                        variant="outlined"
+                        placeholder="Nguồn nước khai thác..."
+                        onChange={(e: any) => handleChange(e)('nguonnuoc_kt')}
+                    />
+                </Grid>
 
-                <Grid item xs={12} md={12} >
+                {/* <Grid item xs={12} md={12} >
                     <Collapse in={open}>
                         <fieldset>
                             <legend>
@@ -274,18 +297,19 @@ const ConstructionToolBar: FC<ConstructionToolBarProps> = ({ onChange }) => {
                             </Grid>
                         </fieldset >
                     </Collapse >
-                </Grid>
+                </Grid> */}
                 <Grid item xs={6} md={1.5} py={0}>
                     <Button variant='outlined' size='small' fullWidth startIcon={<Search />} onClick={applyFilterChange}>Tìm kiếm</Button>
                 </Grid>
                 <Grid item xs={6} md={1.5} py={0}>
                     <Button variant='outlined' size='small' fullWidth startIcon={<Replay />} onClick={reloadData}>Tải lại</Button>
                 </Grid>
-                <Grid item xs={6} md={1.5} py={0}>
+
+                {/* <Grid item xs={6} md={1.5} py={0}>
                     <Button variant='outlined' size='small' fullWidth startIcon={<FilterList />} onClick={handleOpenAdvanceSearch}>
                         Bộ lọc
                     </Button>
-                </Grid>
+                </Grid> */}
                 {
                     router.pathname.split('/')[2] == "nuoc-mat" || router.pathname.split('/')[2] == "nuoc-duoi-dat" || router.pathname.split('/')[2] == "xa-thai" ?
                         <Grid item xs={6} md={1.5} py={0}>
