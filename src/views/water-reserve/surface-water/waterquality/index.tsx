@@ -1,112 +1,129 @@
-import {
-    Grid,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Typography
-  } from '@mui/material'
-import HeaderWaterReseve from '../../header'
-import FooterWaterReseve from '../../footer'
- 
-  
-  const WaterQuality = () => {
-    return (
-      <Grid container>
-        <HeaderWaterReseve />
-        <Grid md={12} xs={12} textAlign={'center'} textTransform={'uppercase'}>
-          <Typography pt={7} pb={4} className='font-weight-bold ' variant='h6'>
-             KIỂM KÊ CHẤT LƯỢNG NƯỚC MẶT <br/>
-             (Theo chỉ số chất lượng nước tổng hợp WQI)
-          </Typography>
-        </Grid>
-        <Grid md={12} xs={12} pt={3}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-              <TableHead className='tableHead'>
-                <TableRow>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    STT
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Nguồn nước(sông,suối <br/>
-                    kênh,hồ,đầm,...)
-                  </TableCell>
-                  <TableCell size='small' align='center'  colSpan={3}>
-                    Vị trí hành chính
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Thuộc lưu vực sông
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Giá trị WQI
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Thời gian
-                  </TableCell>
-                </TableRow>
-  
-                <TableRow>
-                  <TableCell size='small' align='center'>
-                    Xã
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Huyện
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tỉnh
-                  </TableCell>
-                </TableRow>
+import Paper from '@mui/material/Paper'
+import { Box, Grid, IconButton, Typography } from '@mui/material'
+import { useState } from 'react'
+import BoxLoading from 'src/@core/components/box-loading'
+import TableComponent, { TableColumn } from 'src/@core/components/table'
+import Header from '../../header'
+import Footer from '../../footer'
+import { Delete, Edit } from '@mui/icons-material'
 
-                <TableRow>
-                <TableCell size='small' align='center'>
-                    (1)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (2)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (3)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (4)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (5)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (6)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (7)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (8)
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-  
-              <TableBody className='tableBody'>
-                <TableRow>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">Trà khúc</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                  <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Grid>
-        <FooterWaterReseve />
+const RiverQuantity = () => {
+  const [data] = useState<any[]>([])
+  const [loading] = useState(false)
+
+  const columnsTable: TableColumn[] = [
+    {
+      id: 'stt', label: 'STT', rowspan: 2,
+      children: [
+        {
+          id: '#1', children: [
+            { id: '#1.1', label: '(1)', align: 'left', }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'tenCT',
+      label: 'Nguồn nước(sông, suối, ao, hồ, đầm,...)',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#1', children: [
+            { id: '#1.1', label: '(2)', align: 'left', }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'dientich_matnuoc',
+      label: 'Vị trí hành chính',
+      align: 'left',
+      children: [
+        {
+          id: '#7', label: 'Xã', align: 'left', children: [
+            { id: '#7.1', label: '(3)', align: 'left', }]
+        },
+        {
+          id: '#8', label: 'Huyện', align: 'left', children: [
+            { id: '8.1', label: '(4)', align: 'left', }]
+        },
+        {
+          id: '#8', label: 'Tỉnh', align: 'left', children: [
+            { id: '8.1', label: '(5)', align: 'left', }]
+        }
+      ]
+    },
+    {
+      id: 'dientich_matnuoc',
+      label: 'Thuộc lưu vực sông',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#10', children: [
+            { id: '#10.1', label: '(6)', align: 'left', }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'dientich_matnuoc',
+      label: 'Giá trị WQI',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#10', children: [
+            { id: '#10.1', label: '(7)', align: 'left', }
+          ]
+        }
+      ]
+    },
+    { id: 'actions', label: '#', rowspan: 3 },
+  ]
+
+  return (
+    <Paper sx={{ p: 8 }}>
+
+      <Header />
+
+      <Grid className='_text_center'>
+        <Typography className='font-weight-bold' variant='body1' textTransform={'uppercase'}>
+          KIỂM KÊ CHẤT LƯỢNG NGUỒN NƯỚC MẶT
+        </Typography>
+        <Typography className='font-weight-bold' variant='subtitle2' textTransform={'uppercase'}>
+          (Theo chỉ số chất lượng nước tổng hợp wqi)
+        </Typography>
       </Grid>
-    )
-  }
-  export default WaterQuality
-  
+      {loading ? (
+        <BoxLoading />
+      ) : (
+        <Grid className='_text_center' sx={{ mt: 3 }}>
+          <TableComponent
+            columns={columnsTable}
+            rows={data}
+            loading={loading}
+            pagination
+
+            actions={() => (
+              <Box display={"flex"}>
+                <IconButton>
+                  <Edit />
+                </IconButton>
+                <IconButton>
+                  <Delete />
+                </IconButton>
+              </Box>
+            )}
+          />
+
+        </Grid>
+      )}
+
+      <Footer />
+    </Paper>
+  )
+}
+
+export default RiverQuantity

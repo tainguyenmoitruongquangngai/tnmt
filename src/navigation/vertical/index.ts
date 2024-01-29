@@ -105,8 +105,12 @@ const navigation = (): VerticalNavItemsType => {
           path: '/kiem-ke-tnn/nuoc-mat/tong-luong'
         },
         {
-          title: 'Chất lượng nước',
+          title: 'Chất lượng nước mặt',
           path: '/kiem-ke-tnn/nuoc-mat/chat-luong-nuoc'
+        },
+        {
+          title: 'Khai thác, sử dụng nước mặt',
+          path: '/kiem-ke-tnn/nuoc-mat/ktsd-nuoc-mat'
         },
 
         //
