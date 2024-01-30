@@ -18,7 +18,7 @@ import LogoutVariant from 'mdi-material-ui/LogoutVariant'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
 
 import jwt_decode from 'jwt-decode';
-import ChangePassword from 'src/views/manage/account-settings/ChangePassword'
+import Link from 'next/link'
 
 interface DecodedToken {
   [key: string]: any;
@@ -127,18 +127,14 @@ const UserDropdown = () => {
         </Box>
         <Divider sx={{ mt: 0, mb: 1 }} />
         <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <AccountOutline sx={{ marginRight: 2 }} />
-            Thông tin
-          </Box>
+          <Link passHref href={'/thong-tin-ca-nhan'}>
+            <Box sx={styles}>
+              <AccountOutline sx={{ marginRight: 2 }} />
+              Thông tin
+            </Box>
+          </Link>
         </MenuItem>
         <Divider sx={{ mt: 0, mb: 1 }} />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <ChangePassword />
-          </Box>
-        </MenuItem>
-        <Divider />
         <MenuItem sx={{ py: 2, color: "red" }} onClick={() => handleLogout()}>
           <LogoutVariant sx={{ marginRight: 2, fontSize: '1.375rem' }} />
           Đăng xuất
