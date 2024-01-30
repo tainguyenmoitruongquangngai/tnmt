@@ -14,6 +14,7 @@ const Form = ({ closeDialogs }: any) => {
   const handleChangePassWord = async (e: any) => {
     e.preventDefault();
 
+    setSaving(true)
     if (newPassword === confirmPassword) {
       try {
         const res = await saveData('Auth/change-password', {
@@ -23,7 +24,6 @@ const Form = ({ closeDialogs }: any) => {
         });
 
         if (res) {
-          setSaving(true)
           closeDialogs();
         }
       } catch (error) {
