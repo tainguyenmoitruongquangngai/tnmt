@@ -61,7 +61,6 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
     }
   }
 
-console.log(tableColumns);
 
 
   // ** States

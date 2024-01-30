@@ -352,7 +352,6 @@ code[class*='language-'] {
 
 .leaflet-popup-content {
   margin: 15px 10px !important;
-  width: 360px;
 }
 
 .react-pdf__Page__canvas {
@@ -415,4 +414,20 @@ code[class*='language-'] {
   background: #00467F;
   background: -webkit-linear-gradient(to right, #A5CC82, #00467F);
   background: linear-gradient(to right, #A5CC82, #00467F);
+}
+
+.cons-info-table td { border: none !important; }
+
+.cons-info-table td:nth-child(odd) { width: 33%; }
+
+@media only screen and (min-width: 1024px) {
+  .leaflet-popup-content {
+    width: 450px !important;
+  } 
+}
+
+@media only screen and (max-width: 768px){
+  .leaflet-popup-content {
+    width: 80vw !important;
+  }
 }

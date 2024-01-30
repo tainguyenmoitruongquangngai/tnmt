@@ -137,7 +137,7 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 									{showLabel === true &&
 										<Tooltip direction="top" offset={[-10, -18]} opacity={1} permanent>{data.tenCT}</Tooltip>
 									}
-									<Popup >
+									<Popup>
 										<Typography sx={{ color: '#035291', textAlign: 'center', fontWeight: 'bold', margin: '10px 0 !important' }}>{data.tenCT}</Typography>
 										<MapPopup popupData={data} />
 									</Popup>
