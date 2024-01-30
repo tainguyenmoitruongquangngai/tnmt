@@ -342,12 +342,19 @@ code[class*='language-'] {
 
 .map-legend {
   position: absolute;
-  z-index: 999;
   height: 444px;
   overflow-y: auto;
   right: 15px;
-  top: 45px;
+  top: 90px;
   padding: 10px 0;
+}
+
+.toggle-legend {
+  position: absolute !important;
+  right: 15px;
+  top: 43px;
+  z-index: 999;
+  background: #fff !important;
 }
 
 .leaflet-popup-content {

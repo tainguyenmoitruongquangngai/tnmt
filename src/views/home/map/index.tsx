@@ -1,6 +1,7 @@
-import { Paper, Typography, Box } from "@mui/material"
+import { Paper, Typography, Box, Button } from "@mui/material"
 import React, { useState, useEffect, useRef } from 'react';
 import { getData } from 'src/api/axios'
+import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material';
 
 import MapLegend from 'src/views/construction/MapLegend';
 
@@ -33,6 +34,7 @@ const HomeMap = () => {
     const [resData, setResData] = useState([]);
     const [dataFiltered, setDataFiltered] = useState([]);
     const [loading, setLoading] = useState<boolean>(false)
+    const [selected, setSelected] = React.useState(true);
 
     const handleConsTypeChange = (data: any) => {
         setInitConstype(data);
@@ -93,15 +95,17 @@ const HomeMap = () => {
     }, [initConsType, resData]);
 
 
-
     return (
         <Paper elevation={3} sx={{ position: 'relative', height: 'calc(100vh - 170px)' }}>
             <Paper elevation={3} sx={{ py: 0.5, BorderRadius: 0, textAlign: 'center' }}>
                 <Typography variant='overline' sx={{ fontWeight: 'bold' }}>Bản đồ trạng thái công trình</Typography>
             </Paper>
-            <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}` }}>
+            <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}`, display: `${selected ? 'block' : 'none'}` }}>
                 <MapLegend onChange={handleConsTypeChange} />
             </Box>
+            <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                {selected ? <KeyboardDoubleArrowDown/> : <KeyboardDoubleArrowUp/>}
+            </Button>
             <Map center={mapCenter} zoom={mapZoom} mapData={dataFiltered} loading={loading} />
         </Paper>
     )

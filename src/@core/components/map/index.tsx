@@ -138,7 +138,8 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 										<Tooltip direction="top" offset={[-10, -18]} opacity={1} permanent>{data.tenCT}</Tooltip>
 									}
 									<Popup>
-										<Typography sx={{ color: '#035291', textAlign: 'center', fontWeight: 'bold', margin: '10px 0 !important' }}>{data.tenCT}</Typography>
+										<Typography sx={{ color: '#035291', textAlign: 'center', fontWeight: 'bold', margin: '0 !important' }}>{data.tenCT}</Typography>
+										<Typography sx={{ textAlign: 'center', fontSize: 12, margin: '0 !important', fontStyle: 'italic'}}>{data.viTriCT}</Typography>
 										<MapPopup popupData={data} />
 									</Popup>
 								</Marker>
