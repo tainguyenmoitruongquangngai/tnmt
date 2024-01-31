@@ -28,7 +28,7 @@ const MapPopup = ({ popupData }: any) => {
 
     // Hien thi thong tin theo loai cong trinh
     const showTableRow = (data: any) => {
-        let idDischargeCons = [16, 17, 18, 19, 20, 21, 22];
+        const idDischargeCons = [16, 17, 18, 19, 20, 21, 22];
         if(idDischargeCons.includes(data.idLoaiCT)){
             return <TableBody>
             <TableRow>
@@ -515,10 +515,10 @@ const MapPopup = ({ popupData }: any) => {
         }
     }
 
-    console.log(popupData);
     return (
         <Box>
             {section == 'cong-trinh' || section == 'giay-phep' ? (
+
                 // Popup content for construction & license */
                 <TableContainer component={Paper} sx={{ height: 200, overFlowY: 'scroll' }} className='cons-info-table'>
                     <Table aria-label="simple table">
@@ -529,6 +529,7 @@ const MapPopup = ({ popupData }: any) => {
                 (
                     <>
                         <Typography sx={{ fontSize: 12, my: '5px !important', fontStyle: 'italic' }}>Cập nhật: {popupData.thoiGian}</Typography>
+                        
                         {/* Popup content for monitoring data */}
                         <TabContext value={value}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

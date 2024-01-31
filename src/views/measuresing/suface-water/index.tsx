@@ -150,7 +150,7 @@ const SurfaceWaterMeasuresing = () => {
     setMapCenter(coords)
     setMapZoom(13)
   }
-  console.log(dataFiltered);
+
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} sm={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
