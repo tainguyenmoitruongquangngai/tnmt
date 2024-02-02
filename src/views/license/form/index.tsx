@@ -133,8 +133,6 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         }
 
         hangmucct_xoa !== null ? hangmucct_xoa?.map(async (e: any) => {
-          console.log(e.id);
-
           await deleteData('hang-muc-ct/xoa', e.id);
         }) : ""
 

@@ -55,7 +55,6 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
   })
 
   const [thongso_ct, setThongsoCt] = useState<ConstructionSpecState>({
-    id: propData.thongso_ct?.id || null,
     idCT: propData.thongso_ct?.idCT || null,
     idHangMucCT: propData.thongso_ct?.idHangMucCT || null,
     caoTrinhCong: propData.thongso_ct?.caoTrinhCong || null,
