@@ -422,6 +422,9 @@ code[class*='language-'] {
   background: -webkit-linear-gradient(to right, #A5CC82, #00467F);
   background: linear-gradient(to right, #A5CC82, #00467F);
 }
+.f_14{
+  font-size: 14px!important;
+}
 
 .cons-info-table td { border: none !important; }
 

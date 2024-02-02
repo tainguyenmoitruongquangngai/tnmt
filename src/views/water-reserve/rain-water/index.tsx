@@ -1,38 +1,36 @@
 import Paper from '@mui/material/Paper'
-import {
-  Grid,
-  TextField,
-  Typography,
-  Box,
-  IconButton,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody
-} from '@mui/material'
-import DownloadIcon from '@mui/icons-material/Download'
+import { Grid, Typography, Box, } from '@mui/material'
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Header from '../header'
 import Footer from '../footer'
 import { getData } from 'src/api/axios'
 import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
+import dayjs from 'dayjs'
+import TableComponent, { TableColumn } from 'src/@core/components/table'
+import RainWaterToolBar from './toolbar'
+import CreateRainWater from './form'
+import DeleteData from 'src/@core/components/delete-data'
 
 const RainWater = () => {
   const [data, setData] = useState<any[]>([])
-  const [loading, setLoading] = useState(false)
 
-  // const [postSuccess, setPostSuccess] = useState(false);
-  //   const handlePostSuccess = () => {
-  //       setPostSuccess(prevState => !prevState);
-  //   };
+  const [loading, setLoading] = useState(false)
+  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
+
+  const [postSuccess, setPostSuccess] = useState(false);
+    const handlePostSuccess = () => {
+        setPostSuccess(prevState => !prevState);
+    };
   useEffect(() => {
     async function getDataRainWater() {
       setLoading(true)
-      await getData('NMua_TongLuong/danh-sach')
+      await getData(`NMua_TongLuong/danh-sach/${selectedYear}`)
         .then(data => {
           setData(data)
+          console.log(data);
+          
         })
         .catch(error => {
           console.log(error)
@@ -43,23 +41,209 @@ const RainWater = () => {
     }
 
     getDataRainWater()
-  }, [])
+  }, [postSuccess,selectedYear])
 
+  const columnsTable: TableColumn[] = [
+    {
+      id: 'stt',
+      label: 'STT',
+      rowspan: 3
+    },
+    {
+      id: 'tenTram',
+      label: 'Tên trạm',
+      align: 'left',
+      rowspan: 2,
+      minWidth: 100,
+      children: [
+        {
+          id: '#1',
+          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'ngayBatDau',
+      label: 'Năm bắt đầu quan trắc',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#2',
+          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'ngayKetThuc',
+      label: 'Năm kết thúc quan trắc',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: '#',
+      label: 'Vị trí',
+      align: 'left',
+      children: [
+        {
+          id: 'xa',
+          label: 'Xã',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
+          children: [{ id: '#7.1', label: '(4)', align: 'left' }]
+        },
+        {
+          id: 'huyen',
+          label: 'Huyện',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
+          children: [{ id: '8.1', label: '(5)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: '#',
+      label: 'Tháng',
+      align: 'left',
+      children: [
+        {
+          id: '#',
+          label: 'Tháng 1',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang1}</Typography>,
+          children: [{ id: '#7.1', label: '(6)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 2',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang2}</Typography>,
+          children: [{ id: '8.1', label: '(7)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 3',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang3}</Typography>,
+          children: [{ id: '8.1', label: '(8)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 4',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang4}</Typography>,
+          children: [{ id: '8.1', label: '(9)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 5',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang5}</Typography>,
+          children: [{ id: '8.1', label: '(10)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 6',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang6}</Typography>,
+          children: [{ id: '8.1', label: '(11)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 7',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang7}</Typography>,
+          children: [{ id: '8.1', label: '(12)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 8',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang8}</Typography>,
+          children: [{ id: '8.1', label: '(13)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 9',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang9}</Typography>,
+          children: [{ id: '8.1', label: '(14)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 10',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang10}</Typography>,
+          children: [{ id: '8.1', label: '(15)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 11',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang11}</Typography>,
+          children: [{ id: '8.1', label: '(16)', align: 'left' }]
+        },
+        {
+          id: '#8',
+          label: 'Tháng 12',
+          align: 'left',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang12}</Typography>,
+          children: [{ id: '8.1', label: '(17)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: '#',
+      label: 'Mùa mưa',
+      align: 'left',
+      rowspan: 2,
+      elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.muamua}</Typography>,
+      children: [
+        {
+          id: '#10',
+          children: [{ id: '#10.1', label: '(18)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'dientich_matnuoc',
+      label: 'Mùa khô',
+      align: 'left',
+      rowspan: 2,
+      elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.muakho}</Typography>,
+      children: [
+        {
+          id: '#10',
+          children: [{ id: '#10.1', label: '(19)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'dientich_matnuoc',
+      label: 'Cả năm',
+      align: 'left',
+      rowspan: 2,
+      elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.canam}</Typography>,
+      children: [
+        {
+          id: '#10',
+          children: [{ id: '#10.1', label: '(20)', align: 'left' }]
+        }
+      ]
+    },
+    { id: 'actions', label: 'Thao tác', minWidth: 150,rowspan: 3 }
+  ]
 
   return (
     <Paper sx={{ p: 8 }}>
-      {/* dautrang */}
-      <Grid container>
-        <Grid item md={11}>
-          <Typography variant='h5'>Trữ lượng nước mưa</Typography>
-        </Grid>
-        <Grid item md={1}>
-          <IconButton>
-            <DownloadIcon />
-          </IconButton>
-        </Grid>
-      </Grid>
-
       <Header />
 
       <Grid className='_text_center'>
@@ -70,7 +254,17 @@ const RainWater = () => {
           Tổng lượng mưa, phân phối lượng mưa trong năm
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
-          (Kỳ báo cáo: <TextField size='small' sx={{ width: '50px' }}></TextField>)
+          (Kỳ báo cáo:{' '}
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              views={['year']}
+              value={dayjs(new Date(selectedYear, 1, 1))}
+              onChange={(newVal: any) => setSelectedYear(newVal.year())}
+              slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
+              sx={{ width: '100px' }}
+            />
+          </LocalizationProvider>
+          )
         </Typography>
       </Grid>
       {/* <CreateReport2 isEdit={false} setPostSuccess={handlePostSuccess}/> */}
@@ -78,190 +272,19 @@ const RainWater = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-              <TableHead className='tableHead'>
-                <TableRow>
-                  <TableCell size='small' align='center' rowSpan={3}>
-                    STT
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Tên trạm
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Năm bắt đầu quan trắc
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Năm kết thúc quan trắc
-                  </TableCell>
-                  <TableCell size='small' align='center' colSpan={2}>
-                    Vị trí
-                  </TableCell>
-                  <TableCell size='small' align='center' colSpan={12}>
-                    Tháng
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Mùa mưa
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Mùa khô
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Cả năm
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={3}>
-                    Thao tác
-                  </TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell size='small' align='center'>
-                    Xã
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Huyện
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 1
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 2
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 3
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    Tháng 4
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 5
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 6
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    Tháng 7
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 8
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 9
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    Tháng 10
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 11
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Tháng 12
-                  </TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell size='small' align='center'>
-                    (1)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (2)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (3)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (4)
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    (5)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (6)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (7)
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    (8)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (9)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (10)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (11)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (12)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (13)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (14)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (15)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (16)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (17)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (18)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (19)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (20)
-                  </TableCell>
-
-                </TableRow>
-              </TableHead>
-
-              <TableBody className='tableBody'>
-                {data.map((item, index) => (
-                  <TableRow key={item.id}>
-                    <TableCell className="text-center  size='small' align-middle font-13">{index + 1}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.tram?.tenTram}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.tram?.ngayBatDau}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.tram?.ngayKetThuc}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.donvi_hanhchinh?.tenXa}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.donvi_hanhchinh?.tenHuyen}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang1}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang2}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang3}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang4}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang5}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang6}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang7}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang8}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang9}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang10}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang11}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang12}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">
-                      <Box>
-                        {/* <CreateReport2 isEdit={true} data={item} setPostSuccess={handlePostSuccess} /> */}
-                        {/* <DeleteData url={'BieuMauSoHai'} data={item} setPostSuccess={handlePostSuccess} /> */}
-
-                      </Box>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+           <RainWaterToolBar onExport={{ data: data, column: columnsTable }}/>
+          <TableComponent
+            columns={columnsTable}
+            rows={data}
+            loading={loading}
+            pagination
+            actions={(row: any) => (
+              <Box >
+                <CreateRainWater isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'licensefee'} data={row} setPostSuccess={handlePostSuccess} />
+              </Box>
+            )}
+          />
         </Grid>
       )}
 
