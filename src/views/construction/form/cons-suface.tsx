@@ -55,7 +55,6 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
   })
 
   const [thongso_ct, setThongsoCt] = useState<ConstructionSpecState>({
-    id: propData.thongso_ct?.id || null,
     idCT: propData.thongso_ct?.idCT || null,
     idHangMucCT: propData.thongso_ct?.idHangMucCT || null,
     caoTrinhCong: propData.thongso_ct?.caoTrinhCong || null,
@@ -221,7 +220,43 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
   const handleSetCons = (data: any) => {
     const cons: ConstructionState = data;
     setShowDataCons(true)
-    setCongTrinh({ ...cons });
+    setCongTrinh({
+      id: cons.id || null,
+      idLoaiCT: cons.idLoaiCT || null,
+      idHuyen: cons.idHuyen || null,
+      idXa: cons.idXa || null,
+      idSong: cons.idSong || null,
+      idLuuVuc: cons.idLuuVuc || null,
+      idTieuLuuVuc: cons.idTieuLuuVuc || null,
+      idTangChuaNuoc: cons.idTangChuaNuoc || null,
+      tenCT: cons.tenCT || null,
+      maCT: cons.maCT || null,
+      viTriCT: cons.viTriCT || null,
+      x: cons.x || null,
+      y: cons.y || null,
+      capCT: cons.capCT || null,
+      namBatDauVanHanh: cons.namBatDauVanHanh || null,
+      nguonNuocKT: cons.nguonNuocKT || null,
+      mucDichhKT: cons.mucDichhKT || null,
+      phuongThucKT: cons.phuongThucKT || null,
+      nguonNuocXT: cons.nguonNuocXT || null,
+      thoiGianKT: cons.thoiGianKT || null,
+      thoiGianHNK: cons.thoiGianHNK || null,
+      mucDichHNK: cons.mucDichHNK || null,
+      mucDichhTD: cons.mucDichhTD || null,
+      quyMoHNK: cons.quyMoHNK || null,
+      thoiGianXD: cons.thoiGianXD || null,
+      soLuongGiengKT: cons.soLuongGiengKT || null,
+      soLuongGiengQT: cons.soLuongGiengQT || null,
+      soDiemXaThai: cons.soDiemXaThai || null,
+      soLuongGieng: cons.soLuongGieng || null,
+      khoiLuongCacHangMucTD: cons.khoiLuongCacHangMucTD || null,
+      qktThietKe: cons.qktThietKe || null,
+      qktThucTe: cons.qktThucTe || null,
+      viTriXT: cons.viTriXT || null,
+      taiKhoan: cons.taiKhoan || null,
+      chuThich: cons.chuThich || null,
+    });
     onChange({ congtrinh: congtrinh, thongso_ct: thongso_ct })
   }
 

@@ -46,7 +46,6 @@ export interface ConstructionState {
 }
 
 export interface ConstructionSpecState {
-  id?: number | null;
   idCT?: number | null;
   idHangMucCT?: number | null;
   caoTrinhCong?: string | null;
@@ -160,7 +159,6 @@ export const emptyConstructionData: ConstructionState = {
 }
 
 export const emptyConstructionSpec: ConstructionSpecState = {
-  id: null,
   idCT: null,
   idHangMucCT: null,
   caoTrinhCong: null,

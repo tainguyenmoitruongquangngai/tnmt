@@ -19,7 +19,6 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
       x: e.x,
       y: e.y,
       thongso: {
-        id: e.thongso?.id || null,
         idCT: e.thongso?.idCT || null,
         idHangMucCT: e.thongso?.idHangMucCT || null,
         caoTrinhCong: e.thongso?.caoTrinhCong || null,
@@ -107,7 +106,6 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
     x: undefined,
     y: undefined,
     thongso: {
-      id: null,
       idCT: null,
       idHangMucCT: null,
       caoTrinhCong: null,
