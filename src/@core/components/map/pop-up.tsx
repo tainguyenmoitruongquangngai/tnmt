@@ -103,7 +103,7 @@ const MapPopup = ({ popupData }: any) => {
             return <TableBody>
             <TableRow>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>Chế độ KT <br /> (<sub>giờ / ngày đêm</sub>)</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>Chế độ KT</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.cheDoKT}</Typography>
@@ -304,7 +304,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Mục đích khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.mucDichhKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.mucDichKT}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -312,7 +312,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Mực nước trong giếng khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.hGiengKT}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -320,7 +320,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Tầng chứa nước khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>-</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -328,7 +328,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Số giếng khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.soLuongGiengKT}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -336,7 +336,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Tổng lượng nước khai thác (m<sub>3</sub>/ngày đêm)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.qKhaiThac}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -344,7 +344,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Chiều sâu đoạn thu nước (m)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.chieuSauDoanThuNuocDen}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -352,7 +352,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Lưu lượng khai thác thiết kế (m<sub>3</sub>/ngày đêm)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.qThietKe}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -360,7 +360,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Lưu lượng khai thác thực tế (m<sub>3</sub>/ngày đêm)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.qThucTe}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -368,7 +368,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Chiều sâu mực nước tĩnh (m)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.hTinh}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -376,7 +376,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Chiều sâu mực nước động lớn nhất (m)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.hDong}</Typography>
                 </TableCell>
             </TableRow>
         </TableBody>
@@ -387,7 +387,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Quy mô khoan thăm dò</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.quyMoHNK}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -395,7 +395,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Tầng chứa nước thăm dò</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>-</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -403,7 +403,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Mục đích thăm dò</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.mucDichTD}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -411,7 +411,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Khối lượng các hạng mục thăm dò</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>-</Typography>
                 </TableCell>
             </TableRow>
         </TableBody>
@@ -422,7 +422,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Thời gian hành nghề khoan</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thoiGianHNK}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -430,18 +430,18 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Mục đích khoan KT</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.mucDichHNK}</Typography>
                 </TableCell>
             </TableRow>
         </TableBody>
-        } else if (data.idLoaiCT == 10 || data.idLoaiCT == 13 || data.idLoaiCT == 11) { // Hanh nghe khoan nuoc duoi dat
+        } else if (data.idLoaiCT == 10 || data.idLoaiCT == 13 || data.idLoaiCT == 11 || data.idLoaiCT == 14) { // Tram cap nuoc, nha may nuoc, dap
             return <TableBody>
             <TableRow>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>Lưu lượng khai thác CNSH</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>Lưu lượng khai thác (m<sub>3</sub>/ngày đêm)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.qKhaiThac}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -449,7 +449,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Nguồn nước khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.nguonNuocKT}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -457,15 +457,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Phương thức khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>Lưu lượng khai thác (m<sub>3</sub>/ngày đêm)</Typography>
-                </TableCell>
-                <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.phuongThucKT}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -473,7 +465,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Thời hạn khai thác</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thoiGianKT}</Typography>
                 </TableCell>
             </TableRow>
         </TableBody>
@@ -484,7 +476,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Cao trình cống</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.caoTrinhCong}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -492,7 +484,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Chiều dài cống</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.chieuDaiCong}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -500,7 +492,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Đường kính cống</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.duongKinhCong}</Typography>
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -508,7 +500,7 @@ const MapPopup = ({ popupData }: any) => {
                     <Typography sx={{ fontSize: 12, my: '5px !important' }}>Kích thước miệng cống (chiều rộng - chiều cao)</Typography>
                 </TableCell>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
-                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{popupData.thongso.cheDoKT}</Typography>
+                    <Typography sx={{ fontSize: 12, my: '5px !important' }}>{data.thongso.kichThuocCong}</Typography>
                 </TableCell>
             </TableRow>
         </TableBody>

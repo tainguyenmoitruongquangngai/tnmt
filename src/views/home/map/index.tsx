@@ -1,4 +1,4 @@
-import { Paper, Typography, Box, Button } from "@mui/material"
+import { Paper, Typography, Box, Button, Fade } from "@mui/material"
 import React, { useState, useEffect, useRef } from 'react';
 import { getData } from 'src/api/axios'
 import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material';
@@ -100,9 +100,12 @@ const HomeMap = () => {
             <Paper elevation={3} sx={{ py: 0.5, BorderRadius: 0, textAlign: 'center' }}>
                 <Typography variant='overline' sx={{ fontWeight: 'bold' }}>Bản đồ trạng thái công trình</Typography>
             </Paper>
-            <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}`, display: `${selected ? 'block' : 'none'}` }}>
-                <MapLegend onChange={handleConsTypeChange} />
-            </Box>
+            <Fade in={selected}>
+                <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}` }}>
+                    <MapLegend onChange={handleConsTypeChange} />
+                </Box>
+            </Fade>
+            
             <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
                 {selected ? <KeyboardDoubleArrowDown/> : <KeyboardDoubleArrowUp/>}
             </Button>

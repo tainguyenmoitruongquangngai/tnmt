@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Paper } from '@mui/material';
+import { Box, Button, Fade, Paper } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import MapLegend from 'src/views/construction/MapLegend';
 import FormGroup from '@mui/material/FormGroup'
@@ -7,6 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
 import dynamic from 'next/dynamic';
 import { getData } from 'src/api/axios';
+import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material';
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
@@ -14,6 +15,7 @@ const Construction = () => {
 
   const [mapCenter,] = useState([15.012172, 108.676488]);
   const [mapZoom,] = useState(9);
+  const [selected, setSelected] = React.useState(true);
 
   const [initConsType, setInitConstype] = useState<any>([
     "nuocmat",
@@ -71,15 +73,21 @@ const Construction = () => {
 
     <Grid xs={12} md={12} sx={{ height: 'calc(100vh - 82px)', overflow: 'hidden' }}>
       <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
-        <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}` }}>
-          <FormGroup>
-            <FormControlLabel
-              sx={{ px: 1 }}
-              control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
-              label='Hiển thị tên công trình' />
-          </FormGroup>
-          <MapLegend onChange={handleConsTypeChange} />
-        </Box>
+        <Fade in={selected}>
+          <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}` }}>
+            <FormGroup>
+              <FormControlLabel
+                sx={{ px: 1 }}
+                control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
+                label='Hiển thị tên công trình' />
+            </FormGroup>
+            <MapLegend onChange={handleConsTypeChange} />
+          </Box>
+        </Fade>
+
+        <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+          {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+        </Button>
         <Map center={mapCenter} zoom={mapZoom} showLabel={showLabel} mapData={dataFiltered} loading={loading} />
       </Paper>
     </Grid>
