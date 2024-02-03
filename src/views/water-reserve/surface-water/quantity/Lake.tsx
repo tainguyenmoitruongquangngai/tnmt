@@ -1,31 +1,35 @@
 import Paper from '@mui/material/Paper'
-import {
-  Grid,
-  Typography,
-  Box,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody
-} from '@mui/material'
+import { Grid, Typography, Box, } from '@mui/material'
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Header from '../../header'
 import Footer from '../../footer'
 import { getData } from 'src/api/axios'
 import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
+import dayjs from 'dayjs'
+import TableComponent, { TableColumn } from 'src/@core/components/table'
+import LakeToolBar from './toolbar'
+import CreateLake from './CreateLake'
+import DeleteData from 'src/@core/components/delete-data'
 
-const LakeQuantity = () => {
+const Lake = () => {
   const [data, setData] = useState<any[]>([])
-  const [loading, setLoading] = useState(false)
 
+  const [loading, setLoading] = useState(false)
+  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
+
+  const [postSuccess, setPostSuccess] = useState(false);
+    const handlePostSuccess = () => {
+        setPostSuccess(prevState => !prevState);
+    };
   useEffect(() => {
-    async function getDataLakeQuantity() {
+    async function getDataLake() {
       setLoading(true)
-      await getData('NM_SoLuong/danh-sach/ao-ho')
+      await getData(`NMua_SoLuong/danh-sach/${selectedYear}`)
         .then(data => {
           setData(data)
+          console.log(data)
         })
         .catch(error => {
           console.log(error)
@@ -34,23 +38,162 @@ const LakeQuantity = () => {
           setLoading(false)
         })
     }
-    getDataLakeQuantity()
-    
-  }, [])
+
+    getDataLake()
+  }, [postSuccess,selectedYear])
+
+  const columnsTable: TableColumn[] = [
+    {
+      id: 'stt',
+      label: 'STT',
+      rowspan: 3
+    },
+    {
+      id: 'ten',
+      label: 'Tên',
+      align: 'left',
+      rowspan: 2,
+      minWidth: 100,
+      children: [
+        {
+          id: '#1',
+          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'nguonNuocKhaiThac',
+      label: 'Nguồn nước khai thác',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#2',
+          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'thuocHeThongSong',
+      label: 'Thuộc hệ thống sông ',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'dienTichMatNuoc',
+      label: 'Diện tích mặt nước(m2)',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#4',
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'dungTichToanBo',
+      label: 'Dung tích toàn bộ(triệu/m3)',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#5',
+          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'dungTichHuuIch',
+      label: 'Dung tích hữu ích(triệu/m3)',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#6',
+          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: '#',
+      label: 'Vị trí hành chính',
+      align: 'left',
+      children: [
+        {
+          id: 'xa',
+          label: 'Xã',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
+          children: [{ id: '#8.1', label: '(7)', align: 'left' }]
+        },
+        {
+          id: 'huyen',
+          label: 'Huyện',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
+          children: [{ id: '#9.1', label: '(8)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'mucDichSuDung',
+      label: 'Mục đích sử dụng',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#9',
+          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'ghiChu',
+      label: 'Ghi chú',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#10',
+          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
+        }
+      ]
+    },
+    { id: 'actions', label: 'Thao tác', minWidth: 150,rowspan: 3 }
+  ]
 
   return (
     <Paper sx={{ p: 8 }}>
-      {/* dautrang */}
-      <Grid container>
-        <Grid item md={1}>
-        </Grid>
-      </Grid>
-
       <Header />
 
       <Grid className='_text_center'>
-      <Typography className='font-weight-bold' variant='body1' textTransform={'uppercase'}>
-          KIỂM KÊ SỐ LƯỢNG ĐẦM PHÁ AO HỒ
+        <Typography className='font-weight-bold ' variant='h4'>
+          BÁO CÁO
+        </Typography>
+        <Typography className='font-weight-bold ' variant='h6'>
+          Tổng lượng mưa, phân phối lượng mưa trong năm
+        </Typography>
+        <Typography className='font-weight-bold ' variant='h6'>
+          (Kỳ báo cáo:{' '}
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              views={['year']}
+              value={dayjs(new Date(selectedYear, 1, 1))}
+              onChange={(newVal: any) => setSelectedYear(newVal.year())}
+              slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
+              sx={{ width: '100px' }}
+            />
+          </LocalizationProvider>
+          )
         </Typography>
       </Grid>
       {/* <CreateReport2 isEdit={false} setPostSuccess={handlePostSuccess}/> */}
@@ -58,123 +201,19 @@ const LakeQuantity = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-              <TableHead className='tableHead'>
-                <TableRow>
-                  <TableCell size='small' align='center' rowSpan={3}>
-                    STT
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Tên nguồn nước
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Nguồn nước khai thác
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Thuộc hệ thống sông
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Diện tích mặt nước(m2)
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Dung tích toàn bộ(triệu/m3)
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                  Dung tích hữu ích(triệu/m3)
-                  </TableCell>
-                  <TableCell size='small' align='center' colSpan={2}>
-                    Vị trí hành chính
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Mục đích sử dụng
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={2}>
-                    Ghi chú
-                  </TableCell>
-                  <TableCell size='small' align='center' rowSpan={3}>
-                    Thao tác
-                  </TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell size='small' align='center'>
-                    Xã
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    Huyện
-                  </TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell size='small' align='center'>
-                    (1)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (2)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (3)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (4)
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    (5)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (6)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (7)
-                  </TableCell>
-
-                  <TableCell size='small' align='center'>
-                    (8)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (9)
-                  </TableCell>
-                  <TableCell size='small' align='center'>
-                    (10)
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-
-              <TableBody className='tableBody'>
-                {data.map((item, index) => (
-                  <TableRow key={item.id}>
-                    <TableCell className="text-center  size='small' align-middle font-13">{index + 1}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.ten}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.nguonNuocKhaiThac}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.tram?.ngayKetThuc}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.donvi_hanhchinh?.tenXa}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.donvi_hanhchinh?.tenHuyen}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang1}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang2}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang3}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang4}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang5}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang6}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang7}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang8}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang9}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang10}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang11}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">{item.thang12}</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">
-                      <Box>
-                        {/* <CreateReport2 isEdit={true} data={item} setPostSuccess={handlePostSuccess} /> */}
-                        {/* <DeleteData url={'BieuMauSoHai'} data={item} setPostSuccess={handlePostSuccess} /> */}
-
-                      </Box>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+           <LakeToolBar onExport={{ data: data, column: columnsTable }}/>
+          <TableComponent
+            columns={columnsTable}
+            rows={data}
+            loading={loading}
+            pagination
+            actions={(row: any) => (
+              <Box >
+                <CreateLake isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'licensefee'} data={row} setPostSuccess={handlePostSuccess} />
+              </Box>
+            )}
+          />
         </Grid>
       )}
 
@@ -183,4 +222,4 @@ const LakeQuantity = () => {
   )
 }
 
-export default LakeQuantity
+export default Lake
