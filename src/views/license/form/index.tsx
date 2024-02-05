@@ -123,8 +123,44 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
     setSaving(true)
     setFetching(true)
     try {
-
-      const saveCons = await saveData('cong-trinh/luu', congtrinh);
+      const newCons: ConstructionState = {
+        id: congtrinh?.id,
+        idLoaiCT: congtrinh?.idLoaiCT,
+        idHuyen: congtrinh?.idHuyen,
+        idXa: congtrinh?.idXa,
+        idSong: congtrinh?.idSong,
+        idLuuVuc: congtrinh?.idLuuVuc,
+        idTieuLuuVuc: congtrinh?.idTieuLuuVuc,
+        idTangChuaNuoc: congtrinh?.idTangChuaNuoc,
+        tenCT: congtrinh?.tenCT,
+        maCT: congtrinh?.maCT,
+        viTriCT: congtrinh?.viTriCT,
+        x: congtrinh?.x,
+        y: congtrinh?.y,
+        capCT: congtrinh?.capCT,
+        namBatDauVanHanh: congtrinh?.namBatDauVanHanh,
+        nguonNuocKT: congtrinh?.nguonNuocKT,
+        mucDichhKT: congtrinh?.mucDichhKT,
+        phuongThucKT: congtrinh?.phuongThucKT,
+        nguonNuocXT: congtrinh?.nguonNuocXT,
+        thoiGianKT: congtrinh?.thoiGianKT,
+        thoiGianHNK: congtrinh?.thoiGianHNK,
+        mucDichHNK: congtrinh?.mucDichHNK,
+        mucDichhTD: congtrinh?.mucDichhTD,
+        quyMoHNK: congtrinh?.quyMoHNK,
+        thoiGianXD: congtrinh?.thoiGianXD,
+        soLuongGiengKT: congtrinh?.soLuongGiengKT,
+        soLuongGiengQT: congtrinh?.soLuongGiengQT,
+        soDiemXaThai: congtrinh?.soDiemXaThai,
+        soLuongGieng: congtrinh?.soLuongGieng,
+        khoiLuongCacHangMucTD: congtrinh?.khoiLuongCacHangMucTD,
+        qktThietKe: congtrinh?.qktThietKe,
+        qktThucTe: congtrinh?.qktThucTe,
+        viTriXT: congtrinh?.viTriXT,
+        taiKhoan: congtrinh?.taiKhoan,
+        chuThich: congtrinh?.chuThich,
+      }
+      const saveCons = await saveData('cong-trinh/luu', newCons);
 
       if (saveCons) {
 
@@ -137,8 +173,16 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         }) : ""
 
         hangmuc_ct !== null ? hangmuc_ct?.map(async (e: any) => {
-          e.idCT = saveCons.id;
-          await saveData('hang-muc-ct/luu', e);
+          const newConsItem: ConstructionItemState = {
+            id: e.Id,
+            idCT: saveCons.Id,
+            idTangChuaNuoc: e.idTangChuaNuoc,
+            tenHangMuc: e.tenHangMuc,
+            viTriHangMuc: e.viTriHangMuc,
+            x: e.x,
+            y: e.y,
+          }
+          await saveData('hang-muc-ct/luu', newConsItem)
 
           const saveConsItem = await saveData('hang-muc-ct/luu', e);
           if (saveConsItem && e.thongso !== null) {

@@ -49,8 +49,16 @@ const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs,
           })
 
           hangMucCT?.map(async (e: any) => {
-            e.idCT = res.id
-            await saveData('hang-muc-ct/luu', e)
+            const newConsItem: ConstructionItemState = {
+              id: e.Id,
+              idCT: res.Id,
+              idTangChuaNuoc: e.idTangChuaNuoc,
+              tenHangMuc: e.tenHangMuc,
+              viTriHangMuc: e.viTriHangMuc,
+              x: e.x,
+              y: e.y,
+            }
+            await saveData('hang-muc-ct/luu', newConsItem)
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
