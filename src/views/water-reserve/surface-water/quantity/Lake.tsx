@@ -26,10 +26,9 @@ const Lake = () => {
   useEffect(() => {
     async function getDataLake() {
       setLoading(true)
-      await getData(`NMua_SoLuong/danh-sach/${selectedYear}`)
+      await getData('NM_SoLuong/danh-sach/ao-ho')
         .then(data => {
           setData(data)
-          console.log(data)
         })
         .catch(error => {
           console.log(error)
@@ -40,7 +39,7 @@ const Lake = () => {
     }
 
     getDataLake()
-  }, [postSuccess,selectedYear])
+  }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
     {
@@ -210,7 +209,7 @@ const Lake = () => {
             actions={(row: any) => (
               <Box >
                 <CreateLake isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'licensefee'} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'NM_SoLuong/ao-ho'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
