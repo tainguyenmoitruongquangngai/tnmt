@@ -20,17 +20,16 @@ const RainWater = () => {
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
   const [postSuccess, setPostSuccess] = useState(false);
-    const handlePostSuccess = () => {
-        setPostSuccess(prevState => !prevState);
-    };
+  const handlePostSuccess = () => {
+    setPostSuccess(prevState => !prevState);
+  };
   useEffect(() => {
     async function getDataRainWater() {
       setLoading(true)
       await getData(`NMua_TongLuong/danh-sach/${selectedYear}`)
         .then(data => {
           setData(data)
-          console.log(data);
-          
+
         })
         .catch(error => {
           console.log(error)
@@ -41,7 +40,7 @@ const RainWater = () => {
     }
 
     getDataRainWater()
-  }, [postSuccess,selectedYear])
+  }, [postSuccess, selectedYear])
 
   const columnsTable: TableColumn[] = [
     {
@@ -92,111 +91,111 @@ const RainWater = () => {
       align: 'left',
       children: [
         {
-          id: 'xa',
+          id: '#4',
           label: 'Xã',
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
-          children: [{ id: '#7.1', label: '(4)', align: 'left' }]
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
         },
         {
-          id: 'huyen',
+          id: '#5',
           label: 'Huyện',
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
-          children: [{ id: '8.1', label: '(5)', align: 'left' }]
+          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
         }
       ]
     },
     {
-      id: '#',
+      id: 'tongluong_nuocmua',
       label: 'Tháng',
       align: 'left',
       children: [
         {
-          id: '#',
+          id: '#6',
           label: 'Tháng 1',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang1}</Typography>,
-          children: [{ id: '#7.1', label: '(6)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang1}</Typography>,
+          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#7',
           label: 'Tháng 2',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang2}</Typography>,
-          children: [{ id: '8.1', label: '(7)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang2}</Typography>,
+          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
         },
         {
           id: '#8',
           label: 'Tháng 3',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang3}</Typography>,
-          children: [{ id: '8.1', label: '(8)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang3}</Typography>,
+          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#9',
           label: 'Tháng 4',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang4}</Typography>,
-          children: [{ id: '8.1', label: '(9)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang4}</Typography>,
+          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#10',
           label: 'Tháng 5',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang5}</Typography>,
-          children: [{ id: '8.1', label: '(10)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang5}</Typography>,
+          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#11',
           label: 'Tháng 6',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang6}</Typography>,
-          children: [{ id: '8.1', label: '(11)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang6}</Typography>,
+          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#12',
           label: 'Tháng 7',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang7}</Typography>,
-          children: [{ id: '8.1', label: '(12)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang7}</Typography>,
+          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#13',
           label: 'Tháng 8',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang8}</Typography>,
-          children: [{ id: '8.1', label: '(13)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang8}</Typography>,
+          children: [{ id: '#13.1', label: '(13)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#14',
           label: 'Tháng 9',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang9}</Typography>,
-          children: [{ id: '8.1', label: '(14)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang9}</Typography>,
+          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#15',
           label: 'Tháng 10',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang10}</Typography>,
-          children: [{ id: '8.1', label: '(15)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang10}</Typography>,
+          children: [{ id: '#15.1', label: '(15)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#15',
           label: 'Tháng 11',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang11}</Typography>,
-          children: [{ id: '8.1', label: '(16)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang11}</Typography>,
+          children: [{ id: '#16.1', label: '(16)', align: 'left' }]
         },
         {
-          id: '#8',
+          id: '#17',
           label: 'Tháng 12',
           align: 'left',
-          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.thang12}</Typography>,
-          children: [{ id: '8.1', label: '(17)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thang12}</Typography>,
+          children: [{ id: '#17.1', label: '(17)', align: 'left' }]
         }
       ]
     },
@@ -205,41 +204,41 @@ const RainWater = () => {
       label: 'Mùa mưa',
       align: 'left',
       rowspan: 2,
-      elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.muamua}</Typography>,
       children: [
         {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(18)', align: 'left' }]
+          id: '#18',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.muamua}</Typography>,
+          children: [{ id: '#18.1', label: '(18)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'dientich_matnuoc',
+      id: '#',
       label: 'Mùa khô',
       align: 'left',
       rowspan: 2,
-      elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.muakho}</Typography>,
       children: [
         {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(19)', align: 'left' }]
+          id: '#19',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.muakho}</Typography>,
+          children: [{ id: '#19.1', label: '(19)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'dientich_matnuoc',
+      id: '#',
       label: 'Cả năm',
       align: 'left',
       rowspan: 2,
-      elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.canam}</Typography>,
       children: [
         {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(20)', align: 'left' }]
+          id: '#20',
+          elm: (row: any) => <Typography className='f_14'>{row.tongluong_nuocmua?.[0]?.canam}</Typography>,
+          children: [{ id: '#20.1', label: '(20)', align: 'left' }]
         }
       ]
     },
-    { id: 'actions', label: 'Thao tác', minWidth: 150,rowspan: 3 }
+    { id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
 
   return (
@@ -272,7 +271,7 @@ const RainWater = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-           <RainWaterToolBar onExport={{ data: data, column: columnsTable }}/>
+          <RainWaterToolBar onExport={{ data: data, column: columnsTable }} />
           <TableComponent
             columns={columnsTable}
             rows={data}

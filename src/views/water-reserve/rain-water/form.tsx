@@ -37,7 +37,6 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     thang11: data?.thang1 || 0,
     thang12: data?.thang1 || 0
   })
-  console.log(rainwater);
   
   const [station, setStation] = useState<StationState>({
     id: data?.id || 0,

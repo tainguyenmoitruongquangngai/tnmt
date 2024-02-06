@@ -11,7 +11,7 @@ interface LicenseToolBarProps {
 }
 const RainWaterToolBar: FC<LicenseToolBarProps> = ({ onExport }) => {
   const [postSucceed, setPostSucceed] = useState(false)
-  console.log(postSucceed)
+  console.log('postSucceed' + postSucceed)
 
   const handlePostSuccess = () => {
     setPostSucceed(prevState => !prevState)
