@@ -191,7 +191,7 @@ const ListLicenses = () => {
                 <Paper elevation={3} sx={{ height: '45vh', p: 1 }}>
                     <Map center={mapCenter} zoom={mapZoom} mapData={mapData} showLabel={true} />
                 </Paper>
-                <Paper elevation={3} sx={{ py: 1, px: 3, position: 'absolute', top: 20, left: 20, bottom: 8, right: '65vw', zIndex: 1000, display: 'flex', alignItems: 'center' }}>
+                <Paper elevation={3} sx={{ py: 1, px: 3, position: 'absolute', top: 20, left: 20, bottom: 8, right: '70%', zIndex: 1000, display: 'flex', alignItems: 'center' }}>
                     <CountLicense data={resData} />
                 </Paper>
             </Grid>

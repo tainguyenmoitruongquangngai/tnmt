@@ -182,9 +182,8 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
             x: e.x,
             y: e.y,
           }
-          await saveData('hang-muc-ct/luu', newConsItem)
 
-          const saveConsItem = await saveData('hang-muc-ct/luu', e);
+          const saveConsItem = await saveData('hang-muc-ct/luu', newConsItem);
           if (saveConsItem && e.thongso !== null) {
             {
               await saveData('thong-so-ct/luu', { ...e.thongso, idCT: null, idHangMucCT: saveConsItem.id })
