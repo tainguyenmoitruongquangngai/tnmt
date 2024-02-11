@@ -20,9 +20,9 @@ const Lake = () => {
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
   const [postSuccess, setPostSuccess] = useState(false);
-    const handlePostSuccess = () => {
-        setPostSuccess(prevState => !prevState);
-    };
+  const handlePostSuccess = () => {
+    setPostSuccess(prevState => !prevState);
+  };
   useEffect(() => {
     async function getDataLake() {
       setLoading(true)
@@ -130,7 +130,7 @@ const Lake = () => {
           label: 'Xã',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
+          elm: (row: any) => <Typography className='f_14'>{row.xa == null ? "-" : row.xa}</Typography>,
           children: [{ id: '#8.1', label: '(7)', align: 'left' }]
         },
         {
@@ -138,13 +138,13 @@ const Lake = () => {
           label: 'Huyện',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
+          elm: (row: any) => <Typography className='f_14'>{row.huyen == null ? "-" : row.huyen}</Typography>,
           children: [{ id: '#9.1', label: '(8)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'mucDichSuDung',
+      id: 'mucDich',
       label: 'Mục đích sử dụng',
       align: 'left',
       rowspan: 2,
@@ -167,7 +167,7 @@ const Lake = () => {
         }
       ]
     },
-    { id: 'actions', label: 'Thao tác', minWidth: 150,rowspan: 3 }
+    { id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
 
   return (
@@ -201,7 +201,7 @@ const Lake = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-           <LakeToolBar onExport={{ data: data, column: columnsTable }}/>
+          <LakeToolBar onExport={{ data: data, column: columnsTable }} />
           <TableComponent
             columns={columnsTable}
             rows={data}
