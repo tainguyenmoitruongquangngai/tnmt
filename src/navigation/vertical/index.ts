@@ -86,8 +86,12 @@ const navigation = (): VerticalNavItemsType => {
       primaryPath: 'giay-phep',
       children: [
         {
-          title: 'QL cấp phép',
+          title: 'Quản lý cấp phép',
           path: '/giay-phep/quan-ly'
+        },
+        {
+          title: 'Kết quả cấp phép',
+          path: '/thong-tin-du-lieu/ket-qua-cap-phep'
         },
         {
           sectionTitle: 'Nước mặt',
@@ -222,7 +226,7 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Hành lang bảo vệ NN',
-          path: '/thong-tin-du-lieu/nguon-nuoc/hanh-lang-bao-ve-nguon-nuoc'
+          path: '/thong-tin-du-lieu/hanh-lang-bao-ve-nguon-nuoc'
         },
         {
           title: 'Chức năng nguồn nước',
@@ -237,7 +241,7 @@ const navigation = (): VerticalNavItemsType => {
           path: '/thong-tin-du-lieu/nguon-nuoc/nguong-khai-thac-NDD'
         },
         {
-          title: 'Vùng cấm, vùng hạn chế khai thác NDĐ',
+          title: 'Vùng cấm, hạn chế KTNDĐ',
           path: '/thong-tin-du-lieu/nguon-nuoc/vung-cam-khai-thac-NDD'
         },
         {
@@ -258,42 +262,41 @@ const navigation = (): VerticalNavItemsType => {
 
         //
         {
-          sectionTitle: 'Số liệu điều tra',
+          sectionTitle: 'SL điều tra KTSDN',
         },
         {
-          title: 'Điều tra nước dưới đất',
-          path: '#'
+          title: 'Điều tra KTSD nước mặt',
+          path: '/thong-tin-du-lieu/dieu-tra/nuoc-mat'
         },
         {
-          title: 'Vùng hạn chế KTNDĐ',
-          path: '#'
+          title: 'Điều tra KTSD NDĐ',
+          path: '/thong-tin-du-lieu/dieu-tra/nuoc-duoi-dat'
+        },
+        {
+          title: 'Điều tra xả thải vào NN',
+          path: '/thong-tin-du-lieu/dieu-tra/xa-thai'
         },
 
         //
         {
-          sectionTitle: 'KTSD Tài nguyên nước',
+          sectionTitle: 'Công trình KTSD TNN',
         },
         {
-          title: 'Danh mục CTKTSDN',
-          path: '/thong-tin-du-lieu/danh-muc-ctktsdn'
+          title: 'Phải có giấy phép',
+          path: '/thong-tin-du-lieu/cong-trinh-KTSDN/phai-co-giay-phep'
         },
         {
-          title: 'KTSD nước mặt ',
-          path: '/thong-tin-du-lieu/ktsd-nuoc-duoi-dat'
+          title: 'Phải kê khai',
+          path: '/thong-tin-du-lieu/cong-trinh-KTSDN/phai-ke-khai'
         },
         {
-          title: 'KTSD nước dưới đất ',
-          path: '#'
+          title: 'Phải đăng ký ',
+          path: '/thong-tin-du-lieu/cong-trinh-KTSDN/phai-dang-ky'
         },
 
         //
-        {
-          sectionTitle: 'Kết quả cấp phép',
-        },
-        {
-          title: 'Kết quả cấp phép',
-          path: '/thong-tin-du-lieu/ket-qua-cap-phep'
-        },
+       
+  
 
         //
         {
@@ -313,29 +316,34 @@ const navigation = (): VerticalNavItemsType => {
           sectionTitle: 'Danh mục nguồn nước',
         },
         {
-          title: 'Hành lang BVNN',
-          path: '/thong-tin-du-lieu/hanh-lang-bao-ve-nguon-nuoc'
+          title: 'Danh mục NN liên tỉnh',
+          path: '/thong-tin-du-lieu/danh-muc-lien-tinh'
         },
         {
-          title: 'Danh mục NNNT',
+          title: 'Danh mục NN nội tỉnh',
           path: '/thong-tin-du-lieu/danh-muc-mnnt'
         },
       ]
     },
-    {
-      title: 'Thông báo - cảnh báo',
-      primaryPath: 'thong-bao-canh-bao',
-      path: '/thong-bao-canh-bao'
-    },
+    
     {
       title: 'Báo cáo biểu mẫu',
-      primaryPath: 'bao-cao-bieu-mau',
-      path: '/bao-cao-bieu-mau'
+      primaryPath: 'bao-cao-bieu-ma',
+      children: [
+        {
+          title: 'Báo cáo biểu mẫu',
+          icon: PeopleAltOutlined,
+          path: '/bao-cao-bieu-mau'
+        },
+       
+      ]
     },
+   
     {
       title: 'KN tiếp nhận nước thải',
       primaryPath: 'kn-tiep-nhan-nuoc-thai',
       children: [
+
         {
           sectionTitle: 'Nguồn nước sông,suối',
         },
@@ -385,6 +393,11 @@ const navigation = (): VerticalNavItemsType => {
           path: '#'
         },
       ]
+    },
+    {
+      title: 'Thông báo - cảnh báo',
+      primaryPath: 'thong-bao-canh-bao',
+      path: '/thong-bao-canh-bao'
     },
     {
       title: 'Nội dung khác',
