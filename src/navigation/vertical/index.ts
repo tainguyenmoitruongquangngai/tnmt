@@ -5,9 +5,8 @@ import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 // ** Type import
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
 import { Functions, PeopleAltOutlined, Tv } from '@mui/icons-material';
-
-
 const navigation = (): VerticalNavItemsType => {
+  
   return [
     {
       title: 'TRANG CHỦ',
@@ -338,15 +337,35 @@ const navigation = (): VerticalNavItemsType => {
        
       ]
     },
-   
     {
-      title: 'KN tiếp nhận nước thải',
+      title: 'Thông báo - cảnh báo',
+      primaryPath: 'thong-bao-canh-bao',
+      children: [
+        {
+          title: 'Thông báo',
+          icon: PeopleAltOutlined,
+          primaryPath: 'Thong-bao',
+          path: '/thong-bao/thong-bao'
+        },
+        {
+          title: 'Cảnh báo',
+          icon: PeopleAltOutlined,
+          primaryPath: 'Canh-bao',
+          path: '/thong-bao/canh-bao'
+        },
+      ]
+
+    },
+    {
+      sectionTitle: 'KNTN NƯỚC THẢI'
+
+    },
+    {
+      title: 'Nguồn nước sông, suối',
       primaryPath: 'kn-tiep-nhan-nuoc-thai',
       children: [
 
-        {
-          sectionTitle: 'Nguồn nước sông,suối',
-        },
+        
         {
           title: 'CLN theo QCVN ',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/cln'
@@ -369,9 +388,16 @@ const navigation = (): VerticalNavItemsType => {
         },
 
         //
-        {
-          sectionTitle: 'Nguồn nước ao,hồ',
-        },
+        
+      ]
+    },
+
+    {
+      title: 'Nguồn nước ao, hồ',
+      primaryPath: 'kn-tiep-nhan-nuoc-thai-ao-ho',
+      children: [
+
+        
         {
           title: 'Thông số CLN theo QCVN',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/cln'
@@ -395,20 +421,39 @@ const navigation = (): VerticalNavItemsType => {
       ]
     },
     {
-      title: 'Thông báo - cảnh báo',
-      primaryPath: 'thong-bao-canh-bao',
-      path: '/thong-bao-canh-bao'
+      sectionTitle: 'VẬN HÀNH HỒ CHỨA'
+
     },
     {
-      title: 'Nội dung khác',
+      title: 'Lưu vực sông',
       path: '#'
+    },
+    {
+      title: 'Hồ chứa',
+      path: '#'
+    },
+    {
+      title: 'Trạm kiểm soát hạ du',
+      path: '#'
+    },
+    {
+      title: 'Lượng mưa hiện tại',
+      path: '#'
+    },
+    {
+      title: 'Lượng mưa dự báo',
+      path: '#'
+    },
+    {
+      sectionTitle: 'HƯỚNG DẪN SỬ DỤNG'
+     
     },
     {
       title: 'Hướng dẫn sử dụng',
       path: '#'
     },
     {
-      sectionTitle: 'Quản lý'
+    sectionTitle:'Quản lý'
     },
     {
       title: 'Dữ liệu',
