@@ -6,7 +6,7 @@ import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
 import { Functions, PeopleAltOutlined, Tv } from '@mui/icons-material';
 const navigation = (): VerticalNavItemsType => {
-  
+
   return [
     {
       title: 'TRANG CHỦ',
@@ -79,7 +79,7 @@ const navigation = (): VerticalNavItemsType => {
         }
       ]
     },
-   
+
     {
       title: 'Cấp phép',
       primaryPath: 'giay-phep',
@@ -127,7 +127,7 @@ const navigation = (): VerticalNavItemsType => {
         }
       ]
     },
-  
+
     {
       title: 'Tiền cấp quyền',
       primaryPath: 'tien-cap-quyen',
@@ -142,72 +142,7 @@ const navigation = (): VerticalNavItemsType => {
         }
       ]
     },
-    {
-      title: 'Kiểm kê TNN',
-      primaryPath: 'kiem-ke-tnn',
-      children: [
-        {
-          sectionTitle: 'Nước mưa',
-        },
-        {
-          title: 'Nước mưa',
-          path: '/kiem-ke-tnn/nuoc-mua'
-        },
 
-        //
-        {
-          sectionTitle: 'Nước mặt',
-        },
-        {
-          title: 'Số lượng nguồn nước mặt',
-          path: '/kiem-ke-tnn/nuoc-mat/so-luong'
-        },
-        {
-          title: 'Tổng lượng nước mặt',
-          path: '/kiem-ke-tnn/nuoc-mat/tong-luong'
-        },
-        {
-          title: 'Chất lượng nước mặt',
-          path: '/kiem-ke-tnn/nuoc-mat/chat-luong-nuoc'
-        },
-        {
-          title: 'KTSD nước mặt',
-          path: '/kiem-ke-tnn/nuoc-mat/ktsd-nuoc-mat'
-        },
-
-        //
-        {
-          sectionTitle: 'Nước dưới đất',
-        },
-        {
-          title: 'Số lượng NDĐ',
-          path: '/kiem-ke-tnn/nuoc-duoi-dat/so-luong'
-        },
-        {
-          title: 'Tổng lượng NDĐ',
-          path: '/kiem-ke-tnn/nuoc-duoi-dat/tong-luong'
-        },
-        {
-          title: 'Chất lượng NDĐ',
-          path: '#'
-        },
-        {
-          sectionTitle: 'KTSD nước biển',
-        },
-        {
-          title: 'Nước biển',
-          path: '/kiem-ke-tnn/nuoc-bien'
-        },
-        {
-          sectionTitle: 'Chỉ tiêu xả Nước thải vào NN',
-        },
-        {
-          title: 'Xả nước thải vào NN',
-          path: '/kiem-ke-tnn/xa-nuoc-thai'
-        },
-
-      ]
-    },
     {
       title: 'Thông tin - Dữ liệu',
       primaryPath: 'thong-tin-du-lieu',
@@ -294,8 +229,8 @@ const navigation = (): VerticalNavItemsType => {
         },
 
         //
-       
-  
+
+
 
         //
         {
@@ -324,7 +259,7 @@ const navigation = (): VerticalNavItemsType => {
         },
       ]
     },
-    
+
     {
       title: 'Báo cáo biểu mẫu',
       primaryPath: 'bao-cao-bieu-ma',
@@ -334,7 +269,7 @@ const navigation = (): VerticalNavItemsType => {
           icon: PeopleAltOutlined,
           path: '/bao-cao-bieu-mau'
         },
-       
+
       ]
     },
     {
@@ -357,40 +292,128 @@ const navigation = (): VerticalNavItemsType => {
 
     },
     {
-      sectionTitle: 'KNTN NƯỚC THẢI'
-
+      sectionTitle: 'KIỂM KÊ TNN'
     },
+    
     {
-      title: 'Nguồn nước sông, suối',
-      primaryPath: 'kn-tiep-nhan-nuoc-thai',
+      title: 'Nước mưa',
+      primaryPath: '/kiem-ke-tnn/nuoc-mua',
       children: [
-
-        
         {
-          title: 'CLN theo QCVN ',
-          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/cln'
-        },
-        {
-          title: 'Thông tin nguồn thải',
-          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai'
-        },
-        {
-          title: 'Thông tin nguồn TNNT ',
-          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nhan-nuoc-thai'
-        },
-        {
-          title: 'Khả năng TNNT sông,suối',
-          path: '#'
-        },
-        {
-          title: 'Tính dự báo KNTNNT sông,suối',
-          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-bao-kntnnt'
+          title: 'Kiểm kê nước mưa',
+         
+          path: '/kiem-ke-tnn/nuoc-mua'
         },
 
-        //
-        
       ]
     },
+
+    {
+      title: 'Nước mặt',
+      primaryPath: 'kiem-ke-tnn-mat',
+      children: [
+
+        {
+          title: 'Số lượng nguồn nước mặt',
+          path: '/kiem-ke-tnn/nuoc-mat/so-luong'
+        },
+        {
+          title: 'Tổng lượng nước mặt',
+          path: '/kiem-ke-tnn/nuoc-mat/tong-luong'
+        },
+        {
+          title: 'Chất lượng nước mặt',
+          path: '/kiem-ke-tnn/nuoc-mat/chat-luong-nuoc'
+        },
+        {
+          title: 'KTSD nước mặt',
+          path: '/kiem-ke-tnn/nuoc-mat/ktsd-nuoc-mat'
+        },
+      ]
+    },
+    //
+    {
+      title: 'Nước dưới đất',
+      primaryPath: 'kiem-ke-tnn-duoi-dat',
+      children: [
+        {
+          title: 'Số lượng NDĐ',
+          path: '/kiem-ke-tnn/nuoc-duoi-dat/so-luong'
+        },
+        {
+          title: 'Tổng lượng NDĐ',
+          path: '/kiem-ke-tnn/nuoc-duoi-dat/tong-luong'
+        },
+        {
+          title: 'Chất lượng NDĐ',
+          path: '#'
+        },
+      ]
+    },
+    {
+      title: 'Nước biển',
+      primaryPath: '/kiem-ke-tnn/nuoc-biển',
+      children: [
+        {
+          title: 'Kiểm kê nước biển',
+
+          path: '/kiem-ke-tnn/nuoc-biển'
+        },
+
+      ]
+    },
+    {
+      title: 'Xả thải',
+      primaryPath: '/kiem-ke-tnn/nuoc-thai',
+      children: [
+        {
+          title: 'Kiểm kê xả nước thải',
+
+          path: '/kiem-ke-tnn/xa-nuoc-thai'
+        },
+
+      ]
+    },
+   
+    
+
+  
+
+
+  {
+    sectionTitle: 'KNTN NƯỚC THẢI',
+  },
+  {
+    title: 'Nguồn nước sông, suối',
+    primaryPath: 'kn-tiep-nhan-nuoc-thai',
+    children: [
+       {
+        title: 'CLN theo QCVN_08_2023',
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/cln'
+        },
+      {
+        title: 'Phân đoạn sông',
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/phan-doan-song'
+        },
+      {
+        title: 'Thông tin nguồn thải',
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai'
+        },
+      {
+        title: 'Thông tin nguồn TNNT ',
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nhan-nuoc-thai'
+        },
+      {
+        title: 'Khả năng TNNT sông,suối',
+        path: '#'
+        },
+      {
+        title: 'Tính dự báo KNTNNT sông,suối',
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-bao-kntnnt'
+        },
+    ]
+  },
+   
 
     {
       title: 'Nguồn nước ao, hồ',
@@ -422,7 +445,6 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       sectionTitle: 'VẬN HÀNH HỒ CHỨA'
-
     },
     {
       title: 'Lưu vực sông',
