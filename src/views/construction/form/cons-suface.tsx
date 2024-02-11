@@ -633,7 +633,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Diện tích lưu vực'
+                      label='Diện tích lưu vực(km2)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.dienTichLuuVuc || ''}
@@ -644,7 +644,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Lượng mưa trung bình nhiều năm'
+                      label='Lượng mưa trung bình nhiều năm(mm)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.muaTrungBinhNam || ''}
@@ -655,7 +655,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Lưu lượng trung bình nhiều năm'
+                      label='Lưu lượng trung bình nhiều năm(m3/s)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.qTrungBinhNam || ''}
@@ -669,7 +669,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Công suất'
+                      label='Công suất(KW)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.congSuatLM || ''}
@@ -691,7 +691,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Chiều cao đập'
+                      label='Chiều cao đập(m)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.chieuCaoDap || ''}
@@ -702,11 +702,11 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Lưu lượng tối đa'
+                      label='Lưu lượng tối đa(m3/s)'
                       fullWidth
                       placeholder=''
-                      value={thongso_ct?.qmaxNM || ''}
-                      onChange={event => handleChange('qmaxNM')(event.target.value)}
+                      value={thongso_ct?.qMaxKT || ''}
+                      onChange={event => handleChange('qMaxKT')(event.target.value)}
                     />
                   </Grid>
                 </Grid>
@@ -716,7 +716,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Lưu lượng tối thiểu'
+                      label='Lưu lượng tối thiểu(m3/s)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.qtt || ''}
@@ -727,7 +727,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Lưu lượng đảm bảo'
+                      label='Lưu lượng đảm bảo(m3/s)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.qDamBao || ''}
@@ -775,7 +775,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Dung tích toàn bộ'
+                      label='Dung tích toàn bộ(triệu m3)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.dungTichToanBo || ''}
@@ -786,7 +786,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Dung tích chết'
+                      label='Dung tích chết(triệu m3)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.dungTichChet || ''}
@@ -797,7 +797,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                     <TextField
                       size='small'
                       type='text'
-                      label='Dung tích hữu ích'
+                      label='Dung tích hữu ích(triệu m3)'
                       fullWidth
                       placeholder=''
                       value={thongso_ct?.dungTichHuuIch || ''}
@@ -812,7 +812,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                         <TextField
                           size='small'
                           type='text'
-                          label='Mực nước chết'
+                          label='Mực nước chết(m)'
                           fullWidth
                           placeholder=''
                           value={thongso_ct?.mnc || ''}
@@ -823,7 +823,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                         <TextField
                           size='small'
                           type='text'
-                          label='Mực nước dâng bình thường'
+                          label='Mực nước dâng bình thường(m)'
                           fullWidth
                           placeholder=''
                           value={thongso_ct?.mndbt || ''}
@@ -834,7 +834,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                         <TextField
                           size='small'
                           type='text'
-                          label='Mực nước lũ thiết kế'
+                          label='Mực nước lũ thiết kế(m)'
                           fullWidth
                           placeholder=''
                           value={thongso_ct?.mnltk || ''}
@@ -845,7 +845,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                         <TextField
                           size='small'
                           type='text'
-                          label='Mực nước lũ kiểm tra'
+                          label='Mực nước lũ kiểm tra(m)'
                           fullWidth
                           placeholder=''
                           value={thongso_ct?.mnlkt || ''}
@@ -882,7 +882,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   <TextField
                     size='small'
                     type='text'
-                    label='Diện tích tưới thiết kế'
+                    label='Diện tích tưới thiết kế(km2)'
                     fullWidth
                     placeholder=''
                     value={thongso_ct?.dienTichTuoiThietKe || ''}
@@ -904,7 +904,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   <TextField
                     size='small'
                     type='text'
-                    label='Lưu lượng thiết kế'
+                    label='Lưu lượng thiết kế(m3/s)'
                     fullWidth
                     placeholder=''
                     value={thongso_ct?.qThietKe || ''}
@@ -918,7 +918,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   <TextField
                     size='small'
                     type='text'
-                    label='Lưu lượng thực tế'
+                    label='Lưu lượng thực tế(m3/s)'
                     fullWidth
                     placeholder=''
                     value={thongso_ct?.qThucTe || ''}
@@ -959,7 +959,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   <TextField
                     size='small'
                     type='text'
-                    label='Mực nước bể hút'
+                    label='Mực nước bể hút(m)'
                     fullWidth
                     placeholder=''
                     value={thongso_ct?.hBeHut || ''}
@@ -991,7 +991,7 @@ const SurfaceWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   <TextField
                     size='small'
                     type='text'
-                    label='Chiều dài cống'
+                    label='Chiều dài cống(m)'
                     fullWidth
                     placeholder=''
                     value={thongso_ct?.chieuDaiCong || ''}

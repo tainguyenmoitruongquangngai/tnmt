@@ -152,15 +152,16 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
                         if (parentId === "#") {
                           return (
                             <TableCell className={` ${column.pinned ? "sticky-col" : ""} ${column.pinned === "left" ? "start-col" : ""} ${column.pinned === "right" ? "end-col" : ""} `} sx={{ py: 0, minWidth: childColumn.minWidth }} key={`${columnIndex}-${childIndex}`} align={childColumn.align} size='small'>
-                              {childColumn.id === "actions" ? actions && actions(row)
+                              {childColumn.id === "stt" ? (index + 1)  // Hiển thị số thứ tự
                                 : (
                                   typeof childColumn.elm === 'function'
                                     ? childColumn.elm(row)
                                     : (childColumn.format
                                       ? childColumn.format(row[childColumn.id])
-                                      : row[childColumn.id])
+                                      : row[childColumn.id] == null ? "—" : row[childColumn.id])
                                 )}
                             </TableCell>
+
                           )
                         } else {
                           return (
@@ -174,7 +175,7 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
                                           <p>
                                             {typeof childColumn.elm === 'function' ? childColumn.elm(e)
                                               : (childColumn.format ? childColumn.format(e[childColumn.id])
-                                                : e[childColumn.id])
+                                                : e[childColumn.id] == null ? "—" : e[childColumn.id])
                                             }
                                           </p>
                                         ) : (
@@ -182,7 +183,7 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
                                             ? childColumn.elm(e)
                                             : (childColumn.format
                                               ? childColumn.format(e[childColumn.id])
-                                              : e[childColumn.id])
+                                              : e[childColumn.id] == null ? "—" : e[childColumn.id])
                                         )}
                                       </div>
                                     ))
@@ -195,7 +196,7 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
                                     ? childColumn.elm(rowValue)
                                     : childColumn.format
                                       ? childColumn.format(rowValue[childColumn.id])
-                                      : rowValue[childColumn.id]
+                                      : rowValue[childColumn.id] == null ? "—" : rowValue[childColumn.id]
                                 ) : (rowValue)
                               )}
                             </TableCell>
@@ -215,7 +216,7 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
                                     ? column.format(row[column.id])
                                     : (Array.isArray(row[column.id])
                                       ? row[column.id].join(", ")
-                                      : row[column.id]))
+                                      : row[column.id] == null ? "—" : row[column.id]))
                               )}
                         </TableCell>
                       );
