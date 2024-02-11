@@ -80,6 +80,19 @@ const RiverQuantity = () => {
         }
       ]
     },
+    {
+      id: 'dientich_matnuoc',
+      label: 'Thời gian',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#10', children: [
+            { id: '#10.1', label: '(8)', align: 'left', }
+          ]
+        }
+      ]
+    },
     { id: 'actions', label: '#', rowspan: 3 },
   ]
 
@@ -89,6 +102,9 @@ const RiverQuantity = () => {
       <Header />
 
       <Grid className='_text_center'>
+        <Typography className='font-weight-bold ' variant='h6'>
+          BÁO CÁO
+        </Typography>
         <Typography className='font-weight-bold' variant='body1' textTransform={'uppercase'}>
           KIỂM KÊ CHẤT LƯỢNG NGUỒN NƯỚC MẶT
         </Typography>

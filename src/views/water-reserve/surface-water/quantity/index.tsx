@@ -15,7 +15,7 @@ const QuantitySFWater = () => {
         <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList onChange={handleChange} aria-label="ground water reserve">
-                    <Tab label="Sông suối" value="1" />
+                    <Tab label="Sông, suối" value="1" />
                     <Tab label="Ao,hồ,đầm,phá" value="2" />
                 </TabList>
             </Box>

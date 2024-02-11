@@ -49,7 +49,7 @@ const Lake = () => {
     },
     {
       id: 'ten',
-      label: 'Tên',
+      label: 'Tên hồ chứa',
       align: 'left',
       rowspan: 2,
       minWidth: 100,
@@ -175,11 +175,12 @@ const Lake = () => {
       <Header />
 
       <Grid className='_text_center'>
-        <Typography className='font-weight-bold ' variant='h4'>
+        <Typography className='font-weight-bold ' variant='h6'>
           BÁO CÁO
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
-          Tổng lượng mưa, phân phối lượng mưa trong năm
+          KIỂM KÊ SỐ LƯỢNG NGUỒN NƯỚC MẶT LÀ CÁC AO HỒ, ĐẦM, PHÁ
+          TỈNH QUẢNG NGÃI
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}

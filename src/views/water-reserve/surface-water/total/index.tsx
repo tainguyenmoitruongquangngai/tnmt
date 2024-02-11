@@ -20,6 +20,7 @@ const TotalSFWater = () => {
                     <Tab label="Lưu vực sông liên tỉnh" value="1" />
                     <Tab label="Lưu vực sông nội tỉnh" value="2" />
                     <Tab label="Trạm thủy văn" value="3" />
+                    <Tab label="Tổng dung tích hồ chứa" value="3" />
                 </TabList>
             </Box>
             <TabPanel value="1"><InterprovincialRiverBasin /></TabPanel>
