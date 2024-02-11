@@ -55,13 +55,13 @@ const IntraProvincialRiverBasin = () => {
     },
     {
       id: 'nguonnuoc_kt',
-      label: 'Mùa mưa',
+      label: 'Mùa lũ',
       align: 'left',
       rowspan: 2,
     },
     {
       id: 'nguonnuoc_kt',
-      label: 'Mùa cạn',
+      label: 'Mùa kiệt',
       align: 'left',
       rowspan: 2,
     },
@@ -80,8 +80,11 @@ const IntraProvincialRiverBasin = () => {
       <Header />
 
       <Grid className='_text_center'>
+        <Typography className='font-weight-bold ' variant='h6'>
+          BÁO CÁO
+        </Typography>
         <Typography className='font-weight-bold' variant='body1' textTransform={'uppercase'}>
-          Kiểm kê tổng lượng dòng chảy theo lưu vực sông nội tỉnh
+          Kiểm kê tổng lượng dòng chảy theo lưu vực sông nội tỉnh 
         </Typography>
       </Grid>
       {loading ? (

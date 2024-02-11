@@ -101,7 +101,7 @@ const navigation = (): VerticalNavItemsType => {
           path: '/kiem-ke-tnn/nuoc-mat/so-luong'
         },
         {
-          title: 'Tổng lượng',
+          title: 'Tổng lượng nước mặt',
           path: '/kiem-ke-tnn/nuoc-mat/tong-luong'
         },
         {
@@ -109,7 +109,7 @@ const navigation = (): VerticalNavItemsType => {
           path: '/kiem-ke-tnn/nuoc-mat/chat-luong-nuoc'
         },
         {
-          title: 'Khai thác, sử dụng nước mặt',
+          title: 'KTSD nước mặt',
           path: '/kiem-ke-tnn/nuoc-mat/ktsd-nuoc-mat'
         },
 
