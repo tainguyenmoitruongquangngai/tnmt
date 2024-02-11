@@ -19,6 +19,9 @@ const GroundQuantity = () => {
     <Grid container>
       <Header />
       <Grid item md={12} xs={12} textAlign={'center'} textTransform={'uppercase'}>
+        <Typography className='font-weight-bold ' variant='h6'>
+          BÁO CÁO
+        </Typography>
         <Typography pt={7} pb={4} className='font-weight-bold ' variant='h6'>
           KIỂM KÊ SỐ LƯỢNG NƯỚC DƯỚI ĐẤT
         </Typography>

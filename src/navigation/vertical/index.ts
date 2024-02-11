@@ -80,6 +80,65 @@ const navigation = (): VerticalNavItemsType => {
         }
       ]
     },
+   
+    {
+      title: 'Cấp phép',
+      primaryPath: 'giay-phep',
+      children: [
+        {
+          title: 'QL cấp phép',
+          path: '/giay-phep/quan-ly'
+        },
+        {
+          sectionTitle: 'Nước mặt',
+        },
+        {
+          title: 'Nước mặt',
+          path: '/giay-phep/nuoc-mat'
+        },
+
+        //
+        {
+          sectionTitle: 'Nước dưới đất',
+        },
+        {
+          title: 'Khai thác sử dụng',
+          path: '/giay-phep/nuoc-duoi-dat/khai-thac-su-dung'
+        },
+        {
+          title: 'Thăm dò',
+          path: '/giay-phep/nuoc-duoi-dat/tham-do'
+        },
+        {
+          title: 'Hành nghề khoan',
+          path: '/giay-phep/nuoc-duoi-dat/hanh-nghe-khoan'
+        },
+
+        //
+        {
+          sectionTitle: 'Xả thải',
+        },
+        {
+          title: 'Xả thải',
+          path: '/giay-phep/xa-thai'
+        }
+      ]
+    },
+  
+    {
+      title: 'Tiền cấp quyền',
+      primaryPath: 'tien-cap-quyen',
+      children: [
+        {
+          title: 'Giấy phép Bộ cấp',
+          path: '/tien-cap-quyen/bo-cap'
+        },
+        {
+          title: 'Giấy phép Tỉnh cấp',
+          path: '/tien-cap-quyen/tinh-cap'
+        }
+      ]
+    },
     {
       title: 'Kiểm kê TNN',
       primaryPath: 'kiem-ke-tnn',
@@ -129,69 +188,62 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Chất lượng NDĐ',
           path: '#'
         },
-      ]
-    },
-    {
-      title: 'Giấy phép',
-      primaryPath: 'giay-phep',
-      children: [
         {
-          title: 'QL cấp phép',
-          path: '/giay-phep/quan-ly'
+          sectionTitle: 'KTSD nước biển',
         },
         {
-          sectionTitle: 'Nước mặt',
+          title: 'Nước biển',
+          path: '/kiem-ke-tnn/nuoc-bien'
         },
         {
-          title: 'Nước mặt',
-          path: '/giay-phep/nuoc-mat'
+          sectionTitle: 'Chỉ tiêu xả Nước thải vào NN',
+        },
+        {
+          title: 'Xả nước thải vào NN',
+          path: '/kiem-ke-tnn/xa-nuoc-thai'
         },
 
-        //
-        {
-          sectionTitle: 'Nước dưới đất',
-        },
-        {
-          title: 'Khai thác sử dụng',
-          path: '/giay-phep/nuoc-duoi-dat/khai-thac-su-dung'
-        },
-        {
-          title: 'Thăm dò',
-          path: '/giay-phep/nuoc-duoi-dat/tham-do'
-        },
-        {
-          title: 'Hành nghề khoan',
-          path: '/giay-phep/nuoc-duoi-dat/hanh-nghe-khoan'
-        },
-
-        //
-        {
-          sectionTitle: 'Xả thải',
-        },
-        {
-          title: 'Xả thải',
-          path: '/giay-phep/xa-thai'
-        }
-      ]
-    },
-    {
-      title: 'Tiền cấp quyền',
-      primaryPath: 'tien-cap-quyen',
-      children: [
-        {
-          title: 'Giấy phép Bộ cấp',
-          path: '/tien-cap-quyen/bo-cap'
-        },
-        {
-          title: 'Giấy phép Tỉnh cấp',
-          path: '/tien-cap-quyen/tinh-cap'
-        }
       ]
     },
     {
       title: 'Thông tin - Dữ liệu',
       primaryPath: 'thong-tin-du-lieu',
       children: [
+        {
+          sectionTitle: 'Nguồn nước',
+        },
+        {
+          title: 'Lưu vực sông',
+          path: '/thong-tin-du-lieu/nguon-nuoc/luu-vuc-song'
+        },
+        {
+          title: 'Nguồn nước',
+          path: '/thong-tin-du-lieu/nguon-nuoc/nguon-nuoc'
+        },
+        {
+          title: 'Hành lang bảo vệ NN',
+          path: '/thong-tin-du-lieu/nguon-nuoc/hanh-lang-bao-ve-nguon-nuoc'
+        },
+        {
+          title: 'Chức năng nguồn nước',
+          path: '/thong-tin-du-lieu/nguon-nuoc/chuc-nang-nguon-nuoc'
+        },
+        {
+          title: 'Dòng chảy tối thiểu',
+          path: '/thong-tin-du-lieu/nguon-nuoc/dong-chay-toi-thieu'
+        },
+        {
+          title: 'Ngưỡng khai thác NDĐ',
+          path: '/thong-tin-du-lieu/nguon-nuoc/nguong-khai-thac-NDD'
+        },
+        {
+          title: 'Vùng cấm, vùng hạn chế khai thác NDĐ',
+          path: '/thong-tin-du-lieu/nguon-nuoc/vung-cam-khai-thac-NDD'
+        },
+        {
+          title: 'Mặt cắt sông, suối',
+          path: '/thong-tin-du-lieu/nguon-nuoc/mat-cat-song-suoi'
+        },
         {
           sectionTitle: 'Số lượng, chất lượng nước',
         },

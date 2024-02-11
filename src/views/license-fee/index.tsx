@@ -123,11 +123,11 @@ const LicenseFee = (props: LicenseFeeProps) => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={12} md={12} className='text-center'>
-        <Typography className='font-weight-bold ' variant='h4'>
-          Thống kê
+        <Typography className='font-weight-bold ' variant='h6'>
+          THỐNG KÊ
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
-          KẾT QUẢ THU TIỀN CẤP QUYỀN KHAI THÁC SỬ DỤNG CỦA BỘ
+          KẾT QUẢ THU TIỀN CẤP QUYỀN KHAI THÁC SỬ DỤNG NƯỚC CỦA CÁC CÔNG TRÌNH DO BỘ CẤP PHÉP
         </Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={12}>
