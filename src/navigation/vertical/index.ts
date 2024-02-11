@@ -10,7 +10,7 @@ import { Functions, PeopleAltOutlined, Tv } from '@mui/icons-material';
 const navigation = (): VerticalNavItemsType => {
   return [
     {
-      title: 'Trang chủ',
+      title: 'TRANG CHỦ',
       icon: HomeOutline,
       path: '/'
     },
