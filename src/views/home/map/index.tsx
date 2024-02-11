@@ -90,10 +90,10 @@ const HomeMap = () => {
                 item['loaiCT']?.['maLoaiCT']?.toString().toLowerCase().includes(keyword.toLowerCase())
             )
         );
+
         setDataFiltered(filteredData);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initConsType, resData]);
-
 
     return (
         <Paper elevation={3} sx={{ position: 'relative', height: 'calc(100vh - 170px)' }}>
@@ -105,9 +105,9 @@ const HomeMap = () => {
                     <MapLegend onChange={handleConsTypeChange} />
                 </Box>
             </Fade>
-            
+
             <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
-                {selected ? <KeyboardDoubleArrowDown/> : <KeyboardDoubleArrowUp/>}
+                {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
             </Button>
             <Map center={mapCenter} zoom={mapZoom} mapData={dataFiltered} loading={loading} />
         </Paper>

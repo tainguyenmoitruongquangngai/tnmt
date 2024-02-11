@@ -20,9 +20,9 @@ const River = () => {
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
   const [postSuccess, setPostSuccess] = useState(false);
-    const handlePostSuccess = () => {
-        setPostSuccess(prevState => !prevState);
-    };
+  const handlePostSuccess = () => {
+    setPostSuccess(prevState => !prevState);
+  };
   useEffect(() => {
     async function getDataRiver() {
       setLoading(true)
@@ -49,8 +49,8 @@ const River = () => {
       rowspan: 3
     },
     {
-      id: 'ten',
-      label: 'Tên',
+      id: 'maSong',
+      label: 'Mã sông',
       align: 'left',
       rowspan: 2,
       minWidth: 100,
@@ -62,8 +62,8 @@ const River = () => {
       ]
     },
     {
-      id: 'nguonNuocKhaiThac',
-      label: 'Nguồn nước khai thác',
+      id: 'tenSong',
+      label: 'Tên sông',
       align: 'left',
       rowspan: 2,
       children: [
@@ -74,8 +74,8 @@ const River = () => {
       ]
     },
     {
-      id: 'thuocHeThongSong',
-      label: 'Thuộc hệ thống sông ',
+      id: 'chayRa',
+      label: 'Chảy ra',
       align: 'left',
       rowspan: 2,
       children: [
@@ -86,8 +86,8 @@ const River = () => {
       ]
     },
     {
-      id: 'dienTichMatNuoc',
-      label: 'Diện tích mặt nước(m2)',
+      id: 'chieuDai',
+      label: 'Chiều dài(km)',
       align: 'left',
       rowspan: 2,
       children: [
@@ -98,8 +98,8 @@ const River = () => {
       ]
     },
     {
-      id: 'dungTichToanBo',
-      label: 'Dung tích toàn bộ(triệu/m3)',
+      id: 'chieuDaiThuocTinh_ThanhPho',
+      label: 'Chiều dài thuộc tỉnh, thành phố (km)',
       align: 'left',
       rowspan: 2,
       children: [
@@ -110,50 +110,59 @@ const River = () => {
       ]
     },
     {
-      id: 'dungTichHuuIch',
-      label: 'Dung tích hữu ích(triệu/m3)',
+      id: '#',
+      label: 'Vị trí đầu sông',
       align: 'left',
-      rowspan: 2,
       children: [
         {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
+          id: 'dauSongX',
+          label: 'X',
+          align: 'left',
+          minWidth: 150,
+          children: [{ id: '#8.1', label: '(7)', align: 'left' }]
+        },
+        {
+          id: 'dauSongY',
+          label: 'Y',
+          align: 'left',
+          minWidth: 150,
+          children: [{ id: '#9.1', label: '(8)', align: 'left' }]
+        },
+        {
+          id: 'dauSongXaHuyenTinh',
+          label: 'Xã',
+          align: 'left',
+          minWidth: 150,
+          children: [{ id: '#8.1', label: '(7)', align: 'left' }]
+        },
       ]
     },
     {
       id: '#',
-      label: 'Vị trí hành chính',
+      label: 'Vị trí cuối sông',
       align: 'left',
       children: [
         {
-          id: 'xa',
-          label: 'Xã',
+          id: 'cuoiSongX',
+          label: 'X',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
           children: [{ id: '#8.1', label: '(7)', align: 'left' }]
         },
         {
-          id: 'huyen',
-          label: 'Huyện',
+          id: 'cuoiSongY',
+          label: 'Y',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
           children: [{ id: '#9.1', label: '(8)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'mucDichSuDung',
-      label: 'Mục đích sử dụng',
-      align: 'left',
-      rowspan: 2,
-      children: [
+        },
         {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
+          id: 'cuoiSongXaHuyenTinh',
+          label: 'Xã',
+          align: 'left',
+          minWidth: 150,
+          children: [{ id: '#8.1', label: '(7)', align: 'left' }]
+        },
       ]
     },
     {
@@ -168,7 +177,7 @@ const River = () => {
         }
       ]
     },
-    { id: 'actions', label: 'Thao tác', minWidth: 150,rowspan: 3 }
+    { id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
 
   return (
@@ -201,7 +210,7 @@ const River = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-           <RiverToolBar onExport={{ data: data, column: columnsTable }}/>
+          <RiverToolBar onExport={{ data: data, column: columnsTable }} />
           <TableComponent
             columns={columnsTable}
             rows={data}
