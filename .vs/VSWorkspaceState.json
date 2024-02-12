@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\navigation",
+    "\\src\\navigation\\vertical",
+    "\\src\\pages",
+    "\\src\\pages\\kiem-ke-tnn\\nuoc-duoi-dat",
+    "\\src\\pages\\tables",
     "\\src\\views",
-    "\\src\\views\\data-information",
-    "\\src\\views\\data-information\\qualitywater",
-    "\\src\\views\\data-information\\quantitywater",
-    "\\src\\views\\water-reserve\\surface-water",
-    "\\src\\views\\water-reserve\\surface-water\\waterquality",
-    "\\styles"
+    "\\src\\views\\receive-wastewater",
+    "\\src\\views\\receive-wastewater\\lake",
+    "\\src\\views\\receive-wastewater\\lake\\specification-cln"
   ],
   "SelectedNode": "\\src\\navigation\\vertical\\index.ts",
   "PreviewInSolutionExplorer": false
