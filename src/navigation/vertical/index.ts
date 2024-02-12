@@ -5,8 +5,8 @@ import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 // ** Type import
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
 import { Functions, PeopleAltOutlined, Tv } from '@mui/icons-material';
-const navigation = (): VerticalNavItemsType => {
 
+const navigation = (): VerticalNavItemsType => {
   return [
     {
       title: 'TRANG CHỦ',
@@ -331,6 +331,7 @@ const navigation = (): VerticalNavItemsType => {
         },
       ]
     },
+    
     //
     {
       title: 'Nước dưới đất',
