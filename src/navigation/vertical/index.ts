@@ -385,11 +385,11 @@ const navigation = (): VerticalNavItemsType => {
     sectionTitle: 'KNTN NƯỚC THẢI',
   },
   {
-    title: 'Nguồn nước sông, suối',
+    title: 'KNTN nước thải sông, suối',
     primaryPath: 'kn-tiep-nhan-nuoc-thai',
     children: [
        {
-        title: 'CLN theo QCVN_08_2023',
+        title: 'QCVN_08_2023',
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/cln'
         },
       {
@@ -397,11 +397,19 @@ const navigation = (): VerticalNavItemsType => {
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/phan-doan-song'
         },
       {
-        title: 'Thông tin nguồn thải',
+        title: 'Nguồn thải điểm',
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai'
         },
+        {
+          title: 'Nguồn thải diện',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai-dien'
+          }, 
+          {
+            title: 'Nguồn thải tự nhiên',
+            path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai-tu-nhien'
+            },
       {
-        title: 'Thông tin nguồn TNNT ',
+        title: 'Nguồn tiếp nhận NT ',
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nhan-nuoc-thai'
         },
       {
@@ -417,7 +425,7 @@ const navigation = (): VerticalNavItemsType => {
    
 
     {
-      title: 'Nguồn nước ao, hồ',
+      title: 'KNTN nước thải ao, hồ',
       primaryPath: 'kn-tiep-nhan-nuoc-thai-ao-ho',
       children: [
 

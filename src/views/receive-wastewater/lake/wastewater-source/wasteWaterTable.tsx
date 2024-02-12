@@ -1,8 +1,14 @@
 import Paper from '@mui/material/Paper'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 
+
+
+  
+
+
 const WasteTable = () => {
   return (
+
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead className='tableHead'>
@@ -11,20 +17,23 @@ const WasteTable = () => {
               STT
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
+              Sông
+            </TableCell>
+            <TableCell size='small' align='center' rowSpan={2}>
               Tên đoạn <br />
               sông
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
-              Thuộc lưu
+              Chiều dài
               <br />
-              vực sông
+              km
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
-              Tên công trình
+              Tên CT xả thải
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
-              Địa chỉ
-            </TableCell>
+              Địa điểm xả thải
+              </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
               Loại hình <br />
               nước thải
@@ -32,7 +41,7 @@ const WasteTable = () => {
             <TableCell size='small' align='center' rowSpan={2}>
               Số
               <br />
-              GP
+              GP xả thải
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
               Nguồn tiếp nhận <br />
