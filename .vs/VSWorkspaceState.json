@@ -2,17 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\pages\\kiem-ke-tnn",
-    "\\src\\pages\\kiem-ke-tnn\\nuoc-mat",
-    "\\src\\pages\\kiem-ke-tnn\\nuoc-mat\\tong-luong",
+    "\\src\\navigation",
     "\\src\\views",
-    "\\src\\views\\measuresing",
-    "\\src\\views\\river",
-    "\\src\\views\\water-reserve",
-    "\\src\\views\\water-reserve\\ground-water",
+    "\\src\\views\\data-information",
+    "\\src\\views\\data-information\\qualitywater",
+    "\\src\\views\\data-information\\quantitywater",
     "\\src\\views\\water-reserve\\surface-water",
-    "\\src\\views\\water-reserve\\surface-water\\waterquality"
+    "\\src\\views\\water-reserve\\surface-water\\waterquality",
+    "\\styles"
   ],
-  "SelectedNode": "\\src\\views\\water-reserve\\surface-water\\waterquality\\index.tsx",
+  "SelectedNode": "\\src\\navigation\\vertical\\index.ts",
   "PreviewInSolutionExplorer": false
 }
