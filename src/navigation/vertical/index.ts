@@ -397,19 +397,16 @@ const navigation = (): VerticalNavItemsType => {
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/phan-doan-song'
         },
       {
-        title: 'Nguồn thải điểm',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai'
+        title: 'Dữ liệu nguồn nước nhận',
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-nhan'
         },
         {
-          title: 'Nguồn thải diện',
+          title: 'Dữ liệu nguồn nước thải ',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai-dien'
           }, 
-          {
-            title: 'Nguồn thải tự nhiên',
-            path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai-tu-nhien'
-            },
+          
       {
-        title: 'Nguồn tiếp nhận NT ',
+        title: 'Tải lượng ô nhiễm ',
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nhan-nuoc-thai'
         },
       {
@@ -417,7 +414,7 @@ const navigation = (): VerticalNavItemsType => {
         path: '#'
         },
       {
-        title: 'Tính dự báo KNTNNT sông,suối',
+        title: 'Dự báo KNTNNT sông,suối',
         path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-bao-kntnnt'
         },
     ]
