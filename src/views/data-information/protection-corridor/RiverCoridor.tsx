@@ -5,7 +5,7 @@ const CorridorRiver = () => {
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-        Thống kê nguồn nước mặt nội tỉnh thuộc các sông suối tỉnh Quảng Ngãi
+        Thống kê hành lang bảo vệ nguồn nước đối với sông suối tỉnh Quảng Ngãi
         </Typography>
       </Grid>
     <Button variant='outlined'>Thêm mới</Button>

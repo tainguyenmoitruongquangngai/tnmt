@@ -29,7 +29,16 @@ const CorridorLake = () => {
                   STT
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Tên
+                  Tên hồ chứa
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Nguồn nước
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Thuộc lưu vực sông
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Diện tích mặt nước (km2)
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Xã/ Phường/ Thị trấn
@@ -38,11 +47,25 @@ const CorridorLake = () => {
                   Huyện/ Thành phố
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Dung tích hồ
-                  <br />
-                  10
-                  <sup />
-                  6m3
+                  Dung tích toàn bộ (triệu m3)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Dung tích hữu ích (triệu m3)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Dung tích phòng lũ (triệu m3)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                MNDBT (m)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                MNC (m)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Năm xây dựng
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Đơn vị quản lý vận hành
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Phạm vi hành lang

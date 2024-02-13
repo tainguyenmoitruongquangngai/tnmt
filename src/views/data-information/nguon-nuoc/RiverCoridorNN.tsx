@@ -5,7 +5,7 @@ const CorridorRiver = () => {
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-        Thống kê nguồn nước mặt nội tỉnh thuộc các sông suối tỉnh Quảng Ngãi
+        Thống kê danh mục nguồn nước thuộc các sông suối tỉnh Quảng Ngãi
         </Typography>
       </Grid>
     <Button variant='outlined'>Thêm mới</Button>
@@ -18,10 +18,16 @@ const CorridorRiver = () => {
                 STT
               </TableCell>
               <TableCell size='small' align='center' rowSpan={2}>
-                Đoạn sông
+                Mã sông
               </TableCell>
               <TableCell size='small' align='center' rowSpan={2}>
-                Chiều dài
+                Tên sông, suối
+              </TableCell>
+              <TableCell size='small' align='center' rowSpan={2}>
+                Chảy ra
+              </TableCell>
+              <TableCell size='small' align='center' rowSpan={2}>
+                Chiều dài (km)
               </TableCell>
               <TableCell size='small' align='center' rowSpan={2}>
                Địa phận hành chính
