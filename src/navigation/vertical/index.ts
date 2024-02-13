@@ -160,7 +160,7 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Hành lang bảo vệ NN',
-          path: '/thong-tin-du-lieu/hanh-lang-bao-ve-nguon-nuoc'
+          path: '/thong-tin-du-lieu/nguon-nuoc/hanh-lang-bao-ve-nguon-nuoc'
         },
         {
           title: 'Chức năng nguồn nước',
