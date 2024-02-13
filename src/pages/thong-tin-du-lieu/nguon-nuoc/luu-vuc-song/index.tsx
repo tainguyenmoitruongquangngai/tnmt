@@ -1,5 +1,6 @@
+import LuuVucSongPage from "src/views/data-information/luu-vuc-song"
 
-const LuuVucSong = () => <>THÔNG TIN DỮ LIỆU VỀ LƯU VỰC SÔNG</>
+const LuuVucSong = () => < LuuVucSongPage />
 
 
 export default LuuVucSong 
