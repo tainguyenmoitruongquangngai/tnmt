@@ -1,11 +1,4 @@
 import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
-import { useEffect, useState } from 'react'
-import BoxLoading from 'src/@core/components/box-loading'
-import loading from 'src/@core/components/loading'
-import { getData } from 'src/api/axios'
-import CreateReport4 from 'src/views/report-form/Bieumau4/CreateForm4'
-import { Report4State } from 'src/views/report-form/Bieumau4/Report4Interface'
-import Report4Table from 'src/views/report-form/Bieumau4/Report4Table'
 
 const LuuVucSongPage = () => {
    
