@@ -2,7 +2,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
 import DongChayToiThieuSongPage from "./DongChayToiThieuSong";
-import DongChayToiThieuSongHo from "./DongChayToiThieuHo";
+import DongChayToiThieuHo from "./DongChayToiThieuHo";
 
 const DongChayToiThieu = () => {
     const [value, setValue] = useState('1');
@@ -22,7 +22,7 @@ const DongChayToiThieu = () => {
                 </TabList>
             </Box>
             <TabPanel value="1"><DongChayToiThieuSongPage  /></TabPanel>
-            <TabPanel value="2"><DongChayToiThieuSongHo /></TabPanel>
+            <TabPanel value="2"><DongChayToiThieuHo /></TabPanel>
            
            
         </TabContext>
