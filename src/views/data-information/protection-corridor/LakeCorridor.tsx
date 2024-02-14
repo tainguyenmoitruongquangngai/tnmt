@@ -13,6 +13,7 @@ import {
 
 const CorridorLake = () => {
   return (
+    
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>

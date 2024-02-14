@@ -5,6 +5,9 @@ const LuuVucSongPage = () => {
         return (
           <Grid>
             <Grid className='_text_center'>
+            <Typography className='font-weight-bold ' variant='h6'>
+          BÁO CÁO
+        </Typography>
               <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
              THÔNG TIN DỮ LIỆU VỀ LƯU VỰC SÔNG TỈNH QUẢNG NGÃI
               </Typography>

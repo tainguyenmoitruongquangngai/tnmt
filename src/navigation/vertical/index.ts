@@ -176,11 +176,11 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Ngưỡng khai thác NDĐ',
-          path: '/thong-tin-du-lieu/nguon-nuoc/nguong-khai-thac-NDD'
+          path: '/thong-tin-du-lieu/nguong-khai-thac-nuoc-duoi-dat'
         },
         {
           title: 'Vùng cấm, hạn chế KTNDĐ',
-          path: '/thong-tin-du-lieu/nguon-nuoc/vung-cam-khai-thac-NDD'
+          path: '/thong-tin-du-lieu/vung-cam-KT-nuoc-duoi-dat'
         },
         {
           title: 'Mặt cắt sông, suối',

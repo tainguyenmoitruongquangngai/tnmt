@@ -1,18 +1,23 @@
+
 import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 
-const AoKhongSanLap = () => {
+const NguongKTNuocDuoiDat = () => {
    
         return (
           <Grid>
+           
             <Grid className='_text_center'>
             <Typography className='font-weight-bold ' variant='h6'>
           BÁO CÁO
         </Typography>
+
               <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-             THÔNG TIN DỮ LIỆU VỀ HỒ, AO, ĐẦM, PHÁ KHÔNG ĐƯỢC SAN LẤP TỈNH QUẢNG NGÃI
+             THÔNG TIN DỮ LIỆU VỀ NGƯỠNG KHAI THÁC NƯỚC DƯỚI ĐẤT TỈNH QUẢNG NGÃI
               </Typography>
             </Grid>
-      
+            <Typography className='font-weight-bold ' variant='h6'>
+     
+        </Typography>
             <Grid className='_text_center' sx={{ mt: 3 }}>
             <TableContainer component={Paper} sx={{ mt: 5 }}>
               <Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -22,54 +27,34 @@ const AoKhongSanLap = () => {
                       STT
                     </TableCell>
                     <TableCell size='small' align='center' >
-                      Tên hồ chứa
+                      Tên tầng chứa nước
                     </TableCell>
                     <TableCell size='small' align='center' >
-                   Xã
+                      Loại chứa nước (lỗ hổng, khe nứt)
                     </TableCell>
-                    <TableCell size='small' align='center'>
+                    <TableCell size='small' align='center' >
+                     Xã
+                    </TableCell>
+                    <TableCell size='small' align='center' >
                     Huyện
                     </TableCell>
-                    
                     <TableCell size='small' align='center' >
-                      Nguồn nước
-                    </TableCell>
-                    <TableCell size='small' align='center' >
-                      Thuộc lưu vực sông 
-                    </TableCell>
-                    <TableCell size='small' align='center' >
-                      Loại hình chức năng 
-                    </TableCell>
-                    <TableCell size='small' align='center' >
-                    Diện tích mặt nước (km2)
-                    </TableCell>
-                    
-                    <TableCell size='small' align='center'>
-                    Dung tích toàn bộ (triệu m3)
+                   Tỉnh/ Thành phố
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Dung tích hữu ích (triệu m3)
+                    Diện tích phân bố (km2)
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Dung tích phòng lũ (triệu m3)
+                    Khoảng chiều sâu phân bố (m)
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Mực nước dâng bình thường (m)
+                    Ngưỡng GHKT về lưu lượng (m3/ngày đêm)
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Mực nước chết (m)
+                    Ngưỡng GHKT về mực nước (m)
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Năm hoàn thành
-                    </TableCell>
-                    <TableCell size='small' align='center'>
-                    Đơn vị quản lý vận hành
-                    </TableCell>
-                    <TableCell size='small' align='center'>
-                    Thuộc danh mục không san lấp
-                    </TableCell>
-                    <TableCell size='small' align='center'>
-                    Quyết định
+                    QĐ phê duyệt ngưỡng giới hạn KT
                     </TableCell>
                     <TableCell size='small' align='center' >
                       Ghi chú
@@ -104,4 +89,4 @@ const AoKhongSanLap = () => {
         )
       }
 
-export default AoKhongSanLap
+export default NguongKTNuocDuoiDat
