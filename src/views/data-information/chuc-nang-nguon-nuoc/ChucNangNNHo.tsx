@@ -11,12 +11,12 @@ import {
   Typography
 } from '@mui/material'
 
-const CorridorLake = () => {
+const ChucNangNguonNuocHo = () => {
   return (
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-          Thống kê hành lang bảo vệ nguồn nước đối với ao, hồ, đầm tự nhiên tỉnh Quảng Ngãi
+        Thống kê chức năng nguồn nước hồ, ao, đầm, phá tỉnh Quảng Ngãi
         </Typography>
       </Grid>
       <Button variant='outlined'>Thêm mới</Button>
@@ -29,7 +29,10 @@ const CorridorLake = () => {
                   STT
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Tên
+                  Tên hồ chứa
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Thuộc lưu vực sông
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Xã/ Phường/ Thị trấn
@@ -38,17 +41,25 @@ const CorridorLake = () => {
                   Huyện/ Thành phố
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Dung tích hồ
-                  <br />
-                  10
-                  <sup />
-                  6m3
+                Diện tích mặt nước (km2)
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Phạm vi hành lang
+                  Dung tích toàn bộ (triệu m3)
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Thuộc diện cắm mốc hành lang
+                Dung tích hữu ích (triệu m3)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Năm hoàn thành
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Đơn vị quản lý vận hành
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Chức năng nguồn nước
+                </TableCell>
+                <TableCell size='small' align='center'>
+               Mục tiêu chất lượng
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Thao tác
@@ -75,4 +86,4 @@ const CorridorLake = () => {
   )
 }
 
-export default CorridorLake
+export default ChucNangNguonNuocHo

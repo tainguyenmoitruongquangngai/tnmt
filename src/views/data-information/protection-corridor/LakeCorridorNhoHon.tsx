@@ -16,7 +16,7 @@ const CorridorLake = () => {
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-          Thống kê hành lang bảo vệ nguồn nước đối với ao, hồ, đầm tự nhiên tỉnh Quảng Ngãi
+          Thống kê hành lang bảo vệ nguồn nước đối với hồ chứa nhỏ hơn 1 triệu m3 tỉnh Quảng Ngãi
         </Typography>
       </Grid>
       <Button variant='outlined'>Thêm mới</Button>

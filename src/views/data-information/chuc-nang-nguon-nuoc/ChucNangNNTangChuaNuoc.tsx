@@ -11,12 +11,12 @@ import {
   Typography
 } from '@mui/material'
 
-const CorridorLake = () => {
+const ChucNangNguonNuocTangCN  = () => {
   return (
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-          Thống kê hành lang bảo vệ nguồn nước đối với ao, hồ, đầm tự nhiên tỉnh Quảng Ngãi
+        Thống kê chức năng nguồn nước là các tầng chứa nước tỉnh Quảng Ngãi
         </Typography>
       </Grid>
       <Button variant='outlined'>Thêm mới</Button>
@@ -29,7 +29,7 @@ const CorridorLake = () => {
                   STT
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Tên
+                  Vị trí, phạm vi quy định chức năng nguồn nước
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Xã/ Phường/ Thị trấn
@@ -38,17 +38,19 @@ const CorridorLake = () => {
                   Huyện/ Thành phố
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Dung tích hồ
-                  <br />
-                  10
-                  <sup />
-                  6m3
+                 Tên tầng chứa nước
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Phạm vi hành lang
+                  Loại chứa nước (lỗ hổng, khe nứt)
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Thuộc diện cắm mốc hành lang
+                  Chiều sâu phân bố (m)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Chức năng nguồn nước
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Mục tiêu chất lượng nước
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Thao tác
@@ -75,4 +77,4 @@ const CorridorLake = () => {
   )
 }
 
-export default CorridorLake
+export default ChucNangNguonNuocTangCN  

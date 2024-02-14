@@ -41,6 +41,7 @@ const CorridorRiver = () => {
               <TableCell size='small' align='center'colSpan={2}>
                Tọa độ điểm cuối
               </TableCell>
+              
               <TableCell size='small' align='center' rowSpan={2}>
                Chức năng
               </TableCell>

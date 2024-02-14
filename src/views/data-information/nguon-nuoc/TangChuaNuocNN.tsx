@@ -11,12 +11,12 @@ import {
   Typography
 } from '@mui/material'
 
-const CorridorLake = () => {
+const TangChuaNuoc = () => {
   return (
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-          Thống kê hành lang bảo vệ nguồn nước đối với ao, hồ, đầm tự nhiên tỉnh Quảng Ngãi
+          Thống kê thông tin dữ liệu về nguồn nước là các tầng chứa nước tỉnh Quảng Ngãi
         </Typography>
       </Grid>
       <Button variant='outlined'>Thêm mới</Button>
@@ -29,7 +29,13 @@ const CorridorLake = () => {
                   STT
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Tên
+                  Tên tầng chứa nước
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Loại chứa nước (lổ hổng, khe nứt)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Thuộc lưu vực sông
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Xã/ Phường/ Thị trấn
@@ -38,18 +44,12 @@ const CorridorLake = () => {
                   Huyện/ Thành phố
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Dung tích hồ
-                  <br />
-                  10
-                  <sup />
-                  6m3
+                  Diện tích phân bố (km2)
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Phạm vi hành lang
+                Khoảng chiều sâu phân bố (m)
                 </TableCell>
-                <TableCell size='small' align='center'>
-                  Thuộc diện cắm mốc hành lang
-                </TableCell>
+                
                 <TableCell size='small' align='center'>
                   Thao tác
                 </TableCell>
@@ -75,4 +75,4 @@ const CorridorLake = () => {
   )
 }
 
-export default CorridorLake
+export default TangChuaNuoc

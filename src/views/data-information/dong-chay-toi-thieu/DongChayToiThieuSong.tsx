@@ -11,12 +11,12 @@ import {
   Typography
 } from '@mui/material'
 
-const CorridorLake = () => {
+const DongChayToiThieuSongPage = () => {
   return (
     <Grid>
       <Grid className='_text_center'>
         <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-          Thống kê hành lang bảo vệ nguồn nước đối với ao, hồ, đầm tự nhiên tỉnh Quảng Ngãi
+        Thống kê giá trị dòng chảy tối thiểu sông, suối tỉnh Quảng Ngãi
         </Typography>
       </Grid>
       <Button variant='outlined'>Thêm mới</Button>
@@ -29,7 +29,13 @@ const CorridorLake = () => {
                   STT
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Tên
+                  Tên sông
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Thuộc lưu vực sông
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  Tên điểm 
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Xã/ Phường/ Thị trấn
@@ -38,18 +44,18 @@ const CorridorLake = () => {
                   Huyện/ Thành phố
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Dung tích hồ
-                  <br />
-                  10
-                  <sup />
-                  6m3
+                  Tọa độ X
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Phạm vi hành lang
+                Tọa độ Y
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Thuộc diện cắm mốc hành lang
+                  Diện tích đến vị trí xác định Qtt (km2)
                 </TableCell>
+                <TableCell size='small' align='center'>
+                Qtt (m3/s)
+                </TableCell>
+                
                 <TableCell size='small' align='center'>
                   Thao tác
                 </TableCell>
@@ -75,4 +81,4 @@ const CorridorLake = () => {
   )
 }
 
-export default CorridorLake
+export default DongChayToiThieuSongPage

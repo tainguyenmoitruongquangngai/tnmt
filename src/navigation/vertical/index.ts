@@ -159,6 +159,10 @@ const navigation = (): VerticalNavItemsType => {
           path: '/thong-tin-du-lieu/nguon-nuoc/nguon-nuoc'
         },
         {
+          title: 'Ao, hồ đầm phá không được san lấp',
+          path: '/thong-tin-du-lieu/ao-khong-san-lap'
+        },
+        {
           title: 'Hành lang bảo vệ NN',
           path: '/thong-tin-du-lieu/nguon-nuoc/hanh-lang-bao-ve-nguon-nuoc'
         },
@@ -168,7 +172,7 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Dòng chảy tối thiểu',
-          path: '/thong-tin-du-lieu/nguon-nuoc/dong-chay-toi-thieu'
+          path: '/thong-tin-du-lieu/dong-chay-toi-thieu'
         },
         {
           title: 'Ngưỡng khai thác NDĐ',
