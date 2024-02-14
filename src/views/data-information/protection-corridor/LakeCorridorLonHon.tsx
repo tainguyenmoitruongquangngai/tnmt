@@ -11,7 +11,7 @@ import {
   Typography
 } from '@mui/material'
 
-const CorridorLake = () => {
+const CorridorLakelonhon = () => {
   return (
     <Grid>
       <Grid className='_text_center'>
@@ -75,4 +75,4 @@ const CorridorLake = () => {
   )
 }
 
-export default CorridorLake
+export default CorridorLakelonhon

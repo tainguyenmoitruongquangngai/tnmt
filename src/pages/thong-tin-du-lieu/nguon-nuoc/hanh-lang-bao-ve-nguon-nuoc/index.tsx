@@ -1,5 +1,5 @@
 import CategoryCorridor from "src/views/data-information/protection-corridor"
 
-const QuaityPages = () => <CategoryCorridor />
+const HanhLangBaoVeNguonNuocPages = () => <CategoryCorridor />
 
-export default QuaityPages
+export default HanhLangBaoVeNguonNuocPages
