@@ -5,6 +5,7 @@ import CorridorRiver from "./RiverCoridor";
 import CorridorLakeNhoHon from "./LakeCorridorNhoHon";
 import CorridorLakeLonHon from "./LakeCorridorLonHon";
 import CorridorLake from "./LakeCorridor";
+
 const CategoryCorridor = () => {
     const [value, setValue] = useState('1');
 
