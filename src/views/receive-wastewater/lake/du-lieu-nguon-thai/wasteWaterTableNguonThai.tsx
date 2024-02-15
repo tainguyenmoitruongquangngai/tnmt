@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
   
 
 
-const WasteTable = () => {
+const NguonThaiCLN = () => {
   return (
 
     <TableContainer component={Paper}>
@@ -34,7 +34,7 @@ const WasteTable = () => {
             Lưu lượng  <br /> dòng chảy  <br /> Qs  <br /> (m3/s)
             </TableCell>
             <TableCell size='small' align='center' colSpan={7}>
-            KẾT QUẢ PHÂN TÍCH THÔNG SỐ CHẤT LƯỢNG NƯỚC MẶT <br /> Cnn [-]
+            KẾT QUẢ PHÂN TÍCH THÔNG SỐ CHẤT LƯỢNG NƯỚC THẢI HJFHJ  MẶT <br /> Cnn [-]
               </TableCell>
               <TableCell size='small' align='center' colSpan={7}>
               TẢI LƯỢNG Ô NHIỄM NGUỒN NƯỚC HIỆN CÓ <br /> Lnn (kg/ngày) 
@@ -181,4 +181,4 @@ const WasteTable = () => {
   )
 }
 
-export default WasteTable
+export default NguonThaiCLN

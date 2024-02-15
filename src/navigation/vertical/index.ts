@@ -402,11 +402,11 @@ const navigation = (): VerticalNavItemsType => {
         },
       {
         title: 'Dữ liệu nguồn nước nhận',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-nhan'
-        },
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-lieu-nguon-nhan'
+      },
         {
           title: 'Dữ liệu nguồn nước thải ',
-          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nguon-thai-dien'
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-lieu-nguon-thai'
           }, 
           
       {
