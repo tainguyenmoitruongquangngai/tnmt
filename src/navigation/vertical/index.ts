@@ -184,7 +184,7 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Mặt cắt sông, suối',
-          path: '/thong-tin-du-lieu/nguon-nuoc/mat-cat-song-suoi'
+          path: '/thong-tin-du-lieu/mat-cat-song-suoi'
         },
         {
           sectionTitle: 'Số lượng, chất lượng nước',

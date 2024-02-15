@@ -1,18 +1,22 @@
 import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 
-const LuuVucSongPage = () => {
+const MatCatSongSuoi = () => {
    
         return (
           <Grid>
+           
             <Grid className='_text_center'>
             <Typography className='font-weight-bold ' variant='h6'>
           BÁO CÁO
         </Typography>
+
               <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-             THÔNG TIN DỮ LIỆU VỀ LƯU VỰC SÔNG TỈNH QUẢNG NGÃI
+             THÔNG TIN DỮ LIỆU VỀ MẶT CẮT SÔNG SUỐI TỈNH QUẢNG NGÃI
               </Typography>
             </Grid>
-      
+            <Typography className='font-weight-bold ' variant='h6'>
+     
+        </Typography>
             <Grid className='_text_center' sx={{ mt: 3 }}>
             <TableContainer component={Paper} sx={{ mt: 5 }}>
               <Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -22,33 +26,54 @@ const LuuVucSongPage = () => {
                       STT
                     </TableCell>
                     <TableCell size='small' align='center' >
-                      Mã sông
+                      Số hiệu mặt cắt 
                     </TableCell>
                     <TableCell size='small' align='center' >
-                      Cấp sông
+                     Tên sông suối
                     </TableCell>
                     <TableCell size='small' align='center' >
-                      Tên sông, suối
+                     Thuộc lưu vực sông
                     </TableCell>
                     <TableCell size='small' align='center' >
-                    Chảy ra
+                     Tọa độ X bờ trái
                     </TableCell>
                     <TableCell size='small' align='center' >
-                   Chiều dài (km)
+                     Tọa độ Y bờ trái
+                    </TableCell>
+                    <TableCell size='small' align='center' >
+                     Tọa độ X bờ phải
+                    </TableCell>
+                    <TableCell size='small' align='center' >
+                     Tọa độ Y bờ phải
+                    </TableCell>
+                    <TableCell size='small' align='center' >
+                     Xã
+                    </TableCell>
+                    <TableCell size='small' align='center' >
+                    Huyện
+                    </TableCell>
+                    <TableCell size='small' align='center' >
+                   Tỉnh/ Thành phố
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Diện tích <br/> lưu vực <br/> (km2)
+                   Số hiệu điểm
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Tỉnh / Thành phố
+                   Khoảng cách (m)
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Thuộc <br/> lưu vực sông
+                   Cao độ đáy sông (m)
                     </TableCell>
                     <TableCell size='small' align='center'>
-                    Loại <br/> sông, suối 
+                  Thời gian đo 
                     </TableCell>
-                    <TableCell size='small' align='center' >
+                    <TableCell size='small' align='center'>
+                  Mực nước sông (m)
+                    </TableCell>
+                    <TableCell size='small' align='center'>
+                  Đơn vị đo đạc khảo sát
+                    </TableCell>
+                <TableCell size='small' align='center' >
                       Ghi chú
                     </TableCell>
                     <TableCell size='small' align='center' >
@@ -71,7 +96,7 @@ const LuuVucSongPage = () => {
                     <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
                     <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
                     <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-                    <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
+                   
                   </TableRow>
                 </TableBody>
               </Table>
@@ -81,4 +106,4 @@ const LuuVucSongPage = () => {
         )
       }
 
-export default LuuVucSongPage
+export default MatCatSongSuoi
