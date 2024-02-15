@@ -11,12 +11,12 @@ import {
   Typography
 } from '@mui/material'
 
-const NguonThaiDiem = () => {
+const NguonThaiDien_TrongLua = () => {
   return (
     <Grid>
     <Grid className='_text_center'>
       <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-      THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM CỦA CÁC NGUỒN THẢI ĐIỂM XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
+      THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM TỪ NGUỒN THẢI TRỒNG LÚA XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
       </Typography>
     </Grid>
   <Button variant='outlined'>Thêm mới</Button>
@@ -43,22 +43,18 @@ const NguonThaiDiem = () => {
               (km)
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
-              Nguồn thải <br /> công trình XT 
-            </TableCell>
-            <TableCell size='small' align='center' rowSpan={1} colSpan={2}>
-              Tọa độ vị trí <br /> xả thải <br /> của công trình XT
+              Diện tích trồng lúa <br /> (ha) 
             </TableCell>
             <TableCell size='small' align='center' rowSpan={2}>
-            Lưu lượng  <br /> xả max  <br /> Qxt  <br /> (m3/s)
+            Hệ số suy giảm dọc đường <br /> hay hệ số dòng chảy
             </TableCell>
             <TableCell size='small' align='center' colSpan={7}>
-            KẾT QUẢ PHÂN TÍCH THÔNG SỐ CHẤT LƯỢNG NƯỚC NGUỒN THẢI ĐIỂM <br /> Ct_diem [-]
+            TẢI LƯỢNG Ô NHIỄM (PLU) NGUỒN THẢI DIỆN (TRỒNG LÚA) <br /> (g/ha/ngày)
               </TableCell>
               <TableCell size='small' align='center' colSpan={7}>
-              TẢI LƯỢNG THÔNG SỐ CHẤT LƯỢNG NƯỚC CÓ TRONG NGUỒN THẢI ĐIỂM <br /> Lt_diem (kg/ngày) 
+              TẢI LƯỢNG THÔNG SỐ CHẤT LƯỢNG NƯỚC CÓ TRONG NGUỒN THẢI DIỆN (TRỒNG LÚA) <br /> Lt_dien_trong_lua (kg/ngày) 
               </TableCell>
-
-                      
+                                  
             <TableCell size='small' align='center' rowSpan={2} >
               Ghi chú
             </TableCell>
@@ -68,12 +64,7 @@ const NguonThaiDiem = () => {
           </TableRow>
 
           <TableRow>
-          <TableCell size='small' align='center'>
-                  Tọa độ <br /> X
-              </TableCell> 
-              <TableCell size='small' align='center'>
-                  Tọa độ <br /> Y
-              </TableCell> 
+         
 
 
                 <TableCell size='small' align='center'>
@@ -153,4 +144,4 @@ const NguonThaiDiem = () => {
   )
 }
 
-export default NguonThaiDiem
+export default NguonThaiDien_TrongLua

@@ -4,6 +4,14 @@ import React, { SyntheticEvent } from 'react'
 import { useState } from 'react'
 import NguonThaiDiem from "././NguonThaiDiem";
 import NguonThaiDien_SinhHoat from "././NguonThaiDien_SinhHoat";
+import NguonThaiDien_Trau from "././NguonThaiDien_Trau";
+import NguonThaiDien_Lon from "././NguonThaiDien_Lon";
+import NguonThaiDien_GiaCam from "././NguonThaiDien_GiaCam";
+import NguonThaiDien_TrongLua from "././NguonThaiDien_TrongLua";
+import NguonThaiDien_TrongCayLauNam from "././NguonThaiDien_TrongCayLauNam";
+import NguonThaiDien_TrongRung from "././NguonThaiDien_TrongRung";
+
+
 import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material';
 
 import { Paper, Button, Box, Tab } from '@mui/material'
@@ -35,8 +43,15 @@ const NguonThaiCLN = () => {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} aria-label="ground water reserve">
-              <Tab label="TỔNG LƯỢNG NƯỚC MẶT " value="1" />
-              <Tab label="DÒNG CHẢY TRUNG BÌNH THÁNG, NĂM" value="2" />
+              <Tab label="NGUỒN THẢI ĐIỂM " value="1" />
+              <Tab label="NGUỒN DIỆN: SINH HOẠT" value="2" />
+              <Tab label="NGUỒN DIỆN: GIA SÚC " value="3" />
+              <Tab label="NGUỒN DIỆN: LỢN, GIA SÚC KHÁC " value="4" />
+              <Tab label="NGUỒN DIỆN: GIA CẦM " value="5" />
+              <Tab label="NGUỒN DIỆN: TRỒNG LÚA " value="6" />
+              <Tab label="NGUỒN DIỆN: TRỒNG CÂY LÂU NĂM " value="7" />
+              <Tab label="NGUỒN DIỆN: TRỒNG RỪNG " value="8" />
+
             </TabList>
           </Box>
 
@@ -60,9 +75,90 @@ const NguonThaiCLN = () => {
                 <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
               </Paper>
             </Grid>
-            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDiem /></Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_SinhHoat /></Grid>
             <NguonThaiDien_SinhHoat /></TabPanel>
-        </TabContext>
+        
+       
+        <TabPanel value="3">
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_Trau /></Grid>
+            <NguonThaiDien_Trau />
+            </TabPanel>
+
+            <TabPanel value="4">
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_Lon /></Grid>
+            <NguonThaiDien_Lon />
+            </TabPanel>
+
+            <TabPanel value="5">
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_GiaCam /></Grid>
+            <NguonThaiDien_GiaCam />
+            </TabPanel>
+
+            <TabPanel value="6">
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_TrongLua /></Grid>
+            <NguonThaiDien_TrongLua />
+            </TabPanel>
+
+            <TabPanel value="7">
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_TrongCayLauNam /></Grid>
+            <NguonThaiDien_TrongCayLauNam />
+            </TabPanel>
+
+            <TabPanel value="8">
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid sx={{ height: 'calc(50vh - 82px)' }}><NguonThaiDien_TrongRung /></Grid>
+            <NguonThaiDien_TrongRung />
+            </TabPanel>
+
+
+            </TabContext> 
       </Grid>
     </Grid>
   )

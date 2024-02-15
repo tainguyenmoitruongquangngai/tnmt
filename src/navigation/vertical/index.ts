@@ -411,7 +411,7 @@ const navigation = (): VerticalNavItemsType => {
           
       {
         title: 'Tải lượng ô nhiễm ',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tt-nhan-nuoc-thai'
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tai-luong-o-nhiem'
         },
       {
         title: 'Khả năng TNNT sông,suối',
