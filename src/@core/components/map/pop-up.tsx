@@ -1,16 +1,8 @@
-import { Box, Typography } from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableRow, Paper, Tab } from '@mui/material';
+import { TabContext, TabList, TabPanel} from '@mui/lab';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import MonitoringDataChart from 'src/views/home/monitoring-data';
 
 const MapPopup = ({ popupData }: any) => {
     const router = useRouter();
@@ -510,7 +502,6 @@ const MapPopup = ({ popupData }: any) => {
     return (
         <Box>
             {section == 'cong-trinh' || section == 'giay-phep' ? (
-
                 // Popup content for construction & license */
                 <TableContainer component={Paper} sx={{ height: 200, overFlowY: 'scroll' }} className='cons-info-table'>
                     <Table aria-label="simple table">
@@ -566,9 +557,10 @@ const MapPopup = ({ popupData }: any) => {
                                 </Table>
                             </TableContainer>
                         </TabPanel>
-                        <TabPanel value="2">Item Two</TabPanel>
+                        <TabPanel value="2">
+                            <MonitoringDataChart />
+                        </TabPanel>
                         </TabContext>
-
                     </>
                 )
             }
