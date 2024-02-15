@@ -8,9 +8,8 @@ import Grid from '@mui/material/Unstable_Grid2'
 
 //import dynamic from 'next/dynamic'
 
-
-import KhaNangTiepNhanNuocThaiSong from './wasteWaterReceiTableSong'
 import dynamic from 'next/dynamic';
+import KhaNangTiepNhanNuocThaiSong1 from './wasteWaterReceiTableSong';
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
@@ -51,7 +50,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
         <Map center={mapCenter} zoom={mapZoom} mapData={null} />
       </Grid>
       <Grid xs={12} md={12}>
-       <KhaNangTiepNhanNuocThaiSong/>
+       <KhaNangTiepNhanNuocThaiSong1/>
       </Grid>
     </Grid>
     
