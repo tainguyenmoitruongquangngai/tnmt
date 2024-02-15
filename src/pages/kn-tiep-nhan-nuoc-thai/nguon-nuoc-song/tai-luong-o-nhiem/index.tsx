@@ -1,4 +1,4 @@
-import TaiLuongONhiem from "src/views/receive-wastewater/lake/wastewater-receiving"
+import TaiLuongONhiem from "src/views/receive-wastewater/lake/tai-luong-o-nhiem"
 
 const TaiLuongONhiemCLN = () => <TaiLuongONhiem />
 

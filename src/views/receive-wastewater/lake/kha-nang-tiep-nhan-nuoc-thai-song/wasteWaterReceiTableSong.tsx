@@ -1,7 +1,7 @@
 import Paper from '@mui/material/Paper'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 
-const TaiLuongONhiem = () => {
+const KhaNangTiepNhanNuocThaiSong1 = () => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -148,4 +148,4 @@ const TaiLuongONhiem = () => {
   )
 }
 
-export default TaiLuongONhiem
+export default KhaNangTiepNhanNuocThaiSong1

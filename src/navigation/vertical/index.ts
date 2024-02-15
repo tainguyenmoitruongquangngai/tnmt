@@ -382,8 +382,6 @@ const navigation = (): VerticalNavItemsType => {
    
     
 
-  
-
 
   {
     sectionTitle: 'KNTN NƯỚC THẢI',
@@ -415,7 +413,7 @@ const navigation = (): VerticalNavItemsType => {
         },
       {
         title: 'Khả năng TNNT sông,suối',
-        path: '#'
+        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/kha-nang-tiep-nhan-nuoc-thai-song'
         },
       {
         title: 'Dự báo KNTNNT sông,suối',
