@@ -38,7 +38,7 @@ const CorridorLake = () => {
                   Thuộc lưu vực sông
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Diện tích mặt nước (km2)
+                  Diện tích <br/> mặt nước (km2)
                 </TableCell>
                 <TableCell size='small' align='center'>
                   Xã/ Phường/ Thị trấn
@@ -47,13 +47,13 @@ const CorridorLake = () => {
                   Huyện/ Thành phố
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Dung tích toàn bộ (triệu m3)
+                  Dung tích <br/> toàn bộ (triệu m3)
                 </TableCell>
                 <TableCell size='small' align='center'>
-                Dung tích hữu ích (triệu m3)
+                Dung tích <br/> hữu ích (triệu m3)
                 </TableCell>
                 <TableCell size='small' align='center'>
-                Dung tích phòng lũ (triệu m3)
+                Dung tích <br/> phòng lũ (triệu m3)
                 </TableCell>
                 <TableCell size='small' align='center'>
                 MNDBT (m)
