@@ -1,9 +1,9 @@
-import { ApexOptions } from 'apexcharts';
-import { useEffect, useState } from 'react';
+// import { ApexOptions } from 'apexcharts';
+// import { useEffect, useState } from 'react';
 // import ReactApexChart from 'react-apexcharts';
 import ReactApexcharts from 'src/@core/components/react-apexcharts';
 
-const MonitoringDataChart = ( data:any ) => {
+const MonitoringDataChart = () => {
   const options = {
     series: [{
       name: "Session Duration",

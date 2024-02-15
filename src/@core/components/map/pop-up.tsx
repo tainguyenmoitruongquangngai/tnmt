@@ -461,7 +461,7 @@ const MapPopup = ({ popupData }: any) => {
                 </TableCell>
             </TableRow>
         </TableBody>
-        } else if (data.idLoaiCT == 12) { // Cong
+        } else if (data.idLoaiCT == 12) { 
             return <TableBody>
             <TableRow>
                 <TableCell align='left' sx={{ p: '0 !important' }}>
@@ -502,6 +502,7 @@ const MapPopup = ({ popupData }: any) => {
     return (
         <Box>
             {section == 'cong-trinh' || section == 'giay-phep' ? (
+                
                 // Popup content for construction & license */
                 <TableContainer component={Paper} sx={{ height: 200, overFlowY: 'scroll' }} className='cons-info-table'>
                     <Table aria-label="simple table">
