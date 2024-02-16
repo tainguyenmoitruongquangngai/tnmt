@@ -1,28 +1,22 @@
 import Paper from '@mui/material/Paper'
-import { Grid,  Box, Typography, } from '@mui/material'
+import { Grid,  Box, Typography, IconButton, } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import Header from '../header'
-import Footer from '../footer'
 import { getData } from 'src/api/axios'
 import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import RainWaterToolBar from './toolbar'
-import CreateRainWater from './form'
-import DeleteData from 'src/@core/components/delete-data'
+import Header from '../../../water-reserve/header'
+import Footer from 'src/views/water-reserve/footer'
+import { Delete, Edit } from '@mui/icons-material'
 
-const RainWater = () => {
+const DieuTraNuocMat = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
-  const [postSuccess, setPostSuccess] = useState(false);
-  const handlePostSuccess = () => {
-    setPostSuccess(prevState => !prevState);
-  };
   useEffect(() => {
     async function getDataRainWater() {
       setLoading(true)
@@ -40,7 +34,7 @@ const RainWater = () => {
     }
 
     getDataRainWater()
-  }, [postSuccess, selectedYear])
+  }, [selectedYear])
 
   const columnsTable: TableColumn[] = [
     {
@@ -63,7 +57,7 @@ const RainWater = () => {
     },
     {
       id: 'ngayBatDau',
-      label: 'Năm bắt đầu quan trắc',
+      label: (<>Năm bắt đầu <br /> quan trắc</>),
       align: 'left',
       rowspan: 2,
       children: [
@@ -271,16 +265,15 @@ const RainWater = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-          <RainWaterToolBar onExport={{ data: data, column: columnsTable }} />
           <TableComponent
             columns={columnsTable}
             rows={data}
             loading={loading}
             pagination
-            actions={(row: any) => (
+            actions={() => (
               <Box >
-                <CreateRainWater isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'licensefee'} data={row} setPostSuccess={handlePostSuccess} />
+                <IconButton><Edit /></IconButton>
+                <IconButton><Delete /></IconButton>
               </Box>
             )}
           />
@@ -292,4 +285,4 @@ const RainWater = () => {
   )
 }
 
-export default RainWater
+export default DieuTraNuocMat

@@ -1,8 +1,16 @@
 import Paper from '@mui/material/Paper'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 
 const KhaNangTiepNhanNuocThaiSong1 = () => {
   return (
+    <Box>
+      
+    <Typography align='center' className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
+    THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM CỦA CÁC NGUỒN THẢI ĐIỂM XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
+    </Typography>
+  
+    
+    
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead className='tableHead'>
@@ -125,6 +133,7 @@ const KhaNangTiepNhanNuocThaiSong1 = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </Box>
   )
 }
 

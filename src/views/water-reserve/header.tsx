@@ -7,7 +7,7 @@ const Header = () => {
   const year = currentDate.getFullYear();
 
   return (
-    <Grid className='_space_between' container sx={{ my: 5 }}>
+    <Grid className='_space_between' container sx={{ my: 5, display: 'flex' }}>
       <Grid className='_text_center' item xs={4}>
         <Typography component={'p'} variant='caption'>UBND Tỉnh Quảng Ngãi</Typography>
         <Typography component={'p'} className='font-weight-bold ' variant='caption' fontSize={14}>
