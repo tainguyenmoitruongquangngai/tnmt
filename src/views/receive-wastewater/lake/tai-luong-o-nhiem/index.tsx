@@ -9,7 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 //import dynamic from 'next/dynamic'
 
 
-import WasteReceiveTable from './wasteWaterReceiTable'
+import TaiLuongONhiem from './wasteWaterReceiTable'
 import dynamic from 'next/dynamic';
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
@@ -51,7 +51,7 @@ const WasteWaterReceDetails = () => {
         <Map center={mapCenter} zoom={mapZoom} mapData={null} />
       </Grid>
       <Grid xs={12} md={12}>
-       <WasteReceiveTable/>
+       <TaiLuongONhiem/>
       </Grid>
     </Grid>
     
