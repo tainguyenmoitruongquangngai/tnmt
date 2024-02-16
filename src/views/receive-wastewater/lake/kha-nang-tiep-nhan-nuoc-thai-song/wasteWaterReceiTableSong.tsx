@@ -9,8 +9,7 @@ const KhaNangTiepNhanNuocThaiSong1 = () => {
     THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM CỦA CÁC NGUỒN THẢI ĐIỂM XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
     </Typography>
   
-    
-    
+       
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead className='tableHead'>
@@ -80,8 +79,7 @@ const KhaNangTiepNhanNuocThaiSong1 = () => {
               </TableCell>
            
 
-        
-           
+   
               <TableCell size='small' align='center'>
                   BOD5 <br /> (mg/l)
               </TableCell>
@@ -103,9 +101,6 @@ const KhaNangTiepNhanNuocThaiSong1 = () => {
               <TableCell size='small' align='center'>
               Tổng <br /> coliform <br/> (MPN/100ml)
               </TableCell>
-
-              
-
 
           </TableRow>
         </TableHead>

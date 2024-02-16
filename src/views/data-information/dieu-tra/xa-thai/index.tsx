@@ -11,7 +11,7 @@ import Header from '../../../water-reserve/header'
 import Footer from 'src/views/water-reserve/footer'
 import { Delete, Edit } from '@mui/icons-material'
 
-const DieuTraNuocMat = () => {
+const DieuTraXaThai = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -58,7 +58,7 @@ const DieuTraNuocMat = () => {
    
     {
       id: 'ngayKetThuc',
-      label: 'Loại công trình',
+      label: 'Loại hình nước thải',
       align: 'left',
       rowspan: 2,
       children: [
@@ -250,7 +250,7 @@ const DieuTraNuocMat = () => {
           BÁO CÁO
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
-          PHIẾU ĐIỀU TRA TỔNG HỢP HIỆN TRẠNG KHAI THÁC, SỬ DỤNG NƯỚC MẶT
+          PHIẾU ĐIỀU TRA TỔNG HỢP HIỆN TRẠNG XẢ NƯỚC THẢI VÀO NGUỒN NƯỚC
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -291,4 +291,4 @@ const DieuTraNuocMat = () => {
   )
 }
 
-export default DieuTraNuocMat
+export default DieuTraXaThai
