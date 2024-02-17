@@ -430,16 +430,13 @@ const navigation = (): VerticalNavItemsType => {
 
         
         {
-          title: 'Thông số CLN theo QCVN',
+          title: 'QCVN_08_2023',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/cln'
         },
-        {
-          title: 'Thông tin nguồn thải ao,hồ',
-          path: '#'
-        },
+      
         {
           title: 'Thông tin ao,hồ',
-          path: '#'
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/thong-tin-ao-ho'
         },
         {
           title: 'Khả năng TNNT ao,hồ',

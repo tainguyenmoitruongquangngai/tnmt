@@ -1,5 +1,6 @@
-import SpecCLN from "src/views/receive-wastewater/lake/specification-cln"
+import ThongSoCLNAoHoQCVN from "src/views/receive-wastewater/AoHo/thong-so-tieu-chuan-QCVN08"
 
-const CLN = () => <SpecCLN />
 
-export default CLN
+const ThongSoCLNAoHoQCVNPages = () => <ThongSoCLNAoHoQCVN />
+
+export default ThongSoCLNAoHoQCVNPages

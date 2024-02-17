@@ -1,4 +1,4 @@
-import RiverForeCast from "src/views/receive-wastewater/river/forecasting"
+import RiverForeCast from "src/views/receive-wastewater/river/ao-ho"
 
 const ForeCast = () => <RiverForeCast />
 
