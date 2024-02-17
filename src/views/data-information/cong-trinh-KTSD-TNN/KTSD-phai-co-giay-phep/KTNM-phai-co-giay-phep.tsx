@@ -11,7 +11,7 @@ import Header from '../../../water-reserve/header'
 import Footer from 'src/views/water-reserve/footer'
 import { Delete, Edit } from '@mui/icons-material'
 
-const DieuTraXaThai = () => {
+const KTNMPhaiCoGiayPhep = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -44,7 +44,7 @@ const DieuTraXaThai = () => {
     },
     {
       id: 'tenTram',
-      label: 'Tên chủ hộ/ công trình',
+      label: 'Tên công trình',
       align: 'left',
       rowspan: 2,
       minWidth: 160,
@@ -57,20 +57,36 @@ const DieuTraXaThai = () => {
     },
    
     {
+      id: 'tenTram',
+      label: (<> Tên tổ chức <br/> cá nhân <br/> chủ công trình </>)  ,
+      align: 'left',
+      rowspan: 2,
+      minWidth: 160,
+      children: [
+        {
+          id: '#1',
+          children: [{ id: '#1.1', label: '(2)', align: 'left' }]
+        }
+      ]
+    },
+
+
+
+    {
       id: 'ngayKetThuc',
-      label: 'Loại hình nước thải',
+      label: 'Năm vận hành',
       align: 'left',
       rowspan: 2,
       children: [
         {
           id: '#3',
-          children: [{ id: '#3.1', label: '(2)', align: 'left' }]
+          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
         }
       ]
     },
     {
       id: '#',
-      label: 'Vị trí',
+      label: 'Địa chỉ',
       align: 'left',
       children: [
         {
@@ -79,7 +95,7 @@ const DieuTraXaThai = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
-          children: [{ id: '#4.1', label: '(3)', align: 'left' }]
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
         },
         {
           id: '#5',
@@ -87,54 +103,38 @@ const DieuTraXaThai = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
-          children: [{ id: '#5.1', label: '(4)', align: 'left' }]
+          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
         }
       ]
     },
 
     {
-      id: 'ngayKetThuc',
-      label: 'Quy mô ',
+      id: '#',
+      label: 'Vị trí tọa độ',
       align: 'left',
-      rowspan: 2,
       children: [
         {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(5)', align: 'left' }]
-        }
-      ]
-    },
-
-    {
-      id: 'ngayKetThuc',
-      label: 'Mục đích sử dụng',
-      align: 'left',
-      minWidth: 250,
-      rowspan: 2,
-      children: [
+          id: '#4',
+          label: 'X',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xa?.tenXa}</Typography>,
+          children: [{ id: '#4.1', label: '(6)', align: 'left' }]
+        },
         {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(6)', align: 'left' }]
+          id: '#5',
+          label: 'Y',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.huyen?.tenHuyen}</Typography>,
+          children: [{ id: '#5.1', label: '(7)', align: 'left' }]
         }
       ]
     },
 
     {
       id: 'ngayKetThuc',
-      label: (<> Ước tính <br/> lượng nước <br/>khai thác <br/> (m3/ngày) </>)  ,
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(7)', align: 'left' }]
-        }
-      ]
-    },
-
-    {
-      id: 'ngayKetThuc',
-      label: (<> Diện tích <br/> tưới <br/> (ha) </>)  ,
+      label: 'Tên sông',
       align: 'left',
       rowspan: 2,
       children: [
@@ -147,8 +147,9 @@ const DieuTraXaThai = () => {
 
     {
       id: 'ngayKetThuc',
-      label: (<> Diện tích <br/> nuôi trồng <br/> thủy sản <br/> (ha) </>)  ,
+      label: 'Lưu vực sông',
       align: 'left',
+      minWidth: 150,
       rowspan: 2,
       children: [
         {
@@ -160,7 +161,7 @@ const DieuTraXaThai = () => {
 
     {
       id: 'ngayKetThuc',
-      label: (<> Công suất <br/> phát điện <br/> (kW) </>)  ,
+      label: (<> cao trình <br/> đỉnh đập <br/> (m) </>)  ,
       align: 'left',
       rowspan: 2,
       children: [
@@ -173,7 +174,7 @@ const DieuTraXaThai = () => {
 
     {
       id: 'ngayKetThuc',
-      label: (<> Số hộ dân <br/> được cấp <br/> nước </>)  ,
+      label: (<> cao trình <br/> ngưỡng tràn <br/> (m) </>)  ,
       align: 'left',
       rowspan: 2,
       children: [
@@ -186,7 +187,7 @@ const DieuTraXaThai = () => {
 
     {
       id: 'ngayKetThuc',
-      label: (<> Chế độ <br/> khai thác </>)  ,
+      label: (<> Lưu lượng <br/> xả lũ <br/> thiết kế (m3/s) </>)  ,
       align: 'left',
       rowspan: 2,
       children: [
@@ -199,7 +200,7 @@ const DieuTraXaThai = () => {
 
     {
       id: 'ngayKetThuc',
-      label: 'File phiếu điều tra (pdf) ',
+      label: (<> Lưu lượng <br/> xả lũ <br/> kiểm tra (m3/s) </>)  ,
       align: 'left',
       rowspan: 2,
       children: [
@@ -208,8 +209,115 @@ const DieuTraXaThai = () => {
           children: [{ id: '#3.1', label: '(13)', align: 'left' }]
         }
       ]
-    }, 
+    },
 
+    {
+      id: 'ngayKetThuc',
+      label: (<> Dung tích <br/> chết <br/> (triệu m3) </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(14)', align: 'left' }]
+        }
+      ]
+    },
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> Số <br/> tổ máy </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(15)', align: 'left' }]
+        }
+      ]
+    },
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> Số <br/> giấy phép </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(16)', align: 'left' }]
+        }
+      ]
+    },
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> Ngày <br/> quyết định </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(17)', align: 'left' }]
+        }
+      ]
+    },
+
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> Thời gian <br/> hiệu lực </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(18)', align: 'left' }]
+        }
+      ]
+    },
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> ID <br/> CT trên <br/> hệ thống </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(19)', align: 'left' }]
+        }
+      ]
+    },
+
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> Thời gian <br/> bắt đầu <br/> kết nối </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(20)', align: 'left' }]
+        }
+      ]
+    },
+
+    {
+      id: 'ngayKetThuc',
+      label: (<> Chế độ <br/> khai thác </>)  ,
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#3',
+          children: [{ id: '#3.1', label: '(21)', align: 'left' }]
+        }
+      ]
+    },
+
+   
     {
       id: 'ngayKetThuc',
       label: 'Thao tác ',
@@ -218,7 +326,7 @@ const DieuTraXaThai = () => {
       children: [
         {
           id: '#3',
-          children: [{ id: '#3.1', label: '(13)', align: 'left' }]
+          children: [{ id: '#3.1', label: '(22)', align: 'left' }]
         }
       ]
     }, 
@@ -231,7 +339,7 @@ const DieuTraXaThai = () => {
       children: [
         {
           id: '#3',
-          children: [{ id: '#3.1', label: '(14)', align: 'left' }]
+          children: [{ id: '#3.1', label: '(23)', align: 'left' }]
         }
       ]
     }, 
@@ -242,7 +350,7 @@ const DieuTraXaThai = () => {
   ]
 
   return (
-    <Paper sx={{ p: 8 }}>
+    <Paper sx={{ p: 1 }}>
       <Header />
 
       <Grid className='_text_center'>
@@ -250,7 +358,7 @@ const DieuTraXaThai = () => {
           BÁO CÁO
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
-          PHIẾU ĐIỀU TRA TỔNG HỢP HIỆN TRẠNG XẢ NƯỚC THẢI VÀO NGUỒN NƯỚC
+          CÔNG TRÌNH KHAI THÁC NƯỚC MẶT THUỘC TRƯỜNG HỢP PHẢI CÓ GIẤY PHÉP
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -291,4 +399,4 @@ const DieuTraXaThai = () => {
   )
 }
 
-export default DieuTraXaThai
+export default KTNMPhaiCoGiayPhep

@@ -221,15 +221,15 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Phải có giấy phép',
-          path: '/thong-tin-du-lieu/cong-trinh-KTSDN/phai-co-giay-phep'
+          path: '/thong-tin-du-lieu/cong-trinh-ktsd-tnn/ktsd-phai-co-giay-phep'
         },
         {
           title: 'Phải kê khai',
-          path: '/thong-tin-du-lieu/cong-trinh-KTSDN/phai-ke-khai'
+          path: '/thong-tin-du-lieu/cong-trinh-ktsd-tnn/ktsd-phai-ke-khai'
         },
         {
           title: 'Phải đăng ký ',
-          path: '/thong-tin-du-lieu/cong-trinh-KTSDN/phai-dang-ky'
+          path: '/thong-tin-du-lieu/cong-trinh-ktsd-tnn/ktsd-phai-dang-ky'
         },
 
         //
@@ -351,30 +351,30 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Chất lượng NDĐ',
-          path: '#'
+          path: '/kiem-ke-tnn/nuoc-duoi-dat/kiem-ke-CLN-duoi-dat'
         },
       ]
     },
     {
       title: 'Nước biển',
-      primaryPath: '/kiem-ke-tnn/nuoc-biển',
+      primaryPath: '/kiem-ke-tnn/kiem-ke-nuoc-bien',
       children: [
         {
           title: 'Kiểm kê nước biển',
-
-          path: '/kiem-ke-tnn/nuoc-biển'
+         
+          path: '/kiem-ke-tnn/kiem-ke-nuoc-bien'
         },
 
       ]
     },
     {
       title: 'Xả thải',
-      primaryPath: '/kiem-ke-tnn/nuoc-thai',
+      primaryPath: '/kiem-ke-tnn/kiem-ke-xa-nuoc-thai',
       children: [
         {
           title: 'Kiểm kê xả nước thải',
 
-          path: '/kiem-ke-tnn/xa-nuoc-thai'
+          path: '/kiem-ke-tnn/kiem-ke-xa-nuoc-thai'
         },
 
       ]

@@ -13,7 +13,7 @@ import Header from '../../header'
 import Footer from '../../footer'
  
   
-  const GroundTotal = () => {
+  const KiemKeChatLuongNuocDuoiDat = () => {
     return (
    <Grid container>
       <Header />
@@ -22,7 +22,7 @@ import Footer from '../../footer'
             BÁO CÁO
           </Typography>
         <Typography pt={7} pb={4} className='font-weight-bold ' variant='h6'>
-          KIỂM KÊ TỔNG LƯỢNG NƯỚC DƯỚI ĐẤT
+          KIỂM KÊ CHẤT LƯỢNG NƯỚC DƯỚI ĐẤT
         </Typography>
       </Grid>
       <Grid item md={12} xs={12} pt={3}>
@@ -41,6 +41,15 @@ import Footer from '../../footer'
                 </TableCell>
                 <TableCell size='small' align='center' colSpan={3}>
                   Nước mặn
+                </TableCell>
+                <TableCell size='small' align='center' colSpan={9}>
+                  Thông số chất lượng nước dưới đất
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Ghi chú
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Thao tác
                 </TableCell>
               </TableRow>
 
@@ -66,6 +75,35 @@ import Footer from '../../footer'
                 <TableCell size='small' align='center'>
                   Trữ lượng  <br /> (m3/ngày)
                 </TableCell>
+
+                <TableCell size='small' align='center'>
+                  pH  <br /> (-)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Tổng Coliform  <br /> (CFU/100ml)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Nitrate (NO3 - tính theo Nitơ)  <br /> (mg/L )
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Amoni (NH4+ - tính theo Nitơ)  <br /> (mg/L )
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Amoni (Chỉ số permanganat)  <br /> (mg/L )
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Tổng chất rắn hòa tan (TDS)  <br /> (mg/L )
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Độ cứng (tính theo CaCO3)  <br /> (mg/L )
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Arsenic (As)  <br /> (mg/L )
+                </TableCell>
+                <TableCell size='small' align='center'>
+                Chloride (Cl-)  <br /> (mg/L )
+                </TableCell>
+
               </TableRow>
 
               <TableRow>
@@ -96,7 +134,43 @@ import Footer from '../../footer'
                 <TableCell size='small' align='center'>
                   (9)
                 </TableCell>
+                <TableCell size='small' align='center'>
+                  (10)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (11)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (12)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (13)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (14)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (15)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (16)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (17)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (18)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (19)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (20)
+                </TableCell>
+
               </TableRow>
+
+
             </TableHead>
 
             <TableBody className='tableBody'>
@@ -119,4 +193,4 @@ import Footer from '../../footer'
     </Grid>
     )
   }
-  export default GroundTotal
+  export default KiemKeChatLuongNuocDuoiDat

@@ -9,20 +9,23 @@ import {
     TableRow,
     Typography
   } from '@mui/material'
-import Header from '../../header'
-import Footer from '../../footer'
+import Header from '../header'
+import Footer from '../footer'
  
   
-  const GroundTotal = () => {
+  const KiemKeXaNuocThai = () => {
     return (
    <Grid container>
       <Header />
         <Grid item md={12} xs={12} textAlign={'center'} textTransform={'uppercase'}>
-          <Typography className='font-weight-bold ' variant='h4'>
+          <Typography className='font-weight-bold ' variant='h6'>
             BÁO CÁO
           </Typography>
-        <Typography pt={7} pb={4} className='font-weight-bold ' variant='h6'>
-          KIỂM KÊ TỔNG LƯỢNG NƯỚC DƯỚI ĐẤT
+        <Typography pt={1} pb={2} className='font-weight-bold ' variant='h6'>
+          KIỂM KÊ XẢ NƯỚC THẢI VÀO NGUỒN NƯỚC
+        </Typography>
+        <Typography pt={1} pb={2} className='font-weight-bold ' variant='h6'>
+         (Xả nước thải của các cơ sở SXKD, dịch vụ với quy mô lớn hơn 5 m3/ngày đêm và không chứa hóa chất độc hại, chất phóng xạ)
         </Typography>
       </Grid>
       <Grid item md={12} xs={12} pt={3}>
@@ -34,38 +37,51 @@ import Footer from '../../footer'
                   STT
                 </TableCell>
                 <TableCell size='small' align='center' rowSpan={2}>
-                  Tầng chứa nước
+                  Tên chủ hộ / công trình
                 </TableCell>
-                <TableCell size='small' align='center' colSpan={4}>
-                  Nước ngọt
+                <TableCell size='small' align='center' colSpan={2}>
+                 Tọa độ (VN2000 kinh tuyến trục, múi chiếu 3o)
                 </TableCell>
                 <TableCell size='small' align='center' colSpan={3}>
-                  Nước mặn
+                  Vị trí hành chính
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2} >
+                  Lưu lượng xả thải (m3/ngày)
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Loại hình nước thải
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Nguồn tiếp nhận nước thải
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                 Thuộc lưu vực sông 
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Ghi chú
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Thao tác
                 </TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell size='small' align='center'>
-                  Diện tích phân bố <br /> (km2)
+                  X
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Vị trí hành chính <br /> (xã,huyện)
+                 Y
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Trữ lượng tiềm <br /> năng(m3/ngày)
+                  Xã
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Trữ lượng có thể <br /> khai thác(m3/ngày)
+                Huyện
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Diện tích phân bố <br /> (km2)
+                Tỉnh
                 </TableCell>
-                <TableCell size='small' align='center'>
-                  Vị trí hành chính <br /> (xã,huyện)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  Trữ lượng  <br /> (m3/ngày)
-                </TableCell>
+               
               </TableRow>
 
               <TableRow>
@@ -96,7 +112,22 @@ import Footer from '../../footer'
                 <TableCell size='small' align='center'>
                   (9)
                 </TableCell>
+                <TableCell size='small' align='center'>
+                  (10)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (11)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (12)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (13)
+                </TableCell>
+                
               </TableRow>
+
+
             </TableHead>
 
             <TableBody className='tableBody'>
@@ -119,4 +150,4 @@ import Footer from '../../footer'
     </Grid>
     )
   }
-  export default GroundTotal
+  export default KiemKeXaNuocThai

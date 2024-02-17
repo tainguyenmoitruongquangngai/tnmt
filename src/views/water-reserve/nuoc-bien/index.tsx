@@ -9,11 +9,11 @@ import {
     TableRow,
     Typography
   } from '@mui/material'
-import Header from '../../header'
-import Footer from '../../footer'
+import Header from '../header'
+import Footer from '../footer'
  
   
-  const GroundTotal = () => {
+  const KiemKeNuocBien = () => {
     return (
    <Grid container>
       <Header />
@@ -22,7 +22,8 @@ import Footer from '../../footer'
             BÁO CÁO
           </Typography>
         <Typography pt={7} pb={4} className='font-weight-bold ' variant='h6'>
-          KIỂM KÊ TỔNG LƯỢNG NƯỚC DƯỚI ĐẤT
+          KIỂM KÊ KHAI THÁC SỬ DỤNG NƯỚC BIỂN
+          (Công trình có quy mô lớn hơn 10.000 m3/ngày đêm)
         </Typography>
       </Grid>
       <Grid item md={12} xs={12} pt={3}>
@@ -34,38 +35,45 @@ import Footer from '../../footer'
                   STT
                 </TableCell>
                 <TableCell size='small' align='center' rowSpan={2}>
-                  Tầng chứa nước
+                  Tên chủ hộ / công trình
                 </TableCell>
-                <TableCell size='small' align='center' colSpan={4}>
-                  Nước ngọt
+                <TableCell size='small' align='center' colSpan={2}>
+                 Tọa độ (VN2000 kinh tuyến trục, múi chiếu 3o)
                 </TableCell>
                 <TableCell size='small' align='center' colSpan={3}>
-                  Nước mặn
+                  Vị trí hành chính
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2} >
+                  Lưu lượng khai thác (m3/ngày)
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Mục đích sử dụng
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Ghi chú
+                </TableCell>
+                <TableCell size='small' align='center' rowSpan={2}>
+                  Thao tác
                 </TableCell>
               </TableRow>
 
               <TableRow>
                 <TableCell size='small' align='center'>
-                  Diện tích phân bố <br /> (km2)
+                  X
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Vị trí hành chính <br /> (xã,huyện)
+                 Y
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Trữ lượng tiềm <br /> năng(m3/ngày)
+                  Xã
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Trữ lượng có thể <br /> khai thác(m3/ngày)
+                Huyện
                 </TableCell>
                 <TableCell size='small' align='center'>
-                  Diện tích phân bố <br /> (km2)
+                Tỉnh
                 </TableCell>
-                <TableCell size='small' align='center'>
-                  Vị trí hành chính <br /> (xã,huyện)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  Trữ lượng  <br /> (m3/ngày)
-                </TableCell>
+               
               </TableRow>
 
               <TableRow>
@@ -96,7 +104,17 @@ import Footer from '../../footer'
                 <TableCell size='small' align='center'>
                   (9)
                 </TableCell>
+                <TableCell size='small' align='center'>
+                  (10)
+                </TableCell>
+                <TableCell size='small' align='center'>
+                  (11)
+                </TableCell>
+               
+
               </TableRow>
+
+
             </TableHead>
 
             <TableBody className='tableBody'>
@@ -119,4 +137,4 @@ import Footer from '../../footer'
     </Grid>
     )
   }
-  export default GroundTotal
+  export default KiemKeNuocBien
