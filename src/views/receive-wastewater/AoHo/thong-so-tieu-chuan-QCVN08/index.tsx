@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 
 import { getData } from 'src/api/axios'
 import BoxLoading from 'src/@core/components/box-loading'
+import { CLNState } from './clnInterface'
 
 const ThongSoCLNAoHoQCVN = () => {
   const route = useRouter()
