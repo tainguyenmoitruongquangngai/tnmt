@@ -1,4 +1,4 @@
-export interface CLNState {
+ export interface CLNState {
   id: number,
   pH: string,
   bod: string,

@@ -1,12 +1,7 @@
 import Paper from '@mui/material/Paper'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 
-
-
-  
-
-
-const WasteTable = () => {
+const WasteTable = ({ data }: any) => {
   return (
 
     <TableContainer component={Paper}>
@@ -150,31 +145,121 @@ const WasteTable = () => {
               </TableCell>
 
             </TableRow>
-
-
         </TableHead>
 
 
         <TableBody className='tableBody'>
-          <TableRow>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-            <TableCell className="text-center  size='small' align-middle font-13">-</TableCell>
-          </TableRow>
+        {data.map((item: any, index: any) => (
+            <TableRow key={item.id}>
+              <TableCell size='small' align='center'>
+                {index + 1}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.song}
+              </TableCell>
+
+              <TableCell size='small' align='center'>
+                {item.tenDoanSong}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.chieuDai}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.luuLuongDongChay}
+              </TableCell>
+
+              <TableCell size='small' align='center'>
+                {item.cnnTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cnnCOD}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cnnAmoni}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cnnTongN}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cnnTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cnnTSS}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cnnColiform}
+              </TableCell>
+
+              <TableCell size='small' align='center'>
+                {item.lnnBOD}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.lnnCOD}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.lnnAmoni}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.lnnTongN}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.lnnTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.lnnTSS}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.lnnColiform}
+              </TableCell>
+
+              <TableCell size='small' align='center'>
+                {item.cqcTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cqcCOD}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cqcAmoni}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cqcTongN}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cqcTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cqcTSS}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.cqcColiform}
+              </TableCell>
+
+              <TableCell size='small' align='center'>
+                {item.ltdTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ltdCOD}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ltdAmoni}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ltdTongN}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ltdTongP}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ltdTSS}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ltdColiform}
+              </TableCell>
+              <TableCell size='small' align='center'>
+                {item.ghiChu}
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
