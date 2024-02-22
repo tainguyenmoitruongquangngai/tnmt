@@ -1,5 +1,4 @@
-import RiverForeCast from "src/views/receive-wastewater/lake/kha-nang-tiep-nhan-nuoc-thai-song"
-
+import RiverForeCast from "src/views/receive-wastewater/lake/dubao"
 
 const ForeCast = () => <RiverForeCast />
 
