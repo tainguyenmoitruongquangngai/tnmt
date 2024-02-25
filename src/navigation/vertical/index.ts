@@ -449,28 +449,94 @@ const navigation = (): VerticalNavItemsType => {
       ]
     },
     {
-      sectionTitle: 'VẬN HÀNH HỒ CHỨA'
+      sectionTitle: 'VHHC LVS TRÀ KHÚC'
     },
     {
-      title: 'Lưu vực sông',
-      path: '#'
+      title: 'Lưu vực sông Trà Khúc',
+      path: '/van-hanh-ho-chua/luu-vuc-song-tra-khuc'
     },
     {
-      title: 'Hồ chứa',
-      path: '#'
+      title: 'Thông số kỹ thuật hồ chứa',
+      path: '/van-hanh-ho-chua/ho-chua-lvs-tra-khuc'
     },
+   
+    
     {
-      title: 'Trạm kiểm soát hạ du',
-      path: '#'
+      title: 'Vận hành mùa lũ',
+     
+      children: [
+        {
+          sectionTitle: 'Lượng mưa',
+        },
+        {
+          title: 'Mưa hiện tại',
+          path: '/van-hanh-ho-chua/luong-mua/hien-tai'
+        },
+        {
+          title: 'Mưa dự báo',
+          path: '/van-hanh-ho-chua/luong-mua/du-bao'
+        },
+        
+        //
+        {
+          sectionTitle: 'SLQT tại trạm TV',
+        },
+        {
+          title: 'Trạm thủy văn',
+          path: '/van-hanh-ho-chua/tram-thuy-van'
+        },
+       
+
+        //
+        {
+          sectionTitle: 'VH hồ chứa',
+        },
+        {
+          title: 'Quy định chung',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/quy-dinh-chung'
+        },
+
+        {
+          title: 'Hồ Đăkđrink',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-dak-rinh'
+        },
+        {
+          title: 'Hồ Nước Trong',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-nuoc-trong'
+        },
+        {
+          title: 'Hồ Sơn Trà 1 ',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-son-tra-1'
+        },
+
+        {
+          title: 'Hồ Đăk Re',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-dak-re'
+        },
+        {
+          title: 'Hồ Sơn Tây',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-son-tay'
+        },
+
+        //
+
+
+
+        //
+     
+        //
+     
+      ]
+
+
+
     },
+   
     {
-      title: 'Lượng mưa hiện tại',
-      path: '#'
+      title: 'Vận hành mùa cạn',
+      path: '/van-hanh-ho-chua/van-hanh-mua-can'
     },
-    {
-      title: 'Lượng mưa dự báo',
-      path: '#'
-    },
+
     {
       sectionTitle: 'HƯỚNG DẪN SỬ DỤNG'
      
