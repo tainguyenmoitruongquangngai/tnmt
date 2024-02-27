@@ -2,18 +2,18 @@ import Paper from '@mui/material/Paper'
 import { Grid, Typography, Box, } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import Header from '../header'
-import Footer from '../footer'
+import Header from '../../header'
+import Footer from '../../footer'
 import { getData } from 'src/api/axios'
 import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import CreateNN_LuuVucSong from '../create-form/CreateNN_LuuVucSong'
 import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from './toolbar'
+import CreateNN_NguonNuoc_TangChuaNuoc from '../../create-form/CreateNN_NguonNuoc_TangChuaNuoc'
+import ToolBar from '../TangChuaNuoc/toolbar'
 
-const NN_LuuVucSong = () => {
+const NN_NguonNuoc_TangChuaNuoc = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const NN_LuuVucSong = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_LuuVucSong() {
+    async function getDataNN_NguonNuoc_TangChuaNuoc() {
       setLoading(true)
-      await getData('NN_LuuVucSong/danh-sach')
+      await getData('NN_NguonNuoc_TangChuaNuoc/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const NN_LuuVucSong = () => {
         })
     }
 
-    getDataNN_LuuVucSong()
+    getDataNN_NguonNuoc_TangChuaNuoc()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -48,8 +48,8 @@ const NN_LuuVucSong = () => {
       rowspan: 3
     },
     {
-      id: 'maSong',
-      label: 'Mã sông',
+      id: 'tenTangChuaNuoc',
+      label: 'Tên tầng chứa nước',
       align: 'left',
       rowspan: 2,
       minWidth: 100,
@@ -61,8 +61,8 @@ const NN_LuuVucSong = () => {
       ]
     },
     {
-      id: 'capSong',
-      label: 'Cấp sông',
+      id: 'loaiChuaNuoc',
+      label: 'Loại chứa nước (lổ hổng, khe nứt)',
       align: 'left',
       rowspan: 2,
       children: [
@@ -73,8 +73,8 @@ const NN_LuuVucSong = () => {
       ]
     },
     {
-      id: 'tenSongSuoi',
-      label: 'Tên sông, suối',
+      id: 'thuocLVS',
+      label: 'Thuộc lưu vực sông',
       align: 'left',
       rowspan: 2,
       children: [
@@ -85,8 +85,8 @@ const NN_LuuVucSong = () => {
       ]
     },
     {
-      id: 'chayRa',
-      label: 'Chảy ra',
+      id: 'xaPhuongTT',
+      label: 'Xã/Phường/Thị trấn',
       align: 'left',
       rowspan: 2,
       children: [
@@ -97,8 +97,8 @@ const NN_LuuVucSong = () => {
       ]
     },
     {
-      id: 'chieuDai',
-      label: 'Chiều dài (km)',
+      id: 'huyenTP',
+      label: 'Huyện/Thành phố',
       align: 'left',
       rowspan: 2,
       children: [
@@ -109,8 +109,8 @@ const NN_LuuVucSong = () => {
       ]
     },
     {
-      id: 'dienTich',
-      label: 'Diện tích lưu vực (km2)',
+      id: 'dungTichPhanBo',
+      label: 'Diện tích phân bố (km2)',
       align: 'left',
       rowspan: 2,
       children: [
@@ -121,50 +121,14 @@ const NN_LuuVucSong = () => {
       ]
     },
     {
-      id: 'tinh',
-      label: 'Tỉnh/ Thành phố',
+      id: 'khoangChieuSauPhanBo',
+      label: 'Khoảng chiều sâu phân bố (m)',
       align: 'left',
       rowspan: 2,
       children: [
         {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'thuocLVS',
-      label: 'Thuộc lưu vực sông',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'loaiSongSuoi',
-      label: 'Loại sông, suối',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'ghiChu',
-      label: 'Ghi chú',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
+          id: '#7',
+          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
         }
       ]
     },
@@ -177,7 +141,7 @@ const NN_LuuVucSong = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-          THÔNG TIN DỮ LIỆU VỀ LƯU VỰC SÔNG TỈNH QUẢNG NGÃI
+        Thống kê thông tin dữ liệu về nguồn nước là các tầng chứa nước tỉnh Quảng Ngãi
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -206,8 +170,8 @@ const NN_LuuVucSong = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateNN_LuuVucSong isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'NN_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateNN_NguonNuoc_TangChuaNuoc isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'NN_NguonNuoc_TangChuaNuoc'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -219,4 +183,4 @@ const NN_LuuVucSong = () => {
   )
 }
 
-export default NN_LuuVucSong
+export default NN_NguonNuoc_TangChuaNuoc

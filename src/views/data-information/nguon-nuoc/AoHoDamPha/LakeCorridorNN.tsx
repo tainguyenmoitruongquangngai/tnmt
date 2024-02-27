@@ -2,18 +2,18 @@ import Paper from '@mui/material/Paper'
 import { Grid, Typography, Box, } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import Header from '../header'
-import Footer from '../footer'
+import Header from '../../header'
+import Footer from '../../footer'
 import { getData } from 'src/api/axios'
 import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import CreateNN_AoHoKhongSanLap from '../create-form/CreateNN_AoHoKhongSanLap'
 import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from '../ao-khong-san-lap/toolbar'
+import CreateNN_NguonNuoc_AoHoDamPha from '../../create-form/CreateNN_NguonNuoc_AoHoDamPha'
+import ToolBar from '../SongSuoiNoiTinh/toolbar'
 
-const NN_AoHoKhongSanLap = () => {
+const NN_NguonNuoc_AoHoDamPha = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const NN_AoHoKhongSanLap = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_AoHoKhongSanLap() {
+    async function getDataNN_NguonNuoc_AoHoDamPha() {
       setLoading(true)
-      await getData('NN_AoHoDamPhaKhongDuocSanLap/danh-sach')
+      await getData('NN_NguonNuoc_AoHoDamPha/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const NN_AoHoKhongSanLap = () => {
         })
     }
 
-    getDataNN_AoHoKhongSanLap()
+    getDataNN_NguonNuoc_AoHoDamPha()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -61,37 +61,14 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: '#',
-      label: 'Vị trí hành chính',
-      align: 'left',
-      children: [
-        {
-          id: 'xa',
-          label: 'Xã',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xa == null ? "-" : row.xa}</Typography>,
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        },
-        {
-          id: 'huyen',
-          label: 'Huyện',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyen == null ? "-" : row.huyen}</Typography>,
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
-    },
-    {
       id: 'nguonNuoc',
       label: 'Nguồn nước',
       align: 'left',
       rowspan: 2,
       children: [
         {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
+          id: '#2',
+          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
         }
       ]
     },
@@ -102,20 +79,8 @@ const NN_AoHoKhongSanLap = () => {
       rowspan: 2,
       children: [
         {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'loaiHinhChucNang',
-      label: 'Loại hình chức năng',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
+          id: '#3',
+          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
         }
       ]
     },
@@ -126,8 +91,32 @@ const NN_AoHoKhongSanLap = () => {
       rowspan: 2,
       children: [
         {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
+          id: '#4',
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'xaPhuongTT',
+      label: 'Xã phường/Thị trấn',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#5',
+          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'huyenTP',
+      label: 'Huyện/Thành phố',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#6',
+          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
         }
       ]
     },
@@ -138,14 +127,26 @@ const NN_AoHoKhongSanLap = () => {
       rowspan: 2,
       children: [
         {
+          id: '#7',
+          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'dungTichHuuIch',
+      label: 'Dung tích hữu ích',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
           id: '#8',
           children: [{ id: '#8.1', label: '(8)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'dungTichHuuIch',
-      label: 'Dung tích hữu ích (triệu m3)',
+      id: 'dungTichPhongLu',
+      label: 'Dung tích phòng lũ',
       align: 'left',
       rowspan: 2,
       children: [
@@ -156,8 +157,8 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: 'dungTichPhongLu',
-      label: 'Dung tích phòng lũ (triệu m3)',
+      id: 'mndbt',
+      label: 'Mực nước dâng bình thường',
       align: 'left',
       rowspan: 2,
       children: [
@@ -168,8 +169,8 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: 'mucNuocDangBinhThuong',
-      label: 'Mực nước dâng bình thường (m)',
+      id: 'mnc',
+      label: 'Mực nước chết',
       align: 'left',
       rowspan: 2,
       children: [
@@ -180,8 +181,8 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: 'mucNuocChet',
-      label: 'Mực nước chết (m)',
+      id: 'namXayDung',
+      label: 'Năm xây dựng',
       align: 'left',
       rowspan: 2,
       children: [
@@ -192,8 +193,8 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: 'namHoanThanh',
-      label: 'Năm hoàn thành',
+      id: 'donViQuanLyVanHanh',
+      label: 'Đơn vị quản lý vận hành',
       align: 'left',
       rowspan: 2,
       children: [
@@ -204,8 +205,8 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: 'donQuayLyVanHanh',
-      label: 'Đơn vị quản lý vận hành',
+      id: 'phamViHanhLang',
+      label: 'Phạm vi hành lang',
       align: 'left',
       rowspan: 2,
       children: [
@@ -216,38 +217,14 @@ const NN_AoHoKhongSanLap = () => {
       ]
     },
     {
-      id: 'thuocDanhMucKhongSanLap',
-      label: 'Thuộc danh mục không san lấp',
+      id: 'thuocDienCamMocHanhLang',
+      label: 'Thuộc diện cắm mốc hành lang',
       align: 'left',
       rowspan: 2,
       children: [
         {
           id: '#15',
           children: [{ id: '#15.1', label: '(15)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'quyetDinh',
-      label: 'Quyết định',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#16',
-          children: [{ id: '#16.1', label: '(16)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'ghiChu',
-      label: 'Ghi chú',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#17',
-          children: [{ id: '#17.1', label: '(17)', align: 'left' }]
         }
       ]
     },
@@ -260,7 +237,7 @@ const NN_AoHoKhongSanLap = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        THÔNG TIN DỮ LIỆU VỀ HỒ, AO, ĐẦM, PHÁ KHÔNG ĐƯỢC SAN LẤP TỈNH QUẢNG NGÃI
+        Thống kê danh mục các hồ, ao nội tỉnh Quảng Ngãi
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -289,8 +266,8 @@ const NN_AoHoKhongSanLap = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateNN_AoHoKhongSanLap isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'NN_AoHoDamPhaKhongDuocSanLap'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateNN_NguonNuoc_AoHoDamPha isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'NN_NguonNuoc_AoHoDamPha'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -302,4 +279,4 @@ const NN_AoHoKhongSanLap = () => {
   )
 }
 
-export default NN_AoHoKhongSanLap
+export default NN_NguonNuoc_AoHoDamPha
