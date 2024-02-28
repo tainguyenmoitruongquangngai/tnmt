@@ -2,9 +2,9 @@ import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
 import CorridorRiver from "./SongSuoiNoiTinh/RiverCoridor";
-import CorridorLakeNhoHon from "./LakeCorridorNhoHon";
+import CorridorLakeNhoHon from "./HoThuyDienNhoHon/LakeCorridorNhoHon";
 import CorridorLakeLonHon from "./HoThuyDienLonHon/LakeCorridorLonHon";
-import CorridorLake from "./LakeCorridor";
+import CorridorLake from "./AoHoDamTuNhien/LakeCorridor";
 
 const CategoryCorridor = () => {
     const [value, setValue] = useState('1');

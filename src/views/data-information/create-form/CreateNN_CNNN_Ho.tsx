@@ -6,47 +6,39 @@ import { saveData } from 'src/api/axios'
 
 interface State {
   id: number
-  tenHoChua: string
-  nguonNuoc: string
-  thuocLVS: string
+  tenHoChua: ''
+  thuocLVS: ''
+  xaPhuongTT: ''
+  huyenTP: ''
   dienTichMatNuoc: number
-  xaPhuongTT: string
-  huyenTP: string
   dungTichToanBo: number
   dungTichHuuIch: number
-  dungTichPhongLu: number
-  mndbt: number
-  mnc: number
-  namXayDung: number
-  donViQuanLyVanHanh: string
-  phamViHanhLang: string
-  thuocDienCamMocHanhLang: string
+  namHoanThanh: number
+  donViQuanLyVanHanh: ''
+  chucNangNguonNuoc: ''
+  mucTieuChatLuong: ''
 }
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
-  const [NN_NguonNuoc_AoHoDamPhaData, setNN_NguonNuoc_AoHoDamPhaData] = useState<State>({
+  const [NN_CNNN_HoData, setNN_CNNN_HoData] = useState<State>({
     id: data?.id || 0,
     tenHoChua: data?.tenHoChua || '',
-    nguonNuoc: data?.nguonNuoc || '',
     thuocLVS: data?.thuocLVS || '',
-    dienTichMatNuoc: data?.dienTichMatNuoc || 0,
     xaPhuongTT: data?.xaPhuongTT || '',
     huyenTP: data?.huyenTP || '',
+    dienTichMatNuoc: data?.dienTichMatNuoc || 0,
     dungTichToanBo: data?.dungTichToanBo || 0,
     dungTichHuuIch: data?.dungTichHuuIch || 0,
-    dungTichPhongLu: data?.dungTichPhongLu || 0,
-    mndbt: data?.mndbt || 0,
-    mnc: data?.mnc || 0,
-    namXayDung: data?.namXayDung || 0,
+    namHoanThanh: data?.namHoanThanh || 0,
     donViQuanLyVanHanh: data?.donViQuanLyVanHanh || '',
-    phamViHanhLang: data?.phamViHanhLang || '',
-    thuocDienCamMocHanhLang: data?.thuocDienCamMocHanhLang || ''
+    chucNangNguonNuoc: data?.chucNangNguonNuoc || '',
+    mucTieuChatLuong: data?.mucTieuChatLuong || ''
   })
 
   const [saving, setSaving] = useState(false)
 
   const handleChange = (prop: keyof State) => (value: any) => {
-    setNN_NguonNuoc_AoHoDamPhaData({ ...NN_NguonNuoc_AoHoDamPhaData, [prop]: value })
+    setNN_CNNN_HoData({ ...NN_CNNN_HoData, [prop]: value })
   }
 
   const handleSubmit = async (e: any) => {
@@ -55,26 +47,22 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('NN_NguonNuoc_AoHoDamPha/luu', NN_NguonNuoc_AoHoDamPhaData)
+        const res = await saveData('NN_CNNN_Ho/luu', NN_CNNN_HoData)
         if (res) {
           // Reset form fields
-          setNN_NguonNuoc_AoHoDamPhaData({
+          setNN_CNNN_HoData({
             id: 0,
             tenHoChua: '',
-            nguonNuoc: '',
             thuocLVS: '',
-            dienTichMatNuoc: 0,
             xaPhuongTT: '',
             huyenTP: '',
+            dienTichMatNuoc: 0,
             dungTichToanBo: 0,
             dungTichHuuIch: 0,
-            dungTichPhongLu: 0,
-            mndbt: 0,
-            mnc: 0,
-            namXayDung: 0,
+            namHoanThanh: 0,
             donViQuanLyVanHanh: '',
-            phamViHanhLang: '',
-            thuocDienCamMocHanhLang: ''
+            chucNangNguonNuoc: '',
+            mucTieuChatLuong: ''
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
@@ -93,23 +81,19 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setNN_NguonNuoc_AoHoDamPhaData({
+    setNN_CNNN_HoData({
       id: 0,
       tenHoChua: '',
-      nguonNuoc: '',
-      thuocLVS: '0',
-      dienTichMatNuoc: 0,
+      thuocLVS: '',
       xaPhuongTT: '',
       huyenTP: '',
+      dienTichMatNuoc: 0,
       dungTichToanBo: 0,
       dungTichHuuIch: 0,
-      dungTichPhongLu: 0,
-      mndbt: 0,
-      mnc: 0,
-      namXayDung: 0,
+      namHoanThanh: 0,
       donViQuanLyVanHanh: '',
-      phamViHanhLang: '',
-      thuocDienCamMocHanhLang: ''
+      chucNangNguonNuoc: '',
+      mucTieuChatLuong: ''
     })
 
     closeDialogs()
@@ -125,19 +109,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Tên hồ chứa'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.tenHoChua || ''}
+            value={NN_CNNN_HoData.tenHoChua || ''}
             onChange={event => handleChange('tenHoChua')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Nguồn nước'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.nguonNuoc || ''}
-            onChange={event => handleChange('nguonNuoc')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
@@ -147,19 +120,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Thuộc lưu vực sông'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.thuocLVS || ''}
+            value={NN_CNNN_HoData.thuocLVS || ''}
             onChange={event => handleChange('thuocLVS')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Diện tích mặt nước'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.dienTichMatNuoc || ''}
-            onChange={event => handleChange('dienTichMatNuoc')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
@@ -169,7 +131,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Xã/Phường/Thị trấn'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.xaPhuongTT || ''}
+            value={NN_CNNN_HoData.xaPhuongTT || ''}
             onChange={event => handleChange('xaPhuongTT')(event.target.value)}
           />
         </Grid>
@@ -180,7 +142,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Huyện/Thành phố'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.huyenTP || ''}
+            value={NN_CNNN_HoData.huyenTP || ''}
             onChange={event => handleChange('huyenTP')(event.target.value)}
           />
         </Grid>
@@ -188,10 +150,21 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Dung tích toàn bộ'
+            label='Diện tích mặt nước (km2)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.dungTichToanBo || ''}
+            value={NN_CNNN_HoData.dienTichMatNuoc || ''}
+            onChange={event => handleChange('dienTichMatNuoc')(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6} sm={12}>
+          <TextField
+            size='small'
+            type='text'
+            label='Dung tích toàn bộ (triệu m3)'
+            fullWidth
+            placeholder=''
+            value={NN_CNNN_HoData.dungTichToanBo || ''}
             onChange={event => handleChange('dungTichToanBo')(event.target.value)}
           />
         </Grid>
@@ -199,10 +172,10 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Dung tích hữu ích'
+            label='Dung tích hữu ích (triệu m3)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.dungTichHuuIch || ''}
+            value={NN_CNNN_HoData.dungTichHuuIch || ''}
             onChange={event => handleChange('dungTichHuuIch')(event.target.value)}
           />
         </Grid>
@@ -210,44 +183,11 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Dung tích phòng lũ'
+            label='Năm hoàn thành'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.dungTichPhongLu || ''}
-            onChange={event => handleChange('dungTichPhongLu')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Mực nước dâng bình thường'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.mndbt || ''}
-            onChange={event => handleChange('mndbt')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Mực nước chết'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.mnc || ''}
-            onChange={event => handleChange('mnc')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Năm xây dựng'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.namXayDung || ''}
-            onChange={event => handleChange('namXayDung')(event.target.value)}
+            value={NN_CNNN_HoData.namHoanThanh || ''}
+            onChange={event => handleChange('namHoanThanh')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
@@ -257,7 +197,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Đơn vị quản lý vận hành'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.donViQuanLyVanHanh || ''}
+            value={NN_CNNN_HoData.donViQuanLyVanHanh || ''}
             onChange={event => handleChange('donViQuanLyVanHanh')(event.target.value)}
           />
         </Grid>
@@ -265,22 +205,22 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Phạm vi hành lang'
+            label='Chức năng nguồn nước'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.phamViHanhLang || ''}
-            onChange={event => handleChange('phamViHanhLang')(event.target.value)}
+            value={NN_CNNN_HoData.chucNangNguonNuoc || ''}
+            onChange={event => handleChange('chucNangNguonNuoc')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Thuộc diện cắm mốc hành lang'
+            label='Mục tiêu chất lượng'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_AoHoDamPhaData.thuocDienCamMocHanhLang || ''}
-            onChange={event => handleChange('thuocDienCamMocHanhLang')(event.target.value)}
+            value={NN_CNNN_HoData.mucTieuChatLuong || ''}
+            onChange={event => handleChange('mucTieuChatLuong')(event.target.value)}
           />
         </Grid>
       </Grid>
@@ -298,7 +238,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const CreateNN_NguonNuoc_AoHoDamPha = ({ data, setPostSuccess, isEdit }: any) => {
+const CreateNN_CNNN_Ho = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin' : 'Thêm mới'
 
   return (
@@ -329,4 +269,4 @@ const CreateNN_NguonNuoc_AoHoDamPha = ({ data, setPostSuccess, isEdit }: any) =>
   )
 }
 
-export default CreateNN_NguonNuoc_AoHoDamPha
+export default CreateNN_CNNN_Ho

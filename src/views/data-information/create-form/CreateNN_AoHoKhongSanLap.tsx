@@ -126,7 +126,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+        <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
@@ -137,7 +137,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             onChange={event => handleChange('tenHoChua')(event.target.value)}
           />
         </Grid>
-        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+        <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'

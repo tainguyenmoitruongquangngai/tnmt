@@ -11,9 +11,9 @@ import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
 import ToolBar from '../../protection-corridor/HoThuyDienLonHon/toolbar'
-import CreateNN_HanhLangBaoVeNN_HoThuyDienLonHon from '../../create-form/CreateNN_HanhlangBaoVeNN_HoThuyDienLonHon'
+import CreateNN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao from '../../create-form/CreateNN_HanhlangBaoVeNN_AoHoDamTuNhienNhanTao'
 
-const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
+const NN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3() {
+    async function getDataNN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao() {
       setLoading(true)
-      await getData('NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3/danh-sach')
+      await getData('NN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
         })
     }
 
-    getDataNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3()
+    getDataNN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -145,7 +145,7 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        Thống kê hành lang bảo vệ nguồn nước đối với hồ chứa lớn hơn 1 triệu m3 tỉnh Quảng Ngãi
+        Thống kê hành lang bảo vệ nguồn nước đối với ao, hồ, đầm tự nhiên tỉnh Quảng Ngãi
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -174,8 +174,8 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateNN_HanhLangBaoVeNN_HoThuyDienLonHon isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateNN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'NN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -187,4 +187,4 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
   )
 }
 
-export default NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3
+export default NN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao

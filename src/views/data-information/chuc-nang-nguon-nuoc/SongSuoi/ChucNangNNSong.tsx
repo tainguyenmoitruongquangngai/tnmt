@@ -2,18 +2,18 @@ import Paper from '@mui/material/Paper'
 import { Grid, Typography, Box, } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import Header from '../header'
-import Footer from '../footer'
+import Header from '../../header'
+import Footer from '../../footer'
 import { getData } from 'src/api/axios'
 import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import CreateNN_MatCatSongSuoi from '../create-form/CreateNN_MatCatSongSuoi'
-import ToolBar from '../mat-cat-song-suoi/toolbar'
 import DeleteData from 'src/@core/components/delete-data'
+import ToolBar from '../../chuc-nang-nguon-nuoc/SongSuoi/toolbar'
+import CreateNN_CNNN_SongSuoi from '../../create-form/CreateNN_CNNN_SongSuoi'
 
-const NN_MatCatSongSuoi = () => {
+const NN_CNNN_SongSuoi = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const NN_MatCatSongSuoi = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_MatCatSongSuoi() {
+    async function getDataNN_CNNN_SongSuoi() {
       setLoading(true)
-      await getData('NN_MatCatSongSuoi/danh-sach')
+      await getData('NN_CNNN_SongSuoi/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const NN_MatCatSongSuoi = () => {
         })
     }
 
-    getDataNN_MatCatSongSuoi()
+    getDataNN_CNNN_SongSuoi()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -48,10 +48,11 @@ const NN_MatCatSongSuoi = () => {
       rowspan: 3
     },
     {
-      id: 'soHieuMatCat',
-      label: 'Số hiệu mặt cắt',
+      id: 'maSong',
+      label: 'Mã sông',
       align: 'left',
       rowspan: 2,
+      minWidth: 200,
       children: [
         {
           id: '#1',
@@ -61,9 +62,10 @@ const NN_MatCatSongSuoi = () => {
     },
     {
       id: 'tenSongSuoi',
-      label: 'Tên sông suối',
+      label: 'Tên sông,suối',
       align: 'left',
       rowspan: 2,
+      minWidth: 200,
       children: [
         {
           id: '#2',
@@ -72,10 +74,11 @@ const NN_MatCatSongSuoi = () => {
       ]
     },
     {
-      id: 'thuocLVS',
-      label: 'Thuộc lưu vực sông',
+      id: 'chayRa',
+      label: 'Chảy ra',
       align: 'left',
       rowspan: 2,
+      minWidth: 200,
       children: [
         {
           id: '#3',
@@ -84,60 +87,28 @@ const NN_MatCatSongSuoi = () => {
       ]
     },
     {
-      id: '#',
-      label: 'Toạ độ bờ trái',
-      align: 'left',
-      children: [
-        {
-          id: 'xBoTrai',
-          label: 'X bờ trái',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xBoTrai == null ? "-" : row.xBoTrai}</Typography>,
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        },
-        {
-          id: 'yBoTrai',
-          label: 'Y bờ trái',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.yBoTrai == null ? "-" : row.yBoTrai}</Typography>,
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: '#',
-      label: 'Toạ độ bờ phải',
-      align: 'left',
-      children: [
-        {
-          id: 'xBoPhai',
-          label: 'X bờ phải',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xBoPhai == null ? "-" : row.xBoPhai}</Typography>,
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        },
-        {
-          id: 'yBoPhai',
-          label: 'Y bờ phải',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.yBoPhai == null ? "-" : row.yBoPhai}</Typography>,
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'xa',
-      label: 'Xã',
+      id: 'chieuDai',
+      label: 'Chiều dài (km)',
       align: 'left',
       rowspan: 2,
+      minWidth: 200,
       children: [
         {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
+          id: '#4',
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'diaPhanHanhChinh',
+      label: 'Địa phận hành chính',
+      align: 'left',
+      rowspan: 2,
+      minWidth: 200,
+      children: [
+        {
+          id: '#5',
+          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
         }
       ]
     },
@@ -146,28 +117,63 @@ const NN_MatCatSongSuoi = () => {
       label: 'Huyện',
       align: 'left',
       rowspan: 2,
+      minWidth: 200,
       children: [
         {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
+          id: '#6',
+          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'tinhTP',
-      label: 'Tỉnh/Thành phố',
+      id: '#',
+      label: 'Toạ độ điểm đầu',
       align: 'left',
-      rowspan: 2,
       children: [
         {
-          id: '#10',
+          id: 'xDiemDau',
+          label: 'X điểm đầu',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xDiemDau == null ? "-" : row.xDiemDau}</Typography>,
+          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
+        },
+        {
+          id: 'yDiemDau',
+          label: 'Y điểm đầu',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.yDiemDau == null ? "-" : row.yDiemDau}</Typography>,
+          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: '#',
+      label: 'Toạ độ điểm cuối',
+      align: 'left',
+      children: [
+        {
+          id: 'xDiemCuoi',
+          label: 'X điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xDiemCuoi == null ? "-" : row.xDiemCuoi}</Typography>,
+          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
+        },
+        {
+          id: 'yDiemCuoi',
+          label: 'Y điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.yDiemCuoi == null ? "-" : row.yDiemCuoi}</Typography>,
           children: [{ id: '#10.1', label: '(10)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'soHieuDiem',
-      label: 'Số hiệu điểm',
+      id: 'chucNangNguonNuoc',
+      label: 'Chức năng nguồn nước',
       align: 'left',
       rowspan: 2,
       children: [
@@ -178,8 +184,8 @@ const NN_MatCatSongSuoi = () => {
       ]
     },
     {
-      id: 'khoangCach',
-      label: 'Khoảng cách (m)',
+      id: 'mucTieuChatLuong',
+      label: 'Mục tiêu chất lượng',
       align: 'left',
       rowspan: 2,
       children: [
@@ -190,62 +196,14 @@ const NN_MatCatSongSuoi = () => {
       ]
     },
     {
-      id: 'caoDoDaySong',
-      label: 'Cao độ đáy sông (m)',
+      id: '#',
+      label: 'Thời gian thực hiện',
       align: 'left',
       rowspan: 2,
       children: [
         {
           id: '#13',
           children: [{ id: '#13.1', label: '(13)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'thoiGianDo',
-      label: 'Thời gian đo',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#14',
-          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'mucNuocSong',
-      label: 'Mực nước sông (m)',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#15',
-          children: [{ id: '#15.1', label: '(15)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'donViDoDacKhaoSat',
-      label: 'Đơn vị đo đạc khảo sát',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#16',
-          children: [{ id: '#16.1', label: '(16)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'ghiChu',
-      label: 'Ghi chú',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#17',
-          children: [{ id: '#17.1', label: '(17)', align: 'left' }]
         }
       ]
     },
@@ -258,7 +216,7 @@ const NN_MatCatSongSuoi = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        THÔNG TIN DỮ LIỆU VỀ MẶT CẮT SÔNG SUỐI TỈNH QUẢNG NGÃI
+        Thống kê chức năng nguồn nước sông suối tỉnh Quảng Ngãi
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -287,8 +245,8 @@ const NN_MatCatSongSuoi = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateNN_MatCatSongSuoi isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'NN_MatCatSongSuoi'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateNN_CNNN_SongSuoi isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'NN_CNNN_SongSuoi'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -300,4 +258,4 @@ const NN_MatCatSongSuoi = () => {
   )
 }
 
-export default NN_MatCatSongSuoi
+export default NN_CNNN_SongSuoi

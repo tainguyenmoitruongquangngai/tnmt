@@ -6,43 +6,35 @@ import { saveData } from 'src/api/axios'
 
 interface State {
   id: number
-  maSong: string
-  tenSongSuoi: string
-  chayRa: number
-  chieuDai: number
-  diaPhanHanhChinh: string
-  huyen: string
-  xDiemDau: number
-  yDiemDau: number
-  xDiemCuoi: number
-  yDiemCuoi: number
-  chucNang: string
-  phamViHanhLangBaoVe: string
-  ghiChu: string
+  tenVungCamHanChe: ''
+  dienTichVungCamHanChe: ''
+  xa: ''
+  huyen: ''
+  tinhTP: ''
+  phamViChieuSau: number
+  cacBienPhapHanCheKT: number
+  qdPheDuyetVungCamKT: number
+  ghiChu: ''
 }
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
-  const [NN_NguonNuoc_SongSuoiData, setNN_NguonNuoc_SongSuoiData] = useState<State>({
+  const [NN_VungCamHanCheKTNDDData, setNN_VungCamHanCheKTNDDData] = useState<State>({
     id: data?.id || 0,
-    maSong: data?.maSong || '',
-    tenSongSuoi: data?.tenSongSuoi || '',
-    chayRa: data?.chayRa || 0,
-    chieuDai: data?.chieuDai || 0,
-    diaPhanHanhChinh: data?.diaPhanHanhChinh || '',
+    tenVungCamHanChe: data?.tenVungCamHanChe || '',
+    dienTichVungCamHanChe: data?.dienTichVungCamHanChe || '',
+    xa: data?.xa || '',
     huyen: data?.huyen || '',
-    xDiemDau: data?.xDiemDau || 0,
-    yDiemDau: data?.yDiemDau || 0,
-    xDiemCuoi: data?.xDiemCuoi || 0,
-    yDiemCuoi: data?.yDiemCuoi || 0,
-    chucNang: data?.chucNang || '',
-    phamViHanhLangBaoVe: data?.phamViHanhLangBaoVe || '',
+    tinhTP: data?.tinhTP || '',
+    phamViChieuSau: data?.phamViChieuSau || 0,
+    cacBienPhapHanCheKT: data?.cacBienPhapHanCheKT || 0,
+    qdPheDuyetVungCamKT: data?.qdPheDuyetVungCamKT || 0,
     ghiChu: data?.ghiChu || ''
   })
 
   const [saving, setSaving] = useState(false)
 
   const handleChange = (prop: keyof State) => (value: any) => {
-    setNN_NguonNuoc_SongSuoiData({ ...NN_NguonNuoc_SongSuoiData, [prop]: value })
+    setNN_VungCamHanCheKTNDDData({ ...NN_VungCamHanCheKTNDDData, [prop]: value })
   }
 
   const handleSubmit = async (e: any) => {
@@ -51,23 +43,19 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('NN_NguonNuoc_SongSuoi/luu', NN_NguonNuoc_SongSuoiData)
+        const res = await saveData('NN_VungCamHanCheKTNDD/luu', NN_VungCamHanCheKTNDDData)
         if (res) {
           // Reset form fields
-          setNN_NguonNuoc_SongSuoiData({
+          setNN_VungCamHanCheKTNDDData({
             id: 0,
-            maSong: '',
-            tenSongSuoi: '',
-            chayRa: 0,
-            chieuDai: 0,
-            diaPhanHanhChinh: '',
+            tenVungCamHanChe: '',
+            dienTichVungCamHanChe: '',
+            xa: '',
             huyen: '',
-            xDiemDau: 0,
-            yDiemDau: 0,
-            xDiemCuoi: 0,
-            yDiemCuoi: 0,
-            chucNang: '',
-            phamViHanhLangBaoVe: '',
+            tinhTP: '',
+            phamViChieuSau: 0,
+            cacBienPhapHanCheKT: 0,
+            qdPheDuyetVungCamKT: 0,
             ghiChu: ''
           })
 
@@ -87,20 +75,16 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setNN_NguonNuoc_SongSuoiData({
+    setNN_VungCamHanCheKTNDDData({
       id: 0,
-      maSong: '',
-      tenSongSuoi: '',
-      chayRa: 0,
-      chieuDai: 0,
-      diaPhanHanhChinh: '',
+      tenVungCamHanChe: '',
+      dienTichVungCamHanChe: '',
+      xa: '',
       huyen: '',
-      xDiemDau: 0,
-      yDiemDau: 0,
-      xDiemCuoi: 0,
-      yDiemCuoi: 0,
-      chucNang: '',
-      phamViHanhLangBaoVe: '',
+      tinhTP: '',
+      phamViChieuSau: 0,
+      cacBienPhapHanCheKT: 0,
+      qdPheDuyetVungCamKT: 0,
       ghiChu: ''
     })
 
@@ -114,55 +98,33 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Mã sông'
+            label='Tên vùng cấm/vùng hạn chế'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.maSong || ''}
-            onChange={event => handleChange('maSong')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.tenVungCamHanChe || ''}
+            onChange={event => handleChange('tenVungCamHanChe')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Tên sông'
+            label='Diện tích vùng cấm/vùng hạn chế (km2)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.tenSongSuoi || ''}
-            onChange={event => handleChange('tenSongSuoi')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.dienTichVungCamHanChe || ''}
+            onChange={event => handleChange('dienTichVungCamHanChe')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Chảy ra'
+            label='Xã'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.chayRa || ''}
-            onChange={event => handleChange('chayRa')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Chiều dài'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.chieuDai || ''}
-            onChange={event => handleChange('chieuDai')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Địa phận hành chính'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.diaPhanHanhChinh || ''}
-            onChange={event => handleChange('diaPhanHanhChinh')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.xa || ''}
+            onChange={event => handleChange('xa')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
@@ -172,7 +134,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Huyện'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.huyen || ''}
+            value={NN_VungCamHanCheKTNDDData.huyen || ''}
             onChange={event => handleChange('huyen')(event.target.value)}
           />
         </Grid>
@@ -180,44 +142,44 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='X điểm đầu'
+            label='Tỉnh/Thành phố'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.xDiemDau || ''}
-            onChange={event => handleChange('xDiemDau')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.tinhTP || ''}
+            onChange={event => handleChange('tinhTP')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Y điểm đầu'
+            label='Phạm vi chiều sâu hoặc tầng chứa nước hạn chế KT (m)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.yDiemDau || ''}
-            onChange={event => handleChange('yDiemDau')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.phamViChieuSau || ''}
+            onChange={event => handleChange('phamViChieuSau')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='X điểm Cuối'
+            label='Các biện pháp hạn chế khai thác'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.xDiemCuoi || ''}
-            onChange={event => handleChange('xDiemCuoi')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.cacBienPhapHanCheKT || ''}
+            onChange={event => handleChange('cacBienPhapHanCheKT')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Y điểm Cuối'
+            label='QĐ phê duyệt vùng cấm khai thác'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.yDiemCuoi || ''}
-            onChange={event => handleChange('yDiemCuoi')(event.target.value)}
+            value={NN_VungCamHanCheKTNDDData.qdPheDuyetVungCamKT || ''}
+            onChange={event => handleChange('qdPheDuyetVungCamKT')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
@@ -227,7 +189,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Ghi chú'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.ghiChu || ''}
+            value={NN_VungCamHanCheKTNDDData.ghiChu || ''}
             onChange={event => handleChange('ghiChu')(event.target.value)}
           />
         </Grid>
@@ -246,8 +208,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const CreateNN_NguonNuoc_SongSuoi = ({ data, setPostSuccess, isEdit }: any) => {
-  const formTitle = isEdit ? 'Thay đổi thông tin' : 'Thêm mới'
+const CreateNN_VungCamHanCheKTNDD = ({ data, setPostSuccess, isEdit }: any) => {
+  const formTitle = isEdit ? 'Thay đổi thông tin tài khoản' : 'Thêm tài khoản mới'
 
   return (
     <DialogsControl>
@@ -277,4 +239,4 @@ const CreateNN_NguonNuoc_SongSuoi = ({ data, setPostSuccess, isEdit }: any) => {
   )
 }
 
-export default CreateNN_NguonNuoc_SongSuoi
+export default CreateNN_VungCamHanCheKTNDD

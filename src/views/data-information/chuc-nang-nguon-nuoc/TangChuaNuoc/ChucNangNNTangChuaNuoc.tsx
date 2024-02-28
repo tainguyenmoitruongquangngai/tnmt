@@ -10,10 +10,10 @@ import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from '../../protection-corridor/HoThuyDienLonHon/toolbar'
-import CreateNN_HanhLangBaoVeNN_HoThuyDienLonHon from '../../create-form/CreateNN_HanhlangBaoVeNN_HoThuyDienLonHon'
+import ToolBar from '../../chuc-nang-nguon-nuoc/TangChuaNuoc/toolbar'
+import CreateNN_CNNN_TangChuaNuoc from '../../create-form/CreateNN_CNNN_TangChuaNuoc'
 
-const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
+const NN_CNNN_TangChuaNuoc = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3() {
+    async function getDataNN_CNNN_TangChuaNuoc() {
       setLoading(true)
-      await getData('NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3/danh-sach')
+      await getData('NN_CNNN_TangChuaNuoc/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
         })
     }
 
-    getDataNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3()
+    getDataNN_CNNN_TangChuaNuoc()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -48,11 +48,11 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       rowspan: 3
     },
     {
-      id: 'ten',
-      label: 'Tên',
+      id: 'viTriPhamVi',
+      label: 'Vị trí, phạm vi quy định chức năng nguồn nước',
       align: 'left',
       rowspan: 2,
-      minWidth: 200,
+      minWidth: 300,
       children: [
         {
           id: '#1',
@@ -74,8 +74,8 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       ]
     },
     {
-      id: 'diaPhanHanhChinh',
-      label: 'Địa phận hành chính',
+      id: 'huyenTP',
+      label: 'Huyện/Thành phố',
       align: 'left',
       rowspan: 2,
       minWidth: 200,
@@ -87,8 +87,8 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       ]
     },
     {
-      id: 'huyenTP',
-      label: 'Huyện/Thành phố',
+      id: 'tenTCN',
+      label: 'Tên tầng chứa nước',
       align: 'left',
       rowspan: 2,
       minWidth: 200,
@@ -100,10 +100,11 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       ]
     },
     {
-      id: 'dungTichHo106m3',
-      label: 'Dung tích hồ',
+      id: 'loaiChuaNuoc',
+      label: 'Loại chứa nước (lỗ hổng, khe nứt)',
       align: 'left',
       rowspan: 2,
+      minWidth: 300,
       children: [
         {
           id: '#5',
@@ -112,11 +113,10 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       ]
     },
     {
-      id: 'phamViHanhLang',
-      label: 'Phạm vi hành lang',
+      id: 'chieuSauPhanBo',
+      label: 'Chiều sâu phân bố (m)',
       align: 'left',
       rowspan: 2,
-      minWidth: 200,
       children: [
         {
           id: '#6',
@@ -125,14 +125,38 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       ]
     },
     {
-      id: 'thuocDienCamMocHanhLang',
-      label: 'Thuộc diện cắm mốc hành lang',
+      id: 'chucNangNguonNuoc',
+      label: 'Chức năng nguồn nước',
       align: 'left',
       rowspan: 2,
       children: [
         {
           id: '#7',
           children: [{ id: '#7.1', label: '(7)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'mucTieuChatLuongNuoc',
+      label: 'Mục tiêu chất lượng nước',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#8',
+          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
+        }
+      ]
+    },
+    {
+      id: 'chucNangNguonNuoc',
+      label: 'Chức năng nguồn nước',
+      align: 'left',
+      rowspan: 2,
+      children: [
+        {
+          id: '#9',
+          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
         }
       ]
     },
@@ -145,7 +169,7 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        Thống kê hành lang bảo vệ nguồn nước đối với hồ chứa lớn hơn 1 triệu m3 tỉnh Quảng Ngãi
+        Thống kê chức năng nguồn nước là các tầng chứa nước tỉnh Quảng Ngãi
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -174,8 +198,8 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateNN_HanhLangBaoVeNN_HoThuyDienLonHon isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateNN_CNNN_TangChuaNuoc isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'NN_CNNN_TangChuaNuoc'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -187,4 +211,4 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
   )
 }
 
-export default NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3
+export default NN_CNNN_TangChuaNuoc

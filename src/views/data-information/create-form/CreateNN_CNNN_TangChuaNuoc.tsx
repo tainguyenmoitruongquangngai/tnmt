@@ -6,37 +6,33 @@ import { saveData } from 'src/api/axios'
 
 interface State {
   id: number
-  maSong: string
-  capSong: string
-  tenSongSuoi: string
-  chayRa: string
-  chieuDai: number
-  dienTich: number
-  tinh: string
-  thuocLVS: string
-  loaiSongSuoi: string
-  ghiChu: string
+  viTriPhamVi: ''
+  xaPhuongTT: ''
+  huyenTP: ''
+  tenTCN: ''
+  loaiChuaNuoc: ''
+  chieuSauPhanBo: number
+  chucNangNguonNuoc: number
+  mucTieuChatLuongNuoc: ''
 }
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
-  const [NN_LuuVucSongData, setNN_LuuVucSongData] = useState<State>({
+  const [NN_CNNN_TangChuaNuocData, setNN_CNNN_TangChuaNuocData] = useState<State>({
     id: data?.id || 0,
-    maSong: data?.maSong || '',
-    capSong: data?.capSong || '',
-    tenSongSuoi: data?.tenSongSuoi || '',
-    chayRa: data?.chayRa || '',
-    chieuDai: data?.chieuDai || 0,
-    dienTich: data?.dienTich || 0,
-    tinh: data?.tinh || '',
-    thuocLVS: data?.thuocLVS || '',
-    loaiSongSuoi: data?.loaiSongSuoi || '',
-    ghiChu: data?.ghiChu || ''
+    viTriPhamVi: data?.viTriPhamVi || '',
+    xaPhuongTT: data?.xaPhuongTT || '',
+    huyenTP: data?.huyenTP || '',
+    tenTCN: data?.tenTCN || '',
+    loaiChuaNuoc: data?.loaiChuaNuoc || '',
+    chieuSauPhanBo: data?.chieuSauPhanBo || 0,
+    chucNangNguonNuoc: data?.chucNangNguonNuoc || 0,
+    mucTieuChatLuongNuoc: data?.mucTieuChatLuongNuoc || ''
   })
 
   const [saving, setSaving] = useState(false)
 
   const handleChange = (prop: keyof State) => (value: any) => {
-    setNN_LuuVucSongData({ ...NN_LuuVucSongData, [prop]: value })
+    setNN_CNNN_TangChuaNuocData({ ...NN_CNNN_TangChuaNuocData, [prop]: value })
   }
 
   const handleSubmit = async (e: any) => {
@@ -45,21 +41,19 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('NN_LuuVucSong/luu', NN_LuuVucSongData)
+        const res = await saveData('NN_CNNN_TangChuaNuoc/luu', NN_CNNN_TangChuaNuocData)
         if (res) {
           // Reset form fields
-          setNN_LuuVucSongData({
+          setNN_CNNN_TangChuaNuocData({
             id: 0,
-            maSong: '',
-            capSong: '',
-            tenSongSuoi: '',
-            chayRa: '',
-            chieuDai: 0,
-            dienTich: 0,
-            tinh: '',
-            thuocLVS: '',
-            loaiSongSuoi: '',
-            ghiChu: ''
+            viTriPhamVi: '',
+            xaPhuongTT: '',
+            huyenTP: '',
+            tenTCN: '',
+            loaiChuaNuoc: '',
+            chieuSauPhanBo: 0,
+            chucNangNguonNuoc: 0,
+            mucTieuChatLuongNuoc: ''
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
@@ -78,18 +72,16 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setNN_LuuVucSongData({
+    setNN_CNNN_TangChuaNuocData({
       id: 0,
-      maSong: '',
-      capSong: '',
-      tenSongSuoi: '',
-      chayRa: '',
-      chieuDai: 0,
-      dienTich: 0,
-      tinh: '',
-      thuocLVS: '',
-      loaiSongSuoi: '',
-      ghiChu: ''
+      viTriPhamVi: '',
+      xaPhuongTT: '',
+      huyenTP: '',
+      tenTCN: '',
+      loaiChuaNuoc: '',
+      chieuSauPhanBo: 0,
+      chucNangNguonNuoc: 0,
+      mucTieuChatLuongNuoc: ''
     })
 
     closeDialogs()
@@ -102,110 +94,88 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Mã sông'
+            label='Tên hồ chứa'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.maSong || ''}
-            onChange={event => handleChange('maSong')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.viTriPhamVi || ''}
+            onChange={event => handleChange('viTriPhamVi')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Cấp sông'
+            label='Xã/Phường/Thị trấn'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.capSong || ''}
-            onChange={event => handleChange('capSong')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.xaPhuongTT || ''}
+            onChange={event => handleChange('xaPhuongTT')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Tên sông, suối'
+            label='Huyện/Thành phố'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.tenSongSuoi || ''}
-            onChange={event => handleChange('tenSongSuoi')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.huyenTP || ''}
+            onChange={event => handleChange('huyenTP')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Chảy ra'
+            label='Diện tích mặt nước (km2)'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.chayRa || ''}
-            onChange={event => handleChange('chayRa')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.tenTCN || ''}
+            onChange={event => handleChange('tenTCN')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Chiều dài'
+            label='Dung tích toàn bộ (triệu m3)'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.chieuDai || ''}
-            onChange={event => handleChange('chieuDai')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.loaiChuaNuoc || ''}
+            onChange={event => handleChange('loaiChuaNuoc')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Diện tích'
+            label='Dung tích hữu ích (triệu m3)'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.dienTich || ''}
-            onChange={event => handleChange('dienTich')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.chieuSauPhanBo || ''}
+            onChange={event => handleChange('chieuSauPhanBo')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Tỉnh/Thành phố'
+            label='Năm hoàn thành'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.tinh || ''}
-            onChange={event => handleChange('tinh')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.chucNangNguonNuoc || ''}
+            onChange={event => handleChange('chucNangNguonNuoc')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Thuộc lưu vực sông'
+            label='Đơn vị quản lý vận hành'
             fullWidth
             placeholder=''
-            value={NN_LuuVucSongData.thuocLVS || ''}
-            onChange={event => handleChange('thuocLVS')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Loại sông suối'
-            fullWidth
-            placeholder=''
-            value={NN_LuuVucSongData.loaiSongSuoi || ''}
-            onChange={event => handleChange('loaiSongSuoi')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Ghi chú'
-            fullWidth
-            placeholder=''
-            value={NN_LuuVucSongData.ghiChu || ''}
-            onChange={event => handleChange('ghiChu')(event.target.value)}
+            value={NN_CNNN_TangChuaNuocData.mucTieuChatLuongNuoc || ''}
+            onChange={event => handleChange('mucTieuChatLuongNuoc')(event.target.value)}
           />
         </Grid>
       </Grid>
@@ -223,8 +193,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const CreateNN_LuuVucSong = ({ data, setPostSuccess, isEdit }: any) => {
-  const formTitle = isEdit ? 'Thay đổi thông tin tài khoản' : 'Thêm tài khoản mới'
+const CreateNN_CNNN_TangChuaNuoc = ({ data, setPostSuccess, isEdit }: any) => {
+  const formTitle = isEdit ? 'Thay đổi thông tin' : 'Thêm mới'
 
   return (
     <DialogsControl>
@@ -254,4 +224,4 @@ const CreateNN_LuuVucSong = ({ data, setPostSuccess, isEdit }: any) => {
   )
 }
 
-export default CreateNN_LuuVucSong
+export default CreateNN_CNNN_TangChuaNuoc

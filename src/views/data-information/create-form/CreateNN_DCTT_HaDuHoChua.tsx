@@ -6,43 +6,35 @@ import { saveData } from 'src/api/axios'
 
 interface State {
   id: number
-  maSong: string
-  tenSongSuoi: string
-  chayRa: number
-  chieuDai: number
-  diaPhanHanhChinh: string
-  huyen: string
-  xDiemDau: number
-  yDiemDau: number
-  xDiemCuoi: number
-  yDiemCuoi: number
-  chucNang: string
-  phamViHanhLangBaoVe: string
-  ghiChu: string
+  tenCT: ''
+  thuocLVS: ''
+  xaPhuongTT: ''
+  huyenTP: ''
+  nguonNuocKhaiThac: ''
+  qttSauDap: number
+  qttSauCT: number
+  qttQuyDinhKhac: number
+  loaiHinhCT: ''
 }
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
-  const [NN_NguonNuoc_SongSuoiData, setNN_NguonNuoc_SongSuoiData] = useState<State>({
+  const [NN_DCTT_HaDuHoChuaData, setNN_DCTT_HaDuHoChuaData] = useState<State>({
     id: data?.id || 0,
-    maSong: data?.maSong || '',
-    tenSongSuoi: data?.tenSongSuoi || '',
-    chayRa: data?.chayRa || 0,
-    chieuDai: data?.chieuDai || 0,
-    diaPhanHanhChinh: data?.diaPhanHanhChinh || '',
-    huyen: data?.huyen || '',
-    xDiemDau: data?.xDiemDau || 0,
-    yDiemDau: data?.yDiemDau || 0,
-    xDiemCuoi: data?.xDiemCuoi || 0,
-    yDiemCuoi: data?.yDiemCuoi || 0,
-    chucNang: data?.chucNang || '',
-    phamViHanhLangBaoVe: data?.phamViHanhLangBaoVe || '',
-    ghiChu: data?.ghiChu || ''
+    tenCT: data?.tenCT || '',
+    thuocLVS: data?.thuocLVS || '',
+    xaPhuongTT: data?.xaPhuongTT || '',
+    huyenTP: data?.huyenTP || '',
+    nguonNuocKhaiThac: data?.nguonNuocKhaiThac || '',
+    qttSauDap: data?.qttSauDap || 0,
+    qttSauCT: data?.qttSauCT || 0,
+    qttQuyDinhKhac: data?.qttQuyDinhKhac || 0,
+    loaiHinhCT: data?.loaiHinhCT || ''
   })
 
   const [saving, setSaving] = useState(false)
 
   const handleChange = (prop: keyof State) => (value: any) => {
-    setNN_NguonNuoc_SongSuoiData({ ...NN_NguonNuoc_SongSuoiData, [prop]: value })
+    setNN_DCTT_HaDuHoChuaData({ ...NN_DCTT_HaDuHoChuaData, [prop]: value })
   }
 
   const handleSubmit = async (e: any) => {
@@ -51,24 +43,20 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('NN_NguonNuoc_SongSuoi/luu', NN_NguonNuoc_SongSuoiData)
+        const res = await saveData('NN_DCTT_HaDuHoChua/luu', NN_DCTT_HaDuHoChuaData)
         if (res) {
           // Reset form fields
-          setNN_NguonNuoc_SongSuoiData({
+          setNN_DCTT_HaDuHoChuaData({
             id: 0,
-            maSong: '',
-            tenSongSuoi: '',
-            chayRa: 0,
-            chieuDai: 0,
-            diaPhanHanhChinh: '',
-            huyen: '',
-            xDiemDau: 0,
-            yDiemDau: 0,
-            xDiemCuoi: 0,
-            yDiemCuoi: 0,
-            chucNang: '',
-            phamViHanhLangBaoVe: '',
-            ghiChu: ''
+            tenCT: '',
+            thuocLVS: '',
+            xaPhuongTT: '',
+            huyenTP: '',
+            nguonNuocKhaiThac: '',
+            qttSauDap: 0,
+            qttSauCT: 0,
+            qttQuyDinhKhac: 0,
+            loaiHinhCT: ''
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
@@ -87,21 +75,17 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setNN_NguonNuoc_SongSuoiData({
+    setNN_DCTT_HaDuHoChuaData({
       id: 0,
-      maSong: '',
-      tenSongSuoi: '',
-      chayRa: 0,
-      chieuDai: 0,
-      diaPhanHanhChinh: '',
-      huyen: '',
-      xDiemDau: 0,
-      yDiemDau: 0,
-      xDiemCuoi: 0,
-      yDiemCuoi: 0,
-      chucNang: '',
-      phamViHanhLangBaoVe: '',
-      ghiChu: ''
+      tenCT: '',
+      thuocLVS: '',
+      xaPhuongTT: '',
+      huyenTP: '',
+      nguonNuocKhaiThac: '',
+      qttSauDap: 0,
+      qttSauCT: 0,
+      qttQuyDinhKhac: 0,
+      loaiHinhCT: ''
     })
 
     closeDialogs()
@@ -114,121 +98,99 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Mã sông'
+            label='Tên công trình'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.maSong || ''}
-            onChange={event => handleChange('maSong')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.tenCT || ''}
+            onChange={event => handleChange('tenCT')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Tên sông'
+            label='Thuộc lưu vực sông'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.tenSongSuoi || ''}
-            onChange={event => handleChange('tenSongSuoi')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.thuocLVS || ''}
+            onChange={event => handleChange('thuocLVS')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Chảy ra'
+            label='Xã/Phường/Thị trấn'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.chayRa || ''}
-            onChange={event => handleChange('chayRa')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.xaPhuongTT || ''}
+            onChange={event => handleChange('xaPhuongTT')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Chiều dài'
+            label='Huyện/Thành phố'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.chieuDai || ''}
-            onChange={event => handleChange('chieuDai')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.huyenTP || ''}
+            onChange={event => handleChange('huyenTP')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Địa phận hành chính'
+            label='Nguồn nước khai thác'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.diaPhanHanhChinh || ''}
-            onChange={event => handleChange('diaPhanHanhChinh')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.nguonNuocKhaiThac || ''}
+            onChange={event => handleChange('nguonNuocKhaiThac')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Huyện'
+            label='Qtt sau đập (m3/s)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.huyen || ''}
-            onChange={event => handleChange('huyen')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.qttSauDap || ''}
+            onChange={event => handleChange('qttSauDap')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='X điểm đầu'
+            label='Qtt sau công trình (m3/s)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.xDiemDau || ''}
-            onChange={event => handleChange('xDiemDau')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.qttSauCT || ''}
+            onChange={event => handleChange('qttSauCT')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='Y điểm đầu'
+            label='Qtt quy định khác (m3/s)'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.yDiemDau || ''}
-            onChange={event => handleChange('yDiemDau')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.qttQuyDinhKhac || ''}
+            onChange={event => handleChange('qttQuyDinhKhac')(event.target.value)}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12}>
           <TextField
             size='small'
             type='text'
-            label='X điểm Cuối'
+            label='Loại hình công trình'
             fullWidth
             placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.xDiemCuoi || ''}
-            onChange={event => handleChange('xDiemCuoi')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Y điểm Cuối'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.yDiemCuoi || ''}
-            onChange={event => handleChange('yDiemCuoi')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12}>
-          <TextField
-            size='small'
-            type='text'
-            label='Ghi chú'
-            fullWidth
-            placeholder=''
-            value={NN_NguonNuoc_SongSuoiData.ghiChu || ''}
-            onChange={event => handleChange('ghiChu')(event.target.value)}
+            value={NN_DCTT_HaDuHoChuaData.loaiHinhCT || ''}
+            onChange={event => handleChange('loaiHinhCT')(event.target.value)}
           />
         </Grid>
       </Grid>
@@ -246,7 +208,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const CreateNN_NguonNuoc_SongSuoi = ({ data, setPostSuccess, isEdit }: any) => {
+const CreateNN_DCTT_HaDuHoChua = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin' : 'Thêm mới'
 
   return (
@@ -277,4 +239,4 @@ const CreateNN_NguonNuoc_SongSuoi = ({ data, setPostSuccess, isEdit }: any) => {
   )
 }
 
-export default CreateNN_NguonNuoc_SongSuoi
+export default CreateNN_DCTT_HaDuHoChua

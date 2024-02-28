@@ -1,8 +1,8 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
-import DongChayToiThieuSongPage from "./DongChayToiThieuSong";
-import DongChayToiThieuHo from "./DongChayToiThieuHo";
+import DongChayToiThieuSongPage from "./SongSuoi/DongChayToiThieuSong";
+import DongChayToiThieuHo from "./Ho/DongChayToiThieuHo";
 
 const DongChayToiThieu = () => {
     const [value, setValue] = useState('1');
