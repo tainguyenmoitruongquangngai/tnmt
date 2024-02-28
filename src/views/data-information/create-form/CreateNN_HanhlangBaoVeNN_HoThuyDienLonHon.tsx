@@ -163,7 +163,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3ThuyDienLonHon = ({ data, setPostSuccess, isEdit }: any) => {
+const CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin' : 'Thêm mới'
 
   return (
@@ -194,4 +194,4 @@ const CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3ThuyDienLonHon = ({ data, set
   )
 }
 
-export default CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3ThuyDienLonHon
+export default CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3

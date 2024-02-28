@@ -15,7 +15,7 @@ interface State {
 }
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
-  const [NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data, setNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data] = useState<State>({
+  const [NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data, setNN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data] = useState<State>({
     id: data?.id || 0,
     ten: data?.ten || '',
     xaPhuongTT: data?.xaPhuongTT || '',
@@ -28,7 +28,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [saving, setSaving] = useState(false)
 
   const handleChange = (prop: keyof State) => (value: any) => {
-    setNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data({ ...NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data, [prop]: value })
+    setNN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data({ ...NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data, [prop]: value })
   }
 
   const handleSubmit = async (e: any) => {
@@ -37,10 +37,10 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3/luu', NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data)
+        const res = await saveData('NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3/luu', NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data)
         if (res) {
           // Reset form fields
-          setNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data({
+          setNN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data({
             id: 0,
             ten: '',
             xaPhuongTT: '',
@@ -66,7 +66,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data({
+    setNN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data({
       id: 0,
       ten: '',
       xaPhuongTT: '',
@@ -89,7 +89,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Tên'
             fullWidth
             placeholder=''
-            value={NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data.ten || ''}
+            value={NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data.ten || ''}
             onChange={event => handleChange('ten')(event.target.value)}
           />
         </Grid>
@@ -100,7 +100,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Xã/Phường/Thị trấn'
             fullWidth
             placeholder=''
-            value={NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data.xaPhuongTT || ''}
+            value={NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data.xaPhuongTT || ''}
             onChange={event => handleChange('xaPhuongTT')(event.target.value)}
           />
         </Grid>
@@ -111,7 +111,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Huyện/Thành phố'
             fullWidth
             placeholder=''
-            value={NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data.huyenTP || ''}
+            value={NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data.huyenTP || ''}
             onChange={event => handleChange('huyenTP')(event.target.value)}
           />
         </Grid>
@@ -122,7 +122,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Dung tích hồ'
             fullWidth
             placeholder=''
-            value={NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data.dungTichHo106m3 || ''}
+            value={NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data.dungTichHo106m3 || ''}
             onChange={event => handleChange('dungTichHo106m3')(event.target.value)}
           />
         </Grid>
@@ -133,7 +133,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Phạm vi hành lang'
             fullWidth
             placeholder=''
-            value={NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data.phamViHanhLang || ''}
+            value={NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data.phamViHanhLang || ''}
             onChange={event => handleChange('phamViHanhLang')(event.target.value)}
           />
         </Grid>
@@ -144,7 +144,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Thuộc diện cắm mốc hành lang'
             fullWidth
             placeholder=''
-            value={NN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3Data.thuocDienCamMocHanhLang || ''}
+            value={NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3Data.thuocDienCamMocHanhLang || ''}
             onChange={event => handleChange('thuocDienCamMocHanhLang')(event.target.value)}
           />
         </Grid>
@@ -163,7 +163,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3ThuyDienLonHon = ({ data, setPostSuccess, isEdit }: any) => {
+const CreateNN_HanhLangBaoVeNN_HoThuyLoiItHon1m3 = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin' : 'Thêm mới'
 
   return (
@@ -194,4 +194,4 @@ const CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3ThuyDienLonHon = ({ data, setP
   )
 }
 
-export default CreateNN_HanhLangBaoVeNN_HoThuyLoiNhieuIt1m3ThuyDienLonHon
+export default CreateNN_HanhLangBaoVeNN_HoThuyLoiItHon1m3

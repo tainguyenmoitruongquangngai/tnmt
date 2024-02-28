@@ -10,7 +10,7 @@ import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from '../../protection-corridor/HoThuyDienLonHon/toolbar'
+import ToolBar from '../../protection-corridor/HoThuyDienNhoHon/toolbar'
 import CreateNN_HanhLangBaoVeNN_HoThuyDienNhoHon from '../../create-form/CreateNN_HanhlangBaoVeNN_HoThuyDienNhoHon'
 
 const NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3 = () => {
