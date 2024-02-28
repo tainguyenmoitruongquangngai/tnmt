@@ -1,10 +1,10 @@
 //import { Replay, Search } from '@mui/icons-material'
 import { Button, Grid, TextField, Toolbar } from '@mui/material'
-import CreateLake from './create-form/CreateNN_LuuVucSong'
 import { FC, useState } from 'react'
 import ExportToExcel from 'src/@core/components/export-excel'
 import { TableColumn } from 'src/@core/components/table'
 import { Replay, Search } from "@mui/icons-material";
+import CreateNN_HanhLangBaoVeNN_SongSuoi from '../../create-form/CreateNN_HanhlangBaoVeNN_SongSuoi';
 
 interface LicenseToolBarProps {
   onExport: { data: any; column: TableColumn[] }
@@ -49,7 +49,7 @@ const ToolBar: FC<LicenseToolBarProps> = ({ onExport }) => {
           <ExportToExcel resData={onExport?.data} columnsTable={onExport?.column} />
         </Grid>
         <Grid item xs={6} md={1.5} py={0}>
-          <CreateLake isEdit={false} setPostSuccess={handlePostSuccess} />
+          <CreateNN_HanhLangBaoVeNN_SongSuoi isEdit={false} setPostSuccess={handlePostSuccess} />
         </Grid>
       </Grid>
     </Toolbar>
