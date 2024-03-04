@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import CreateSLDTKTSDN_NDD from '../../create-form/CreateSLDTKTSDN_NDD'
-import ToolBar from '../nuoc-duoi-dat/toolbar'
+import CreateHSKTT_NDD from '../../create-form/CreateHSKTT_NDD'
 import DeleteData from 'src/@core/components/delete-data'
+import ToolBar from '../../station-engineering/NuocDuoiDat/toolbar'
 
-const SLDTKTSDN_NDD = () => {
+const HSKTT_NDD = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const SLDTKTSDN_NDD = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataSLDTKTSDN_NDD() {
+    async function getDataHSKTT_NDD() {
       setLoading(true)
-      await getData('SLDTKTSDN_NDD/danh-sach')
+      await getData('HSKTT_NDD/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const SLDTKTSDN_NDD = () => {
         })
     }
 
-    getDataSLDTKTSDN_NDD()
+    getDataHSKTT_NDD()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -48,8 +48,8 @@ const SLDTKTSDN_NDD = () => {
       rowspan: 3
     },
     {
-      id: 'tenChuHoCT',
-      label: 'Tên chủ hộ/Công trình',
+      id: 'kyHieuCT',
+      label: 'Ký hiệu công trình',
       align: 'left',
       rowspan: 2,
       children: [
@@ -60,31 +60,32 @@ const SLDTKTSDN_NDD = () => {
       ]
     },
     {
-      id: '#',
-      label: 'Vị trí',
+      id: 'tenTaiLieuHoSo',
+      label: 'Tên tài liệu hồ sơ',
       align: 'left',
+      rowspan: 2,
       children: [
         {
-          id: 'xa',
-          label: 'Xã',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xa == null ? "-" : row.xa}</Typography>,
+          id: '#2',
           children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        },
+        }
+      ]
+    },
+    {
+      id: 'tenToChucThucHienQuanTrac',
+      label: 'Tên tổ chức thực hiện quan trắc',
+      align: 'left',
+      rowspan: 2,
+      children: [
         {
-          id: 'huyen',
-          label: 'Huyện',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyen == null ? "-" : row.huyen}</Typography>,
+          id: '#3',
           children: [{ id: '#3.1', label: '(3)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'soLuongGieng',
-      label: 'Số lượng giếng',
+      id: 'nguoiThanhLapHoSo',
+      label: 'Người thành lập hồ sơ',
       align: 'left',
       rowspan: 2,
       children: [
@@ -95,8 +96,8 @@ const SLDTKTSDN_NDD = () => {
       ]
     },
     {
-      id: 'uocTinhLuongNuocKT',
-      label: 'Ước tính lượng nước khai thác (m3/ngày)',
+      id: 'nguoiKiemTraHoSo',
+      label: 'Người kiểm tra hồ sơ',
       align: 'left',
       rowspan: 2,
       children: [
@@ -107,8 +108,8 @@ const SLDTKTSDN_NDD = () => {
       ]
     },
     {
-      id: 'loaiCT',
-      label: 'Loại công trình',
+      id: 'filePDF',
+      label: 'File DPF',
       align: 'left',
       rowspan: 2,
       children: [
@@ -118,79 +119,7 @@ const SLDTKTSDN_NDD = () => {
         }
       ]
     },
-    {
-      id: 'hinhThucKT',
-      label: 'Hình thức khai thác',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'chieuSauKT',
-      label: 'Chiều sâu khai thác',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'mucDichSD',
-      label: 'Mục đích sử dụng',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'tinhTrangSD',
-      label: 'Tình trạng sử dụng',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'phieuDieuTraPDF',
-      label: 'File phiếu điều tra (pdf)',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'ghiChu',
-      label: 'Ghi chú',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#12',
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
-        }
-      ]
-    },
-    { align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
+    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
 
   return (
@@ -199,7 +128,7 @@ const SLDTKTSDN_NDD = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-          PHIẾU ĐIỀU TRA TỔNG HỢP HIỆN TRẠNG KHAI THÁC, SỬ DỤNG NƯỚC DƯỚI ĐẤT
+          THỐNG KÊ HỒ SƠ KỸ THUẬT CÁC CÔNG TRÌNH QUAN TRẮC NƯỚC MẶT TỈNH QUẢNG NGÃI
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -228,8 +157,8 @@ const SLDTKTSDN_NDD = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateSLDTKTSDN_NDD isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'SLDTKTSDN_NDD'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateHSKTT_NDD isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'HSKTT_NDD'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -241,4 +170,4 @@ const SLDTKTSDN_NDD = () => {
   )
 }
 
-export default SLDTKTSDN_NDD
+export default HSKTT_NDD
