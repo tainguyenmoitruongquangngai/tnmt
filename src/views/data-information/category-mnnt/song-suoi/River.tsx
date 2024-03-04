@@ -10,10 +10,10 @@ import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from '../../cong-trinh-KTSD-TNN/KTSD-phai-ke-khai/toolbar'
-import CreateCTKTSDN_KTNDDCuaHoGD from '../../create-form/CreateCTKTSDN_KTNDDCuaHoGD'
+import ToolBar from '../../category-mnnt/song-suoi/toolbar'
+import CreateDanhMucNN_NoiTinh_SongSuoi from '../../create-form/CreateDanhMucNN_NoiTinh_SongSuoi'
 
-const CTKTSDN_KTNDDCuaHoGD = () => {
+const DanhMucNN_NoiTinh_SongSuoi = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataCTKTSDN_KTNDDCuaHoGD() {
+    async function getDataDanhMucNN_NoiTinh_SongSuoi() {
       setLoading(true)
-      await getData('CTKTSDN_KTNDDCuaHoGD/danh-sach')
+      await getData('DanhMucNN_NoiTinh_SongSuoi/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
         })
     }
 
-    getDataCTKTSDN_KTNDDCuaHoGD()
+    getDataDanhMucNN_NoiTinh_SongSuoi()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -48,8 +48,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       rowspan: 3
     },
     {
-      id: 'tenCongTrinh',
-      label: 'Tên công trình',
+      id: 'maSong',
+      label: 'Mã sông',
       align: 'left',
       rowspan: 2,
       children: [
@@ -60,8 +60,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       ]
     },
     {
-      id: 'tenTCCN',
-      label: 'Tên tổ chức cá nhân',
+      id: 'tenSongSuoi',
+      label: 'Tên sông,suối',
       align: 'left',
       rowspan: 2,
       children: [
@@ -72,108 +72,108 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       ]
     },
     {
-      id: '#',
-      label: 'Vị trí',
+      id: 'chayRa',
+      label: 'Chảy ra',
       align: 'left',
+      rowspan: 2,
       children: [
         {
-          id: 'xa',
-          label: 'Xã',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xa == null ? "-" : row.xa}</Typography>,
+          id: '#3',
           children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        },
-        {
-          id: 'huyen',
-          label: 'Huyện',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyen == null ? "-" : row.huyen}</Typography>,
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
         }
       ]
     },
     {
       id: '#',
-      label: 'Toạ độ',
+      label: 'Vị trí điểm đầu',
       align: 'left',
       children: [
         {
-          id: 'x',
-          label: 'X',
+          id: 'xDiemDau',
+          label: 'X điểm đầu',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.x == null ? "-" : row.x}</Typography>,
+          elm: (row: any) => <Typography className='f_14'>{row.xDiemDau == null ? "-" : row.xDiemDau}</Typography>,
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
+        },
+        {
+          id: 'yDiemDau',
+          label: 'Y điểm đầu',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.yDiemDau == null ? "-" : row.yDiemDau}</Typography>,
           children: [{ id: '#5.1', label: '(5)', align: 'left' }]
         },
         {
-          id: 'y',
-          label: 'Y',
+          id: 'thonDiemDau',
+          label: 'Thôn điểm đầu',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.y == null ? "-" : row.y}</Typography>,
+          elm: (row: any) => <Typography className='f_14'>{row.thonDiemDau == null ? "-" : row.thonDiemDau}</Typography>,
           children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'soThuaDat',
-      label: 'Số thửa đất',
-      align: 'left',
-      rowspan: 2,
-      children: [
+        },
         {
-          id: '#7',
+          id: 'xaPhuongTTDiemDau',
+          label: 'Xã/Phường/Thị trấn điểm đầu',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xaPhuongTTDiemDau == null ? "-" : row.xaPhuongTTDiemDau}</Typography>,
           children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'chieuSauGieng',
-      label: 'Chiều sâu giếng',
-      align: 'left',
-      rowspan: 2,
-      children: [
+        },
         {
-          id: '#8',
+          id: 'huyenTPDiemDau',
+          label: 'Huyện/Thành phố điểm đầu',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.huyenTPDiemDau == null ? "-" : row.huyenTPDiemDau}</Typography>,
           children: [{ id: '#8.1', label: '(8)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'soNguoiSD',
-      label: 'Số người sử dụng',
+      id: '#',
+      label: 'Vị trí điểm cuối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
-          id: '#9',
+          id: 'xDiemCuoi',
+          label: 'X điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xDiemCuoi == null ? "-" : row.xDiemCuoi}</Typography>,
           children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'tinhTrangChatLuongNuoc',
-      label: 'Tình trạng chất lượng nước',
-      align: 'left',
-      rowspan: 2,
-      children: [
+        },
         {
-          id: '#10',
+          id: 'yDiemCuoi',
+          label: 'Y điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.yDiemCuoi == null ? "-" : row.yDiemCuoi}</Typography>,
           children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'tinhTrangKeKhai',
-      label: 'Tình trạng kê khai',
-      align: 'left',
-      rowspan: 2,
-      children: [
+        },
         {
-          id: '#11',
+          id: 'thonDiemCuoi',
+          label: 'Thôn điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.thonDiemCuoi == null ? "-" : row.thonDiemCuoi}</Typography>,
           children: [{ id: '#11.1', label: '(11)', align: 'left' }]
+        },
+        {
+          id: 'xaPhuongTTDiemCuoi',
+          label: 'Xã/Phường/Thị trấn điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.xaPhuongTTDiemCuoi == null ? "-" : row.xaPhuongTTDiemCuoi}</Typography>,
+          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
+        },
+        {
+          id: 'huyenTPDiemCuoi',
+          label: 'Huyện/Thành phố điểm cuối',
+          align: 'left',
+          minWidth: 150,
+          elm: (row: any) => <Typography className='f_14'>{row.huyenTPDiemCuoi == null ? "-" : row.huyenTPDiemCuoi}</Typography>,
+          children: [{ id: '#13.1', label: '(13)', align: 'left' }]
         }
       ]
     },
@@ -184,8 +184,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       rowspan: 2,
       children: [
         {
-          id: '#12',
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
+          id: '#14',
+          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
         }
       ]
     },
@@ -198,7 +198,7 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        CÔNG TRÌNH KHAI THÁC NƯỚC BIỂN THUỘC TRƯỜNG HỢP PHẢI CÓ GIẤY PHÉP
+        THỐNG KÊ NGUỒN NƯỚC MẶT NỘI TỈNH THUỘC CÁC SÔNG SUỐI TỈNH QUẢNG NGÃI
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -227,8 +227,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateCTKTSDN_KTNDDCuaHoGD isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'CTKTSDN_KTNDDCuaHoGD'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateDanhMucNN_NoiTinh_SongSuoi isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'DanhMucNN_NoiTinh_SongSuoi'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -240,4 +240,4 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
   )
 }
 
-export default CTKTSDN_KTNDDCuaHoGD
+export default DanhMucNN_NoiTinh_SongSuoi

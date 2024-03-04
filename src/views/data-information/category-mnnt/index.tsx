@@ -1,8 +1,8 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
-import MNNTRiver from "./River";
-import MNNTLake from "./Lake";
+import MNNTRiver from "./song-suoi/River";
+import MNNTLake from "./ao-ho/Lake";
 
 const CategoryMNNT = () => {
     const [value, setValue] = useState('1');

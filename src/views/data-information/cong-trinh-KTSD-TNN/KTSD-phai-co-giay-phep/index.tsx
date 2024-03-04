@@ -1,9 +1,9 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
-import KTNMPhaiCoGiayPhep from "./KTNM-phai-co-giay-phep";
-import KTNBIENPhaiCoGiayPhep from "./KTNBIEN-phai-co-giay-phep";
-import KTNDDPhaiCoGiayPhep from "./KTNNDD-phai-co-giay-phep";
+import KTNMPhaiCoGiayPhep from "./nuoc-mat/KTNM-phai-co-giay-phep";
+import KTNBIENPhaiCoGiayPhep from "./nuoc-bien/KTNBIEN-phai-co-giay-phep";
+import KTNDDPhaiCoGiayPhep from "./ndd/KTNNDD-phai-co-giay-phep";
 
 const KTSDPhaiCoGiayPhep = () => {
     const [value, setValue] = useState('1');

@@ -10,10 +10,10 @@ import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from '../../cong-trinh-KTSD-TNN/KTSD-phai-ke-khai/toolbar'
-import CreateCTKTSDN_KTNDDCuaHoGD from '../../create-form/CreateCTKTSDN_KTNDDCuaHoGD'
+import ToolBar from '../../category-mnnt/ao-ho/toolbar'
+import CreateDanhMucNN_NoiTinh_AoHo from '../../create-form/CreateDanhMucNN_NoiTinh_AoHo'
 
-const CTKTSDN_KTNDDCuaHoGD = () => {
+const DanhMucNN_NoiTinh_AoHo = () => {
   const [data, setData] = useState<any[]>([])
 
   const [loading, setLoading] = useState(false)
@@ -24,9 +24,9 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataCTKTSDN_KTNDDCuaHoGD() {
+    async function getDataDanhMucNN_NoiTinh_AoHo() {
       setLoading(true)
-      await getData('CTKTSDN_KTNDDCuaHoGD/danh-sach')
+      await getData('DanhMucNN_NoiTinh_AoHo/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -38,7 +38,7 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
         })
     }
 
-    getDataCTKTSDN_KTNDDCuaHoGD()
+    getDataDanhMucNN_NoiTinh_AoHo()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -48,8 +48,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       rowspan: 3
     },
     {
-      id: 'tenCongTrinh',
-      label: 'Tên công trình',
+      id: 'maHo',
+      label: 'Mã hồ',
       align: 'left',
       rowspan: 2,
       children: [
@@ -60,8 +60,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       ]
     },
     {
-      id: 'tenTCCN',
-      label: 'Tên tổ chức cá nhân',
+      id: 'tenHoChua',
+      label: 'Tên hồ chứa',
       align: 'left',
       rowspan: 2,
       children: [
@@ -72,108 +72,50 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       ]
     },
     {
-      id: '#',
-      label: 'Vị trí',
+      id: 'xaPhuongTT',
+      label: 'Xã/Phường/Thị trấn',
       align: 'left',
+      rowspan: 2,
       children: [
         {
-          id: 'xa',
-          label: 'Xã',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xa == null ? "-" : row.xa}</Typography>,
+          id: '#3',
           children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        },
+        }
+      ]
+    },
+    {
+      id: 'huyenTP',
+      label: 'Huyện/Thành phố',
+      align: 'left',
+      rowspan: 2,
+      children: [
         {
-          id: 'huyen',
-          label: 'Huyện',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyen == null ? "-" : row.huyen}</Typography>,
+          id: '#4',
           children: [{ id: '#4.1', label: '(4)', align: 'left' }]
         }
       ]
     },
     {
-      id: '#',
-      label: 'Toạ độ',
+      id: 'nguonNuoc',
+      label: 'Nguồn nước',
       align: 'left',
+      rowspan: 2,
       children: [
         {
-          id: 'x',
-          label: 'X',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.x == null ? "-" : row.x}</Typography>,
+          id: '#5',
           children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        },
-        {
-          id: 'y',
-          label: 'Y',
-          align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.y == null ? "-" : row.y}</Typography>,
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
         }
       ]
     },
     {
-      id: 'soThuaDat',
-      label: 'Số thửa đất',
+      id: 'thuocHeThongSong',
+      label: 'Thuộc hệ thống sông',
       align: 'left',
       rowspan: 2,
       children: [
         {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'chieuSauGieng',
-      label: 'Chiều sâu giếng',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'soNguoiSD',
-      label: 'Số người sử dụng',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'tinhTrangChatLuongNuoc',
-      label: 'Tình trạng chất lượng nước',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
-    },
-    {
-      id: 'tinhTrangKeKhai',
-      label: 'Tình trạng kê khai',
-      align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
+          id: '#4',
+          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
         }
       ]
     },
@@ -184,8 +126,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       rowspan: 2,
       children: [
         {
-          id: '#12',
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
+          id: '#14',
+          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
         }
       ]
     },
@@ -198,7 +140,7 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        CÔNG TRÌNH KHAI THÁC NƯỚC BIỂN THUỘC TRƯỜNG HỢP PHẢI CÓ GIẤY PHÉP
+        Thống kê danh mục các hồ, ao nội tỉnh Quảng Ngãi
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}
@@ -227,8 +169,8 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <CreateCTKTSDN_KTNDDCuaHoGD isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
-                <DeleteData url={'CTKTSDN_KTNDDCuaHoGD'} data={row} setPostSuccess={handlePostSuccess} />
+                <CreateDanhMucNN_NoiTinh_AoHo isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'DanhMucNN_NoiTinh_AoHo'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
@@ -240,4 +182,4 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
   )
 }
 
-export default CTKTSDN_KTNDDCuaHoGD
+export default DanhMucNN_NoiTinh_AoHo
