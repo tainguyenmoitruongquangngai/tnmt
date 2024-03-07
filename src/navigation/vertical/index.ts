@@ -452,12 +452,12 @@ const navigation = (): VerticalNavItemsType => {
       sectionTitle: 'VHHC LVS TRÀ KHÚC'
     },
     {
-      title: 'Lưu vực sông Trà Khúc',
-      path: '/van-hanh-ho-chua/luu-vuc-song-tra-khuc'
+      title: 'Lưu vực sông',
+      path: '/van-hanh-ho-chua/luu-vuc-song-van-hanh'
     },
     {
-      title: 'Thông số kỹ thuật hồ chứa',
-      path: '/van-hanh-ho-chua/ho-chua-lvs-tra-khuc'
+      title: 'Thông tin hồ chứa',
+      path: '/van-hanh-ho-chua/ho-chua-van-hanh'
     },
    
     
