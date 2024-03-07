@@ -10,13 +10,6 @@ interface LicenseToolBarProps {
   onExport: { data: any; column: TableColumn[] }
 }
 const ToolBar: FC<LicenseToolBarProps> = ({ onExport }) => {
-  const [postSucceed, setPostSucceed] = useState(false)
-  console.log(postSucceed)
-
-  const handlePostSuccess = () => {
-    setPostSucceed(prevState => !prevState)
-  }
-
   return (
     <Toolbar variant='dense'>
       <Grid container spacing={2} sx={{ paddingY: 3 }} className='_flexEnd '>
