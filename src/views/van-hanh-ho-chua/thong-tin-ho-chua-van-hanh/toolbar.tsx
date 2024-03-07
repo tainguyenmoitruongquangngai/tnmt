@@ -1,7 +1,7 @@
 //import { Replay, Search } from '@mui/icons-material'
 import { Button, Grid, TextField, Toolbar } from '@mui/material'
 
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import ExportToExcel from 'src/@core/components/export-excel'
 import { TableColumn } from 'src/@core/components/table'
 import { Replay, Search } from "@mui/icons-material";
@@ -10,13 +10,6 @@ interface LicenseToolBarProps {
   onExport: { data: any; column: TableColumn[] }
 }
 const ToolBar: FC<LicenseToolBarProps> = ({ onExport }) => {
-  const [postSucceed, setPostSucceed] = useState(false)
-  console.log(postSucceed)
-
-  const handlePostSuccess = () => {
-    setPostSucceed(prevState => !prevState)
-  }
-
   return (
     <Toolbar variant='dense'>
       <Grid container spacing={2} sx={{ paddingY: 3 }} className='_flexEnd '>
