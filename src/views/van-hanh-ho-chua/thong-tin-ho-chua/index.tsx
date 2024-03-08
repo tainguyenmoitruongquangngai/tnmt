@@ -15,7 +15,8 @@ import Grid from '@mui/material/Unstable_Grid2'
 import dynamic from 'next/dynamic'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 
-const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
+const newLocal = 'src/@core/components/map'
+const Map = dynamic(() => import(newLocal), { ssr: false })
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const ThongTinHoChua = () => {
