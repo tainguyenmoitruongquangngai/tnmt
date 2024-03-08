@@ -452,13 +452,32 @@ const navigation = (): VerticalNavItemsType => {
       sectionTitle: 'VHHC LVS TRÀ KHÚC'
     },
     {
-      title: 'Lưu vực sông',
-      path: '/van-hanh-ho-chua/luu-vuc-song-van-hanh'
+      title: 'Thông tin chung',
+      primaryPath: 'thong-tin-chung-van-hanh-ho',
+      children: [
+
+        
+        {
+          title: 'Lưu vực sông',
+          path: '/van-hanh-ho-chua/luu-vuc-song-van-hanh'
+        },
+      
+        {
+          title: 'Hồ chứa',
+          path: '/van-hanh-ho-chua/ho-chua-van-hanh'
+        },
+       
+        {
+          title: 'Quy định vận hành',
+          path: '#'
+        },
+       
+      ]
+
+
+    
     },
-    {
-      title: 'Thông tin hồ chứa',
-      path: '/van-hanh-ho-chua/ho-chua-van-hanh'
-    },
+   
    
     
     {
