@@ -61,8 +61,8 @@ const ThongTinHoChuaVanHanh = () => {
      
       children: [
         { id: '#2.1', label: 'Thuộc LVS', align: 'left', },
-        { id: '#2.2', label: 'F_lv (km2)', align: 'left',   },
-        { id: '#2.3', label: 'X tbnăm (mm)', align: 'left',    },
+        { id: '#2.2', label: (<span> F_lv <br/>  (km2)</span> ), align: 'left',   },
+        { id: '#2.3', label: (<span> X tbnăm <br/> (mm)</span> ), align: 'left',    },
         { id: '#2.4', label: (<span> Qo tbnăm <br/> (m3/s) </span>), align: 'left', rowspan: 1, } 
       ]
     },
@@ -104,9 +104,9 @@ const ThongTinHoChuaVanHanh = () => {
       label: 'Lưu lượng qua nhà máy',
       align: 'left',
       children: [
-        { id: '#5.1', label: 'Q đảm bảo (Qđb)', align: 'left',   rowspan: 2,},
-        { id: '#5.2', label: 'Q nhỏ nhất (Qmin)', align: 'left',   rowspan: 2,},
-        { id: '#5.3', label: 'Q lớn nhất (Qmax)', align: 'left',   rowspan: 2, }
+        { id: '#5.1', label: (<span> Q đảm bảo  <br/> (Qđb) </span> ), align: 'left',   rowspan: 2,},
+        { id: '#5.2', label: (<span> Q nhỏ nhất <br/> (Qmin) </span> ), align: 'left',   rowspan: 2,},
+        { id: '#5.3', label: (<span> Q lớn nhất <br/> (Qmax)</span> ), align: 'left',   rowspan: 2, }
      ]
     },
   
