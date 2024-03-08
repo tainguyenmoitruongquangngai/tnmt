@@ -44,7 +44,8 @@ const HoChuaVanHanh = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 2
+      rowspan: 2,
+     
     },
     {
       id: 'TenHoChua',
@@ -61,10 +62,10 @@ const HoChuaVanHanh = () => {
       align: 'left',
      
       children: [
-        { id: '#2.1', label: 'Thuộc LVS', align: 'left',   },
+        { id: '#2.1', label: 'Thuộc LVS', align: 'left', },
         { id: '#2.2', label: 'F_lv (km2)', align: 'left',   },
         { id: '#2.3', label: 'X tbnăm (mm)', align: 'left',    },
-        { id: '#2.4', label: 'Qo tbnăm (m3/s)', align: 'left', rowspan: 1,   }  
+        { id: '#2.4', label: (<span> Qo tbnăm <br/> (m3/s) </span>), align: 'left', rowspan: 1, } 
       ]
     },
 
@@ -85,17 +86,18 @@ const HoChuaVanHanh = () => {
       label: 'Hồ chứa',
       align: 'left',
       children: [
-        { id: '#4.1', label: 'MNDBT (m)', align: 'left',   rowspan: 2,},
+        { id: '#4.1', label: (<span> MNDBT  <br/> (m) </span> ), align: 'left',   rowspan: 2,},
         { id: '#4.2', label: 'MNC (m)', align: 'left',   rowspan: 2,},
-        { id: '#4.3', label: 'MN Max (P=0,02%)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'MN Max (P=0,1%)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'MN Max (P=0,2%)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'MN Max (P=0,5%)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'W toàn bộ (Wtb)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'W hữu ích (Whi)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'W năm (Wni)', align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: 'W nhiều năm (Wnni)', align: 'left',   rowspan: 2, },
-        { id: '#4.4', label: 'W chết (Wc)', align: 'left',   rowspan: 2, }  
+        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,02%) </span> ), align: 'left', rowspan: 2, },
+       
+        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,1%) </span> ),  align: 'left',   rowspan: 2, },
+        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,2%) </span> ), align: 'left',   rowspan: 2, },
+        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,5%) </span> ), align: 'left',   rowspan: 2, },
+        { id: '#4.3', label: (<span> W toàn bộ <br/> (Wtb) </span> ), align: 'left',   rowspan: 2, },
+        { id: '#4.3', label: (<span> W hữu ích <br/>(Whi)</span> ), align: 'left',   rowspan: 2, },
+        { id: '#4.3', label: (<span> W năm <br/>(Wni)</span> ), align: 'left',   rowspan: 2, },
+        { id: '#4.3', label: (<span> W nhiều năm <br/>(Wnni)</span> ), align: 'left',   rowspan: 2, },
+        { id: '#4.4', label: (<span> W chết <br/> (Wc)</span> ), align: 'left',   rowspan: 2, }  
       ]
     },
   

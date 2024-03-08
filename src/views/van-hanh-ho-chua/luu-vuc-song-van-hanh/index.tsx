@@ -126,8 +126,8 @@ const VanHanhHoChuaLuuVucSong = () => {
       rowspan: 2,
       children: [
         {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
+          id: '#7',
+          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
         }
       ]
     },
@@ -140,8 +140,8 @@ const VanHanhHoChuaLuuVucSong = () => {
       rowspan: 2,
       children: [
         {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
+          id: '#8',
+          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
         }
       ]
     },
