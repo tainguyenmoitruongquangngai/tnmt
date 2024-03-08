@@ -1,179 +1,90 @@
-import Paper from '@mui/material/Paper'
-import { Grid, Typography, Box, } from '@mui/material'
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+//React Imports
 
-import { getData } from 'src/api/axios'
-import { useEffect, useState } from 'react'
-import BoxLoading from 'src/@core/components/box-loading'
-import dayjs from 'dayjs'
-import TableComponent, { TableColumn } from 'src/@core/components/table'
+import React, { SyntheticEvent } from 'react'
+import { useState } from 'react'
+import ThongTinHoChuaVanHanh from '././thong-tin-ho-chua-van-hanh'
 
-import DeleteData from 'src/@core/components/delete-data'
-import ToolBar from './toolbar'
 
-const HoChuaVanHanh = () => {
-  const [data, setData] = useState<any[]>([])
+import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material'
 
-  const [loading, setLoading] = useState(false)
-  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
+import { Paper, Button, Box, Tab } from '@mui/material'
+import Grid from '@mui/material/Unstable_Grid2'
 
-  const [postSuccess, setPostSuccess] = useState(false);
-  const handlePostSuccess = () => {
-    setPostSuccess(prevState => !prevState);
-  };
-  useEffect(() => {
-    async function getDataNN_LuuVucSong() {
-      setLoading(true)
-      await getData('NN_LuuVucSong/danh-sach')
-        .then(data => {
-          setData(data)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-    }
+//import dynamic from 'next/dynamic'
 
-    getDataNN_LuuVucSong()
-  }, [postSuccess])
+import dynamic from 'next/dynamic'
+import { TabContext, TabList, TabPanel } from '@mui/lab'
 
-  const columnsTable: TableColumn[] = [
-    {
-      id: 'stt',
-      label: 'STT',
-      rowspan: 2,
-     
-    },
-    {
-      id: 'TenHoChua',
-      label: 'Tên hồ chứa',
-      align: 'left',
-      rowspan: 2,
-      minWidth: 120,
-      
-    },
+const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
-    {
-      id: 'dien_tich_luu_vuc',
-      label: 'Các đặc trưng lưu vực',
-      align: 'left',
-     
-      children: [
-        { id: '#2.1', label: 'Thuộc LVS', align: 'left', },
-        { id: '#2.2', label: 'F_lv (km2)', align: 'left',   },
-        { id: '#2.3', label: 'X tbnăm (mm)', align: 'left',    },
-        { id: '#2.4', label: (<span> Qo tbnăm <br/> (m3/s) </span>), align: 'left', rowspan: 1, } 
-      ]
-    },
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const ThongTinHoChua = () => {
+  const [value, setValue] = useState('1')
 
-    {
-      id: 'luu-luong-ung-tan-suat',
-      label: 'Lưu lượng đỉnh lũ ứng với tần suất:P=%',
-      align: 'left',
-      children: [
-        { id: '#3.1', label: 'P=0,02%', align: 'left',   rowspan: 2,},
-        { id: '#3.2', label: 'P=0,1%', align: 'left',   rowspan: 2,},
-        { id: '#3.3', label: 'P=0,2%', align: 'left',   rowspan: 2, },
-        { id: '#3.4', label: 'P=0,5%', align: 'left',   rowspan: 2, }  
-      ]
-    },
+  const handleChange = (event: SyntheticEvent, newValue: string) => {
+    setValue(newValue)
+  }
 
-    {
-      id: 'ho-chua',
-      label: 'Hồ chứa',
-      align: 'left',
-      children: [
-        { id: '#4.1', label: (<span> MNDBT  <br/> (m) </span> ), align: 'left',   rowspan: 2,},
-        { id: '#4.2', label: 'MNC (m)', align: 'left',   rowspan: 2,},
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,02%) </span> ), align: 'left', rowspan: 2, },
-       
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,1%) </span> ),  align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,2%) </span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,5%) </span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W toàn bộ <br/> (Wtb) </span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W hữu ích <br/>(Whi)</span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W năm <br/>(Wni)</span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W nhiều năm <br/>(Wnni)</span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.4', label: (<span> W chết <br/> (Wc)</span> ), align: 'left',   rowspan: 2, }  
-      ]
-    },
-  
-    {
-      id: 'luu-luong-qua-nha-may',
-      label: 'Lưu lượng qua nhà máy',
-      align: 'left',
-      children: [
-        { id: '#5.1', label: 'Q đảm bảo (Qđb)', align: 'left',   rowspan: 2,},
-        { id: '#5.2', label: 'Q nhỏ nhất (Qmin)', align: 'left',   rowspan: 2,},
-        { id: '#5.3', label: 'Q lớn nhất (Qmax)', align: 'left',   rowspan: 2, }
-     ]
-    },
-  
-
-   
-    {
-      id: 'ghiChu',
-      label: 'Ghi chú',
-      align: 'left',
-      rowspan: 2,
-      
-    },
-    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
-  ]
+  const [mapCenter] = useState([15.012172, 108.676488])
+  const [mapZoom] = useState(9)
+  const [selected, setSelected] = React.useState(true)
 
   return (
-    <Paper sx={{ p: 8 }}>
-      
-
-      <Grid className='_text_center'>
-        <Typography className='font-weight-bold ' variant='h6'>
-          BẢNG THÔNG SỐ KỸ THUẬT CỦA CÁC HỒ CHỨA      
-        </Typography>
-        <Typography className='font-weight-bold ' variant='h6'>
-                    
-          (Ban hành kèm theo Quyết định số 911/QĐ-TTg, ngày 25 tháng 7 năm 2018 của Thủ tướng Chính phủ)
-        </Typography>
-        <Typography className='font-weight-bold ' variant='h6'>
-          (Kỳ báo cáo:{' '}
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              views={['year']}
-              value={dayjs(new Date(selectedYear, 1, 1))}
-              onChange={(newVal: any) => setSelectedYear(newVal.year())}
-              slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
-              sx={{ width: '100px' }}
-            />
-          </LocalizationProvider>
-          )
-        </Typography>
-      </Grid>
-      {/* <CreateReport2 isEdit={false} setPostSuccess={handlePostSuccess}/> */}
-      {loading ? (
-        <BoxLoading />
-      ) : (
-        <Grid className='_text_center' sx={{ mt: 3 }}>
-          <ToolBar onExport={{ data: data, column: columnsTable }} />
-          <TableComponent
-            columns={columnsTable}
-            rows={data}
-            loading={loading}
-            pagination
-            actions={(row: any) => (
-              <Box >
+    <Grid container spacing={2}>
+      <Grid xs={12} md={12}>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList onChange={handleChange} aria-label='ground water reserve'>
+              <Tab label='Thông số kỹ thuật hồ chứa ' value='1' />
+              <Tab label='Quan hệ mực nước - dung tích' value='2' />
              
-                <DeleteData url={'NN_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />
-              </Box>
-            )}
-          />
-        </Grid>
-      )}
+            </TabList>
+          </Box>
 
-   
-    </Paper>
+          <TabPanel value='1'>
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button
+                  className='toggle-legend'
+                  variant='outlined'
+                  onClick={() => {
+                    setSelected(!selected)
+                  }}
+                >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid>
+              <ThongTinHoChuaVanHanh />
+            </Grid>
+          </TabPanel>
+         
+          <TabPanel value='2'>
+            <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+              <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
+                <Button
+                  className='toggle-legend'
+                  variant='outlined'
+                  onClick={() => {
+                    setSelected(!selected)
+                  }}
+                >
+                  {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
+                </Button>
+                <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+              </Paper>
+            </Grid>
+            <Grid>
+             
+            </Grid>
+          </TabPanel>
+
+        </TabContext>
+      </Grid>
+    </Grid>
   )
 }
 
-export default HoChuaVanHanh
+export default ThongTinHoChua
