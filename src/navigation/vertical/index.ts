@@ -481,7 +481,7 @@ const navigation = (): VerticalNavItemsType => {
    
     
     {
-      title: 'Vận hành mùa lũ',
+      title: 'VH mùa lũ (1/9 - 15/12)',
      
       children: [
         {
@@ -552,7 +552,7 @@ const navigation = (): VerticalNavItemsType => {
     },
    
     {
-      title: 'Vận hành mùa cạn',
+      title: 'VH mùa cạn (16/12 - 31/8)',
       path: '/van-hanh-ho-chua/van-hanh-mua-can'
     },
 

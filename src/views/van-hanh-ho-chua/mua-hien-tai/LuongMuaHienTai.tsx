@@ -57,8 +57,8 @@ const LuongMuaHienTai = () => {
      
     },
     {
-      id: 'TenHoChua',
-      label: 'Tên hồ chứa',
+      id: 'TramMua',
+      label: 'Trạm mưa',
       align: 'left',
       rowspan: 2,
       minWidth: 120,
@@ -66,63 +66,63 @@ const LuongMuaHienTai = () => {
     },
 
     {
-      id: 'dien_tich_luu_vuc',
-      label: 'Các đặc trưng lưu vực',
+      id: 'Thoi_doan_mua_1h',
+      label: 'Tổng lượng mưa theo thời đoạn mưa 1h',
       align: 'left',
      
       children: [
-        { id: '#2.1', label: 'Thuộc LVS', align: 'left', },
-        { id: '#2.2', label: 'F_lv (km2)', align: 'left',   },
-        { id: '#2.3', label: 'X tbnăm (mm)', align: 'left',    },
-        { id: '#2.4', label: (<span> Qo tbnăm <br/> (m3/s) </span>), align: 'left', rowspan: 1, } 
+        { id: '#2.1', label: 'Lượng mưa 1 giờ', align: 'left', },
+        { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
+        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+      ]
+    },
+    {
+      id: 'Thoi_doan_mua_3h',
+      label: 'Tổng lượng mưa theo thời đoạn mưa 3h',
+      align: 'left',
+     
+      children: [
+        { id: '#2.1', label: 'Lượng mưa 3 giờ', align: 'left', },
+        { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
+        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+      ]
+    },
+    {
+      id: 'Thoi_doan_mua_6h',
+      label: 'Tổng lượng mưa theo thời đoạn mưa 6h',
+      align: 'left',
+     
+      children: [
+        { id: '#2.1', label: 'Lượng mưa 6 giờ', align: 'left', },
+        { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
+        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
       ]
     },
 
     {
-      id: 'luu-luong-ung-tan-suat',
-      label: 'Lưu lượng đỉnh lũ ứng với tần suất:P=%',
+      id: 'Thoi_doan_mua_12h',
+      label: 'Tổng lượng mưa theo thời đoạn mưa 12h',
       align: 'left',
+     
       children: [
-        { id: '#3.1', label: 'P=0,02%', align: 'left',   rowspan: 2,},
-        { id: '#3.2', label: 'P=0,1%', align: 'left',   rowspan: 2,},
-        { id: '#3.3', label: 'P=0,2%', align: 'left',   rowspan: 2, },
-        { id: '#3.4', label: 'P=0,5%', align: 'left',   rowspan: 2, }  
+        { id: '#2.1', label: 'Lượng mưa 12 giờ', align: 'left', },
+        { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
+        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
       ]
     },
 
     {
-      id: 'ho-chua',
-      label: 'Hồ chứa',
+      id: 'Thoi_doan_mua_24h',
+      label: 'Tổng lượng mưa theo thời đoạn mưa 24h',
       align: 'left',
+     
       children: [
-        { id: '#4.1', label: (<span> MNDBT  <br/> (m) </span> ), align: 'left',   rowspan: 2,},
-        { id: '#4.2', label: 'MNC (m)', align: 'left',   rowspan: 2,},
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,02%) </span> ), align: 'left', rowspan: 2, },
-       
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,1%) </span> ),  align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,2%) </span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> MN Max  <br/> (P=0,5%) </span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W toàn bộ <br/> (Wtb) </span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W hữu ích <br/>(Whi)</span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W năm <br/>(Wni)</span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.3', label: (<span> W nhiều năm <br/>(Wnni)</span> ), align: 'left',   rowspan: 2, },
-        { id: '#4.4', label: (<span> W chết <br/> (Wc)</span> ), align: 'left',   rowspan: 2, }  
+        { id: '#2.1', label: 'Lượng mưa 24 giờ', align: 'left', },
+        { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
+        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
       ]
     },
-  
-    {
-      id: 'luu-luong-qua-nha-may',
-      label: 'Lưu lượng qua nhà máy',
-      align: 'left',
-      children: [
-        { id: '#5.1', label: 'Q đảm bảo (Qđb)', align: 'left',   rowspan: 2,},
-        { id: '#5.2', label: 'Q nhỏ nhất (Qmin)', align: 'left',   rowspan: 2,},
-        { id: '#5.3', label: 'Q lớn nhất (Qmax)', align: 'left',   rowspan: 2, }
-     ]
-    },
-  
 
-   
     {
       id: 'ghiChu',
       label: 'Ghi chú',
