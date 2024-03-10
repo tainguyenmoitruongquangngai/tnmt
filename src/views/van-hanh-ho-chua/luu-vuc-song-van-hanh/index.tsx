@@ -23,9 +23,10 @@ const VanHanhHoChuaLuuVucSong = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_LuuVucSong() {
+    async function getDataVHHC_LuuVucSong() {
       setLoading(true)
-      await getData('NN_LuuVucSong/danh-sach')
+      //API de lay du lieu tu sql: 'VHHC_LuuVucSong/danh-sach'
+      await getData('VHHC_LuuVucSong/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -37,7 +38,7 @@ const VanHanhHoChuaLuuVucSong = () => {
         })
     }
 
-    getDataNN_LuuVucSong()
+    getDataVHHC_LuuVucSong()
   }, [postSuccess])
 
   const columnsTable: TableColumn[] = [
@@ -47,6 +48,7 @@ const VanHanhHoChuaLuuVucSong = () => {
       rowspan: 3
     },
     {
+      //Id là trường dữ liệu lưu trong csdl
       id: 'luuVucSong',
       label: 'Lưu vực sông',
       align: 'left',
@@ -60,7 +62,8 @@ const VanHanhHoChuaLuuVucSong = () => {
       ]
     },
     {
-      id: 'DienTichLuuVuc',
+      //Id là trường dữ liệu lưu trong csdl
+      id: 'dienTichLuuVuc',
       label: 'Diện tích lưu vực (km2)',
       align: 'left',
       rowspan: 2,
@@ -72,7 +75,7 @@ const VanHanhHoChuaLuuVucSong = () => {
       ]
     },
     {
-      id: 'ChieuDaiSongChinh',
+      id: 'chieuDaiSongChinh',
       label: 'Chiều dài sông chính (km)',
       align: 'left',
       rowspan: 2,
@@ -84,7 +87,7 @@ const VanHanhHoChuaLuuVucSong = () => {
       ]
     },
     {
-      id: 'BanDo',
+      id: 'banDo',
       label: 'Bản đồ',
       align: 'left',
       rowspan: 2,
@@ -96,7 +99,7 @@ const VanHanhHoChuaLuuVucSong = () => {
       ]
     },
     {
-      id: 'SoDo',
+      id: 'soDoCacCT',
       label: 'Sơ đồ các công trình trên lưu vực',
       align: 'left',
       rowspan: 2,
@@ -108,7 +111,7 @@ const VanHanhHoChuaLuuVucSong = () => {
       ]
     },
     {
-      id: 'SoQuyTrinh',
+      id: 'soQuyTrinh',
       label: 'Số quy trình',
       align: 'left',
       rowspan: 2,
@@ -120,7 +123,7 @@ const VanHanhHoChuaLuuVucSong = () => {
       ]
     },
     {
-      id: 'tep',
+      id: 'tepDinhKem',
       label: 'Tệp đính kèm',
       align: 'left',
       rowspan: 2,
@@ -184,7 +187,7 @@ const VanHanhHoChuaLuuVucSong = () => {
             actions={(row: any) => (
               <Box >
              
-                <DeleteData url={'NN_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'VHHC_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
