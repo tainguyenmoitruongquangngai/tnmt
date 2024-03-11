@@ -23,6 +23,7 @@ const ThongTinHoChuaVanHanh = () => {
   useEffect(() => {
     async function getDataVHHC_HoChua_ThongSoKT() {
       setLoading(true)
+      
       //API de lay du lieu tu sql: 'VHHC_HoChua_ThongSoKT/danh-sach'
       await getData('VHHC_HoChua_ThongSoKT/danh-sach')
         .then(data => {

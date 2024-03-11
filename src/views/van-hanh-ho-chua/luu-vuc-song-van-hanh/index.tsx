@@ -25,6 +25,7 @@ const VanHanhHoChuaLuuVucSong = () => {
   useEffect(() => {
     async function getDataVHHC_LuuVucSong() {
       setLoading(true)
+      
       //API de lay du lieu tu sql: 'VHHC_LuuVucSong/danh-sach'
       await getData('VHHC_LuuVucSong/danh-sach')
         .then(data => {
