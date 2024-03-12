@@ -4,7 +4,7 @@ import { Button, Grid, TextField, Toolbar } from '@mui/material'
 import { FC } from 'react'
 import ExportToExcel from 'src/@core/components/export-excel'
 import { TableColumn } from 'src/@core/components/table'
-import { Replay, Search } from "@mui/icons-material";
+import { Replay, Search } from '@mui/icons-material'
 
 interface LicenseToolBarProps {
   onExport: { data: any; column: TableColumn[] }
@@ -17,24 +17,12 @@ const ToolBar: FC<LicenseToolBarProps> = ({ onExport }) => {
           <TextField sx={{ p: 0 }} size='small' fullWidth variant='outlined' placeholder='Tên trạm...' />
         </Grid>
         <Grid item xs={6} md={1.5} py={0}>
-          <Button
-            variant='outlined'
-            size='small'
-            fullWidth
-            sx={{ borderRadius: 0 }}
-            startIcon={<Search />}
-          >
+          <Button variant='outlined' size='small' fullWidth sx={{ borderRadius: 0 }} startIcon={<Search />}>
             Tìm kiếm
           </Button>
         </Grid>
         <Grid item xs={6} md={1.5} py={0}>
-          <Button
-            variant='outlined'
-            size='small'
-            fullWidth
-            sx={{ borderRadius: 0 }}
-            startIcon={<Replay />}
-          >
+          <Button variant='outlined' size='small' fullWidth sx={{ borderRadius: 0 }} startIcon={<Replay />}>
             Tải lại
           </Button>
         </Grid>
@@ -42,7 +30,9 @@ const ToolBar: FC<LicenseToolBarProps> = ({ onExport }) => {
           <ExportToExcel resData={onExport?.data} columnsTable={onExport?.column} />
         </Grid>
         <Grid item xs={6} md={1.5} py={0}>
-        
+          <Button variant='outlined' size='small' fullWidth sx={{ borderRadius: 0 }} startIcon={<Replay />}>
+            Thêm mới
+          </Button>
         </Grid>
       </Grid>
     </Toolbar>

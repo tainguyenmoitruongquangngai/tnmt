@@ -13,6 +13,7 @@ import ToolBar from './toolbar'
 import dynamic from 'next/dynamic'
 import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material'
 import React from 'react'
+import ViewAmountRainData from './form'
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
@@ -48,7 +49,8 @@ const LuongMuaHienTai = () => {
 
     getDataNN_LuuVucSong()
   }, [postSuccess])
-
+  console.table(data);
+  
   const columnsTable: TableColumn[] = [
     {
       id: 'stt',
@@ -66,60 +68,75 @@ const LuongMuaHienTai = () => {
     },
 
     {
-      id: 'Thoi_doan_mua_1h',
+      id: '#',
       label: 'Tổng lượng mưa theo thời đoạn mưa 1h',
       align: 'left',
      
       children: [
         { id: '#2.1', label: 'Lượng mưa 1 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+        <Button>
+          <ViewAmountRainData />
+        </Button></>)},
       ]
     },
     {
-      id: 'Thoi_doan_mua_3h',
+      id: '#',
       label: 'Tổng lượng mưa theo thời đoạn mưa 3h',
       align: 'left',
      
       children: [
         { id: '#2.1', label: 'Lượng mưa 3 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+          <Button>
+            <ViewAmountRainData />
+          </Button></>)},
       ]
     },
     {
-      id: 'Thoi_doan_mua_6h',
+      id: '#',
       label: 'Tổng lượng mưa theo thời đoạn mưa 6h',
       align: 'left',
      
       children: [
         { id: '#2.1', label: 'Lượng mưa 6 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+          <Button>
+            <ViewAmountRainData />
+          </Button></>)},
       ]
     },
 
     {
-      id: 'Thoi_doan_mua_12h',
+      id: '#',
       label: 'Tổng lượng mưa theo thời đoạn mưa 12h',
       align: 'left',
      
       children: [
         { id: '#2.1', label: 'Lượng mưa 12 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+          <Button>
+            <ViewAmountRainData />
+          </Button></>)},
       ]
     },
 
     {
-      id: 'Thoi_doan_mua_24h',
+      id: '#',
       label: 'Tổng lượng mưa theo thời đoạn mưa 24h',
       align: 'left',
      
       children: [
         { id: '#2.1', label: 'Lượng mưa 24 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: '#2.3', label: 'Xem chi tiết', align: 'left',    },
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+          <Button>
+            <ViewAmountRainData />
+          </Button></>)},
       ]
     },
 
@@ -152,8 +169,6 @@ const LuongMuaHienTai = () => {
             </Grid>
       <Grid className='_text_center'>
        
-      
-        
       </Grid>
       {/* <CreateReport2 isEdit={false} setPostSuccess={handlePostSuccess}/> */}
       {loading ? (
@@ -168,7 +183,6 @@ const LuongMuaHienTai = () => {
             pagination
             actions={(row: any) => (
               <Box >
-             
                 <DeleteData url={'NN_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
