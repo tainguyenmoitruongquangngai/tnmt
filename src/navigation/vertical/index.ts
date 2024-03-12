@@ -496,14 +496,13 @@ const navigation = (): VerticalNavItemsType => {
           path: '/van-hanh-ho-chua/luong-mua/du-bao'
         },
         
+        {
+          title: 'HTTT gây mưa lớn ',
+          path: '/van-hanh-ho-chua/luong-mua/hinh-the-thoi-tiet'
+        },
+
         //
-        {
-          sectionTitle: 'SLQT tại trạm TV',
-        },
-        {
-          title: 'Trạm thủy văn',
-          path: '/van-hanh-ho-chua/tram-thuy-van'
-        },
+        
        
 
         //
@@ -516,30 +515,24 @@ const navigation = (): VerticalNavItemsType => {
         },
 
         {
-          title: 'Hồ Đăkđrink',
-          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-dak-rinh'
-        },
-        {
-          title: 'Hồ Nước Trong',
-          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-nuoc-trong'
-        },
-        {
-          title: 'Hồ Sơn Trà 1 ',
-          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-son-tra-1'
-        },
+          title: 'Vận hành liên hồ',
+         
+              path: '/van-hanh-ho-chua/van-hanh-lien-ho'
+            }, 
+        
 
-        {
-          title: 'Hồ Đăk Re',
-          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-dak-re'
-        },
-        {
-          title: 'Hồ Sơn Tây',
-          path: '/van-hanh-ho-chua/VH-hoc-chua/ho-son-tay'
-        },
-
+          
+        
+     
         //
 
-
+        {
+          sectionTitle: 'SLQT tại trạm TV',
+        },
+        {
+          title: 'Trạm thủy văn',
+          path: '/van-hanh-ho-chua/tram-thuy-van'
+        },
 
         //
      
@@ -553,8 +546,65 @@ const navigation = (): VerticalNavItemsType => {
    
     {
       title: 'VH mùa cạn (16/12 - 31/8)',
-      path: '/van-hanh-ho-chua/van-hanh-mua-can'
+      children: [
+        {
+          sectionTitle: 'Lượng mưa',
+        },
+        {
+          title: 'Mưa hiện tại',
+          path: '/van-hanh-ho-chua/luong-mua/hien-tai'
+        },
+        {
+          title: 'Mưa dự báo',
+          path: '/van-hanh-ho-chua/luong-mua/du-bao'
+        },
+        
+        {
+          title: 'HTTT gây mưa lớn ',
+          path: '/van-hanh-ho-chua/luong-mua/hinh-the-thoi-tiet'
+        },
+
+        //
+        
+       
+
+        //
+        {
+          sectionTitle: 'VH hồ chứa',
+        },
+        {
+          title: 'Quy định chung',
+          path: '/van-hanh-ho-chua/VH-hoc-chua/quy-dinh-chung'
+        },
+
+        {
+          title: 'Vận hành liên hồ',
+         
+              path: '/van-hanh-ho-chua/van-hanh-lien-ho'
+            }, 
+        
+
+          
+        
+     
+        //
+
+        {
+          sectionTitle: 'SLQT tại trạm TV',
+        },
+        {
+          title: 'Trạm thủy văn',
+          path: '/van-hanh-ho-chua/tram-thuy-van'
+        },
+
+        //
+     
+        //
+     
+      ]
     },
+
+
 
     {
       sectionTitle: 'HƯỚNG DẪN SỬ DỤNG'
