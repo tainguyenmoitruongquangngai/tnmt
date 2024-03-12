@@ -440,7 +440,7 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Khả năng TNNT ao,hồ',
-          path: '#'
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/kha-nang-tiep-nhan-ao-ho'
         },
         {
           title: 'Tính dự báo KNTNNT ao,hồ',

@@ -2,7 +2,6 @@
 
 import React, { SyntheticEvent } from 'react'
 import { useState } from 'react'
-import NguonThaiDiem from './ho-dak-rinh'
 
 
 import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material'
@@ -14,6 +13,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 
 import dynamic from 'next/dynamic'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
+import HoDakDrink  from './ho-dak-rinh'
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
@@ -35,16 +35,22 @@ const VanHanhLienHo = () => {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} aria-label='ground water reserve'>
-              <Tab label='Hồ DakDrink ' value='1' />
-              <Tab label='Hồ Nước Trong' value='2' />
-              <Tab label='Hồ Sơn Trà 1 ' value='3' />
-              <Tab label='Hồ Đăk re ' value='4' />
-              <Tab label='Hồ Sơn Tây ' value='5' />
+            <Tab label='SƠ ĐỒ HỆ THỐNG HỒ CHỨA ' value='1' />
+              <Tab label='Hồ DakDrink ' value='2' />
+              <Tab label='Hồ Nước Trong' value='3' />
+              <Tab label='Hồ Sơn Trà 1 ' value='4' />
+              <Tab label='Hồ Đăk re ' value='5' />
+              <Tab label='Hồ Sơn Tây ' value='6' />
             
             </TabList>
           </Box>
 
-          <TabPanel value='1'>
+         
+
+ 
+
+
+          <TabPanel value='2'>
             <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
               <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
                 <Button
@@ -60,7 +66,7 @@ const VanHanhLienHo = () => {
               </Paper>
             </Grid>
             <Grid>
-              <NguonThaiDiem />
+              <HoDakDrink />
             </Grid>
           </TabPanel>
          

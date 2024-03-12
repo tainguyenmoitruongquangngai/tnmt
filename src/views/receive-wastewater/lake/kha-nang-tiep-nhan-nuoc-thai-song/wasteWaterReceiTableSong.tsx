@@ -6,7 +6,7 @@ const KhaNangTiepNhanNuocThaiSong1 = () => {
     <Box>
       
     <Typography align='center' className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-    THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM CỦA CÁC NGUỒN THẢI ĐIỂM XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
+    KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI CỦA NGUỒN NƯỚC SÔNG, SUỐI TRÊN ĐỊA BÀN TỈNH QUẢNG NGÃI
     </Typography>
   
        

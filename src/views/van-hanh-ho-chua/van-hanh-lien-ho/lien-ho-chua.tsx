@@ -11,7 +11,7 @@ import {
   Typography
 } from '@mui/material'
 
-const HoDakDrink = () => {
+const LienHoChua = () => {
   return (
     <Grid>
     <Grid className='_text_center'>
@@ -153,4 +153,4 @@ const HoDakDrink = () => {
   )
 }
 
-export default HoDakDrink
+export default LienHoChua
