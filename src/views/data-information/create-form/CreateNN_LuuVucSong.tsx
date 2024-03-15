@@ -224,7 +224,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
 }
 
 const CreateNN_LuuVucSong = ({ data, setPostSuccess, isEdit }: any) => {
-  const formTitle = isEdit ? 'Thay đổi thông tin tài khoản' : 'Thêm tài khoản mới'
+  const formTitle = isEdit ? 'Thay đổi thông tin lưu vực sông' : 'Thêm thông tư lưu vực sông'
 
   return (
     <DialogsControl>

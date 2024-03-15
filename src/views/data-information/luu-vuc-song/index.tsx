@@ -26,6 +26,8 @@ const NN_LuuVucSong = () => {
   useEffect(() => {
     async function getDataNN_LuuVucSong() {
       setLoading(true)
+
+      // Gọi API của NN_LuuVucSong/danh-sach trong màu tím
       await getData('NN_LuuVucSong/danh-sach')
         .then(data => {
           setData(data)
@@ -168,6 +170,7 @@ const NN_LuuVucSong = () => {
         }
       ]
     },
+
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
 
@@ -200,11 +203,18 @@ const NN_LuuVucSong = () => {
         <Grid className='_text_center' sx={{ mt: 3 }}>
           <ToolBar onExport={{ data: data, column: columnsTable }} />
           <TableComponent
+
+          // columnsTable biến dòng 44 ==> 2 biểu tượng thao tác cột thao tác
             columns={columnsTable}
             rows={data}
             loading={loading}
+
+            // phân trang pagination
             pagination
+
             actions={(row: any) => (
+
+              // 2 biểu tượng thao tác cột thao tác
               <Box >
                 <CreateNN_LuuVucSong isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
                 <DeleteData url={'NN_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />

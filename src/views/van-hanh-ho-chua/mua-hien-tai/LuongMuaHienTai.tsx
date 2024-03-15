@@ -35,7 +35,7 @@ const LuongMuaHienTai = () => {
   useEffect(() => {
     async function getDataNN_LuuVucSong() {
       setLoading(true)
-      await getData('NN_LuuVucSong/danh-sach')
+      await getData('MuaHienTai/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -49,7 +49,7 @@ const LuongMuaHienTai = () => {
 
     getDataNN_LuuVucSong()
   }, [postSuccess])
-  console.table(data);
+  console.log(data);
   
   const columnsTable: TableColumn[] = [
     {
@@ -59,7 +59,7 @@ const LuongMuaHienTai = () => {
      
     },
     {
-      id: 'TramMua',
+      id: 'tramMua',
       label: 'Trạm mưa',
       align: 'left',
       rowspan: 2,
@@ -73,7 +73,7 @@ const LuongMuaHienTai = () => {
       align: 'left',
      
       children: [
-        { id: '#2.1', label: 'Lượng mưa 1 giờ', align: 'left', },
+        { id: 'luongMua1Gio', label: 'Lượng mưa 1 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
         { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
         <Button>
