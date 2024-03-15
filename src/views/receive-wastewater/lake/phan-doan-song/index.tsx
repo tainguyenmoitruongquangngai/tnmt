@@ -39,7 +39,7 @@ const PhanDoanSongTiepNhanNuocThai = () => {
   useEffect(() => {
     async function getDataReport1() {
       setLoading(true)
-      await getData('PhanDoanSong/danhsach')
+      await getData('PhanDoanSong/danh-sach')
         .then(data => {
           setData(data)
         })
