@@ -46,7 +46,7 @@ const SurfaceConstruction = () => {
       label: 'Tên công trình',
       rowspan: 2,
       pinned: 'left',
-      minWidth: 300,
+      minWidth: 200,
       elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
@@ -58,11 +58,12 @@ const SurfaceConstruction = () => {
       label: 'Địa điểm',
       rowspan: 2,
       align: 'left',
-      minWidth: 300,
+      minWidth: 250,
     },
     {
       id: '#',
       label: 'Toạ độ đập chính (VN2000)',
+
       rowspan: 2,
       elm: (row: any) => (
         <span>
@@ -70,12 +71,12 @@ const SurfaceConstruction = () => {
         </span>
       )
     },
-    { id: 'nguonNuocKT', label: 'Nguồn nước khai thác', rowspan: 2, align: 'left', minWidth: 300 },
-    { id: 'phuongThucKT', label: 'Phương thức khai thác', rowspan: 2, align: 'left', minWidth: 900 },
-    { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 300, elm: (row: any) => (<span>{row.thongso.cheDoKT}</span>) },
-    { id: 'mucDichhKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 300 },
+    { id: 'nguonNuocKT', label: 'Nguồn nước khai thác', rowspan: 2, align: 'left', minWidth: 200 },
+    { id: 'phuongThucKT', label: 'Phương thức khai thác', rowspan: 2, align: 'left', minWidth: 600 },
+    { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row.thongso.cheDoKT}</span>) },
+    { id: 'mucDichhKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 200 },
     { id: 'namBatDauVanHanh', label: 'Năm vận hành', rowspan: 2, align: 'left' },
-    { id: 'tieuvung_quyhoach', label: 'Tiểu vùng quy hoạch', rowspan: 2, align: 'left', minWidth: 200 },
+    { id: 'tieuvung_quyhoach', label: 'Tiểu vùng quy hoạch', rowspan: 2, align: 'left', minWidth: 150 },
     {
       id: 'thongso',
       label: 'Thông số công trình',

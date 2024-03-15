@@ -46,7 +46,7 @@ const DischargeConstruction = () => {
       label: 'Tên công trình',
       rowspan: 2,
       pinned: 'left',
-      minWidth: 300,
+      minWidth: 150,
       elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
@@ -58,12 +58,13 @@ const DischargeConstruction = () => {
       label: 'Địa điểm',
       rowspan: 2,
       align: 'left',
-      minWidth: 300,
+      minWidth: 200,
     },
     {
       id: '#',
       label: 'Toạ độ đập chính (VN2000)',
       rowspan: 2,
+      minWidth: 200,
       elm: (row: any) => (
         <span>
           X: {row.x}<br /> Y: {row.y}
