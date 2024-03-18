@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Add, Edit, Save } from '@mui/icons-material'
-import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip } from '@mui/material'
-import { saveData } from 'src/api/axios'
+import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip, Autocomplete } from '@mui/material'
+import { getData, saveData } from 'src/api/axios'
 import { FormDuLieuNguonNhanState } from './wasteWaterInterface'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [phanDoanSong, setPhanDoanSong] = useState([]);
+
   const [report1Data, setreport1Data] = useState<FormDuLieuNguonNhanState>({
     id: data?.id || 0,
-    song: data?.song || '',
-    tenDoanSong: data?.tenDoanSong || '',
-    chieuDai: data?.chieuDai || 0,
+    idPhanDoanSong: data?.idPhanDoanSong || 0,
     luuLuongDongChay: data?.luuLuongDongChay || 0,
     cnnBOD: data?.cnnBOD || 0,
     cnnCOD: data?.cnnCOD || 0,
@@ -29,6 +30,21 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     ghiChu: data?.ghiChu || ''
   })
 
+   //dataselect
+   useEffect(() => {
+    setLoading(true);
+    const getDataForSelect = async () => {
+      try {
+        const list = await getData('PhanDoanSong/danh-sach');
+        setPhanDoanSong(list);
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setLoading(false);
+      }
+    };
+    getDataForSelect();
+  }, []);
   const [saving, setSaving] = useState(false)
 
   const handleChange = (prop: keyof FormDuLieuNguonNhanState) => (value: any) => {
@@ -46,9 +62,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           // Reset form fields
           setreport1Data({
             id: 0,
-            song: '',
-            tenDoanSong: '',
-            chieuDai: 0,
+            idPhanDoanSong: 0,
             luuLuongDongChay: 0,
             cnnBOD: 0,
             cnnCOD: 0,
@@ -85,9 +99,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const handleClose = () => {
     setreport1Data({
       id: 0,
-      song: '',
-      tenDoanSong: '',
-      chieuDai: 0,
+      idPhanDoanSong: 0,
       luuLuongDongChay: 0,
       cnnBOD: 0,
       cnnCOD: 0,
@@ -112,37 +124,31 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-          <TextField
-            size='small'
-            type='text'
-            label='Sông'
-            fullWidth
-            placeholder=''
-            value={report1Data.song || ''}
-            onChange={event => handleChange('song')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-          <TextField
-            size='small'
-            type='text'
-            label='Têm đoạn sông'
-            fullWidth
-            placeholder=''
-            value={report1Data.tenDoanSong || ''}
-            onChange={event => handleChange('tenDoanSong')(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-          <TextField
-            size='small'
-            type='text'
-            label='Chiều dài đoạn sông'
-            fullWidth
-            placeholder=''
-            value={report1Data.chieuDai || ''}
-            onChange={event => handleChange('chieuDai')(event.target.value)}
+      <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <Autocomplete
+           size="small"
+           options={phanDoanSong}
+           getOptionLabel={(option: any) => `${option.phanDoan} `}
+           value={phanDoanSong?.find((option:any) => option.id === report1Data.idPhanDoanSong) || null}
+           onChange={(_, value) => handleChange('idPhanDoanSong')(value?.id || 0)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                fullWidth
+                label="Chọn phân đoạn sông"
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <Fragment>
+                      {loading && (
+                        <CircularProgress color="primary" size={20} />
+                      )}
+                      {params.InputProps.endAdornment}
+                    </Fragment>
+                  ),
+                }}
+              />
+            )}
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>

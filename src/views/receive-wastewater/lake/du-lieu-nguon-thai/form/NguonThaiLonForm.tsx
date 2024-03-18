@@ -3,30 +3,34 @@ import { Add, Edit, Save } from '@mui/icons-material'
 import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip, Autocomplete } from '@mui/material'
 import { getData, saveData } from 'src/api/axios'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
-import { FormDuLieuNguonThaiDiemState } from './DuLieuNguonThaiInterface'
+import { FormDuLieuNguonThaiLonState } from './DuLieuNguonThaiInterface'
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [phanDoanSong, setPhanDoanSong] = useState([]);
+console.log(data);
 
-  const [thaiDiem, setThaiDiem] = useState<FormDuLieuNguonThaiDiemState>({
+  const [Lon, setLon] = useState<FormDuLieuNguonThaiLonState>({
     id: data?.id || 0,
-    idPhanDoanSong: data?.idPhanDoanSong || 0,
-    luuLuongXaThai: data?.luuLuongXaThai || '',
-    ctdiemBOD: data?.ctdiemBOD || 0,
-    ctdiemCOD: data?.ctdiemCOD || 0,
-    ctdiemAmoni: data?.ctdiemAmoni || 0,
-    ctdiemTongN: data?.ctdiemTongN || 0,
-    ctdiemTongP: data?.ctdiemTongP || 0,
-    ctdiemTSS: data?.ctdiemTSS || 0,
-    ctdiemColiform: data?.ctdiemColiform || 0,
+    idPhanDoanSong: data?.idPhanDoanSong || '',
+    soLon: data?.soLon || 0,
+    soDe: data?.soDe || 0,
+    soGiaSucKhac: data?.soGiaSucKhac || 0,
+    heSoSuyGiam: data?.heSoSuyGiam || 0,
+    ctLonBOD: data?.ctLonBOD || 0,
+    ctLonCOD: data?.ctLonCOD || 0,
+    ctLonAmoni: data?.ctLonAmoni || 0,
+    ctLonTongN: data?.ctLonTongN || 0,
+    ctLonTongP: data?.ctLonTongP || 0,
+    ctLonTSS: data?.ctLonTSS || 0,
+    ctLonColiform: data?.ctLonColiform || 0,
     ghiChu: data?.ghiChu || ''
   })
 
   const [saving, setSaving] = useState(false)
 
-  const handleChange = (prop: keyof FormDuLieuNguonThaiDiemState) => (value: any) => {
-    setThaiDiem({ ...thaiDiem, [prop]: value })
+  const handleChange = (prop: keyof FormDuLieuNguonThaiLonState) => (value: any) => {
+    setLon({ ...Lon, [prop]: value })
   }
 
    //dataselect
@@ -52,20 +56,23 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuocThaiDiem/luu', thaiDiem)
+        const res = await saveData('DuLieuNguonNuocThaiLon/luu', Lon)
         if (res) {
           // Reset form fields
-          setThaiDiem({
+          setLon({
             id: 0,
             idPhanDoanSong: 0,
-            luuLuongXaThai: 0,
-            ctdiemBOD: 0,
-            ctdiemCOD: 0,
-            ctdiemAmoni: 0,
-            ctdiemTongN: 0,
-            ctdiemTongP: 0,
-            ctdiemTSS: 0,
-            ctdiemColiform: 0,
+            soLon:  0,
+            soDe:  0,
+            soGiaSucKhac: 0,
+            heSoSuyGiam: 0,
+            ctLonBOD: 0,
+            ctLonCOD: 0,
+            ctLonAmoni: 0,
+            ctLonTongN: 0,
+            ctLonTongP: 0,
+            ctLonTSS: 0,
+            ctLonColiform: 0,
             ghiChu: ''
           })
 
@@ -85,17 +92,20 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setThaiDiem({
+    setLon({
       id: 0,
       idPhanDoanSong: 0,
-      luuLuongXaThai: 0,
-      ctdiemBOD: 0,
-      ctdiemCOD: 0,
-      ctdiemAmoni: 0,
-      ctdiemTongN: 0,
-      ctdiemTongP: 0,
-      ctdiemTSS: 0,
-      ctdiemColiform: 0,
+      soLon: 0,
+      soDe:0, 
+      soGiaSucKhac:0,
+      heSoSuyGiam: 0,
+      ctLonBOD: 0,
+      ctLonCOD: 0,
+      ctLonAmoni: 0,
+      ctLonTongN: 0,
+      ctLonTongP: 0,
+      ctLonTSS: 0,
+      ctLonColiform: 0,
       ghiChu: ''
     })
 
@@ -110,7 +120,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
            size="small"
            options={phanDoanSong}
            getOptionLabel={(option: any) => `${option.phanDoan} `}
-           value={phanDoanSong?.find((option:any) => option.id === thaiDiem.idPhanDoanSong) || null}
+           value={phanDoanSong?.find((option:any) => option.id === Lon.idPhanDoanSong) || null}
            onChange={(_, value) => handleChange('idPhanDoanSong')(value?.id || 0)}
             renderInput={(params) => (
               <TextField
@@ -136,16 +146,49 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Lưu lương xả thải max'
+            label='Số lợn'
             fullWidth
             placeholder=''
-            value={thaiDiem.luuLuongXaThai || ''}
-            onChange={event => handleChange('luuLuongXaThai')(event.target.value)}
+            value={Lon.soLon || ''}
+            onChange={event => handleChange('soLon')(event.target.value)}
           />
-        </Grid>      
+        </Grid>  
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Số dê'
+            fullWidth
+            placeholder=''
+            value={Lon.soDe || ''}
+            onChange={event => handleChange('soDe')(event.target.value)}
+          />
+        </Grid>  
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Số gia súc khác khác'
+            fullWidth
+            placeholder=''
+            value={Lon.soGiaSucKhac || ''}
+            onChange={event => handleChange('soGiaSucKhac')(event.target.value)}
+          />
+        </Grid>  
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Hệ số suy giảm dọc đường hay hệ số dòng chảy'
+            fullWidth
+            placeholder=''
+            value={Lon.heSoSuyGiam || ''}
+            onChange={event => handleChange('heSoSuyGiam')(event.target.value)}
+          />
+        </Grid>        
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
           <fieldset>
-            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải điểm</legend>
+            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải sinh hoạt</legend>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
                 <TextField
@@ -154,8 +197,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='BOD5'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemBOD || ''}
-                  onChange={event => handleChange('ctdiemBOD')(event.target.value)}
+                  value={Lon.ctLonBOD || ''}
+                  onChange={event => handleChange('ctLonBOD')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -165,8 +208,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='COD'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemCOD || ''}
-                  onChange={event => handleChange('ctdiemCOD')(event.target.value)}
+                  value={Lon.ctLonCOD || ''}
+                  onChange={event => handleChange('ctLonCOD')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -176,8 +219,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Amoni'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemAmoni || ''}
-                  onChange={event => handleChange('ctdiemAmoni')(event.target.value)}
+                  value={Lon.ctLonAmoni || ''}
+                  onChange={event => handleChange('ctLonAmoni')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -187,8 +230,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng N'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTongN || ''}
-                  onChange={event => handleChange('ctdiemTongN')(event.target.value)}
+                  value={Lon.ctLonTongN || ''}
+                  onChange={event => handleChange('ctLonTongN')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -198,8 +241,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng P'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTongP || ''}
-                  onChange={event => handleChange('ctdiemTongP')(event.target.value)}
+                  value={Lon.ctLonTongP || ''}
+                  onChange={event => handleChange('ctLonTongP')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -209,8 +252,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng chất rắn lơ lửng TSS'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTSS || ''}
-                  onChange={event => handleChange('ctdiemTSS')(event.target.value)}
+                  value={Lon.ctLonTSS || ''}
+                  onChange={event => handleChange('ctLonTSS')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -220,8 +263,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng coliform'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemColiform || ''}
-                  onChange={event => handleChange('ctdiemColiform')(event.target.value)}
+                  value={Lon.ctLonColiform || ''}
+                  onChange={event => handleChange('ctLonColiform')(event.target.value)}
                 />
               </Grid>
             </Grid>
@@ -236,7 +279,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Ghi chú'
             fullWidth
             placeholder=''
-            value={thaiDiem.ghiChu || ''}
+            value={Lon.ghiChu || ''}
             onChange={event => handleChange('ghiChu')(event.target.value)}
           />
         </Grid>
@@ -255,7 +298,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const ThaiDiemForm = ({ data, setPostSuccess, isEdit }: any) => {
+const ThaiLonForm = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin ' : 'Thêm mới'
 
   return (
@@ -293,4 +336,4 @@ const ThaiDiemForm = ({ data, setPostSuccess, isEdit }: any) => {
   )
 }
 
-export default ThaiDiemForm
+export default ThaiLonForm

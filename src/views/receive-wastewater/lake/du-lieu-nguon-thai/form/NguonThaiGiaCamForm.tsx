@@ -3,30 +3,32 @@ import { Add, Edit, Save } from '@mui/icons-material'
 import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip, Autocomplete } from '@mui/material'
 import { getData, saveData } from 'src/api/axios'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
-import { FormDuLieuNguonThaiDiemState } from './DuLieuNguonThaiInterface'
+import { FormDuLieuNguonThaiGiaCamState } from './DuLieuNguonThaiInterface'
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [phanDoanSong, setPhanDoanSong] = useState([]);
+console.log(data);
 
-  const [thaiDiem, setThaiDiem] = useState<FormDuLieuNguonThaiDiemState>({
+  const [GiaCam, setGiaCam] = useState<FormDuLieuNguonThaiGiaCamState>({
     id: data?.id || 0,
-    idPhanDoanSong: data?.idPhanDoanSong || 0,
-    luuLuongXaThai: data?.luuLuongXaThai || '',
-    ctdiemBOD: data?.ctdiemBOD || 0,
-    ctdiemCOD: data?.ctdiemCOD || 0,
-    ctdiemAmoni: data?.ctdiemAmoni || 0,
-    ctdiemTongN: data?.ctdiemTongN || 0,
-    ctdiemTongP: data?.ctdiemTongP || 0,
-    ctdiemTSS: data?.ctdiemTSS || 0,
-    ctdiemColiform: data?.ctdiemColiform || 0,
+    idPhanDoanSong: data?.idPhanDoanSong || '',
+    soGiaCam: data?.soGiaCam || 0,
+    heSoSuyGiam: data?.heSoSuyGiam || 0,
+    ctGiaCamBOD: data?.ctGiaCamBOD || 0,
+    ctGiaCamCOD: data?.ctGiaCamCOD || 0,
+    ctGiaCamAmoni: data?.ctGiaCamAmoni || 0,
+    ctGiaCamTongN: data?.ctGiaCamTongN || 0,
+    ctGiaCamTongP: data?.ctGiaCamTongP || 0,
+    ctGiaCamTSS: data?.ctGiaCamTSS || 0,
+    ctGiaCamColiform: data?.ctGiaCamColiform || 0,
     ghiChu: data?.ghiChu || ''
   })
 
   const [saving, setSaving] = useState(false)
 
-  const handleChange = (prop: keyof FormDuLieuNguonThaiDiemState) => (value: any) => {
-    setThaiDiem({ ...thaiDiem, [prop]: value })
+  const handleChange = (prop: keyof FormDuLieuNguonThaiGiaCamState) => (value: any) => {
+    setGiaCam({ ...GiaCam, [prop]: value })
   }
 
    //dataselect
@@ -52,20 +54,21 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuocThaiDiem/luu', thaiDiem)
+        const res = await saveData('DuLieuNguonNuocThaiGiaCam/luu', GiaCam)
         if (res) {
           // Reset form fields
-          setThaiDiem({
+          setGiaCam({
             id: 0,
             idPhanDoanSong: 0,
-            luuLuongXaThai: 0,
-            ctdiemBOD: 0,
-            ctdiemCOD: 0,
-            ctdiemAmoni: 0,
-            ctdiemTongN: 0,
-            ctdiemTongP: 0,
-            ctdiemTSS: 0,
-            ctdiemColiform: 0,
+            soGiaCam:  0,
+            heSoSuyGiam: 0,
+            ctGiaCamBOD: 0,
+            ctGiaCamCOD: 0,
+            ctGiaCamAmoni: 0,
+            ctGiaCamTongN: 0,
+            ctGiaCamTongP: 0,
+            ctGiaCamTSS: 0,
+            ctGiaCamColiform: 0,
             ghiChu: ''
           })
 
@@ -85,17 +88,18 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setThaiDiem({
+    setGiaCam({
       id: 0,
       idPhanDoanSong: 0,
-      luuLuongXaThai: 0,
-      ctdiemBOD: 0,
-      ctdiemCOD: 0,
-      ctdiemAmoni: 0,
-      ctdiemTongN: 0,
-      ctdiemTongP: 0,
-      ctdiemTSS: 0,
-      ctdiemColiform: 0,
+      soGiaCam: 0,
+      heSoSuyGiam: 0,
+      ctGiaCamBOD: 0,
+      ctGiaCamCOD: 0,
+      ctGiaCamAmoni: 0,
+      ctGiaCamTongN: 0,
+      ctGiaCamTongP: 0,
+      ctGiaCamTSS: 0,
+      ctGiaCamColiform: 0,
       ghiChu: ''
     })
 
@@ -110,7 +114,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
            size="small"
            options={phanDoanSong}
            getOptionLabel={(option: any) => `${option.phanDoan} `}
-           value={phanDoanSong?.find((option:any) => option.id === thaiDiem.idPhanDoanSong) || null}
+           value={phanDoanSong?.find((option:any) => option.id === GiaCam.idPhanDoanSong) || null}
            onChange={(_, value) => handleChange('idPhanDoanSong')(value?.id || 0)}
             renderInput={(params) => (
               <TextField
@@ -136,16 +140,28 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Lưu lương xả thải max'
+            label='Số con gia cầm'
             fullWidth
             placeholder=''
-            value={thaiDiem.luuLuongXaThai || ''}
-            onChange={event => handleChange('luuLuongXaThai')(event.target.value)}
+            value={GiaCam.soGiaCam || ''}
+            onChange={event => handleChange('soGiaCam')(event.target.value)}
           />
-        </Grid>      
+        </Grid>  
+       
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Hệ số suy giảm dọc đường hay hệ số dòng chảy'
+            fullWidth
+            placeholder=''
+            value={GiaCam.heSoSuyGiam || ''}
+            onChange={event => handleChange('heSoSuyGiam')(event.target.value)}
+          />
+        </Grid>        
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
           <fieldset>
-            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải điểm</legend>
+            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải gia cầm</legend>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
                 <TextField
@@ -154,8 +170,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='BOD5'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemBOD || ''}
-                  onChange={event => handleChange('ctdiemBOD')(event.target.value)}
+                  value={GiaCam.ctGiaCamBOD || ''}
+                  onChange={event => handleChange('ctGiaCamBOD')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -165,8 +181,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='COD'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemCOD || ''}
-                  onChange={event => handleChange('ctdiemCOD')(event.target.value)}
+                  value={GiaCam.ctGiaCamCOD || ''}
+                  onChange={event => handleChange('ctGiaCamCOD')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -176,8 +192,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Amoni'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemAmoni || ''}
-                  onChange={event => handleChange('ctdiemAmoni')(event.target.value)}
+                  value={GiaCam.ctGiaCamAmoni || ''}
+                  onChange={event => handleChange('ctGiaCamAmoni')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -187,8 +203,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng N'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTongN || ''}
-                  onChange={event => handleChange('ctdiemTongN')(event.target.value)}
+                  value={GiaCam.ctGiaCamTongN || ''}
+                  onChange={event => handleChange('ctGiaCamTongN')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -198,8 +214,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng P'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTongP || ''}
-                  onChange={event => handleChange('ctdiemTongP')(event.target.value)}
+                  value={GiaCam.ctGiaCamTongP || ''}
+                  onChange={event => handleChange('ctGiaCamTongP')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -209,8 +225,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng chất rắn lơ lửng TSS'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTSS || ''}
-                  onChange={event => handleChange('ctdiemTSS')(event.target.value)}
+                  value={GiaCam.ctGiaCamTSS || ''}
+                  onChange={event => handleChange('ctGiaCamTSS')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -220,8 +236,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng coliform'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemColiform || ''}
-                  onChange={event => handleChange('ctdiemColiform')(event.target.value)}
+                  value={GiaCam.ctGiaCamColiform || ''}
+                  onChange={event => handleChange('ctGiaCamColiform')(event.target.value)}
                 />
               </Grid>
             </Grid>
@@ -236,7 +252,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Ghi chú'
             fullWidth
             placeholder=''
-            value={thaiDiem.ghiChu || ''}
+            value={GiaCam.ghiChu || ''}
             onChange={event => handleChange('ghiChu')(event.target.value)}
           />
         </Grid>
@@ -255,7 +271,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const ThaiDiemForm = ({ data, setPostSuccess, isEdit }: any) => {
+const ThaiGiaCamForm = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin ' : 'Thêm mới'
 
   return (
@@ -293,4 +309,4 @@ const ThaiDiemForm = ({ data, setPostSuccess, isEdit }: any) => {
   )
 }
 
-export default ThaiDiemForm
+export default ThaiGiaCamForm

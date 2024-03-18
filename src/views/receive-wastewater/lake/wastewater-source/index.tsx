@@ -9,7 +9,6 @@ import Grid from '@mui/material/Unstable_Grid2'
 //import dynamic from 'next/dynamic'
 import dynamic from 'next/dynamic'
 import { getData } from 'src/api/axios'
-import { DuLieuNguonNhanState } from './wasteWaterInterface'
 import { Box, Paper } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
@@ -26,30 +25,43 @@ const WasteWaterDetails = () => {
   // const [showLabel, setShowLabel] = useState(false)
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT', rowspan: 2 },
-    { id: 'song', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200 },
+    { id: '#', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200,
+    elm: (row: any) => (
+      <span>
+        {row.phanDoanSong.song}
+      </span>
+    )},
     {
-      id: 'tenDoanSong',
+      id: '#',
       label: (
         <>
-          {' '}
           Tên đoạn <br /> sông
         </>
       ),
       rowspan: 2,
       align: 'left',
-      minWidth: 100
+      minWidth: 100,
+      elm: (row: any) => (
+        <span>
+          {row.phanDoanSong.tenDoanSong}
+        </span>
+      )
     },
     {
       id: 'chieuDai',
       label: (
         <>
-          {' '}
           Chiều dài <br /> đoạn sông <br /> (km)
         </>
       ),
       rowspan: 2,
       align: 'left',
-      minWidth: 100
+      minWidth: 100,
+      elm: (row: any) => (
+        <span>
+          {row.phanDoanSong.chieuDai}
+        </span>
+      )
     },
     {
       id: 'luuLuongDongChay',
@@ -405,7 +417,7 @@ const WasteWaterDetails = () => {
 
   const [mapCenter] = useState([15.012172, 108.676488])
   const [mapZoom] = useState(9)
-  const [data, setData] = useState<DuLieuNguonNhanState[]>([])
+  const [data, setData] = useState([])
   console.log(data)
 
   const [loading, setLoading] = useState(false)
@@ -417,7 +429,7 @@ const WasteWaterDetails = () => {
   useEffect(() => {
     async function getDataReport1() {
       setLoading(true)
-      await getData('DuLieuNguonNuocNhan/danhsach')
+      await getData('DuLieuNguonNuocNhan/danh-sach')
         .then(data => {
           setData(data)
         })

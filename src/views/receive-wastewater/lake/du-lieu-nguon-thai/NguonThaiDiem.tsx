@@ -7,11 +7,10 @@ import { useState } from 'react'
 import Grid from '@mui/material/Unstable_Grid2'
 
 import { getData } from 'src/api/axios'
-import { Box, Paper } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
 import ThaiDiemForm from './form/NguonThaiDiemForm'
-
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const NguonThaiDiem = () => {
@@ -22,12 +21,14 @@ const NguonThaiDiem = () => {
   // const [showLabel, setShowLabel] = useState(false)
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT', rowspan: 2 },
-    { id: '#', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200,
-    elm: (row: any) => (
-      <span>
-        {row.phanDoanSong.song}
-      </span>
-    )},
+    {
+      id: '#',
+      label: 'Sông',
+      rowspan: 2,
+      align: 'left',
+      minWidth: 200,
+      elm: (row: any) => <span>{row.phanDoanSong.song}</span>
+    },
     {
       id: '#',
       label: (
@@ -38,11 +39,7 @@ const NguonThaiDiem = () => {
       rowspan: 2,
       align: 'left',
       minWidth: 100,
-      elm: (row: any) => (
-        <span>
-          {row.phanDoanSong.tenDoanSong}
-        </span>
-      )
+      elm: (row: any) => <span>{row.phanDoanSong.tenDoanSong}</span>
     },
     {
       id: 'chieuDai',
@@ -54,17 +51,14 @@ const NguonThaiDiem = () => {
       rowspan: 2,
       align: 'left',
       minWidth: 100,
-      elm: (row: any) => (
-        <span>
-          {row.phanDoanSong.chieuDai}
-        </span>
-      )
+      elm: (row: any) => <span>{row.phanDoanSong.chieuDai}</span>
     },
     {
-      id: '#',
+      id: 'nguonThaiCongTrinh',
       label: (
         <>
-          Nguồn thải<br /> công trình XT <br /> 
+          Nguồn thải
+          <br /> công trình XT <br />
         </>
       ),
       rowspan: 2,
@@ -75,38 +69,36 @@ const NguonThaiDiem = () => {
       id: '#',
       label: (
         <>
-          Tọa độ vị trí <br /> xả thải <br /> của công trình XT 
+          Tọa độ vị trí <br /> xả thải <br /> của công trình XT
         </>
       ),
       align: 'left',
       children: [
         {
-          id: 'y',
+          id: 'toaDoX',
           label: (
             <>
-              Tọa độ <br />
-              X
+              Tọa độ <br />X
             </>
           ),
           align: 'left'
         },
         {
-          id: 'y',
+          id: 'toaDoY',
           label: (
             <>
-              Tọa độ <br />
-              Y
+              Tọa độ <br />Y
             </>
           ),
           align: 'left'
-        },
+        }
       ]
     },
     {
       id: 'luuLuongXaThai',
       label: (
         <>
-          Lưu lượng <br /> xả max <br /> Qxt <br/> (m³/s)
+          Lưu lượng <br /> xả max <br /> Qxt <br /> (m³/s)
         </>
       ),
       rowspan: 2,
@@ -200,8 +192,8 @@ const NguonThaiDiem = () => {
       id: '#',
       label: (
         <>
-         TẢI LƯỢNG THÔNG SỐ CHẤT LƯỢNG NƯỚC CÓ TRONG NGUỒN THẢI ĐIỂM
-         <br/> Lt_diem (kg/ngày)
+          TẢI LƯỢNG THÔNG SỐ CHẤT LƯỢNG NƯỚC CÓ TRONG NGUỒN THẢI ĐIỂM
+          <br /> Lt_diem (kg/ngày)
         </>
       ),
       align: 'left',
@@ -325,8 +317,13 @@ const NguonThaiDiem = () => {
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={12}>
+        <Grid className='_text_center'>
+          <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
+            THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM TỪ NGUỒN THẢI ĐIỂM XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
+          </Typography>
+        </Grid>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
-          <Grid className="_flexEnd">
+          <Grid className='_flexEnd'>
             <ThaiDiemForm isEdit={false} setPostSuccess={handlePostSuccess} />
           </Grid>
           <TableComponent

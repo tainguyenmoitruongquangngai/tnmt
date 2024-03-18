@@ -3,30 +3,33 @@ import { Add, Edit, Save } from '@mui/icons-material'
 import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip, Autocomplete } from '@mui/material'
 import { getData, saveData } from 'src/api/axios'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
-import { FormDuLieuNguonThaiDiemState } from './DuLieuNguonThaiInterface'
+import { FormDuLieuNguonThaiTrauBoState } from './DuLieuNguonThaiInterface'
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [phanDoanSong, setPhanDoanSong] = useState([]);
+console.log(data);
 
-  const [thaiDiem, setThaiDiem] = useState<FormDuLieuNguonThaiDiemState>({
+  const [trauBo, setTrauBo] = useState<FormDuLieuNguonThaiTrauBoState>({
     id: data?.id || 0,
-    idPhanDoanSong: data?.idPhanDoanSong || 0,
-    luuLuongXaThai: data?.luuLuongXaThai || '',
-    ctdiemBOD: data?.ctdiemBOD || 0,
-    ctdiemCOD: data?.ctdiemCOD || 0,
-    ctdiemAmoni: data?.ctdiemAmoni || 0,
-    ctdiemTongN: data?.ctdiemTongN || 0,
-    ctdiemTongP: data?.ctdiemTongP || 0,
-    ctdiemTSS: data?.ctdiemTSS || 0,
-    ctdiemColiform: data?.ctdiemColiform || 0,
+    idPhanDoanSong: data?.idPhanDoanSong || '',
+    soTrau: data?.soTrau || 0,
+    soBo: data?.soBo || 0,
+    heSoSuyGiam: data?.heSoSuyGiam || 0,
+    ctTrauBoBOD: data?.ctTrauBoBOD || 0,
+    ctTrauBoCOD: data?.ctTrauBoCOD || 0,
+    ctTrauBoAmoni: data?.ctTrauBoAmoni || 0,
+    ctTrauBoTongN: data?.ctTrauBoTongN || 0,
+    ctTrauBoTongP: data?.ctTrauBoTongP || 0,
+    ctTrauBoTSS: data?.ctTrauBoTSS || 0,
+    ctTrauBoColiform: data?.ctTrauBoColiform || 0,
     ghiChu: data?.ghiChu || ''
   })
 
   const [saving, setSaving] = useState(false)
 
-  const handleChange = (prop: keyof FormDuLieuNguonThaiDiemState) => (value: any) => {
-    setThaiDiem({ ...thaiDiem, [prop]: value })
+  const handleChange = (prop: keyof FormDuLieuNguonThaiTrauBoState) => (value: any) => {
+    setTrauBo({ ...trauBo, [prop]: value })
   }
 
    //dataselect
@@ -52,20 +55,22 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuocThaiDiem/luu', thaiDiem)
+        const res = await saveData('DuLieuNguonNuoctrauBo/luu', trauBo)
         if (res) {
           // Reset form fields
-          setThaiDiem({
+          setTrauBo({
             id: 0,
             idPhanDoanSong: 0,
-            luuLuongXaThai: 0,
-            ctdiemBOD: 0,
-            ctdiemCOD: 0,
-            ctdiemAmoni: 0,
-            ctdiemTongN: 0,
-            ctdiemTongP: 0,
-            ctdiemTSS: 0,
-            ctdiemColiform: 0,
+            soTrau: 0,
+            soBo:0,
+            heSoSuyGiam: 0,
+            ctTrauBoBOD: 0,
+            ctTrauBoCOD: 0,
+            ctTrauBoAmoni: 0,
+            ctTrauBoTongN: 0,
+            ctTrauBoTongP: 0,
+            ctTrauBoTSS: 0,
+            ctTrauBoColiform: 0,
             ghiChu: ''
           })
 
@@ -85,17 +90,19 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }
 
   const handleClose = () => {
-    setThaiDiem({
+    setTrauBo({
       id: 0,
       idPhanDoanSong: 0,
-      luuLuongXaThai: 0,
-      ctdiemBOD: 0,
-      ctdiemCOD: 0,
-      ctdiemAmoni: 0,
-      ctdiemTongN: 0,
-      ctdiemTongP: 0,
-      ctdiemTSS: 0,
-      ctdiemColiform: 0,
+      soTrau: 0,
+      soBo:0,
+      heSoSuyGiam: 0,
+      ctTrauBoBOD: 0,
+      ctTrauBoCOD: 0,
+      ctTrauBoAmoni: 0,
+      ctTrauBoTongN: 0,
+      ctTrauBoTongP: 0,
+      ctTrauBoTSS: 0,
+      ctTrauBoColiform: 0,
       ghiChu: ''
     })
 
@@ -110,7 +117,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
            size="small"
            options={phanDoanSong}
            getOptionLabel={(option: any) => `${option.phanDoan} `}
-           value={phanDoanSong?.find((option:any) => option.id === thaiDiem.idPhanDoanSong) || null}
+           value={phanDoanSong?.find((option:any) => option.id === trauBo.idPhanDoanSong) || null}
            onChange={(_, value) => handleChange('idPhanDoanSong')(value?.id || 0)}
             renderInput={(params) => (
               <TextField
@@ -136,16 +143,38 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
-            label='Lưu lương xả thải max'
+            label='Số trâu'
             fullWidth
             placeholder=''
-            value={thaiDiem.luuLuongXaThai || ''}
-            onChange={event => handleChange('luuLuongXaThai')(event.target.value)}
+            value={trauBo.soTrau || ''}
+            onChange={event => handleChange('soTrau')(event.target.value)}
           />
-        </Grid>      
+        </Grid>  
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Số bò'
+            fullWidth
+            placeholder=''
+            value={trauBo.soTrau || ''}
+            onChange={event => handleChange('soTrau')(event.target.value)}
+          />
+        </Grid>  
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Hệ số suy giảm dọc đường hay hệ số dòng chảy'
+            fullWidth
+            placeholder=''
+            value={trauBo.heSoSuyGiam || ''}
+            onChange={event => handleChange('heSoSuyGiam')(event.target.value)}
+          />
+        </Grid>        
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
           <fieldset>
-            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải điểm</legend>
+            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải sinh hoạt</legend>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
                 <TextField
@@ -154,8 +183,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='BOD5'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemBOD || ''}
-                  onChange={event => handleChange('ctdiemBOD')(event.target.value)}
+                  value={trauBo.ctTrauBoBOD || ''}
+                  onChange={event => handleChange('ctTrauBoBOD')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -165,8 +194,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='COD'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemCOD || ''}
-                  onChange={event => handleChange('ctdiemCOD')(event.target.value)}
+                  value={trauBo.ctTrauBoCOD || ''}
+                  onChange={event => handleChange('ctTrauBoCOD')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -176,8 +205,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Amoni'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemAmoni || ''}
-                  onChange={event => handleChange('ctdiemAmoni')(event.target.value)}
+                  value={trauBo.ctTrauBoAmoni || ''}
+                  onChange={event => handleChange('ctTrauBoAmoni')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -187,8 +216,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng N'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTongN || ''}
-                  onChange={event => handleChange('ctdiemTongN')(event.target.value)}
+                  value={trauBo.ctTrauBoTongN || ''}
+                  onChange={event => handleChange('ctTrauBoTongN')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -198,8 +227,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng P'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTongP || ''}
-                  onChange={event => handleChange('ctdiemTongP')(event.target.value)}
+                  value={trauBo.ctTrauBoTongP || ''}
+                  onChange={event => handleChange('ctTrauBoTongP')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -209,8 +238,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng chất rắn lơ lửng TSS'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemTSS || ''}
-                  onChange={event => handleChange('ctdiemTSS')(event.target.value)}
+                  value={trauBo.ctTrauBoTSS || ''}
+                  onChange={event => handleChange('ctTrauBoTSS')(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
@@ -220,8 +249,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   label='Tổng coliform'
                   fullWidth
                   placeholder=''
-                  value={thaiDiem.ctdiemColiform || ''}
-                  onChange={event => handleChange('ctdiemColiform')(event.target.value)}
+                  value={trauBo.ctTrauBoColiform || ''}
+                  onChange={event => handleChange('ctTrauBoColiform')(event.target.value)}
                 />
               </Grid>
             </Grid>
@@ -236,7 +265,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             label='Ghi chú'
             fullWidth
             placeholder=''
-            value={thaiDiem.ghiChu || ''}
+            value={trauBo.ghiChu || ''}
             onChange={event => handleChange('ghiChu')(event.target.value)}
           />
         </Grid>
@@ -255,7 +284,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   )
 }
 
-const ThaiDiemForm = ({ data, setPostSuccess, isEdit }: any) => {
+const ThaiTrauBoForm = ({ data, setPostSuccess, isEdit }: any) => {
   const formTitle = isEdit ? 'Thay đổi thông tin ' : 'Thêm mới'
 
   return (
@@ -293,4 +322,4 @@ const ThaiDiemForm = ({ data, setPostSuccess, isEdit }: any) => {
   )
 }
 
-export default ThaiDiemForm
+export default ThaiTrauBoForm
