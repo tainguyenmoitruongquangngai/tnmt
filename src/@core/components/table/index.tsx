@@ -2,9 +2,10 @@
 import { FC, useState, ChangeEvent } from 'react'
 
 // ** MUI Imports
-import { Table, TableRow, TableCell, TableBody, TableContainer, Paper, TablePagination } from '@mui/material'
+import { Table, TableContainer, Paper, TablePagination } from '@mui/material'
 import BoxLoading from '../box-loading'
 import renderTableHead from './table-head'
+import renderTableBody from './table-body'
 
 export interface TableColumn {
   id: string
@@ -19,11 +20,11 @@ export interface TableColumn {
   pinned?: 'left' | 'right' | undefined
 }
 
-interface Data {
+export interface Data {
   [key: string]: any
 }
 
-interface TableProps {
+export interface TableProps {
   columns: TableColumn[]
   rows: Data[]
   columnVisibility?: string[]
@@ -36,6 +37,19 @@ interface TableProps {
 
 const TableComponent: FC<TableProps> = (props: TableProps) => {
   const { columns, rows, columnVisibility, pagination, loading, actions } = props
+
+  // ** States
+  const [page, setPage] = useState<number>(0)
+  const [rowsPerPage, setRowsPerPage] = useState<number>(10)
+
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage)
+  }
+
+  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value)
+    setPage(0)
+  }
 
   const tableColumns: TableColumn[] = []
   for (let i = 0; i < columns.length; i++) {
@@ -55,26 +69,9 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
           }
         }
         updatedColumn.children = updatedChildrenColumns
-        updatedColumn.colspan =
-          typeof updatedColumn.colspan === 'number' ? updatedColumn.colspan : updatedChildrenColumns.length
-      } else {
-        updatedColumn.colspan = 1
       }
       tableColumns.push(updatedColumn)
     }
-  }
-
-  // ** States
-  const [page, setPage] = useState<number>(0)
-  const [rowsPerPage, setRowsPerPage] = useState<number>(10)
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage)
-  }
-
-  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value)
-    setPage(0)
   }
 
   return loading ? (
@@ -83,115 +80,8 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
     <Paper>
       <TableContainer style={{ borderRadius: 4 }}>
         <Table className='mainTable'>
-          {renderTableHead(columns)}
-          <TableBody className='tableBody'>
-            {rows?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-              <TableRow key={index}>
-                {tableColumns.map((column, columnIndex) => {
-                  if (column.children) {
-                    return column.children.map((childColumn, childIndex) => {
-                      const parentId = column.id
-                      const rowValue = row[parentId]
-
-                      if (parentId === '#') {
-                        return (
-                          <TableCell
-                            className={` ${column.pinned ? 'sticky-col' : ''} ${column.pinned === 'left' ? 'start-col' : ''
-                              } ${column.pinned === 'right' ? 'end-col' : ''} `}
-                            sx={{ py: 0, minWidth: childColumn.minWidth }}
-                            key={`${columnIndex}-${childIndex}`}
-                            align={childColumn.align}
-                            size='small'
-                          >
-                            {childColumn.id === 'actions'
-                              ? actions && actions(row)
-                              : typeof childColumn.elm === 'function'
-                                ? childColumn.elm(row)
-                                : childColumn.format
-                                  ? childColumn.format(row[childColumn.id])
-                                  : row[childColumn.id]}
-                          </TableCell>
-                        )
-                      } else {
-                        return (
-                          <TableCell
-                            className={` ${column.pinned ? 'sticky-col' : ''} ${column.pinned === 'left' ? 'start-col' : ''
-                              } ${column.pinned === 'right' ? 'end-col' : ''} `}
-                            sx={{ py: 0, minWidth: childColumn.minWidth }}
-                            key={`${columnIndex}-${childIndex}`}
-                            align={childColumn.align}
-                            size='small'
-                          >
-                            {Array.isArray(rowValue) ? (
-                              <div>
-                                {typeof rowValue === 'object' && rowValue !== null && Object.keys(rowValue).length > 0
-                                  ? rowValue.map((e, k) => (
-                                    <div key={k}>
-                                      {Object.keys(rowValue).length > 1 ? (
-                                        <p>
-                                          {typeof childColumn.elm === 'function'
-                                            ? childColumn.elm(e)
-                                            : childColumn.format
-                                              ? childColumn.format(e[childColumn.id])
-                                              : e[childColumn.id]}
-                                        </p>
-                                      ) : typeof childColumn.elm === 'function' ? (
-                                        childColumn.elm(e)
-                                      ) : childColumn.format ? (
-                                        childColumn.format(e[childColumn.id])
-                                      ) : (
-                                        e[childColumn.id]
-                                      )}
-                                    </div>
-                                  ))
-                                  : rowValue}
-                              </div>
-                            ) : typeof rowValue === 'object' &&
-                              rowValue !== null &&
-                              Object.keys(rowValue).length > 0 ? (
-                              typeof childColumn.elm === 'function' ? (
-                                childColumn.elm(rowValue)
-                              ) : childColumn.format ? (
-                                childColumn.format(rowValue[childColumn.id])
-                              ) : (
-                                rowValue[childColumn.id]
-                              )
-                            ) : (
-                              rowValue
-                            )}
-                          </TableCell>
-                        )
-                      }
-                    })
-                  } else {
-                    return (
-                      <TableCell
-                        className={` ${column.pinned ? 'sticky-col' : ''} ${column.pinned === 'left' ? 'start-col' : ''
-                          } ${column.pinned === 'right' ? 'end-col' : ''} `}
-                        sx={{ py: 0, minWidth: column.minWidth }}
-                        {...(column.id === 'actions' ? { width: 120 } : {})}
-                        key={`${columnIndex}`}
-                        align={column.align}
-                        size='small'
-                      >
-                        {column.id === 'actions'
-                          ? actions && actions(row)
-                          : column.id === 'stt'
-                            ? index + 1
-                            : typeof column.elm === 'function'
-                              ? column.elm(row)
-                              : column.format
-                                ? column.format(row[column.id])
-                                : Array.isArray(row[column.id])
-                                  ? row[column.id].join(', ')
-                                  : row[column.id]}
-                      </TableCell>
-                    )
-                  }
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
+          {renderTableHead(tableColumns)}
+          {renderTableBody(tableColumns, rows, actions || null, page, rowsPerPage)}
         </Table>
       </TableContainer>
       {pagination ? (

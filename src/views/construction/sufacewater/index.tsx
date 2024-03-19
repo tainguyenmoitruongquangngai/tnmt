@@ -48,8 +48,8 @@ const SurfaceConstruction = () => {
       pinned: 'left',
       minWidth: 200,
       elm: (row: any) => (
-        <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
-          {row.tenCT}
+        <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row?.y, row?.x))}>
+          {row?.tenCT}
         </Typography>
       )
     },
@@ -67,13 +67,13 @@ const SurfaceConstruction = () => {
       rowspan: 2,
       elm: (row: any) => (
         <span>
-          X: {row.x}<br /> Y: {row.y}
+          X: {row?.x}<br /> Y: {row?.y}
         </span>
       )
     },
     { id: 'nguonNuocKT', label: 'Nguồn nước khai thác', rowspan: 2, align: 'left', minWidth: 200 },
     { id: 'phuongThucKT', label: 'Phương thức khai thác', rowspan: 2, align: 'left', minWidth: 600 },
-    { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row.thongso.cheDoKT}</span>) },
+    { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row?.thongso?.cheDoKT}</span>) },
     { id: 'mucDichhKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 200 },
     { id: 'namBatDauVanHanh', label: 'Năm vận hành', rowspan: 2, align: 'left' },
     { id: 'tieuvung_quyhoach', label: 'Tiểu vùng quy hoạch', rowspan: 2, align: 'left', minWidth: 150 },
@@ -279,9 +279,9 @@ const SurfaceConstruction = () => {
           align: 'left',
           pinned: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />
+          elm: (row: any) => <ShowFilePDF name={row?.soGP} src={row?.fileGiayPhep} />
         },
-        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
+        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row?.thoiHan }
       ]
     },
     {
@@ -296,8 +296,8 @@ const SurfaceConstruction = () => {
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
         },
-        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
+        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row?.ngayKy) },
+        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row?.tongTienCQ }
       ]
     },
 

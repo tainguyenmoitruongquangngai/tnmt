@@ -40,49 +40,47 @@ const GroundConstruction = () => {
   const router = useRouter()
 
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT', rowspan: 2 },
+    { id: 'stt', label: 'STT' },
     {
       id: 'tenCT',
       label: 'Tên công trình',
-      rowspan: 2,
       pinned: 'left',
+      align: 'center',
       minWidth: 300,
       elm: (row: any) => (
-        <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
-          {row.tenCT}
+        <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row?.y, row?.x))}>
+          {row?.tenCT}
         </Typography>
       )
     },
     {
       id: 'viTriCT',
       label: 'Địa điểm',
-      rowspan: 2,
       align: 'left',
       minWidth: 300,
     },
     {
       id: '#',
       label: 'Toạ độ đập chính (VN2000)',
-      rowspan: 2,
+
       elm: (row: any) => (
         <span>
-          X: {row.x}<br /> Y: {row.y}
+          X: {row?.x}<br /> Y: {row?.y}
         </span>
       )
     },
-    { id: 'mucDichhKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 300 },
-    { id: 'soLuongGiengKT', label: 'Số giếng khai thác', rowspan: 2, align: 'left' },
-    { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 300 },
-    { id: 'namBatDauVanHanh', label: 'Năm vận hành', rowspan: 2, align: 'left' },
-    { id: 'sohieu', label: 'Số hiệu', rowspan: 2, align: 'left' },
-    { id: 'thoiGianHNK', label: 'Thời gian hành nghề khoan', rowspan: 2, align: 'left' },
+    { id: 'mucDichhKT', label: 'Mục đích khai thác', align: 'left', minWidth: 300 },
+    { id: 'soLuongGiengKT', label: 'Số giếng khai thác', align: 'left' },
+    { id: 'cheDoKT', label: 'Chế độ khai thác', align: 'left', minWidth: 300 },
+    { id: 'namBatDauVanHanh', label: 'Năm vận hành', align: 'left' },
+    { id: 'sohieu', label: 'Số hiệu', align: 'left' },
+    { id: 'thoiGianHNK', label: 'Thời gian hành nghề khoan', align: 'left' },
     {
       id: '#',
       label: 'Chiều sâu đoạn thu nước từ',
       children: [
-        { id: 'chieuSauDoanThuNuocTu', label: 'Từ', rowspan: 2, align: 'left' },
-        { id: 'chieuSauDoanThuNuocDen', label: 'Đến', rowspan: 2, align: 'left' },
-
+        { id: 'chieuSauDoanThuNuocTu', label: 'Từ', align: 'left' },
+        { id: 'chieuSauDoanThuNuocDen', label: 'Đến', align: 'left' },
       ]
     },
     {
@@ -166,11 +164,10 @@ const GroundConstruction = () => {
           id: 'soGP',
           label: 'Số GP',
           align: 'left',
-          pinned: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />
+          elm: (row: any) => <ShowFilePDF name={row?.soGP} src={row?.fileGiayPhep} />
         },
-        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
+        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row?.thoiHan }
       ]
     },
     {
@@ -185,12 +182,11 @@ const GroundConstruction = () => {
           minWidth: 200,
           elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
         },
-        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
+        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row?.ngayKy) },
+        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row?.tongTienCQ }
       ]
     },
-
-    { id: 'actions', label: '#', rowspan: 2, align: 'center', pinned: 'right' }
+    { id: 'actions', label: '#', align: 'center', pinned: 'right' }
   ]
 
   const [paramsFilter, setParamsFilter] = useState({

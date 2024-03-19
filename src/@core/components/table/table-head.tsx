@@ -34,7 +34,7 @@ function buildRow(columns: TableColumn[], currentDepth: number, row: TableColumn
                 label: column.label,
                 colspan: colspan,
                 rowspan: rowspan,
-                align: column.align || 'center',
+                align: 'center',
                 minWidth: column.minWidth,
                 format: column.format,
                 elm: column.elm,
@@ -68,10 +68,14 @@ function renderTableHead(columns: TableColumn[]) {
                             key={cellIndex}
                             colSpan={cell.colspan}
                             rowSpan={cell.rowspan}
-                            align="center"
+                            align={cell.align}
                             className={` ${cell.pinned ? 'sticky-col' : ''} ${cell.pinned === 'left' ? 'start-col' : ''} ${cell.pinned === 'right' ? 'end-col' : ''} `}
                             sx={{ minWidth: cell.minWidth, maxWidth: cell.minWidth, width: cell.minWidth }}>
-                            {cell.label}
+                            {cell.id === 'actions'
+                                ? typeof cell.elm === 'function'
+                                    ? cell.elm()
+                                    : cell.label
+                                : cell.label}
                         </TableCell>
                     ))}
                 </TableRow>
