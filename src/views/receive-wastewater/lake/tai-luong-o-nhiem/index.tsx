@@ -21,6 +21,9 @@ const TaiLuongONhiem = () => {
   // const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
   // const [mapZoom, setMapZoom] = useState(9)
   // const [showLabel, setShowLabel] = useState(false)
+  function roundToTwoDecimalPlaces(num: number): number {
+    return parseFloat(num.toFixed(2))
+  }
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT', rowspan: 2 },
     { id: 'luuVucSong', label: 'Lưu vực sông', rowspan: 2, align: 'left', minWidth: 200},
@@ -285,7 +288,8 @@ const TaiLuongONhiem = () => {
               Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltTSS)
         },
         {
           id: 'ltColiform',

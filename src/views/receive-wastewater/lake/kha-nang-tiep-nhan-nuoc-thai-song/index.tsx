@@ -9,7 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 //import dynamic from 'next/dynamic'
 import dynamic from 'next/dynamic'
 import { getData } from 'src/api/axios'
-import {  Paper, Typography } from '@mui/material'
+import { Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
@@ -21,17 +21,21 @@ const KhaNangTiepNhanNuocThaiSong = () => {
   // const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
   // const [mapZoom, setMapZoom] = useState(9)
   // const [showLabel, setShowLabel] = useState(false)
+  function roundToTwoDecimalPlaces(num: number): number {
+    return parseFloat(num.toFixed(2))
+  }
+
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT', rowspan: 2 },
-    { id: 'luuVucSong', label: 'Lưu vực sông', rowspan: 2, align: 'left', minWidth: 200},
+    { id: 'luuVucSong', label: 'Lưu vực sông', rowspan: 2, align: 'left', minWidth: 200 },
 
-    { id: 'song', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200},
+    { id: 'song', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200 },
     {
       id: 'tenDoanSong',
       label: 'Tên đoạn sông',
       rowspan: 2,
       align: 'left',
-      minWidth: 100
+      minWidth: 150
     },
     {
       id: 'phanDoan',
@@ -49,14 +53,15 @@ const KhaNangTiepNhanNuocThaiSong = () => {
       ),
       rowspan: 2,
       align: 'left',
-      minWidth: 100,
+      minWidth: 100
     },
-    
+
     {
       id: '#',
       label: (
         <>
-          KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI<br />
+          KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI
+          <br />
           Ltd (kg/ngày)
         </>
       ),
@@ -70,7 +75,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnBod)
         },
         {
           id: 'ltnCod',
@@ -80,7 +86,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnCod)
         },
         {
           id: 'ltnAmoni',
@@ -90,7 +97,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnAmoni)
         },
         {
           id: 'ltnTongN',
@@ -100,7 +108,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnTongN)
         },
         {
           id: 'ltnTongP',
@@ -110,7 +119,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnTongP)
         },
         {
           id: 'ltnTSS',
@@ -119,7 +129,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnTSS)
         },
         {
           id: 'ltnColiform',
@@ -129,7 +140,8 @@ const KhaNangTiepNhanNuocThaiSong = () => {
               <br /> (MPN/100ml)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltnColiform)
         }
       ]
     },
@@ -138,7 +150,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
       label: 'Ghi chú',
       rowspan: 2,
       align: 'left'
-    },
+    }
   ]
 
   const [mapCenter] = useState([15.012172, 108.676488])
@@ -192,18 +204,13 @@ const KhaNangTiepNhanNuocThaiSong = () => {
         <Map center={mapCenter} zoom={mapZoom} loading={false} />
       </Grid>
       <Grid xs={12} md={12}>
-      <Grid className='_text_center'>
+        <Grid className='_text_center'>
           <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-          KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI CỦA NGUỒN NƯỚC SÔNG, SUỐI TRÊN ĐỊA BÀN TỈNH QUẢNG NGÃI
+            KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI CỦA NGUỒN NƯỚC SÔNG, SUỐI TRÊN ĐỊA BÀN TỈNH QUẢNG NGÃI
           </Typography>
         </Grid>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
-          <TableComponent
-            columns={columnsTable}
-            rows={data}
-            loading={loading}
-            pagination
-          />
+          <TableComponent columns={columnsTable} rows={data} loading={loading} pagination />
         </Paper>
       </Grid>
     </Grid>
