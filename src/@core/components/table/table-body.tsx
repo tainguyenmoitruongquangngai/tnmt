@@ -24,7 +24,8 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                                 ? childColumn.elm(row)
                                 : childColumn.format
                                     ? childColumn.format(row[childColumn.id])
-                                    : row[childColumn.id]}
+                                    : row[childColumn.id] == null ? '-' : row[childColumn.id]
+                        }
                     </TableCell>
                 )
             } else {
@@ -55,7 +56,7 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                                             ) : childColumn.format ? (
                                                 childColumn.format(e[childColumn.id])
                                             ) : (
-                                                e[childColumn.id]
+                                                e[childColumn.id] == null ? '-' : e[childColumn.id]
                                             )}
                                         </div>
                                     ))
@@ -69,10 +70,10 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                             ) : childColumn.format ? (
                                 childColumn.format(rowValue[childColumn.id])
                             ) : (
-                                rowValue[childColumn.id]
+                                rowValue[childColumn.id] == null ? '-' : rowValue[childColumn.id]
                             )
                         ) : (
-                            rowValue
+                            rowValue == null ? '-' : rowValue
                         )}
                     </TableCell>
                 )
@@ -89,16 +90,16 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                 align={column.align}
                 size='small'
             >
-                {console.log(rowIndex + 1)}
                 {column.id === 'actions'
                     ? actions && actions(row)
-                    : typeof column.elm === 'function'
-                        ? column.elm(row)
-                        : column.format
-                            ? column.format(row[column.id])
-                            : Array.isArray(row[column.id])
-                                ? row[column.id].join(', ')
-                                : row[column.id]}
+                    : column.id === 'stt' ? rowIndex + 1
+                        : typeof column.elm === 'function'
+                            ? column.elm(row)
+                            : column.format
+                                ? column.format(row[column.id])
+                                : Array.isArray(row[column.id])
+                                    ? row[column.id].join(', ')
+                                    : row[column.id] == null ? '-' : row[column.id]}
             </TableCell>
         );
     }

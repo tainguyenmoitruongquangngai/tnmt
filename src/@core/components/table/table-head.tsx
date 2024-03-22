@@ -16,7 +16,7 @@ const calcMaxDepth = (columns: TableColumn[], depth = 0) => {
 
 // Calculates the total number of child columns, including nested ones
 const countTotalChildren: any = (column: TableColumn) => {
-    if (!column.children) {
+    if (!column.children || column.children && column.children.length == 1) {
         return 0;
     }
 
