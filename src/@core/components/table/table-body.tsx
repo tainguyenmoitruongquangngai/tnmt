@@ -24,7 +24,7 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                                 ? childColumn.elm(row)
                                 : childColumn.format
                                     ? childColumn.format(row[childColumn.id])
-                                    : row[childColumn.id] == null ? '-' : row[childColumn.id]
+                                    : row[childColumn.id]
                         }
                     </TableCell>
                 )
@@ -56,7 +56,7 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                                             ) : childColumn.format ? (
                                                 childColumn.format(e[childColumn.id])
                                             ) : (
-                                                e[childColumn.id] == null ? '-' : e[childColumn.id]
+                                                e[childColumn.id]
                                             )}
                                         </div>
                                     ))
@@ -70,10 +70,10 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                             ) : childColumn.format ? (
                                 childColumn.format(rowValue[childColumn.id])
                             ) : (
-                                rowValue[childColumn.id] == null ? '-' : rowValue[childColumn.id]
+                                rowValue[childColumn.id]
                             )
                         ) : (
-                            rowValue == null ? '-' : rowValue
+                            rowValue
                         )}
                     </TableCell>
                 )
@@ -99,7 +99,8 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                                 ? column.format(row[column.id])
                                 : Array.isArray(row[column.id])
                                     ? row[column.id].join(', ')
-                                    : row[column.id] == null ? '-' : row[column.id]}
+                                    : row[column.id]
+                }
             </TableCell>
         );
     }
