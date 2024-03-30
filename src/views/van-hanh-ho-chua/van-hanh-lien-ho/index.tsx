@@ -14,6 +14,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 import dynamic from 'next/dynamic'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import HoDakDrink  from './ho-dak-rinh'
+import SoDoHeThongHo from './sodohochua'
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
@@ -45,11 +46,12 @@ const VanHanhLienHo = () => {
             </TabList>
           </Box>
 
+          <TabPanel value='1'>
+            <Grid>
+              <SoDoHeThongHo />
+            </Grid>
+          </TabPanel>
          
-
- 
-
-
           <TabPanel value='2'>
             <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
               <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
