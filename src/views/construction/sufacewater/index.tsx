@@ -40,7 +40,7 @@ const SurfaceConstruction = () => {
   const router = useRouter()
 
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT', rowspan: 2 },
+    { id: 'stt', label: 'STT'},
     {
       id: 'tenCT',
       label: 'Tên công trình',

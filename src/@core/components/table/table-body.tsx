@@ -2,7 +2,7 @@ import { TableCell, TableRow, TableBody } from '@mui/material';
 import { Data, TableColumn } from '.';
 import React from 'react';
 
-function renderTableCell(column: TableColumn, row: any, rowIndex: number, colIndex: number, actions: ((row: Data) => React.ReactNode) | null) {
+function renderTableCell(column: TableColumn, row: any, rowIndex: number, colIndex: number, currentPage: number, rowsPerPage: number, actions: ((row: Data) => React.ReactNode) | null) {
     if (column.children) {
         return column.children.map((childColumn: TableColumn, childIndex: number) => {
             const parentId = column.id;
@@ -86,13 +86,14 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                     } ${column.pinned === 'right' ? 'end-col' : ''} `}
                 sx={{ py: 0, minWidth: column.minWidth }}
                 {...(column.id === 'actions' ? { width: 120 } : {})}
-                key={`${rowIndex}`}
+                key={`${colIndex}${rowIndex}`}
                 align={column.align}
                 size='small'
             >
                 {column.id === 'actions'
                     ? actions && actions(row)
-                    : column.id === 'stt' ? rowIndex + 1
+
+                    : column.id === 'stt' ? (currentPage * rowsPerPage + colIndex + 1)
                         : typeof column.elm === 'function'
                             ? column.elm(row)
                             : column.format
@@ -114,7 +115,7 @@ function renderTableBody(columns: TableColumn[], data: any, actions: ((row: Data
             {data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((dataItem: any, rowIndex: number) => (
                 <TableRow key={rowIndex}>
                     {columns.map((column: TableColumn, colIndex: number) => (
-                        renderTableCell(column, dataItem, colIndex, rowIndex, actions)
+                        renderTableCell(column, dataItem, colIndex, rowIndex, page, rowsPerPage, actions)
                     ))}
                 </TableRow>
             ))}
