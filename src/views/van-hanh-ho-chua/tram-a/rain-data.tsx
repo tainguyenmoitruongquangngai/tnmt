@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-  Grid,
-  Typography
-} from '@mui/material'
+import {Grid,Typography} from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import { getData } from 'src/api/axios'
 
@@ -12,7 +9,7 @@ const MonitoringSFData = () => {
 
   const [loading, setLoading] = useState(false)
   useEffect(() => {
-    async function getDataNN_AoHoKhongSanLap() {
+    async function getDataTramQuangNgai() {
       setLoading(true)
       await getData('TramQuangNgai/danh-sach')
         .then(data => {
@@ -26,7 +23,7 @@ const MonitoringSFData = () => {
         })
     }
 
-    getDataNN_AoHoKhongSanLap()
+    getDataTramQuangNgai()
   },[])
 
   useEffect(() => {

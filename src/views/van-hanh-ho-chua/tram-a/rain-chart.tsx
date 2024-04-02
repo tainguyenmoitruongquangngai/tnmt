@@ -1,33 +1,43 @@
 import { useState, useEffect } from 'react';
-import { Grid, Typography } from '@mui/material'
-
+import { Grid } from '@mui/material'
 import ReactApexcharts from 'src/@core/components/react-apexcharts';
 import { ApexOptions } from "apexcharts";
+import { getData } from 'src/api/axios'
+
+
 
 const MonitoringSFChart = () => {
-    const [time, setTime] = useState(new Date());
+    const [data, setData] = useState<any[]>([])
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTime(new Date());
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
-
+      async function getDataTramQuangNgai() {
+        await getData('TramQuangNgai/thong-ke-yeu-to-khi-tuong')
+          .then(data => {
+            setData(data)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+    
+  
+      getDataTramQuangNgai()
+    },[])
+    console.log(data);
     const options: ApexOptions = {
         chart: {
-          height: 350,
-          type: 'line',
+          type: 'bar',
           zoom: {
             enabled: false
           }
         },
+        colors:['#0077DF', '#E91E63', '#9C27B0', '#008000'],
         dataLabels: {
           enabled: false
         },
         stroke: {
-          curve: 'straight'
+          curve: 'smooth',
+          width: 2
         },
         legend: {
           tooltipHoverFormatter: function (val, opts) {
@@ -46,8 +56,75 @@ const MonitoringSFChart = () => {
           },
         },
         xaxis: {
-          categories: ['24/10/2023 15:15:00', '24/10/2023 15:20:00', '24/10/2023 15:25:05', '24/10/2023 15:30:05', '24/10/2023 15:35:05'],
+          categories: [],
+          title: {
+            text: "Ngày"
+          }
         },
+        yaxis: [
+          {
+            axisTicks: {
+              show: true
+            },
+            axisBorder: {
+              show: true,
+              color: "#0077DF"
+            },
+            labels: {
+              style: {
+                colors: "#0077DF"
+              }
+            },
+            title: {
+              text: "Lượng mưa (mm)",
+              style: {
+                color: "#0077DF"
+              }
+            },
+          },
+          {
+            axisTicks: {
+              show: true
+            },
+            axisBorder: {
+              show: true,
+              color: "#E91E63"
+            },
+            labels: {
+              style: {
+                colors: "#E91E63"
+              }
+            },
+            opposite: true,
+            title: {
+              text: "Nhiệt độ (°C)",
+              style: {
+                color: "#E91E63"
+              }
+            }
+          },
+          {
+            axisTicks: {
+              show: true
+            },
+            axisBorder: {
+              show: true,
+              color: "#9C27B0"
+            },
+            labels: {
+              style: {
+                colors: "#9C27B0"
+              }
+            },
+            opposite: true,
+            title: {
+              text: "Độ ẩm (%)",
+              style: {
+                color: "#9C27B0"
+              }
+            }
+          }
+        ],
         markers: {
           size: 0,
           hover: {
@@ -73,13 +150,16 @@ const MonitoringSFChart = () => {
 
     const series = [{
         name: "Lượng mưa",
-        data: []
+        type:'column',
+        data: data[0]?.data
     },{
         name: "Nhiệt độ",
-        data: []
+        type:'line',
+        data: data[1]?.data
     },{
         name: "Độ ẩm",
-        data: []
+        type:'line',
+        data: data[2]?.data
     },{
         name: "Tốc độ gió",
         data: []
@@ -87,8 +167,7 @@ const MonitoringSFChart = () => {
 
     return (
         <Grid>
-            <Typography sx={{ fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center' }}><img src='/images/icon/live.gif' width={25} height={20} alt="live" />&nbsp;Thời gian hiện tại: {time.toLocaleString('zh-HK', { hour12: false })}</Typography>
-            <ReactApexcharts options={options} series={series} type="line" height={450}/>
+            <ReactApexcharts options={options} series={series} height={450}/>
         </Grid>
     )
 }
