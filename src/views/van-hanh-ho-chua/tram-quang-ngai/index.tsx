@@ -1,10 +1,10 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { SyntheticEvent, useState } from "react";
-import MonitoringSFChart from "././rain-chart";
-import MonitoringSFData from "././rain-data";
+import MonitoringSFChart from "./rain-chart";
+import MonitoringSFData from "./rain-data";
 
-const TramA = () => {
+const TramQuangNgai = () => {
     const [value, setValue] = useState('1');
 
     const handleChange = (event: SyntheticEvent, newValue: string) => {
@@ -28,4 +28,4 @@ const TramA = () => {
         </TabContext>
     )
 }
-export default TramA
+export default TramQuangNgai

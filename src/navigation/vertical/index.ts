@@ -496,8 +496,8 @@ const navigation = (): VerticalNavItemsType => {
           path: '/van-hanh-ho-chua/luong-mua/hinh-the-thoi-tiet'
         },
         {
-          title: 'Trạm A',
-          path: '/van-hanh-ho-chua/luong-mua/tram-a'
+          title: 'Trạm Quảng Ngãi',
+          path: '/van-hanh-ho-chua/luong-mua/tram-quang-ngai'
         },
 
         //
