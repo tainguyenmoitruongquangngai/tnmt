@@ -426,6 +426,105 @@ code[class*='language-'] {
   font-size: 14px!important;
 }
 
+/* van hanh ho chua */
+.back_ground_ho{
+  background-image: url("./../public/images/logos/img_hue.png");
+  width: calc(100vw - 300px);
+  height: calc(100vh - 180px);
+  background-size: contain; 
+  background-position: center; 
+  position: relative;
+}
+.back_ground_dam{
+  background-image: url("./../public/images/logos/dam_arrow.png");
+  position: absolute;
+  left: 500px;
+  top: 75px;
+  z-index: 0;
+  width: 71px;
+}
+.box_info_ho{
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: #234e75 solid 1px;
+  width: 198px;
+  height: 120px;
+}
+.info_ho{
+  position: absolute;
+  left: 327px;
+  top: 48px;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .back_ground_dam{
+    left: 500px;
+    top: 75px;
+    z-index: 0;
+    width: 71px;
+    height: 104px;
+}
+.box_info_ho{
+  border-radius: 5px;
+  border: #234e75 solid 1px;
+  width: 198px;
+  height: 120px;
+}
+.info_ho{
+  left: 334px;
+  top: 32px;
+  z-index: 0;
+}
+}
+
+/* Định dạng cho màn hình có kích thước từ 768px đến 992px */
+@media (min-width: 768px) and (max-width: 992px) {
+  .back_ground_dam{
+    left: 500px;
+    top: 75px;
+    z-index: 0;
+    width: 71px;
+    height: 104px;
+}
+.box_info_ho{
+  border-radius: 5px;
+  border: #234e75 solid 1px;
+  width: 198px;
+  height: 120px;
+}
+.info_ho{
+  left: 334px;
+  top: 32px;
+  z-index: 0;
+}
+}
+
+/* Định dạng cho màn hình có kích thước lớn hơn hoặc bằng 992px */
+@media (min-width: 992px) {
+  .back_ground_ho {
+    width: calc(100vw - 300px);
+    height: calc(100vh - 180px);
+  }
+  .back_ground_dam{
+      left: 500px;
+      top: 75px;
+      z-index: 0;
+      width: 71px;
+      height: 104px;
+  }
+  .box_info_ho{
+    border-radius: 5px;
+    border: #234e75 solid 1px;
+    width: 198px;
+    height: 120px;
+  }
+  .info_ho{
+    left: 334px;
+    top: 32px;
+    z-index: 0;
+  }
+}
 .cons-info-table td { border: none !important; }
 
 .cons-info-table td:nth-child(odd) { width: 33%; }
@@ -441,3 +540,5 @@ code[class*='language-'] {
     width: 80vw !important;
   }
 }
+
+

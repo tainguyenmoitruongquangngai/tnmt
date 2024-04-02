@@ -464,7 +464,7 @@ const navigation = (): VerticalNavItemsType => {
       
         {
           title: 'Hồ chứa',
-          path: '/van-hanh-ho-chua/ho-chua-van-hanh'
+          path: '/van-hanh-ho-chua/ho-chua-van-hanh/thong-so-ky-thuat'
         },
        
         {
@@ -492,13 +492,12 @@ const navigation = (): VerticalNavItemsType => {
           path: '/van-hanh-ho-chua/luong-mua/hien-tai'
         },
         {
-          title: 'Mưa dự báo',
-          path: '/van-hanh-ho-chua/luong-mua/du-bao'
-        },
-        
-        {
           title: 'HTTT gây mưa lớn ',
           path: '/van-hanh-ho-chua/luong-mua/hinh-the-thoi-tiet'
+        },
+        {
+          title: 'Trạm Quảng Ngãi',
+          path: '/van-hanh-ho-chua/luong-mua/tram-quang-ngai'
         },
 
         //
