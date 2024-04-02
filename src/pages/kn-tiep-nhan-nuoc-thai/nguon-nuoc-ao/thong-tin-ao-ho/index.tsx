@@ -1,5 +1,5 @@
-import ThongTinAoHoBangDetails from "src/views/receive-wastewater/AoHo/thong-tin-ao-ho"
+import AoHoDetails from "src/views/receive-wastewater/AoHo/thong-tin-ao-ho"
 
-const ThongTinAoHoCLNPages = () => <ThongTinAoHoBangDetails />
+const ThongTinAoHoCLNPages = () => <AoHoDetails />
 
 export default ThongTinAoHoCLNPages
