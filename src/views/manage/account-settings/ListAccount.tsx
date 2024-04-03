@@ -35,7 +35,6 @@ const ListAccount = () => {
     setAccessSetRole(await checkAccessPermission(routeSegment, 'set-role'));
     setAccessSetPassword(await checkAccessPermission(routeSegment, 'set-password'));
     setAccessDelete(await checkAccessPermission(routeSegment, 'delete'));
-    console.log(await checkAccessPermission(routeSegment, 'delete'))
   }
 
   useEffect(() => {
