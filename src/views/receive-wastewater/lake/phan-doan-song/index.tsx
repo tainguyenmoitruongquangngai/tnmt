@@ -139,7 +139,7 @@ const PhanDoanSongTiepNhanNuocThai = () => {
       <Grid xs={12} md={12}>
         <Grid className='_text_center'>
           <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-            THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM TỪ NGUỒN THẢI ĐIỂM XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
+           TỔNG HỢP PHÂN ĐOẠN SÔNG TỈNH QUẢNG NGÃI
           </Typography>
         </Grid>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
