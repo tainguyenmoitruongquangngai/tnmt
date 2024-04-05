@@ -444,7 +444,7 @@ const navigation = (): VerticalNavItemsType => {
         },
         {
           title: 'Tính dự báo KNTNNT ao,hồ',
-          path: '#'
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/du-bao'
         },
       ]
     },
