@@ -79,7 +79,7 @@ const AoHoDetails = () => {
     },
     {
       id: 'thongSoCLNAo',
-      label: ' GIÁ TRỊ GIỚI HẠN THÔNG SỐ CHẤT LƯỢNG NƯỚC MẶT HỒ CHỨA THEO QCVN08/2034 Cqc (mg/l)	',
+      label: ' GIÁ TRỊ GIỚI HẠN THÔNG SỐ CHẤT LƯỢNG NƯỚC MẶT HỒ CHỨA THEO QCVN08/2023 Cqc (mg/l)	',
       align: 'left',
       children: [
         {

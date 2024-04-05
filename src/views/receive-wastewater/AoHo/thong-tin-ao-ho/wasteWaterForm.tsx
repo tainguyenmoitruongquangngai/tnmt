@@ -2,17 +2,20 @@ import { Fragment, useEffect, useState } from 'react'
 import { Add, Edit, Save } from '@mui/icons-material'
 import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip, Autocomplete } from '@mui/material'
 import { getData, saveData } from 'src/api/axios'
-import { FormDuLieuNguonNhanState } from './wasteWaterInterface'
+import { FormThongTinAoHoState } from './wasteWaterInterface'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [phanDoanSong, setPhanDoanSong] = useState([]);
+  const [hoChua, setHoChua] = useState([]);
 
-  const [report1Data, setreport1Data] = useState<FormDuLieuNguonNhanState>({
+  const [thongSoQC, setThongSoQC] = useState([]);
+  console.log(thongSoQC);
+  
+  const [report1Data, setreport1Data] = useState<FormThongTinAoHoState>({
     id: data?.id || 0,
-    idPhanDoanSong: data?.idPhanDoanSong || 0,
-    luuLuongDongChay: data?.luuLuongDongChay || 0,
+    idHoChua: data?.idHoChua || 0,
+    idCLNQC: data?.idCLNQC || 0,
     cnnBOD: data?.cnnBOD || 0,
     cnnCOD: data?.cnnCOD || 0,
     cnnAmoni: data?.cnnAmoni || 0,
@@ -20,13 +23,6 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     cnnTongP: data?.cnnTongP || 0,
     cnnTSS: data?.cnnTSS || 0,
     cnnColiform: data?.cnnColiform || 0,
-    cqcBOD: data?.cqcBOD || 0,
-    cqcCOD: data?.cqcCOD || 0,
-    cqcAmoni: data?.cqcAmoni || 0,
-    cqcTongN: data?.cqcTongN || 0,
-    cqcTongP: data?.cqcTongP || 0,
-    cqcTSS: data?.cqcTSS || 0,
-    cqcColiform: data?.cqcColiform || 0,
     ghiChu: data?.ghiChu || ''
   })
 
@@ -35,8 +31,11 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     setLoading(true);
     const getDataForSelect = async () => {
       try {
-        const list = await getData('PhanDoanSong/danh-sach');
-        setPhanDoanSong(list);
+        const list = await getData('cong-trinh/danh-sach', {loai_ct: 5 });
+        const quychuan = await getData('ThongSoCLNAo/danhsach');
+
+        setHoChua(list);
+        setThongSoQC(quychuan);
       } catch (error) {
         console.log(error)
       } finally {
@@ -47,7 +46,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   }, []);
   const [saving, setSaving] = useState(false)
 
-  const handleChange = (prop: keyof FormDuLieuNguonNhanState) => (value: any) => {
+  const handleChange = (prop: keyof FormThongTinAoHoState) => (value: any) => {
     setreport1Data({ ...report1Data, [prop]: value })
   }
 
@@ -57,13 +56,13 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuocNhan/luu', report1Data)
+        const res = await saveData('ThongTinAoHo/luu', report1Data)
         if (res) {
           // Reset form fields
           setreport1Data({
             id: 0,
-            idPhanDoanSong: 0,
-            luuLuongDongChay: 0,
+            idHoChua: 0,
+            idCLNQC: 0,
             cnnBOD: 0,
             cnnCOD: 0,
             cnnAmoni: 0,
@@ -71,13 +70,6 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             cnnTongP: 0,
             cnnTSS: 0,
             cnnColiform: 0,
-            cqcBOD: 0,
-            cqcCOD: 0,
-            cqcAmoni: 0,
-            cqcTongN: 0,
-            cqcTongP: 0,
-            cqcTSS: 0,
-            cqcColiform: 0,
             ghiChu: ''
           })
 
@@ -99,8 +91,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const handleClose = () => {
     setreport1Data({
       id: 0,
-      idPhanDoanSong: 0,
-      luuLuongDongChay: 0,
+      idHoChua: 0,
+      idCLNQC: 0,
       cnnBOD: 0,
       cnnCOD: 0,
       cnnAmoni: 0,
@@ -108,13 +100,6 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
       cnnTongP: 0,
       cnnTSS: 0,
       cnnColiform: 0,
-      cqcBOD: 0,
-      cqcCOD: 0,
-      cqcAmoni: 0,
-      cqcTongN: 0,
-      cqcTongP: 0,
-      cqcTSS: 0,
-      cqcColiform: 0,
       ghiChu: ''
     })
 
@@ -127,15 +112,15 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
       <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
           <Autocomplete
            size="small"
-           options={phanDoanSong}
-           getOptionLabel={(option: any) => `${option.phanDoan} `}
-           value={phanDoanSong?.find((option:any) => option.id === report1Data.idPhanDoanSong) || null}
-           onChange={(_, value) => handleChange('idPhanDoanSong')(value?.id || 0)}
+           options={hoChua}
+           getOptionLabel={(option: any) => `${option.tenCT} `}
+           value={hoChua?.find((option:any) => option.id === report1Data.idHoChua) || null}
+           onChange={(_, value) => handleChange('idHoChua')(value?.id || 0)}
             renderInput={(params) => (
               <TextField
                 {...params}
                 fullWidth
-                label="Chọn phân đoạn sông"
+                label="Chọn hồ chứa"
                 InputProps={{
                   ...params.InputProps,
                   endAdornment: (
@@ -152,14 +137,30 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-          <TextField
-            size='small'
-            type='text'
-            label='Lưu lượng dòng chảy'
-            fullWidth
-            placeholder=''
-            value={report1Data.luuLuongDongChay || ''}
-            onChange={event => handleChange('luuLuongDongChay')(event.target.value)}
+        <Autocomplete
+           size="small"
+           options={thongSoQC}
+           getOptionLabel={(option: any) => `${option.mucPLCLNuoc} `}
+           value={thongSoQC?.find((option:any) => option.id === report1Data.idCLNQC) || null}
+           onChange={(_, value) => handleChange('idCLNQC')(value?.id || 0)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                fullWidth
+                label="Chọn mức phân loại chất lượng nước theo QCVN08/2023"
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <Fragment>
+                      {loading && (
+                        <CircularProgress color="primary" size={20} />
+                      )}
+                      {params.InputProps.endAdornment}
+                    </Fragment>
+                  ),
+                }}
+              />
+            )}
           />
         </Grid>
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
@@ -241,90 +242,6 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
                   placeholder=''
                   value={report1Data.cnnColiform || ''}
                   onChange={event => handleChange('cnnColiform')(event.target.value)}
-                />
-              </Grid>
-            </Grid>
-          </fieldset>
-        </Grid>
-        <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
-          <fieldset>
-            <legend>GIÁ TRỊ GIỚI HẠN THÔNG SỐ CHẤT LƯỢNG NƯỚC THEO TIÊU CHUẨN QCVN 08:2023/BTNMT</legend>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='BOD5'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcBOD || ''}
-                  onChange={event => handleChange('cqcBOD')(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='COD'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcCOD || ''}
-                  onChange={event => handleChange('cqcCOD')(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='Amoni'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcAmoni || ''}
-                  onChange={event => handleChange('cqcAmoni')(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='Tổng N'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcTongN || ''}
-                  onChange={event => handleChange('cqcTongN')(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='Tổng P'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcTongP || ''}
-                  onChange={event => handleChange('cqcTongP')(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='Tổng chất rắn lơ lửng TSS'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcTSS || ''}
-                  onChange={event => handleChange('cqcTSS')(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                <TextField
-                  size='small'
-                  type='text'
-                  label='Tổng coliform'
-                  fullWidth
-                  placeholder=''
-                  value={report1Data.cqcColiform || ''}
-                  onChange={event => handleChange('cqcColiform')(event.target.value)}
                 />
               </Grid>
             </Grid>
