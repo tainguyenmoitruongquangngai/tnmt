@@ -15,14 +15,15 @@ const CountLicense = (props: any) => {
 
         if (data) {
             for (const d of data) {
-                if (d.licenseValidity === 'da-bi-thu-hoi') {
-                    countLicIsRevoked++;
+                if (d.hieuluc_gp === 'da-bi-thu-hoi') {
+                    setLicIsRevoked(countLicIsRevoked++);
+
                 }
-                if (d.licenseValidity === 'het-hieu-luc') {
-                    countLicExpire++;
+                if (d.hieuluc_gp === 'het-hieu-luc') {
+                    setLicExpire(countLicExpire++);
                 }
-                if (d.licenseValidity === 'sap-het-hieu-luc') {
-                    countLicAboutToExpire++;
+                if (d.hieuluc_gp === 'sap-het-hieu-luc') {
+                    setLicAboutToExpire(countLicAboutToExpire++);
                 }
             }
         }

@@ -30,13 +30,14 @@ export interface TableProps {
   columnVisibility?: string[]
   pagination?: boolean
   loading?: boolean
+  id?: string
   actions?: ((row: Data) => React.ReactNode) | null
 }
 
 
 
 const TableComponent: FC<TableProps> = (props: TableProps) => {
-  const { columns, rows, columnVisibility, pagination, loading, actions } = props
+  const { columns, rows, columnVisibility, pagination, loading, id, actions } = props
 
   // ** States
   const [page, setPage] = useState<number>(0)
@@ -79,7 +80,7 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
   ) : (
     <Paper>
       <TableContainer style={{ borderRadius: 4 }}>
-        <Table className='mainTable'>
+        <Table className='mainTable' id={id}>
           {renderTableHead(tableColumns)}
           {renderTableBody(tableColumns, rows, actions || null, page, rowsPerPage)}
         </Table>

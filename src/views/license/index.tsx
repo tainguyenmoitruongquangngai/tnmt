@@ -197,8 +197,8 @@ const ListLicenses = () => {
             </Grid>
             <Grid item xs={12} md={12}>
                 <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
-                    <LicenseToolBar onChange={handleFilterChange} onExport={{ data: resData, column: columnsTable }} />
-                    <TableComponent columns={columnsTable} rows={resData} loading={loading} pagination
+                    <LicenseToolBar onChange={handleFilterChange} onExport={{ id: 'license-table', fileName: 'license-table.csv' }} />
+                    <TableComponent id='license-table' columns={columnsTable} rows={resData} loading={loading} pagination
                         actions={(row: any) => (
                             <Box display={'flex'}>
                                 <CreateLicense isEdit={true} data={row} setPostSuccess={handlePostSuccess} />

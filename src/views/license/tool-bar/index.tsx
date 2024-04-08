@@ -8,12 +8,11 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import GetConstructionTypeId from "src/@core/components/get-construction-type";
-import ExportToExcel from "src/@core/components/export-excel";
-import { TableColumn } from "src/@core/components/table";
+import ExportTableToExcel from "src/@core/components/export-excel/export-csv";
 
 interface LicenseToolBarProps {
     onChange: (data: any, postSuccess?: boolean | undefined) => void;
-    onExport: { data: any, column: TableColumn[] };
+    onExport: { id: any, fileName: any };
 }
 const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange, onExport }) => {
     const [postSucceed, setPostSucceed] = useState(false);
@@ -433,10 +432,10 @@ const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange, onExport }) => {
                     </Button>
                 </Grid>
                 {
-                    onExport.data && onExport.data !== null && onExport.column && onExport.column !== null
+                    onExport.id && onExport.id !== null && onExport.fileName && onExport.fileName !== null
                         ?
                         (<Grid item xs={6} md={1.5} py={0}>
-                            <ExportToExcel resData={onExport.data} columnsTable={onExport.column} />
+                            <ExportTableToExcel tableId={onExport.id} filename={onExport.fileName} />
                         </Grid>)
                         : ''
                 }

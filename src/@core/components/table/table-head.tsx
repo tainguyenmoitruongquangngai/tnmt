@@ -14,14 +14,18 @@ const calcMaxDepth = (columns: TableColumn[], depth = 0) => {
     return maxDepth;
 };
 
-// Calculates the total number of child columns, including nested ones
 const countTotalChildren: any = (column: TableColumn) => {
-    if (!column.children || column.children && column.children.length == 1) {
-        return 0;
+    // If the column has no children, it's a leaf column, so return 1
+    if (!column.children || column.children.length === 0) {
+        return 1;
     }
 
-    return column.children.reduce((acc, child) => acc + 1 + countTotalChildren(child), 0);
+    // Count the column's children and their children recursively
+    return column.children.reduce((acc, child) => {
+        return acc + countTotalChildren(child);
+    }, 0);
 };
+
 
 function buildRow(columns: TableColumn[], currentDepth: number, row: TableColumn[], maxDepth: number, parentDepth = 0) {
     columns.forEach(column => {

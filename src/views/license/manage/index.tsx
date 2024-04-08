@@ -73,8 +73,8 @@ const ManageLicense = () => {
             <Grid xs={12} sm={12} md={12}>
                 <Paper elevation={3}>
                     <LicenseToolBar onChange={handleFilterChange} onExport={{
-                        data: undefined,
-                        column: []
+                        id: undefined,
+                        fileName: undefined
                     }} />
                     {loading ? <BoxLoading /> : <ApexChartLicense series={dataForChart.series} year={dataForChart.year} color={dataForChart.color} />}
                 </Paper>

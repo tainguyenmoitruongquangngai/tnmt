@@ -210,13 +210,13 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
 
         const newfileDonXinCP = {
           filePath: filePath,
-          fileName: giayphep?.fileDonXinCP,
+          fileName: giayphep?.fileDonXinCP && 'donxincapphep.pdf',
           file: fileUpload.fileDonXinCP
         }
 
         const newfileGiayToLienQuan = {
           filePath: filePath,
-          fileName: giayphep?.fileGiayToLienQuan,
+          fileName: giayphep?.fileGiayToLienQuan && fileUpload.fileGiayToLienQuan.name,
           file: fileUpload.fileGiayToLienQuan
         }
 
@@ -224,7 +224,9 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
           ...giayphep,
           idTCCN: business.id,
           idCT: saveCons.id,
-          fileGiayPhep: `${filePath}/${giayphep?.soGP?.replace(/\//g, "_").toLowerCase()}.pdf`
+          fileGiayPhep: `${filePath}/${giayphep?.soGP?.replace(/\//g, "_").toLowerCase()}.pdf`,
+          fileDonXinCP: `${filePath}/${newfileDonXinCP.fileName}`,
+          fileGiayToLienQuan: `${filePath}/${newfileGiayToLienQuan.fileName}`,
         }
 
         const saveLic = await saveData('giay-phep/luu', newLic);
