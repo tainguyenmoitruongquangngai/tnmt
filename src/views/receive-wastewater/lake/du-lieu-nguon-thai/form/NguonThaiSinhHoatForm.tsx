@@ -8,7 +8,6 @@ import { FormDuLieuNguonThaiSinhHoatState } from './DuLieuNguonThaiInterface'
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [phanDoanSong, setPhanDoanSong] = useState([]);
-console.log(data);
 
   const [sinhHoat, setSinhHoat] = useState<FormDuLieuNguonThaiSinhHoatState>({
     id: data?.id || 0,
@@ -54,7 +53,7 @@ console.log(data);
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuocsinhHoat/luu', sinhHoat)
+        const res = await saveData('DuLieuNguonNuocThaiSinhHoat/luu', sinhHoat)
         if (res) {
           // Reset form fields
           setSinhHoat({
