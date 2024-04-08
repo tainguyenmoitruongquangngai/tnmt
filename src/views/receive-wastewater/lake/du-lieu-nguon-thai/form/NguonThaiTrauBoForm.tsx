@@ -55,7 +55,7 @@ console.log(data);
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuoctrauBo/luu', trauBo)
+        const res = await saveData('DuLieuNguonNuocThaiTrauBo/luu', trauBo)
         if (res) {
           // Reset form fields
           setTrauBo({
@@ -157,8 +157,8 @@ console.log(data);
             label='Số bò'
             fullWidth
             placeholder=''
-            value={trauBo.soTrau || ''}
-            onChange={event => handleChange('soTrau')(event.target.value)}
+            value={trauBo.soBo || ''}
+            onChange={event => handleChange('soBo')(event.target.value)}
           />
         </Grid>  
         <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>

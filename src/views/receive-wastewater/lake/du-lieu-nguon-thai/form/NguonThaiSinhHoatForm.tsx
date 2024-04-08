@@ -8,7 +8,6 @@ import { FormDuLieuNguonThaiSinhHoatState } from './DuLieuNguonThaiInterface'
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [phanDoanSong, setPhanDoanSong] = useState([]);
-console.log(data);
 
   const [sinhHoat, setSinhHoat] = useState<FormDuLieuNguonThaiSinhHoatState>({
     id: data?.id || 0,
@@ -54,7 +53,7 @@ console.log(data);
     const handleApiCall = async () => {
       setSaving(true)
       try {
-        const res = await saveData('DuLieuNguonNuocsinhHoat/luu', sinhHoat)
+        const res = await saveData('DuLieuNguonNuocThaiSinhHoat/luu', sinhHoat)
         if (res) {
           // Reset form fields
           setSinhHoat({
@@ -154,8 +153,8 @@ console.log(data);
             label='Hệ số suy giảm dọc đường hay hệ số dòng chảy'
             fullWidth
             placeholder=''
-            value={sinhHoat.soDan || ''}
-            onChange={event => handleChange('soDan')(event.target.value)}
+            value={sinhHoat.heSoSuyGiam || ''}
+            onChange={event => handleChange('heSoSuyGiam')(event.target.value)}
           />
         </Grid>        
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
