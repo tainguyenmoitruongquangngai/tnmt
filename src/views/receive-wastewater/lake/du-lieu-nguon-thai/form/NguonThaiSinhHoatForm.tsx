@@ -154,8 +154,8 @@ console.log(data);
             label='Hệ số suy giảm dọc đường hay hệ số dòng chảy'
             fullWidth
             placeholder=''
-            value={sinhHoat.soDan || ''}
-            onChange={event => handleChange('soDan')(event.target.value)}
+            value={sinhHoat.heSoSuyGiam || ''}
+            onChange={event => handleChange('heSoSuyGiam')(event.target.value)}
           />
         </Grid>        
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
