@@ -280,13 +280,13 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Thông báo',
           icon: PeopleAltOutlined,
           primaryPath: 'Thong-bao',
-          path: '/thong-bao/thong-bao'
+          path: '/thong-bao'
         },
         {
           title: 'Cảnh báo',
           icon: PeopleAltOutlined,
           primaryPath: 'Canh-bao',
-          path: '/thong-bao/canh-bao'
+          path: '/canh-bao'
         },
       ]
 

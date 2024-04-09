@@ -478,6 +478,13 @@ code[class*='language-'] {
 }
 }
 
+
+/* thong bao */
+.box_notification{
+  width: 100%;
+  height: 60px;
+  background-color: #007bff;
+}
 /* Định dạng cho màn hình có kích thước từ 768px đến 992px */
 @media (min-width: 768px) and (max-width: 992px) {
   .back_ground_dam{
