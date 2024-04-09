@@ -5,7 +5,7 @@ import { Grid, Box, Typography, Paper, FormGroup, FormControlLabel, Checkbox } f
 
 // ** Components Imports
 import MonitoringSystemToolBar from '../tool-bar';
-import TableComponent from 'src/@core/components/table';
+import TableComponent, { TableColumn } from 'src/@core/components/table';
 import DisplayOperatingStatus from 'src/@core/components/monitoring-page/check-status';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
 import { ConverterCood } from 'src/@core/components/map/convert-coord'
@@ -29,25 +29,25 @@ const DischargewaterMeasuresing = () => {
 
   const [dataFiltered, setDataFiltered] = useState([]);
 
-  const columnsTable = [
-    { id: 'stt', label: 'STT', rowspan: 2, },
+  const columnsTable: TableColumn[] = [
+    { id: 'stt', label: 'STT', align: 'center' },
     {
-      id: 'ConstructionName', label: 'Tên công trình', rowspan: 2, pinned: "left", elm: (row: any) => (
+      id: 'ConstructionName', label: 'Tên công trình', pinned: "left", minWidth: 350, elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
         </Typography>)
     },
     {
-      id: '#', label: 'Lưu lượng nước thải sau xử lý', rowspan: 2,
+      id: '#', label: 'Lưu lượng nước thải sau xử lý',
     },
     {
-      id: '#', label: 'Chất lượng nước sau xử lý', rowspan: 2,
+      id: '#', label: 'Chất lượng nước sau xử lý',
     },
     {
-      id: '#', label: 'Lưu lượng nước thải tại nguồn tiếp nhận', rowspan: 2,
+      id: '#', label: 'Lưu lượng nước thải tại nguồn tiếp nhận',
     },
 
-    { id: '#', label: 'Trạng thái vận hành', rowspan: 2, elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
+    { id: '#', label: 'Trạng thái vận hành', elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
 
     { id: 'actions', label: 'Thao tác', rowspan: 2 },
   ];

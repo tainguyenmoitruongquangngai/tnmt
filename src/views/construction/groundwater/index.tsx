@@ -40,13 +40,12 @@ const GroundConstruction = () => {
   const router = useRouter()
 
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT' },
+    { id: 'stt', label: 'STT', align: 'center' },
     {
       id: 'tenCT',
       label: 'Tên công trình',
       pinned: 'left',
-      align: 'center',
-      minWidth: 300,
+      minWidth: 350,
       elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row?.y, row?.x))}>
           {row?.tenCT}

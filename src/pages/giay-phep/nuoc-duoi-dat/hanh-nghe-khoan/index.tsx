@@ -1,3 +1,4 @@
+import { CircularProgress, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
@@ -11,9 +12,10 @@ const DrillingPracticeGroundWater = () => {
 
     // Split the pathname and get the part you need (in this case, the first segment)
     const routeSegment = routePath.split('/')[1];
+    const [loading, setLoading] = useState(true)
 
     async function getAccess() {
-        setAccessView(await checkAccessPermission(routeSegment, 'view'));
+        setAccessView(await checkAccessPermission(routeSegment, 'view').finally(() => { setLoading(false) }));
     }
 
     useEffect(() => {
@@ -22,7 +24,7 @@ const DrillingPracticeGroundWater = () => {
     }, [])
 
     // Use routeSegment in your conditional rendering
-    return accessView ? <ListLicenses /> : <Error401 />;
+    return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <ListLicenses /> : <Error401 />;
 }
 
 export default DrillingPracticeGroundWater;

@@ -36,8 +36,8 @@ function buildRow(columns: TableColumn[], currentDepth: number, row: TableColumn
             const cell: TableColumn = {
                 id: column.id,
                 label: column.label,
-                colspan: colspan,
-                rowspan: rowspan,
+                colspan: column.colspan ? column.colspan : colspan,
+                rowspan: column.rowspan ? column.rowspan : rowspan,
                 align: 'center',
                 minWidth: column.minWidth,
                 format: column.format,

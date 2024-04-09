@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Grid, Box, Typography, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 
 // ** Components Imports
-import TableComponent from 'src/@core/components/table';
+import TableComponent, { TableColumn } from 'src/@core/components/table';
 import DisplayOperatingStatus from 'src/@core/components/monitoring-page/check-status';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
 import { ConverterCood } from 'src/@core/components/map/convert-coord'
@@ -34,42 +34,42 @@ const SurfaceWaterMeasuresing = () => {
 
   const [dataFiltered, setDataFiltered] = useState([]);
 
-  const columnsTable = [
-    { id: 'stt', label: 'STT', rowspan: 2, },
+  const columnsTable: TableColumn[] = [
+    { id: 'stt', label: 'STT', align: 'center', },
     {
-      id: 'tenCT', label: 'Tên công trình', minWidth: 200, rowspan: 2, pinned: "left", elm: (row: any) => (
+      id: 'tenCT', label: 'Tên công trình', minWidth: 350, pinned: "left", elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
         </Typography>)
     },
-    { id: '#', label: 'Trạng thái vận hành', rowspan: 2, elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
-    { id: 'hHaLuu', label: (<span>Mực nước <br /> hạ lưu (m)</span>), rowspan: 2, elm: (row: any) => (<span>{row.thongso?.hHaLuu}</span>) },
-    { id: 'hThuongLuu', label: (<span>Dung tích hồ  <br /> (triệu m<sup>3</sup>)</span>), rowspan: 2, elm: (row: any) => (<span>{row.thongso?.hThuongLuu}</span>) },
-    { id: 'hThuongLuu', label: (<span>Mực nước <br /> thượng lưu hồ (m)</span>), rowspan: 2, elm: (row: any) => (<span>{row.thongso?.hThuongLuu}</span>) },
+    { id: '#', label: 'Trạng thái vận hành', elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
+    { id: 'hHaLuu', label: (<span>Mực nước <br /> hạ lưu (m)</span>), elm: (row: any) => (<span>{row.thongso?.hHaLuu}</span>) },
+    { id: 'hThuongLuu', label: (<span>Dung tích hồ  <br /> (triệu m<sup>3</sup>)</span>), elm: (row: any) => (<span>{row.thongso?.hThuongLuu}</span>) },
+    { id: 'hThuongLuu', label: (<span>Mực nước <br /> thượng lưu hồ (m)</span>), elm: (row: any) => (<span>{row.thongso?.hThuongLuu}</span>) },
     {
-      id: '#', label: (<span>Lưu lượng <br /> xả qua tràn  (m3/s)</span>), rowspan: 2,
+      id: '#', label: (<span>Lưu lượng <br /> xả qua tràn  (m3/s)</span>),
     },
     {
-      id: '#', label: (<span>Lưu lượng <br /> lớn nhất (m3/s)</span>), rowspan: 2,
+      id: '#', label: (<span>Lưu lượng <br /> lớn nhất (m3/s)</span>),
     },
     {
-      id: '#', label: (<span>Lưu lượng xả<br /> duy trì DCTT (m3/s)</span>), rowspan: 2,
+      id: '#', label: (<span>Lưu lượng xả<br /> duy trì DCTT (m3/s)</span>),
     },
     {
-      id: '#', label: (<span>Lưu lượng <br /> về hạ du (m3/s)</span>), rowspan: 2,
+      id: '#', label: (<span>Lưu lượng <br /> về hạ du (m3/s)</span>),
     },
     {
-      id: '#', label: 'Chất lượng nước trong quá trình khai thác', colspan: 8, children: [
-        { id: 'Nhietdo', label: 'Nhiệt độ (°C)', },
-        { id: 'pH', label: 'pH ', },
-        { id: 'BOD5', label: 'BOD5', },
-        { id: 'COD', label: 'COD', },
-        { id: 'DO', label: 'DO', },
-        { id: 'TSS', label: 'TSS', },
-        { id: 'NH4', label: 'NH4+', },
+      id: '#', label: 'Chất lượng nước trong quá trình khai thác', children: [
+        { id: 'Nhietdo', label: 'Nhiệt độ (°C)', minWidth: 115 },
+        { id: 'pH', label: 'pH ', minWidth: 115 },
+        { id: 'BOD5', label: 'BOD5', minWidth: 115 },
+        { id: 'COD', label: 'COD', minWidth: 115 },
+        { id: 'DO', label: 'DO', minWidth: 115 },
+        { id: 'TSS', label: 'TSS', minWidth: 115 },
+        { id: 'NH4', label: 'NH4+', minWidth: 115 },
       ]
     },
-    { id: 'actions', label: 'Thao tác', rowspan: 2 },
+    { id: 'actions', label: 'Thao tác' },
   ];
 
   const isMounted = useRef(true);

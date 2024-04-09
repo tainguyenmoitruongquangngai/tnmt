@@ -32,66 +32,66 @@ const SurfaceWaterMonitoring = () => {
 
   // id of columnsTable is parameter to bind ex: get LicseFk.BasinId: id: 'License_Fk.BasinId'
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT', rowspan: 2, },
+    { id: 'stt', label: 'STT', align: 'center' },
     {
-      id: 'tenCT', label: 'Tên công trình', minWidth: 200, rowspan: 2, pinned: "left", elm: (row: any) => (
+      id: 'tenCT', label: 'Tên công trình', minWidth: 350, pinned: "left", elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
         </Typography>)
     },
-    { id: 'loi', label: 'Trạng thái vận hành', rowspan: 2, elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
-    { id: 'hHaLuuTT', label: (<span>Mực nước <br /> hạ lưu (m)</span>), rowspan: 2, align: 'center' },
-    { id: 'dungTichTT', label: (<span>Dung tích hồ  <br /> (triệu m<sup>3</sup>)</span>), rowspan: 2, align: 'center' },
+    { id: 'loi', label: 'Trạng thái vận hành', elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
+    { id: 'hHaLuuTT', label: (<span>Mực nước <br /> hạ lưu (m)</span>), align: 'center', minWidth: 115 },
+    { id: 'dungTichTT', label: (<span>Dung tích hồ  <br /> (triệu m<sup>3</sup>)</span>), align: 'center', minWidth: 115 },
     {
       id: '#', label: 'Mực nước thượng lưu hồ (m)', children: [
-        { id: 'hThuongLuu', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.hThuongLuu}</span>), align: 'center' },
-        { id: 'hThuongLuuTT', label: 'Thực tế ', align: 'center' },
+        { id: 'hThuongLuu', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.hThuongLuu}</span>), align: 'center', minWidth: 115 },
+        { id: 'hThuongLuuTT', label: 'Thực tế ', align: 'center', minWidth: 115 },
         { id: '', label: 'Chênh lệch (+/-)', elm: (row: any) => (calculateMonitoringData(row.thongso?.hThuongLuu, row.hThuongLuuTT)), align: 'center' },
       ]
     },
     {
       id: '#', label: 'Lưu lượng xả nhà máy (m3/s)', children: [
-        { id: 'qmaxNM', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.qmaxNM}</span>), align: 'center' },
-        { id: 'qXaMax', label: 'Thực tế', align: 'center' },
+        { id: 'qmaxNM', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.qmaxNM}</span>), align: 'center', minWidth: 115 },
+        { id: 'qXaMax', label: 'Thực tế', align: 'center', minWidth: 115 },
         { id: '', label: 'Chênh lệch (+/-)', elm: (row: any) => (calculateMonitoringData(row.thongso?.qmaxNM, row.qMaxTT)), align: 'center' },
       ]
     },
     {
       id: '#', label: (<span>Lưu lượng <br />xả qua tràn  (m3/s)</span>), children: [
-        { id: 'qXaTran', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.qXaTran}</span>), align: 'center' },
-        { id: 'qXaTranTT', label: 'Thực tế', align: 'center' },
+        { id: 'qXaTran', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.qXaTran}</span>), align: 'center', minWidth: 115 },
+        { id: 'qXaTranTT', label: 'Thực tế', align: 'center', minWidth: 115 },
         { id: '', label: 'Chênh lệch (+/-)', elm: (row: any) => (calculateMonitoringData(row.thongso?.qXaTran, row.qXaTranTT)), align: 'center' },
       ]
     },
     {
-      id: '#', label: 'Lưu lượng xả duy trì DCTT (m3/s) ', colspan: 8, children: [
-        { id: 'qtt', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.qtt}</span>), align: 'center' },
-        { id: 'qMinTT', label: 'Thực tế ', },
+      id: '#', label: 'Lưu lượng xả duy trì DCTT (m3/s) ', children: [
+        { id: 'qtt', label: 'Ngưỡng tràn', elm: (row: any) => (<span>{row.thongso?.qtt}</span>), align: 'center', minWidth: 115 },
+        { id: 'qMinTT', label: 'Thực tế ', minWidth: 115 },
         { id: '', label: 'Chênh lệch (+/-)', elm: (row: any) => (calculateMonitoringData(row.thongso?.qtt, row.qMinTT)), align: 'center' },
       ]
     },
     {
-      id: '#', label: 'Lưu lượng về hạ du (m3/s) ', rowspan: 2, elm: (row: any) => (calculateSumFlow(row.qMaxTT, row.qXaTranTT, row.qMinTT)), align: 'center'
+      id: '#', label: 'Lưu lượng về hạ du (m3/s) ', elm: (row: any) => (calculateSumFlow(row.qMaxTT, row.qXaTranTT, row.qMinTT)), align: 'center'
     },
     {
-      id: '#', label: 'Lưu lượng khai thác (m3/s) ', colspan: 8, children: [
-        { id: '', label: 'Ngưỡng tràn', },
-        { id: '', label: 'Thực tế ', },
-        { id: '', label: 'Chênh lệch (+/-)', },
+      id: '#', label: 'Lưu lượng khai thác (m3/s) ', children: [
+        { id: '', label: 'Ngưỡng tràn', minWidth: 115 },
+        { id: '', label: 'Thực tế ', minWidth: 115 },
+        { id: '', label: 'Chênh lệch (+/-)' },
       ]
     },
     {
-      id: '#', label: 'Chất lượng nước trong quá trình khai thác', colspan: 8, children: [
+      id: '#', label: 'Chất lượng nước trong quá trình khai thác', children: [
         { id: 'Nhietdo', label: 'Nhiệt độ (°C)', },
-        { id: 'pH', label: 'pH ', },
-        { id: 'BOD5', label: 'BOD5', },
-        { id: 'COD', label: 'COD', },
-        { id: 'DO', label: 'DO', },
-        { id: 'TSS', label: 'TSS', },
-        { id: 'NH4', label: 'NH4+', },
+        { id: 'pH', label: 'pH ', minWidth: 115 },
+        { id: 'BOD5', label: 'BOD5', minWidth: 115 },
+        { id: 'COD', label: 'COD', minWidth: 115 },
+        { id: 'DO', label: 'DO', minWidth: 115 },
+        { id: 'TSS', label: 'TSS', minWidth: 115 },
+        { id: 'NH4', label: 'NH4+', minWidth: 115 },
       ]
     },
-    { id: 'actions', label: 'Thao tác', rowspan: 2 },
+    { id: 'actions', label: 'Thao tác' },
   ];
 
   const calculateSumFlow = (value1: any, value2: any, value3: any) => {

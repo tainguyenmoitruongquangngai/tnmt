@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Grid, Box, Typography, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 
 // ** Components Imports
-import TableComponent from 'src/@core/components/table';
+import TableComponent, { TableColumn } from 'src/@core/components/table';
 import DisplayOperatingStatus from 'src/@core/components/monitoring-page/check-status';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
 import { getData } from 'src/api/axios';
@@ -29,35 +29,35 @@ const GroundwaterMeasuresing = () => {
 
   const [dataFiltered, setDataFiltered] = useState([]);
 
-  const columnsTable = [
-    { id: 'stt', label: 'STT', rowspan: 2, },
+  const columnsTable: TableColumn[] = [
+    { id: 'stt', label: 'STT', align: 'center' },
     {
-      id: 'ConstructionName', label: 'Tên công trình', rowspan: 2, pinned: "left", elm: (row: any) => (
+      id: 'ConstructionName', label: 'Tên công trình', pinned: "left", minWidth: 350, elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
         </Typography>)
     },
     {
-      id: '#', label: (<span>Lưu lượng khai thác <br /> của từng giếng khoan</span>), rowspan: 2,
+      id: '#', label: (<span>Lưu lượng khai thác <br /> của từng giếng khoan</span>),
     },
     {
-      id: '#', label: (<span>Mực nước <br /> trong giếng khai thác </span>), rowspan: 2,
+      id: '#', label: (<span>Mực nước <br /> trong giếng khai thác </span>),
     },
     {
-      id: '#', label: (<span>Mực nước <br /> trong giếng quan trắc </span>), rowspan: 2,
+      id: '#', label: (<span>Mực nước <br /> trong giếng quan trắc </span>),
     },
     {
       id: '#', label: 'Chất lượng nước trong quá trình khai thác', children: [
-        { id: 'Nhietdo', label: 'Nhiệt độ (°C)', },
-        { id: 'pH', label: 'pH ', },
-        { id: 'BOD5', label: 'BOD5', },
-        { id: 'COD', label: 'COD', },
-        { id: 'DO', label: 'DO', },
-        { id: 'TSS', label: 'TSS', },
-        { id: 'NH4', label: 'NH4+', },
+        { id: 'Nhietdo', label: 'Nhiệt độ (°C)', minWidth: 115 },
+        { id: 'pH', label: 'pH ', minWidth: 115 },
+        { id: 'BOD5', label: 'BOD5', minWidth: 115 },
+        { id: 'COD', label: 'COD', minWidth: 115 },
+        { id: 'DO', label: 'DO', minWidth: 115 },
+        { id: 'TSS', label: 'TSS', minWidth: 115 },
+        { id: 'NH4', label: 'NH4+', minWidth: 115 },
       ]
     },
-    { id: '#', label: 'Trạng thái vận hành', rowspan: 2, elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
+    { id: '#', label: 'Trạng thái vận hành', elm: (row: any) => (<DisplayOperatingStatus data={row} />) },
   ];
 
   const zoomConstruction = (coords: any) => {

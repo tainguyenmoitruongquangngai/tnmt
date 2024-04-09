@@ -40,13 +40,12 @@ const DischargeConstruction = () => {
   const router = useRouter()
 
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT', rowspan: 2 },
+    { id: 'stt', label: 'STT', align: 'center' },
     {
       id: 'tenCT',
       label: 'Tên công trình',
-      rowspan: 2,
       pinned: 'left',
-      minWidth: 150,
+      minWidth: 350,
       elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row.y, row.x))}>
           {row.tenCT}
@@ -56,14 +55,12 @@ const DischargeConstruction = () => {
     {
       id: 'viTriCT',
       label: 'Địa điểm',
-      rowspan: 2,
       align: 'left',
       minWidth: 200,
     },
     {
       id: '#',
       label: 'Toạ độ đập chính (VN2000)',
-      rowspan: 2,
       minWidth: 200,
       elm: (row: any) => (
         <span>
@@ -71,9 +68,9 @@ const DischargeConstruction = () => {
         </span>
       )
     },
-    { id: 'nguonNuocXT', label: 'Nguồn tiếp nhận nước thải', rowspan: 2, align: 'left', minWidth: 300 },
-    { id: 'phuongThucXT', label: 'Phương thức xả nước thải', rowspan: 2, align: 'left', minWidth: 900 },
-    { id: 'cHeDoXT', label: 'Chế độ xả nước thải', rowspan: 2, align: 'left', minWidth: 300 },
+    { id: 'nguonNuocXT', label: 'Nguồn tiếp nhận nước thải', align: 'left', minWidth: 300 },
+    { id: 'phuongThucXT', label: 'Phương thức xả nước thải', align: 'left', minWidth: 900 },
+    { id: 'cHeDoXT', label: 'Chế độ xả nước thải', align: 'left', minWidth: 300 },
 
     {
       id: 'thongso',
@@ -143,7 +140,7 @@ const DischargeConstruction = () => {
       ]
     },
 
-    { id: 'actions', label: '#', rowspan: 2, align: 'center', pinned: 'right' }
+    { id: 'actions', label: '#', align: 'center', pinned: 'right' }
   ]
 
   const [paramsFilter, setParamsFilter] = useState({

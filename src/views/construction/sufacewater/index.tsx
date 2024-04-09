@@ -46,7 +46,7 @@ const SurfaceConstruction = () => {
       label: 'Tên công trình',
       rowspan: 2,
       pinned: 'left',
-      minWidth: 200,
+      minWidth: 350,
       elm: (row: any) => (
         <Typography className='btnShowFilePdf' onClick={() => zoomConstruction(ConverterCood(row?.y, row?.x))}>
           {row?.tenCT}

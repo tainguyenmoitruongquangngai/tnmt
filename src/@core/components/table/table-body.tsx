@@ -20,11 +20,12 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                     >
                         {childColumn.id === 'actions'
                             ? actions && actions(row)
-                            : typeof childColumn.elm === 'function'
-                                ? childColumn.elm(row)
-                                : childColumn.format
-                                    ? childColumn.format(row[childColumn.id])
-                                    : row[childColumn.id]
+                            : childColumn.id === 'stt' ? (currentPage * rowsPerPage + colIndex + 1)
+                                : typeof childColumn.elm === 'function'
+                                    ? childColumn.elm(row)
+                                    : childColumn.format
+                                        ? childColumn.format(row[childColumn.id])
+                                        : row[childColumn.id]
                         }
                     </TableCell>
                 )
@@ -45,19 +46,22 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                                         <div key={k}>
                                             {Object.keys(rowValue).length > 1 ? (
                                                 <p>
-                                                    {typeof childColumn.elm === 'function'
-                                                        ? childColumn.elm(e)
-                                                        : childColumn.format
-                                                            ? childColumn.format(e[childColumn.id])
-                                                            : e[childColumn.id]}
+                                                    {
+                                                        typeof childColumn.elm === 'function'
+                                                            ? childColumn.elm(e)
+                                                            : childColumn.format
+                                                                ? childColumn.format(e[childColumn.id])
+                                                                : e[childColumn.id]
+                                                    }
                                                 </p>
-                                            ) : typeof childColumn.elm === 'function' ? (
-                                                childColumn.elm(e)
-                                            ) : childColumn.format ? (
-                                                childColumn.format(e[childColumn.id])
-                                            ) : (
-                                                e[childColumn.id]
-                                            )}
+                                            ) :
+                                                typeof childColumn.elm === 'function' ? (
+                                                    childColumn.elm(e)
+                                                ) : childColumn.format ? (
+                                                    childColumn.format(e[childColumn.id])
+                                                ) : (
+                                                    e[childColumn.id]
+                                                )}
                                         </div>
                                     ))
                                     : rowValue}
@@ -65,13 +69,14 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                         ) : typeof rowValue === 'object' &&
                             rowValue !== null &&
                             Object.keys(rowValue).length > 0 ? (
-                            typeof childColumn.elm === 'function' ? (
-                                childColumn.elm(rowValue)
-                            ) : childColumn.format ? (
-                                childColumn.format(rowValue[childColumn.id])
-                            ) : (
-                                rowValue[childColumn.id]
-                            )
+                            childColumn.id === 'stt' ? (currentPage * rowsPerPage + colIndex + 1) :
+                                typeof childColumn.elm === 'function' ? (
+                                    childColumn.elm(rowValue)
+                                ) : childColumn.format ? (
+                                    childColumn.format(rowValue[childColumn.id])
+                                ) : (
+                                    rowValue[childColumn.id]
+                                )
                         ) : (
                             rowValue
                         )}
