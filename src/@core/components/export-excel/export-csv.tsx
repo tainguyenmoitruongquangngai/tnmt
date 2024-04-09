@@ -56,14 +56,13 @@ function exportTableToExcel(tableId: string, filename: string) {
 
 const ExportTableToExcel = ({ tableId, filename }: any) => {
 
-    console.log(tableId, filename)
     const handleExport = () => {
         exportTableToExcel(tableId, filename);
     };
 
     return (
         <Button onClick={handleExport} variant="outlined" size='small' fullWidth sx={{ borderRadius: 0 }} color="primary">
-            Xuất file Excel
+            Xuất Excel
         </Button>
     );
 }

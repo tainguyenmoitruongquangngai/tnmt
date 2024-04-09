@@ -21,7 +21,7 @@ const ShowFilePDF = ({ src, name }: ShowFilePDFProps) => {
             handleReadFile();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [src]);
 
     const handleReadFile = async () => {
         const fileName = src?.split('/').slice(-1).pop();
