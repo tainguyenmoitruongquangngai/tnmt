@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IconButton, Box, Toolbar, TextField } from '@mui/material';
+import { IconButton, Box, Toolbar, TextField, Card } from '@mui/material';
 import SetRole from './AssignRole';
 import FormAccount from './FormAccount';
 import TableComponent from 'src/@core/components/table';
@@ -8,6 +8,32 @@ import SetPassword from '../set-password';
 import { useRouter } from 'next/router';
 import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
 import DeleteData from 'src/@core/components/delete-data';
+
+// ** MUI Imports
+import { TabList, TabPanel, TabContext } from '@mui/lab';
+import { styled } from '@mui/material/styles'
+import MuiTab, { TabProps } from '@mui/material/Tab'
+
+// ** Icons Imports
+import AccountOutline from 'mdi-material-ui/AccountOutline'
+
+const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    minWidth: 100
+  },
+  [theme.breakpoints.down('sm')]: {
+    minWidth: 67
+  }
+}))
+
+const TabName = styled('span')(({ theme }) => ({
+  lineHeight: 1.71,
+  fontSize: '0.875rem',
+  marginLeft: theme.spacing(2.4),
+  [theme.breakpoints.down('md')]: {
+    display: 'none'
+  }
+}))
 
 
 const ListAccount = () => {
@@ -71,53 +97,75 @@ const ListAccount = () => {
   }, [paramFilter, postSuccess]);
 
   return (
-    <div>
-      <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'end' }}>
-        <Box  >
-          <TextField
-            sx={{ p: 0 }}
-            size="small"
-            fullWidth
-            variant="outlined"
-            placeholder="Tài khoản..."
-            onChange={(e: any) => setParamFilter({ ...paramFilter, UserName: e.target.value })}
+    <Card>
+      <TabContext value={'account'}>
+        <TabList
+          aria-label='account-settings tabs'
+          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+        >
+          <Tab
+            value='account'
+            label={
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <AccountOutline />
+                <TabName>Người dùng(Users)</TabName>
+              </Box>
+            }
           />
-        </Box>
-      </Toolbar>
-      <TableComponent columns={columnsTable} rows={resData} loading={loading}
-        actions={(row: any) => (
-          <Box display={'flex'}>
-            {
-              accessSetRole ? <IconButton aria-label="setRole">
-                <SetRole data={row} setPostSuccess={handlePostSuccess} />
-              </IconButton> : null
-            }
-            {
-              accessSetPassword ?
-                <IconButton aria-label="setPassword">
-                  <SetPassword user={row} setPostSuccess={handlePostSuccess} />
-                </IconButton>
-                : null
-            }
-            {
-              accessUpdate ?
-                <IconButton aria-label="edit">
-                  <FormAccount data={row} setPostSuccess={handlePostSuccess} isEdit={true} />
-                </IconButton> : null
-            }
-            {
-              accessDelete ?
-                <IconButton aria-label="delete">
-                  <DeleteData url={'User'} data={row} setPostSuccess={handlePostSuccess} />
-                </IconButton>
-                : null
-            }
+        </TabList>
 
-          </Box>
-        )
+        <TabPanel sx={{ p: 0 }} value='account'>
+          <div>
+            <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'end' }}>
+              <Box  >
+                <TextField
+                  sx={{ p: 0 }}
+                  size="small"
+                  fullWidth
+                  variant="outlined"
+                  placeholder="Tài khoản..."
+                  onChange={(e: any) => setParamFilter({ ...paramFilter, UserName: e.target.value })}
+                />
+              </Box>
+            </Toolbar>
+            <TableComponent columns={columnsTable} rows={resData} loading={loading}
+              actions={(row: any) => (
+                <Box display={'flex'}>
+                  {
+                    accessSetRole ? <IconButton aria-label="setRole">
+                      <SetRole data={row} setPostSuccess={handlePostSuccess} />
+                    </IconButton> : null
+                  }
+                  {
+                    accessSetPassword ?
+                      <IconButton aria-label="setPassword">
+                        <SetPassword user={row} setPostSuccess={handlePostSuccess} />
+                      </IconButton>
+                      : null
+                  }
+                  {
+                    accessUpdate ?
+                      <IconButton aria-label="edit">
+                        <FormAccount data={row} setPostSuccess={handlePostSuccess} isEdit={true} />
+                      </IconButton> : null
+                  }
+                  {
+                    accessDelete ?
+                      <IconButton aria-label="delete">
+                        <DeleteData url={'User'} data={row} setPostSuccess={handlePostSuccess} />
+                      </IconButton>
+                      : null
+                  }
 
-        } />
-    </div >
+                </Box>
+              )
+
+              } />
+          </div >
+        </TabPanel>
+      </TabContext>
+    </Card>
+
   );
 
 }

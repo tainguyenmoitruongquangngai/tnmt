@@ -1,9 +1,30 @@
 import { useEffect, useState } from 'react'
-import { IconButton, Box, Checkbox } from '@mui/material';
-import { Delete } from '@mui/icons-material';
+import { IconButton, Box, Checkbox, Card } from '@mui/material';
+import { Delete, Tv } from '@mui/icons-material';
 import FormPages from './FormPages';
 import TableComponent from 'src/@core/components/table';
 import { getData } from 'src/api/axios';
+import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { styled } from '@mui/material/styles';
+import MuiTab, { TabProps } from '@mui/material/Tab';
+
+const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    minWidth: 100
+  },
+  [theme.breakpoints.down('sm')]: {
+    minWidth: 67
+  }
+}))
+
+const TabName = styled('span')(({ theme }) => ({
+  lineHeight: 1.71,
+  fontSize: '0.875rem',
+  marginLeft: theme.spacing(2.4),
+  [theme.breakpoints.down('md')]: {
+    display: 'none'
+  }
+}))
 
 const ListPages = () => {
 
@@ -39,19 +60,40 @@ const ListPages = () => {
   }, [postSuccess]);
 
   return (
-    <TableComponent columns={columnsTable} rows={resData} pagination loading={loading}
-      actions={(row: any) => (
-        <Box>
-          <IconButton aria-label="edit">
-            <FormPages data={row} setPostSuccess={handlePostSuccess} isEdit={true} />
-          </IconButton>
-          <IconButton aria-label="delete">
-            <Delete className='tableActionBtn deleteBtn' />
-          </IconButton>
-        </Box>
-      )
+    <Card>
+      <TabContext value={'list-page'}>
+        <TabList
+          aria-label='account-settings tabs'
+          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+        >
+          <Tab
+            value='account'
+            label={
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Tv />
+                <TabName>Các trang truy cập</TabName>
+              </Box>
+            }
+          />
+        </TabList>
 
-      } />
+        <TabPanel sx={{ p: 0 }} value='list-page'>
+          <TableComponent columns={columnsTable} rows={resData} pagination loading={loading}
+            actions={(row: any) => (
+              <Box>
+                <IconButton aria-label="edit">
+                  <FormPages data={row} setPostSuccess={handlePostSuccess} isEdit={true} />
+                </IconButton>
+                <IconButton aria-label="delete">
+                  <Delete className='tableActionBtn deleteBtn' />
+                </IconButton>
+              </Box>
+            )
+
+            } />
+        </TabPanel>
+      </TabContext>
+    </Card>
   );
 }
 

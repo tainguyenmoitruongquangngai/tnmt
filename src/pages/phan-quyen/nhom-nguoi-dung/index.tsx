@@ -1,72 +1,32 @@
-// ** React Imports
-import { SyntheticEvent, useState } from 'react'
+import { CircularProgress, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
+import Error401 from "src/pages/401";
+import RolePermit from "src/views/manage/role-permit";
 
-// ** MUI Imports
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
-import TabContext from '@mui/lab/TabContext'
-import { styled } from '@mui/material/styles'
-import MuiTab, { TabProps } from '@mui/material/Tab'
+const RolePermits = () => {
+  const router = useRouter();
+  const routePath = router.pathname; // Use router.pathname to get the current pathname
 
-// ** Icons Imports
-import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
+  // Split the pathname and get the part you need (in this case, the first segment)
+  const routeSegment = routePath.split('/')[1];
 
-// ** Third Party Styles Imports
-import 'react-datepicker/dist/react-datepicker.css'
-import RolePermit from 'src/views/manage/role-permit'
+  const [accessView, setAccessView] = useState(false);
+  const [loading, setLoading] = useState(true)
 
-const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    minWidth: 100
-  },
-  [theme.breakpoints.down('sm')]: {
-    minWidth: 67
-  }
-}))
-
-const TabName = styled('span')(({ theme }) => ({
-  lineHeight: 1.71,
-  fontSize: '0.875rem',
-  marginLeft: theme.spacing(2.4),
-  [theme.breakpoints.down('md')]: {
-    display: 'none'
-  }
-}))
-
-const RoleSettings = () => {
-  // ** State
-  const [value, setValue] = useState<string>('roles')
-
-  const handleChange = (event: SyntheticEvent, newValue: string) => {
-    setValue(newValue)
+  async function getAccess() {
+    setAccessView(await checkAccessPermission(routeSegment, 'view').finally(() => { setLoading(false) }));
   }
 
-  return (
-    <Card>
-      <TabContext value={value}>
-        <TabList
-          onChange={handleChange}
-          aria-label='roles-settings tabs'
-          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
-        >
-          <Tab
-            value='roles'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <LockOpenOutline />
-                <TabName>Nhóm người dùng(Roles)</TabName>
-              </Box>
-            }
-          />
-        </TabList>
-        <TabPanel sx={{ p: 0 }} value='roles'>
-          <RolePermit />
-        </TabPanel>
-      </TabContext>
-    </Card>
-  )
+  useEffect(() => {
+    getAccess()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Use routeSegment in your conditional rendering
+  return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <RolePermit /> : <Error401 />;
 }
 
-export default RoleSettings
+export default RolePermits;
+

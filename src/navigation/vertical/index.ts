@@ -4,7 +4,7 @@ import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 
 // ** Type import
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
-import { Functions, PeopleAltOutlined, Tv } from '@mui/icons-material';
+import { PeopleAltOutlined, Tv } from '@mui/icons-material';
 
 const navigation = (): VerticalNavItemsType => {
   return [
@@ -233,10 +233,6 @@ const navigation = (): VerticalNavItemsType => {
         },
 
         //
-
-
-
-        //
         {
           sectionTitle: 'HSKT Trạm',
         },
@@ -298,14 +294,14 @@ const navigation = (): VerticalNavItemsType => {
     {
       sectionTitle: 'KIỂM KÊ TNN'
     },
-    
+
     {
       title: 'Nước mưa',
       primaryPath: '/kiem-ke-tnn/nuoc-mua',
       children: [
         {
           title: 'Kiểm kê nước mưa',
-         
+
           path: '/kiem-ke-tnn/nuoc-mua'
         },
 
@@ -335,7 +331,7 @@ const navigation = (): VerticalNavItemsType => {
         },
       ]
     },
-    
+
     //
     {
       title: 'Nước dưới đất',
@@ -361,7 +357,7 @@ const navigation = (): VerticalNavItemsType => {
       children: [
         {
           title: 'Kiểm kê nước biển',
-         
+
           path: '/kiem-ke-tnn/kiem-ke-nuoc-bien'
         },
 
@@ -379,61 +375,59 @@ const navigation = (): VerticalNavItemsType => {
 
       ]
     },
-   
-    
 
-
-  {
-    sectionTitle: 'KNTN NƯỚC THẢI',
-  },
-  {
-    title: 'KNTN nước thải sông, suối',
-    primaryPath: 'kn-tiep-nhan-nuoc-thai',
-    children: [
-       {
-        title: 'QCVN_08_2023',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/cln'
+    //
+    {
+      sectionTitle: 'KNTN NƯỚC THẢI',
+    },
+    {
+      title: 'KNTN nước thải sông, suối',
+      primaryPath: 'kn-tiep-nhan-nuoc-thai',
+      children: [
+        {
+          title: 'QCVN_08_2023',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/cln'
         },
-      {
-        title: 'Phân đoạn sông',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/phan-doan-song'
+        {
+          title: 'Phân đoạn sông',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/phan-doan-song'
         },
-      {
-        title: 'Dữ liệu nguồn nước nhận',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-lieu-nguon-nhan'
-      },
+        {
+          title: 'Dữ liệu nguồn nước nhận',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-lieu-nguon-nhan'
+        },
         {
           title: 'Dữ liệu nguồn nước thải ',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-lieu-nguon-thai'
-          }, 
-          
-      {
-        title: 'Tải lượng ô nhiễm ',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tai-luong-o-nhiem'
         },
-      {
-        title: 'Khả năng TNNT sông,suối',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/kha-nang-tiep-nhan-nuoc-thai-song'
-        },
-      {
-        title: 'Dự báo KNTNNT sông,suối',
-        path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-bao-kntnnt'
-        },
-    ]
-  },
-   
 
+        {
+          title: 'Tải lượng ô nhiễm ',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/tai-luong-o-nhiem'
+        },
+        {
+          title: 'Khả năng TNNT sông,suối',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/kha-nang-tiep-nhan-nuoc-thai-song'
+        },
+        {
+          title: 'Dự báo KNTNNT sông,suối',
+          path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-song/du-bao-kntnnt'
+        },
+      ]
+    },
+
+    //
     {
       title: 'KNTN nước thải ao, hồ',
       primaryPath: 'kn-tiep-nhan-nuoc-thai-ao-ho',
       children: [
 
-        
+
         {
           title: 'QCVN_08_2023',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/cln'
         },
-      
+
         {
           title: 'Thông tin ao,hồ',
           path: '/kn-tiep-nhan-nuoc-thai/nguon-nuoc-ao/thong-tin-ao-ho'
@@ -456,33 +450,29 @@ const navigation = (): VerticalNavItemsType => {
       primaryPath: 'thong-tin-chung-van-hanh-ho',
       children: [
 
-        
+
         {
           title: 'Lưu vực sông',
           path: '/van-hanh-ho-chua/luu-vuc-song-van-hanh'
         },
-      
+
         {
           title: 'Hồ chứa',
           path: '/van-hanh-ho-chua/ho-chua-van-hanh/thong-so-ky-thuat'
         },
-       
+
         {
           title: 'Quy định vận hành',
           path: '#'
         },
-       
+
       ]
-
-
-    
     },
-   
-   
-    
+
+    //
     {
       title: 'VH mùa lũ (1/9 - 15/12)',
-     
+
       children: [
         {
           sectionTitle: 'Lượng mưa',
@@ -501,10 +491,6 @@ const navigation = (): VerticalNavItemsType => {
         },
 
         //
-        
-       
-
-        //
         {
           sectionTitle: 'VH hồ chứa',
         },
@@ -515,16 +501,11 @@ const navigation = (): VerticalNavItemsType => {
 
         {
           title: 'Vận hành liên hồ',
-         
-              path: '/van-hanh-ho-chua/van-hanh-lien-ho'
-            }, 
-        
 
-          
-        
-     
+          path: '/van-hanh-ho-chua/van-hanh-lien-ho'
+        },
+
         //
-
         {
           sectionTitle: 'SLQT tại trạm TV',
         },
@@ -532,17 +513,9 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Trạm thủy văn',
           path: '/van-hanh-ho-chua/tram-thuy-van'
         },
-
-        //
-     
-        //
-     
       ]
-
-
-
     },
-   
+
     {
       title: 'VH mùa cạn (16/12 - 31/8)',
       children: [
@@ -557,15 +530,11 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Mưa dự báo',
           path: '/van-hanh-ho-chua/luong-mua/du-bao'
         },
-        
+
         {
           title: 'HTTT gây mưa lớn ',
           path: '/van-hanh-ho-chua/luong-mua/hinh-the-thoi-tiet'
         },
-
-        //
-        
-       
 
         //
         {
@@ -578,16 +547,11 @@ const navigation = (): VerticalNavItemsType => {
 
         {
           title: 'Vận hành liên hồ',
-         
-              path: '/van-hanh-ho-chua/van-hanh-lien-ho'
-            }, 
-        
 
-          
-        
-     
+          path: '/van-hanh-ho-chua/van-hanh-lien-ho'
+        },
+
         //
-
         {
           sectionTitle: 'SLQT tại trạm TV',
         },
@@ -595,26 +559,19 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Trạm thủy văn',
           path: '/van-hanh-ho-chua/tram-thuy-van'
         },
-
-        //
-     
-        //
-     
       ]
     },
 
-
-
+    //
     {
       sectionTitle: 'HƯỚNG DẪN SỬ DỤNG'
-     
     },
     {
       title: 'Hướng dẫn sử dụng',
       path: '#'
     },
     {
-    sectionTitle:'Quản lý'
+      sectionTitle: 'Quản lý'
     },
     {
       title: 'Dữ liệu',
@@ -674,11 +631,6 @@ const navigation = (): VerticalNavItemsType => {
           title: 'Trang truy cập',
           icon: Tv,
           path: '/he-thong/trang-truy-cap'
-        },
-        {
-          title: 'Các chức năng',
-          icon: Functions,
-          path: '/function'
         },
       ]
     },
