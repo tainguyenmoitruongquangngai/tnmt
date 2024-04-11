@@ -22,7 +22,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
   // const [mapZoom, setMapZoom] = useState(9)
   // const [showLabel, setShowLabel] = useState(false)
   function roundToTwoDecimalPlaces(num: number): number {
-    return parseFloat(num.toFixed(2))
+    return parseFloat(num?.toFixed(2))
   }
 
   const columnsTable: TableColumn[] = [

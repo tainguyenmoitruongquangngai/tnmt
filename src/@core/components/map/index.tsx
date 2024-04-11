@@ -130,7 +130,7 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 							<BingLayer bingkey={bing_key} type="AerialWithLabels" />
 						</BaseLayer>
 					</LayersControl>
-					{mapData && mapData.map((data: any) => {
+					{mapData && mapData?.map((data: any) => {
 						if (data.x !== null || data.y !== null) {
 							return (
 								<Marker icon={getIcon(data.loaiCT?.maLoaiCT || '')} key={data.id} position={[ConverterCood(data.y, data.x)[0], ConverterCood(data.y, data.x)[1]]}>
