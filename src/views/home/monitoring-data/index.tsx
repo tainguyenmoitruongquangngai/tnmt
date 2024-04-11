@@ -6,21 +6,25 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts';
 const MonitoringDataChart = () => {
   const options = {
     series: [{
-      name: "Session Duration",
-      data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+      name: "Lượng mưa",
+      data: [200, 210.2, 228, 184, 173, 226, 191, 220, 196, 188, 215, 210]
     },
     {
-      name: "Page Views",
-      data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+      name: "Mực nước thượng lưu",
+      data: [135, 141, 262, 242, 233, 218, 129, 137, 136, 151, 132, 135]
     },
     {
-      name: 'Total Visits',
+      name: 'Mực nước hạ lưu',
       data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+    },
+    {
+      name: 'Dung tích',
+      data: [97, 87, 74, 93, 78, 58, 72, 77, 89, 46, 49, 55]
     }
   ],
   options: {
     chart: {
-      height: 350,
+      height: 270,
       type: 'line',
       zoom: {
         enabled: false
@@ -83,7 +87,7 @@ const MonitoringDataChart = () => {
   return (
     <div>
       <div id="chart">
-        <ReactApexcharts options={options} series={options.series} height={350} />
+        <ReactApexcharts options={options} series={options.series} height={250} />
       </div>
       <div id="html-dist"></div>
     </div>

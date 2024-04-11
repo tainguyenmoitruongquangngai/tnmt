@@ -14,8 +14,24 @@ const MapPopup = ({ popupData }: any) => {
         setValue(newValue);
     };
 
-    const checkNullData = (data: any) => {
-        return data ? data : <Typography sx={{ fontSize: 12, my: '5px !important', textAlign: 'center' }}>-</Typography>
+    // const checkNullData = (data: any) => {
+    //     return data ? data : <Typography sx={{ fontSize: 12, my: '5px !important', textAlign: 'center' }}>-</Typography>
+    // }
+
+    const today = new Date();
+    const month = today.getMonth()+1;
+    const year = today.getFullYear();
+    const date = today.getDate();
+    const hour = today.getHours();
+    const min = today.getMinutes();
+    const currentDate = date + "/" + month + "/" + year+" "+hour+":"+min;
+
+    // random 2 to 15
+    const genRand = (min:any, max:any, decimalPlaces:any) => {  
+        const rand = Math.random()*(max-min) + min;
+        const power = Math.pow(10, decimalPlaces);
+
+        return Math.floor(rand*power) / power;
     }
 
     // Hien thi thong tin theo loai cong trinh
@@ -501,7 +517,7 @@ const MapPopup = ({ popupData }: any) => {
 
     return (
         <Box>
-            {section == 'cong-trinh' || section == 'giay-phep' ? (
+            {section == 'cong-trinh' || section == 'giay-phep' || section == 'kn-tiep-nhan-nuoc-thai' || section == 'van-hanh-ho-chua' ? (
                 
                 // Popup content for construction & license */
                 <TableContainer component={Paper} sx={{ height: 200, overFlowY: 'scroll' }} className='cons-info-table'>
@@ -512,7 +528,7 @@ const MapPopup = ({ popupData }: any) => {
             ) :
                 (
                     <>
-                        <Typography sx={{ fontSize: 12, my: '5px !important', fontStyle: 'italic' }}>Cập nhật: {popupData.thoiGian}</Typography>
+                        <Typography sx={{ fontSize: 12, my: '5px !important', fontStyle: 'italic' }}>Cập nhật: {currentDate}</Typography>
                         
                         {/* Popup content for monitoring data */}
                         <TabContext value={value}>
@@ -541,17 +557,17 @@ const MapPopup = ({ popupData }: any) => {
                                             </TableCell>
                                         </TableRow>
                                         <TableRow>
-                                            <TableCell align='left' sx={{ p: '0 !important' }}>
-                                                <Typography sx={{ fontSize: 12, my: '5px !important', fontStyle: 'italic' }}>{checkNullData(popupData.thongso.hThuongLuu)}</Typography>
+                                            <TableCell align='center' sx={{ p: '0 !important' }}>
+                                                <Typography sx={{ fontSize: 12, my: '5px !important', fontStyle: 'italic' }}>{genRand(0, 10, 1)}(m)</Typography>
                                             </TableCell>
-                                            <TableCell align='left' sx={{ p: '0 !important' }}>
-                                                <Typography sx={{ fontSize: 12, my: '5px !important' }}>{checkNullData(popupData.thongso.qtt)}</Typography>
+                                            <TableCell align='center' sx={{ p: '0 !important' }}>
+                                                <Typography sx={{ fontSize: 12, my: '5px !important' }}>{genRand(0, 10, 1)}(m<sup>3</sup>/s)</Typography>
                                             </TableCell>
-                                            <TableCell align='left' sx={{ p: '0 !important' }}>
-                                                <Typography sx={{ fontSize: 12, my: '5px !important' }}>{checkNullData(popupData.thongso.qmaxNM)}</Typography>
+                                            <TableCell align='center' sx={{ p: '0 !important' }}>
+                                                <Typography sx={{ fontSize: 12, my: '5px !important' }}>{genRand(0, 10, 1)}(m<sup>3</sup>/s)</Typography>
                                             </TableCell>
-                                            <TableCell align='left' sx={{ p: '0 !important' }}>
-                                                <Typography sx={{ fontSize: 12, my: '5px !important' }}>{checkNullData(popupData.thongso.qXaTran)}</Typography>
+                                            <TableCell align='center' sx={{ p: '0 !important' }}>
+                                                <Typography sx={{ fontSize: 12, my: '5px !important' }}>{genRand(0, 10, 1)}(m<sup>3</sup>/s)</Typography>
                                             </TableCell>
                                         </TableRow>
                                     </TableBody>

@@ -59,14 +59,15 @@ const SurfaceWaterMeasuresing = () => {
       id: '#', label: (<span>Lưu lượng <br /> về hạ du (m3/s)</span>),
     },
     {
-      id: '#', label: 'Chất lượng nước trong quá trình khai thác', children: [
-        { id: 'Nhietdo', label: 'Nhiệt độ (°C)', minWidth: 115 },
-        { id: 'pH', label: 'pH ', minWidth: 115 },
-        { id: 'BOD5', label: 'BOD5', minWidth: 115 },
-        { id: 'COD', label: 'COD', minWidth: 115 },
-        { id: 'DO', label: 'DO', minWidth: 115 },
-        { id: 'TSS', label: 'TSS', minWidth: 115 },
-        { id: 'NH4', label: 'NH4+', minWidth: 115 },
+      id: '#', label: 'Chất lượng nước trong quá trình khai thác', colspan: 8, children: [
+        { id: 'Nhietdo', label: 'Nhiệt độ (°C)', },
+        { id: 'pH', label: 'pH ', },
+        { id: 'BOD5', label: 'BOD5', },
+        { id: 'COD', label: 'COD', },
+        { id: 'DO', label: 'DO', },
+        { id: 'TSS', label: 'TSS', },
+        { id: 'NH4', label: 'NH4+', },
+        { id: 'Coliform', label: 'Coliform', },
       ]
     },
     { id: 'actions', label: 'Thao tác' },
