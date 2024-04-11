@@ -11,7 +11,7 @@ import { Box, Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
 import PhanDoanSongForm from './PhanDoanSongForm'
-import ExportToExcel from 'src/@core/components/export-excel'
+import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const PhanDoanSongTiepNhanNuocThai = () => {
@@ -145,7 +145,7 @@ const PhanDoanSongTiepNhanNuocThai = () => {
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
           <Grid container className='_flexEnd' spacing={2} sx={{p:2}}>
             <Grid >
-              <ExportToExcel resData={data} columnsTable={columnsTable} />
+            <ExportTableToExcel tableId='phan_doan_song' filename="phandoansong.csv" />
             </Grid>
 
             <Grid >
@@ -156,6 +156,7 @@ const PhanDoanSongTiepNhanNuocThai = () => {
           <TableComponent
             columns={columnsTable}
             rows={data}
+            id='phan_doan_song'
             loading={loading}
             pagination
             actions={(row: any) => (

@@ -140,7 +140,7 @@ console.log(data);
           <TextField
             size='small'
             type='text'
-            label='Số con gia cầm'
+            label='Diện tích trồng rừng'
             fullWidth
             placeholder=''
             value={TrongRung.dienTichTrongRung || ''}
@@ -152,7 +152,7 @@ console.log(data);
           <TextField
             size='small'
             type='text'
-            label='Hệ số suy giảm dọc đường hay hệ số dòng chảy'
+            label='Hệ số suy giảm dọc đường'
             fullWidth
             placeholder=''
             value={TrongRung.heSoSuyGiam || ''}
@@ -161,7 +161,7 @@ console.log(data);
         </Grid>        
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
           <fieldset>
-            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải gia cầm</legend>
+            <legend>Kết quả phân tích thông số chất lượng nước nguồn thải trồng rừng</legend>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
                 <TextField
