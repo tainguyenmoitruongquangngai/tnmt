@@ -1,73 +1,32 @@
-// ** React Imports
-import { SyntheticEvent, useState } from 'react'
-
-// ** MUI Imports
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
-import TabContext from '@mui/lab/TabContext'
-import { styled } from '@mui/material/styles'
-import MuiTab, { TabProps } from '@mui/material/Tab'
-
-// ** Icons Imports
-import AccountOutline from 'mdi-material-ui/AccountOutline'
-
-// ** Third Party Styles Imports
-import 'react-datepicker/dist/react-datepicker.css'
-import ListAccount from 'src/views/manage/account-settings/ListAccount'
-
-const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    minWidth: 100
-  },
-  [theme.breakpoints.down('sm')]: {
-    minWidth: 67
-  }
-}))
-
-const TabName = styled('span')(({ theme }) => ({
-  lineHeight: 1.71,
-  fontSize: '0.875rem',
-  marginLeft: theme.spacing(2.4),
-  [theme.breakpoints.down('md')]: {
-    display: 'none'
-  }
-}))
+import { CircularProgress, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
+import Error401 from "src/pages/401";
+import ListAccount from 'src/views/manage/account-settings/ListAccount';
 
 const AccountSettings = () => {
-  // ** State
-  const [value, setValue] = useState<string>('account')
+  const router = useRouter();
+  const routePath = router.pathname; // Use router.pathname to get the current pathname
 
-  const handleChange = (event: SyntheticEvent, newValue: string) => {
-    setValue(newValue)
+  // Split the pathname and get the part you need (in this case, the first segment)
+  const routeSegment = routePath.split('/')[1];
+
+  const [accessView, setAccessView] = useState(false);
+  const [loading, setLoading] = useState(true)
+
+  async function getAccess() {
+    setAccessView(await checkAccessPermission(routeSegment, 'view').finally(() => { setLoading(false) }));
   }
 
-  return (
-    <Card>
-      <TabContext value={value}>
-        <TabList
-          onChange={handleChange}
-          aria-label='account-settings tabs'
-          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
-        >
-          <Tab
-            value='account'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <AccountOutline />
-                <TabName>Người dùng(Users)</TabName>
-              </Box>
-            }
-          />
-        </TabList>
+  useEffect(() => {
+    getAccess()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-        <TabPanel sx={{ p: 0 }} value='account'>
-          <ListAccount />
-        </TabPanel>
-      </TabContext>
-    </Card>
-  )
+  // Use routeSegment in your conditional rendering
+  return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <ListAccount /> : <Error401 />;
 }
 
-export default AccountSettings
+export default AccountSettings;
+

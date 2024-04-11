@@ -1,9 +1,35 @@
 import { useEffect, useState } from 'react';
 import { Delete } from '@mui/icons-material';
-import { IconButton, Box, Checkbox } from '@mui/material';
+import { IconButton, Box, Checkbox, Card } from '@mui/material';
 import TableComponent from 'src/@core/components/table';
 import FormRoles from './FormRoles';
 import { getData } from 'src/api/axios';
+
+// ** MUI Imports
+import { TabList, TabPanel, TabContext } from '@mui/lab'
+import { styled } from '@mui/material/styles'
+import MuiTab, { TabProps } from '@mui/material/Tab'
+
+// ** Icons Imports
+import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
+
+const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    minWidth: 100
+  },
+  [theme.breakpoints.down('sm')]: {
+    minWidth: 67
+  }
+}))
+
+const TabName = styled('span')(({ theme }) => ({
+  lineHeight: 1.71,
+  fontSize: '0.875rem',
+  marginLeft: theme.spacing(2.4),
+  [theme.breakpoints.down('md')]: {
+    display: 'none'
+  }
+}))
 
 
 const ListRoles = () => {
@@ -39,21 +65,42 @@ const ListRoles = () => {
   }, [postSuccess]);
 
   return (
-    <>
-      <TableComponent columns={columnsTable} rows={resData} loading={loading}
-        actions={(row: any) => (
-          <Box display="flex" justifyContent="center">
-            <IconButton aria-label="edit">
-              <FormRoles data={row} isEdit={true} setPostSuccess={handlePostSuccess} />
-            </IconButton>
-            <IconButton aria-label="delete">
-              <Delete className='tableActionBtn deleteBtn' />
-            </IconButton>
-          </Box>
-        )
+    <Card>
+      <TabContext value={'roles'}>
+        <TabList
+          aria-label='account-settings tabs'
+          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+        >
+          <Tab
+            value='roles'
+            label={
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <LockOpenOutline />
+                <TabName>Nhóm người dùng(Roles)</TabName>
+              </Box>
+            }
+          />
+        </TabList>
+        <TabPanel sx={{ p: 0 }} value='roles'>
+          <>
+            <TableComponent columns={columnsTable} rows={resData} loading={loading}
+              actions={(row: any) => (
+                <Box display="flex" justifyContent="center">
+                  <IconButton aria-label="edit">
+                    <FormRoles data={row} isEdit={true} setPostSuccess={handlePostSuccess} />
+                  </IconButton>
+                  <IconButton aria-label="delete">
+                    <Delete className='tableActionBtn deleteBtn' />
+                  </IconButton>
+                </Box>
+              )
 
-        } />
-    </>
+              } />
+          </>
+        </TabPanel>
+      </TabContext>
+    </Card>
+
   );
 }
 
