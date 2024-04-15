@@ -36,7 +36,7 @@ const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange, onExport }) => {
         xa: 0,
         tieuvung_qh: 0,
         tochuc_canhan: 0,
-        tu_nam: new Date().getFullYear() - 5,
+        tu_nam: new Date().getFullYear() - 50,
         den_nam: new Date().getFullYear(),
     });
 
