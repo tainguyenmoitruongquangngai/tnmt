@@ -140,7 +140,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         capCT: congtrinh?.capCT,
         namBatDauVanHanh: congtrinh?.namBatDauVanHanh,
         nguonNuocKT: congtrinh?.nguonNuocKT,
-        mucDichhKT: congtrinh?.mucDichhKT,
+        mucDichKT: congtrinh?.mucDichKT,
         phuongThucKT: congtrinh?.phuongThucKT,
         nguonNuocXT: congtrinh?.nguonNuocXT,
         thoiGianKT: congtrinh?.thoiGianKT,

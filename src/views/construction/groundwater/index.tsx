@@ -68,7 +68,7 @@ const GroundConstruction = () => {
         </span>
       )
     },
-    { id: 'mucDichhKT', label: 'Mục đích khai thác', align: 'left', minWidth: 300 },
+    { id: 'mucDichKT', label: 'Mục đích khai thác', align: 'left', minWidth: 300 },
     { id: 'soLuongGiengKT', label: 'Số giếng khai thác', align: 'left' },
     { id: 'cheDoKT', label: 'Chế độ khai thác', align: 'left', minWidth: 300 },
     { id: 'namBatDauVanHanh', label: 'Năm vận hành', align: 'left' },

@@ -45,13 +45,11 @@ const NN_AoHoKhongSanLap = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenHoChua',
       label: 'Tên hồ chứa',
       align: 'left',
-      rowspan: 2,
       minWidth: 100,
       children: [
         {
@@ -87,7 +85,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'nguonNuoc',
       label: 'Nguồn nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#4',
@@ -99,7 +96,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -111,7 +107,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'loaiHinhChucNang',
       label: 'Loại hình chức năng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -123,7 +118,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'dienTichMatNuoc',
       label: 'Diện tích mặt nước (km2)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -135,7 +129,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'dungTichToanBo',
       label: 'Dung tích toàn bộ (triệu m3)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -147,7 +140,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'dungTichHuuIch',
       label: 'Dung tích hữu ích (triệu m3)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -159,7 +151,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'dungTichPhongLu',
       label: 'Dung tích phòng lũ (triệu m3)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -171,7 +162,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'mucNuocDangBinhThuong',
       label: 'Mực nước dâng bình thường (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -183,7 +173,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'mucNuocChet',
       label: 'Mực nước chết (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -195,7 +184,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'namHoanThanh',
       label: 'Năm hoàn thành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',
@@ -207,7 +195,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'donQuayLyVanHanh',
       label: 'Đơn vị quản lý vận hành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#14',
@@ -219,7 +206,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'thuocDanhMucKhongSanLap',
       label: 'Thuộc danh mục không san lấp',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#15',
@@ -231,7 +217,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'quyetDinh',
       label: 'Quyết định',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#16',
@@ -243,7 +228,6 @@ const NN_AoHoKhongSanLap = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#17',
@@ -251,7 +235,7 @@ const NN_AoHoKhongSanLap = () => {
         }
       ]
     },
-    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
+    { align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
 
   return (
@@ -260,7 +244,7 @@ const NN_AoHoKhongSanLap = () => {
 
       <Grid className='_text_center'>
         <Typography className='font-weight-bold ' variant='h6'>
-        THÔNG TIN DỮ LIỆU VỀ HỒ, AO, ĐẦM, PHÁ KHÔNG ĐƯỢC SAN LẤP TỈNH QUẢNG NGÃI
+          THÔNG TIN DỮ LIỆU VỀ HỒ, AO, ĐẦM, PHÁ KHÔNG ĐƯỢC SAN LẤP TỈNH QUẢNG NGÃI
         </Typography>
         <Typography className='font-weight-bold ' variant='h6'>
           (Kỳ báo cáo:{' '}

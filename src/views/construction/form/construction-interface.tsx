@@ -24,7 +24,7 @@ export interface ConstructionState {
   capCT?: string | null | undefined;
   namBatDauVanHanh?: number | null | undefined;
   nguonNuocKT?: string | null | undefined;
-  mucDichhKT?: string | null | undefined;
+  mucDichKT?: string | null | undefined;
   phuongThucKT?: string | null | undefined;
   nguonNuocXT?: string | null | undefined;
   thoiGianKT?: string | null | undefined;
@@ -137,7 +137,7 @@ export const emptyConstructionData: ConstructionState = {
   capCT: null,
   namBatDauVanHanh: null,
   nguonNuocKT: null,
-  mucDichhKT: null,
+  mucDichKT: null,
   phuongThucKT: null,
   nguonNuocXT: null,
   thoiGianKT: null,

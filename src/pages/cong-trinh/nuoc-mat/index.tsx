@@ -1,10 +1,11 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { checkAccessPermission } from "src/@core/layouts/checkAccessPermission";
+import { CircularProgress, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
 import Error401 from "src/pages/401";
-import SurfaceConstruction from "src/views/construction/sufacewater"
+import SurfaceWater from "src/views/construction/groundwater"
 
-const SurfaceWater = () => {
+const GroundWater = () => {
     const router = useRouter();
     const routePath = router.pathname; // Use router.pathname to get the current pathname
 
@@ -12,9 +13,10 @@ const SurfaceWater = () => {
     const routeSegment = routePath.split('/')[1];
 
     const [accessView, setAccessView] = useState(false);
+    const [loading, setLoading] = useState(true)
 
     async function getAccess() {
-        setAccessView(await checkAccessPermission(routeSegment, 'view'));
+        setAccessView(await checkAccessPermission(routeSegment, 'view').finally(() => { setLoading(false) }));
     }
 
     useEffect(() => {
@@ -23,7 +25,7 @@ const SurfaceWater = () => {
     }, [])
 
     // Use routeSegment in your conditional rendering
-    return accessView? <SurfaceConstruction /> : <Error401 />;
+    return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <SurfaceWater /> : <Error401 />;
 }
 
-export default SurfaceWater
+export default GroundWater

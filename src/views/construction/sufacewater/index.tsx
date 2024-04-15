@@ -40,7 +40,7 @@ const SurfaceConstruction = () => {
   const router = useRouter()
 
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT'},
+    { id: 'stt', label: 'STT' },
     {
       id: 'tenCT',
       label: 'Tên công trình',
@@ -74,7 +74,7 @@ const SurfaceConstruction = () => {
     { id: 'nguonNuocKT', label: 'Nguồn nước khai thác', rowspan: 2, align: 'left', minWidth: 200 },
     { id: 'phuongThucKT', label: 'Phương thức khai thác', rowspan: 2, align: 'left', minWidth: 600 },
     { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row?.thongso?.cheDoKT}</span>) },
-    { id: 'mucDichhKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 200 },
+    { id: 'mucDichKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row?.thongso?.mucDichKT}</span>) },
     { id: 'namBatDauVanHanh', label: 'Năm vận hành', rowspan: 2, align: 'left' },
     { id: 'tieuvung_quyhoach', label: 'Tiểu vùng quy hoạch', rowspan: 2, align: 'left', minWidth: 150 },
     {
