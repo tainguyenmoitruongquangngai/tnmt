@@ -45,13 +45,11 @@ const CTKTSDN_PDK_NuocMat = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenCongTrinh',
       label: 'Tên công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'tenTCN',
       label: 'Tên tổ chức cá nhân',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'namVanHanh',
       label: 'Năm vận hành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -133,7 +129,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'tenSong',
       label: 'Tên sông',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -145,7 +140,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'luuVucSong',
       label: 'Lưu vực sông',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -157,7 +151,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'caoTrinhDap',
       label: 'Cao trình đập (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -169,7 +162,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'caoTrinhNguongTran',
       label: 'Cao trình ngưỡng tràn (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -181,7 +173,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'luuLuongXaLuTK',
       label: 'Lưu lượng xả lũ thiết kế (m3/s)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -193,7 +184,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'luuLuongXaLuKT',
       label: 'Lưu lượng xả lũ khai thác (m3/s)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',
@@ -205,7 +195,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'dungTichChet',
       label: 'Dung tích chết (triệu m3)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#14',
@@ -217,7 +206,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'soToMay',
       label: 'Số tổ máy',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#15',
@@ -229,7 +217,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'soGP',
       label: 'Số giấy phép',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#16',
@@ -241,7 +228,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'ngayQuyetDinh',
       label: 'Ngày quyết định',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#17',
@@ -253,7 +239,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'thoiGianHieuLuc',
       label: 'Thời gian hiệu lực',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#18',
@@ -265,7 +250,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'idCongTrinh',
       label: 'ID CT trên hệ thống',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#19',
@@ -277,7 +261,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'thoiGianBatDauKetNoi',
       label: 'Thời gian bắt đầu kết nối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#20',
@@ -289,7 +272,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'cheDoKT',
       label: 'Chế độ khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#21',
@@ -301,7 +283,6 @@ const CTKTSDN_PDK_NuocMat = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#22',

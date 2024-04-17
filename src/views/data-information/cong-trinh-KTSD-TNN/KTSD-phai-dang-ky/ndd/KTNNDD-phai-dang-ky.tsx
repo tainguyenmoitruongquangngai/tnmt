@@ -45,13 +45,11 @@ const CTKTSDN_PDK_NDD = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenCongTrinh',
       label: 'Tên công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'tenTCCN',
       label: 'Tên tổ chức cá nhân',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'namVanHanh',
       label: 'Năm vận hành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -133,7 +129,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'luuVuc',
       label: 'Lưu vực',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -145,7 +140,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'tangChuaNuoc',
       label: 'Tầng chứa nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -157,7 +151,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'soGieng',
       label: 'Số giếng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -169,7 +162,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'chieuSauCacGieng',
       label: 'Chiều sâu các giếng (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -181,7 +173,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'toaDoCacGieng',
       label: 'Toạ độ các giếng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -193,7 +184,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'mucDichKT',
       label: 'Mục đích khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',
@@ -205,7 +195,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'soToMay',
       label: 'Số tổ máy',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#14',
@@ -217,7 +206,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'tongLuuLuongKT',
       label: 'Tổng lưu lượng khai thác (m3/s)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#15',
@@ -229,7 +217,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'cheDoKT',
       label: 'Chế độ khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#16',
@@ -241,7 +228,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'phuongThucKT',
       label: 'Phương thức khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#17',
@@ -253,7 +239,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'thoiGianVanHanh',
       label: 'Thời gian vận hành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#18',
@@ -265,7 +250,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'tinhHinhCapGP',
       label: 'Tình hình cấp GP',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#19',
@@ -277,7 +261,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'soGP',
       label: 'Số GP',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#20',
@@ -289,7 +272,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'ngayQuyetDinh',
       label: 'Ngày quyết định',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#21',
@@ -301,7 +283,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'thoiGianHieuLuc',
       label: 'Thời gian hiệu lực',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#22',
@@ -313,7 +294,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'thoiGianKetThuc',
       label: 'Thời gian kết thúc',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#23',
@@ -325,7 +305,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'idCongTrinh',
       label: 'ID công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#24',
@@ -337,7 +316,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'thoiGianBatDauKetNoi',
       label: 'Thời gian bắt đầu kết nối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#25',
@@ -349,7 +327,6 @@ const CTKTSDN_PDK_NDD = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#26',

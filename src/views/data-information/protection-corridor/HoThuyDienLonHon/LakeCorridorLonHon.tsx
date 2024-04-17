@@ -45,13 +45,11 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'ten',
       label: 'Tên',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -103,7 +98,6 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       id: 'dungTichHo106m3',
       label: 'Dung tích hồ',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -115,7 +109,6 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       id: 'phamViHanhLang',
       label: 'Phạm vi hành lang',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -128,7 +121,6 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
       id: 'thuocDienCamMocHanhLang',
       label: 'Thuộc diện cắm mốc hành lang',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',

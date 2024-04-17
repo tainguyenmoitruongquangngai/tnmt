@@ -45,13 +45,11 @@ const NN_CNNN_Ho = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenHoChua',
       label: 'Tên hồ chứa',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_CNNN_Ho = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_CNNN_Ho = () => {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_CNNN_Ho = () => {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -103,7 +98,6 @@ const NN_CNNN_Ho = () => {
       id: 'dienTichMatNuoc',
       label: 'Diện tích mặt nước (km2)',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -116,7 +110,6 @@ const NN_CNNN_Ho = () => {
       id: 'dungTichToanBo',
       label: 'Dung tích toàn bộ (triệu m3)',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -129,7 +122,6 @@ const NN_CNNN_Ho = () => {
       id: 'dungTichHuuIch',
       label: 'Dung tích hữu ích (triệu m3)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -141,7 +133,6 @@ const NN_CNNN_Ho = () => {
       id: 'namHoanThanh',
       label: 'Năm hoàn thành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -153,7 +144,6 @@ const NN_CNNN_Ho = () => {
       id: 'donViQuanLyVanHanh',
       label: 'Đơn vị quản lý vận hành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -165,7 +155,6 @@ const NN_CNNN_Ho = () => {
       id: 'chucNangNguonNuoc',
       label: 'Chức năng nguồn nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -177,7 +166,6 @@ const NN_CNNN_Ho = () => {
       id: 'mucTieuChatLuong',
       label: 'Mục tiêu chất lượng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',

@@ -45,13 +45,11 @@ const NN_CNNN_TangChuaNuoc = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'viTriPhamVi',
       label: 'Vị trí, phạm vi quy định chức năng nguồn nước',
       align: 'left',
-      rowspan: 2,
       minWidth: 300,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'tenTCN',
       label: 'Tên tầng chứa nước',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -103,7 +98,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'loaiChuaNuoc',
       label: 'Loại chứa nước (lỗ hổng, khe nứt)',
       align: 'left',
-      rowspan: 2,
       minWidth: 300,
       children: [
         {
@@ -116,7 +110,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'chieuSauPhanBo',
       label: 'Chiều sâu phân bố (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -128,7 +121,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'chucNangNguonNuoc',
       label: 'Chức năng nguồn nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -140,7 +132,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'mucTieuChatLuongNuoc',
       label: 'Mục tiêu chất lượng nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -152,7 +143,6 @@ const NN_CNNN_TangChuaNuoc = () => {
       id: 'chucNangNguonNuoc',
       label: 'Chức năng nguồn nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',

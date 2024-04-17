@@ -45,13 +45,11 @@ const DanhMucNN_LienTinh = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'maSong',
       label: 'Mã sông',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const DanhMucNN_LienTinh = () => {
       id: 'tenSongSuoi',
       label: 'Tên sông,suối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const DanhMucNN_LienTinh = () => {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -181,7 +177,6 @@ const DanhMucNN_LienTinh = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#14',

@@ -45,13 +45,11 @@ const SLDTKTSDN_NDD = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenChuHoCT',
       label: 'Tên chủ hộ/Công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -86,7 +84,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'soLuongGieng',
       label: 'Số lượng giếng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#4',
@@ -98,7 +95,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'uocTinhLuongNuocKT',
       label: 'Ước tính lượng nước khai thác (m3/ngày)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -110,7 +106,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'loaiCT',
       label: 'Loại công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -122,7 +117,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'hinhThucKT',
       label: 'Hình thức khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -134,7 +128,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'chieuSauKT',
       label: 'Chiều sâu khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -146,7 +139,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'mucDichSD',
       label: 'Mục đích sử dụng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -158,7 +150,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'tinhTrangSD',
       label: 'Tình trạng sử dụng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -170,7 +161,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'phieuDieuTraPDF',
       label: 'File phiếu điều tra (pdf)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -182,7 +172,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',

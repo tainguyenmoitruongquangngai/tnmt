@@ -45,13 +45,11 @@ const NN_DCTT_SongSuoi = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenSong',
       label: 'Tên sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_DCTT_SongSuoi = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_DCTT_SongSuoi = () => {
       id: 'tenDiem',
       label: 'Tên điểm',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_DCTT_SongSuoi = () => {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -103,7 +98,6 @@ const NN_DCTT_SongSuoi = () => {
       id: 'huyenTP',
       label: 'Huyện/ Thành phố',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -139,7 +133,6 @@ const NN_DCTT_SongSuoi = () => {
       id: 'dienTichViTriXacDinhQtt',
       label: 'Diện tích đến vị trí xác định Qtt (km2)',
       align: 'left',
-      rowspan: 2,
       minWidth: 300,
       children: [
         {
@@ -152,7 +145,6 @@ const NN_DCTT_SongSuoi = () => {
       id: 'qtt',
       label: 'Qtt (m3/s)',
       align: 'left',
-      rowspan: 2,
       minWidth: 100,
       children: [
         {

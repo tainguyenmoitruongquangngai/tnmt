@@ -45,13 +45,11 @@ const NN_CNNN_SongSuoi = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'maSong',
       label: 'Mã sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'tenSongSuoi',
       label: 'Tên sông,suối',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'chieuDai',
       label: 'Chiều dài (km)',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -103,7 +98,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -116,7 +110,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -175,7 +168,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'chucNangNguonNuoc',
       label: 'Chức năng nguồn nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -187,7 +179,6 @@ const NN_CNNN_SongSuoi = () => {
       id: 'mucTieuChatLuong',
       label: 'Mục tiêu chất lượng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -199,7 +190,6 @@ const NN_CNNN_SongSuoi = () => {
       id: '#',
       label: 'Thời gian thực hiện',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',

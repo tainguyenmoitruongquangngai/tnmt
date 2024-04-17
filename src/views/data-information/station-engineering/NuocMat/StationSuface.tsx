@@ -45,13 +45,11 @@ const HSKTT_NDD = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'kyHieuCT',
       label: 'Ký hiệu công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const HSKTT_NDD = () => {
       id: 'tenTaiLieuHoSo',
       label: 'Tên tài liệu hồ sơ',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const HSKTT_NDD = () => {
       id: 'tenToChucThucHienQuanTrac',
       label: 'Tên tổ chức thực hiện quan trắc',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -87,7 +83,6 @@ const HSKTT_NDD = () => {
       id: 'nguoiThanhLapHoSo',
       label: 'Người thành lập hồ sơ',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#4',
@@ -99,7 +94,6 @@ const HSKTT_NDD = () => {
       id: 'nguoiKiemTraHoSo',
       label: 'Người kiểm tra hồ sơ',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -111,7 +105,6 @@ const HSKTT_NDD = () => {
       id: 'filePDF',
       label: 'File DPF',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',

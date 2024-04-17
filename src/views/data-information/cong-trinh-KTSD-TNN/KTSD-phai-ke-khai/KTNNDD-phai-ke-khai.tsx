@@ -45,13 +45,11 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenCongTrinh',
       label: 'Tên công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'tenTCCN',
       label: 'Tên tổ chức cá nhân',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -121,7 +118,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'soThuaDat',
       label: 'Số thửa đất',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -133,7 +129,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'chieuSauGieng',
       label: 'Chiều sâu giếng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -145,7 +140,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'soNguoiSD',
       label: 'Số người sử dụng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -157,7 +151,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'tinhTrangChatLuongNuoc',
       label: 'Tình trạng chất lượng nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -169,7 +162,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'tinhTrangKeKhai',
       label: 'Tình trạng kê khai',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -181,7 +173,6 @@ const CTKTSDN_KTNDDCuaHoGD = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',

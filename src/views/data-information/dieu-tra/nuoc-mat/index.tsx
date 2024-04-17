@@ -45,13 +45,12 @@ const SLDTKTSDN_NuocMat = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenChuHoCT',
       label: 'Tên chủ hộ/Công trình',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#1',
@@ -63,7 +62,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'loaiCongTrinh',
       label: 'Loại công trình',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#2',
@@ -75,7 +74,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#3',
@@ -110,7 +109,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'tenNguonNuocKhaiThac',
       label: 'Tên nguồn nước khai thác',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#6',
@@ -122,7 +121,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'mucDichSD',
       label: 'Mục đích sử dụng',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#7',
@@ -134,7 +133,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'uocTinhLuongNuocKT',
       label: 'Ước tính lượng nước khai thác (m3/ngày)',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#8',
@@ -146,7 +145,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'dienTichTuoi',
       label: 'Diện tích tưới (ha)',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#9',
@@ -158,7 +157,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'dienTichNuoiTrongThuySan',
       label: 'Diện tích nuôi trồng thủy sản (ha)',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#10',
@@ -170,7 +169,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'congSuatPhatDien',
       label: 'Công suất phát điện (kW)',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#11',
@@ -182,7 +181,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'soHoDanDuocCapNuoc',
       label: 'Số hộ dân được cấp nước',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#12',
@@ -194,7 +193,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'cheDoKT',
       label: 'Chế độ khai thác',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#13',
@@ -206,7 +205,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'filePDF',
       label: 'File phiếu điều tra (pdf)',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#14',
@@ -218,7 +217,7 @@ const SLDTKTSDN_NuocMat = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
+    
       children: [
         {
           id: '#15',

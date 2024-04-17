@@ -45,13 +45,11 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'doanSong',
       label: 'Đoạn sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'chieuDai',
       label: 'Chiều dài',
       align: 'left',
-      rowspan: 2,
       minWidth: 100,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -149,7 +144,6 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'chucNang',
       label: 'Chức năng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -161,7 +155,6 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'phamViHanhLangBaoVe',
       label: 'Phạm vi hành lang bảo vệ',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -173,7 +166,6 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'thoiGianThucHien',
       label: 'Thời gian thực hiện',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',

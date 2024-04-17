@@ -45,13 +45,11 @@ const NN_DCTT_HaDuHoChua = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenCT',
       label: 'Tên công trình',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -90,7 +86,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'huyenTP',
       label: 'Huyện/ Thành phố',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -103,7 +98,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'nguonNuocKhaiThac',
       label: 'Nguồn nước khai thác',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -117,7 +111,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'qttSauDap',
       label: 'Qtt sau đập (m3/s)',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -130,7 +123,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'qttSauCT',
       label: 'Qtt sau công trình (m3/s)',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -143,7 +135,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'qttQuyDinhKhac',
       label: 'Qtt quy định khác (m3/s)',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -156,7 +147,6 @@ const NN_DCTT_HaDuHoChua = () => {
       id: 'loaiHinhCT',
       label: 'Loại hình công trình',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {

@@ -44,14 +44,12 @@ const NN_NguongKhaiThacNDD = () => {
   const columnsTable: TableColumn[] = [
     {
       id: 'stt',
-      label: 'STT',
-      rowspan: 3
+      label: 'STT'
     },
     {
       id: 'tenTCN',
       label: 'Tên tầng chứa nước',
       align: 'left',
-      rowspan: 2,
       minWidth: 200,
       children: [
         {
@@ -64,7 +62,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'loaiChuaNuoc',
       label: 'Loại chứa nước (lỗ hổng, khe nứt)',
       align: 'left',
-      rowspan: 2,
       minWidth: 300,
       children: [
         {
@@ -77,7 +74,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'xa',
       label: 'Xã',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -89,7 +85,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#4',
@@ -101,7 +96,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'tinhTP',
       label: 'Tỉnh/Thành phố',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -113,7 +107,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'dienTichPhanBo',
       label: 'Diện tích phân bố (km2)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -125,7 +118,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'khoangChieuSauPhanBo',
       label: 'Khoảng chiều sâu phân bố (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -137,7 +129,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'nguongGHKTLuuLuong',
       label: 'Ngưỡng GHKT về mực nước (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -149,7 +140,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'nguongGHKTMucNuoc',
       label: 'Ngưỡng GHKT về mực nước (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -161,7 +151,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'qdPheDuyetNguongGioiHanKT',
       label: 'QĐ phê duyệt ngưỡng giới hạn KT',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -173,7 +162,6 @@ const NN_NguongKhaiThacNDD = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',

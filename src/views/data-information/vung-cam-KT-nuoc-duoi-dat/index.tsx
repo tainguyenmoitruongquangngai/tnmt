@@ -45,13 +45,11 @@ const NN_VungCamHanCheKTNDD = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenVungCamHanChe',
       label: 'Tên vùng cấm/vùng hạn chế',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'dienTichVungCamHanChe',
       label: 'Diện tích vùng cấm/vùng hạn chế (km2)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'xa',
       label: 'Xã',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -87,7 +83,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#4',
@@ -99,7 +94,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'tinhTP',
       label: 'Tỉnh/ Thành phố',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -111,7 +105,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'phamViChieuSau',
       label: 'Phạm vi chiều sâu hoặc tầng chứa nước hạn chế KT (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -123,7 +116,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'cacBienPhapHanCheKT',
       label: 'Các biện pháp hạn chế khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -135,7 +127,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'qdPheDuyetVungCamKT',
       label: 'QĐ phê duyệt vùng cấm khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -147,7 +138,6 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',

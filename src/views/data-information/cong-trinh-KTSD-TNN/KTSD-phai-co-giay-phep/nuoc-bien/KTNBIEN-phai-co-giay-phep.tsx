@@ -45,13 +45,11 @@ const CTKTSDN_PCGP_NuocBien = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenCongTrinh',
       label: 'Tên công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'tenTCCN',
       label: 'Tên tổ chức cá nhân',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'namVanHanh',
       label: 'Năm vận hành',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -133,7 +129,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'tenVungbien',
       label: 'Tên vùng biển',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -145,7 +140,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'cheDoLayNuoc',
       label: 'Chế độ lấy nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -157,7 +151,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'diemLayNuoc',
       label: 'Điểm lấy nước (xa bờ, ven bờ)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -169,7 +162,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'congSuatTho',
       label: 'Công suất thô (MW)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -181,7 +173,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'congSuatTinh',
       label: 'Công suất tĩnh (MW)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -193,7 +184,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'soToMay',
       label: 'Số tổ máy',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',
@@ -205,7 +195,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'luuLuongKTMax',
       label: 'Lưu lượng khai thác lớn nhất (m3/ngày đêm)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#14',
@@ -217,7 +206,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'soMayBom',
       label: 'Số máy bơm',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#15',
@@ -229,7 +217,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'diemXaNuocLamMat',
       label: 'Điểm xả nước làm mát (xa bờ, ven bờ)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#16',
@@ -241,7 +228,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'luuLuongXaMax',
       label: 'Lưu lượng xả lớn nhất (m3/ngày đêm)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#17',
@@ -253,7 +239,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'congSuatThietKe',
       label: 'Công suất thiết kế (m3/s)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#18',
@@ -265,7 +250,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'phuongThucKT',
       label: 'Phương thức khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#19',
@@ -277,7 +261,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'mucDichKT',
       label: 'Mục đích khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#20',
@@ -289,7 +272,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'cheDoKT',
       label: 'Chế độ khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#21',
@@ -301,7 +283,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'soGP',
       label: 'Số GP',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#22',
@@ -313,7 +294,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'ngayQuyetDinh',
       label: 'Ngày quyết định',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#23',
@@ -325,7 +305,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'thoiGianHieuLuc',
       label: 'Thời gian hiệu lực',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#24',
@@ -337,7 +316,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'idCongTrinh',
       label: 'ID công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#25',
@@ -349,7 +327,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'thoiGianBatDauKetNoi',
       label: 'Thời gian bắt đầu kết nối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#26',
@@ -361,7 +338,6 @@ const CTKTSDN_PCGP_NuocBien = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#27',

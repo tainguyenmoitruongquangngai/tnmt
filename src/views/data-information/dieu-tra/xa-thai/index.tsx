@@ -45,13 +45,11 @@ const SLDTKTSDN_XaThai = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenChuHoCT',
       label: 'Tên chủ hộ/Công trình',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'loaiHinhNuocThai',
       label: 'Loại hình nước thải',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -98,7 +95,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'quyMo',
       label: 'Quy mô',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -110,7 +106,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'mucDichSD',
       label: 'Mục đích sử dụng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -122,7 +117,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'dienTichTuoi',
       label: 'Diện tích tưới (ha)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#7',
@@ -134,7 +128,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'dienTichNuoiTrongThuySan',
       label: 'Diện tích nuôi trồng thuỷ sản (ha)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -146,7 +139,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'congSuatPhatDien',
       label: 'Công suất phát điện (kW)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -158,7 +150,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'soHoDanDuocCapNuoc',
       label: 'Số hộ dân được cấp nước',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -170,7 +161,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'cheDoKT',
       label: 'Chế độ khai thác',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -182,7 +172,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'phieuDieuTraPDF',
       label: 'File phiếu điều tra (pdf)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -194,7 +183,6 @@ const SLDTKTSDN_XaThai = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',

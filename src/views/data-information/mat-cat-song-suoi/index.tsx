@@ -45,13 +45,11 @@ const NN_MatCatSongSuoi = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'soHieuMatCat',
       label: 'Số hiệu mặt cắt',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#1',
@@ -63,7 +61,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'tenSongSuoi',
       label: 'Tên sông suối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -75,7 +72,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -133,7 +129,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'xa',
       label: 'Xã',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#8',
@@ -145,7 +140,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#9',
@@ -157,7 +151,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'tinhTP',
       label: 'Tỉnh/Thành phố',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#10',
@@ -169,7 +162,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'soHieuDiem',
       label: 'Số hiệu điểm',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -181,7 +173,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'khoangCach',
       label: 'Khoảng cách (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -193,7 +184,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'caoDoDaySong',
       label: 'Cao độ đáy sông (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#13',
@@ -205,7 +195,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'thoiGianDo',
       label: 'Thời gian đo',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#14',
@@ -217,7 +206,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'mucNuocSong',
       label: 'Mực nước sông (m)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#15',
@@ -229,7 +217,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'donViDoDacKhaoSat',
       label: 'Đơn vị đo đạc khảo sát',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#16',
@@ -241,7 +228,6 @@ const NN_MatCatSongSuoi = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#17',

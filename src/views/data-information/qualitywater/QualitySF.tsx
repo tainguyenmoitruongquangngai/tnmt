@@ -66,7 +66,6 @@ const columnsTable: TableColumn[] = [
   {
     id: 'stt',
     label: 'STT',
-    rowspan: 2,
       children: [
         {
           id: '#1',
@@ -79,7 +78,6 @@ const columnsTable: TableColumn[] = [
   {
     id: 'thoiGianQuanTrac',
     label: 'Thời gian quan trắc',
-    rowspan: 2,
       children: [
         {
           id: '#1',
@@ -92,7 +90,6 @@ const columnsTable: TableColumn[] = [
     id: 'luuVucSong',
     label: <>Lưu vực sông <br/> Vùng/Tỉnh</>,
     align: 'left',
-    rowspan: 2,
     minWidth: 120,
     children: [
       {
@@ -106,7 +103,6 @@ const columnsTable: TableColumn[] = [
     id: 'songSuoiHoChua',
     label: <>Sông, suối <br/> hồ chứa</>,
     align: 'left',
-    rowspan: 2,
     minWidth: 120,
       children: [
         {
@@ -121,7 +117,6 @@ const columnsTable: TableColumn[] = [
     id: 'viTriQuanTrac',
     label: <>Vị trí <br/> quan trắc</>,
     align: 'left',
-    rowspan: 2,
     minWidth: 120,
     children: [
       {
@@ -306,7 +301,6 @@ const columnsTable: TableColumn[] = [
     id: 'ghiChu',
     label: 'Ghi chú',
     align: 'left',
-    rowspan: 2,
 
     // thêm dòng ghi chú số thứ tự cột
     children: [
@@ -319,7 +313,7 @@ const columnsTable: TableColumn[] = [
  // hết thêm dòng ghi chú số thứ tự cột
 
   },
-  {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 2,
+  {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, 
   children: [
     {
       id: '#2',

@@ -44,14 +44,11 @@ const NN_NguonNuoc_SongSuoi = () => {
   const columnsTable: TableColumn[] = [
     {
       id: 'stt',
-      label: 'STT',
-      rowspan: 3
-    },
+      label: 'STT'    },
     {
       id: 'maSong',
       label: 'Mã sông',
       align: 'left',
-      rowspan: 2,
       minWidth: 100,
       children: [
         {
@@ -64,7 +61,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'tenSongSuoi',
       label: 'Tên sông suối',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#2',
@@ -76,7 +72,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#3',
@@ -88,7 +83,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'chieuDai',
       label: 'Chiều dài (km)',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#4',
@@ -100,7 +94,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#5',
@@ -112,7 +105,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#6',
@@ -170,7 +162,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'chucNang',
       label: 'Chức năng',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#11',
@@ -182,7 +173,6 @@ const NN_NguonNuoc_SongSuoi = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
       children: [
         {
           id: '#12',
@@ -190,7 +180,7 @@ const NN_NguonNuoc_SongSuoi = () => {
         }
       ]
     },
-    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
+    {align: 'center', id: 'actions', label: 'Thao tác', minWidth:200 }
   ]
 
   return (

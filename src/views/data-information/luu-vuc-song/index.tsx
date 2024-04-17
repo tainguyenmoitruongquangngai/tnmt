@@ -47,13 +47,13 @@ const NN_LuuVucSong = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
+      
     },
     {
       id: 'maSong',
       label: 'Mã sông',
       align: 'left',
-      rowspan: 2,
+      
       minWidth: 100,
       children: [
         {
@@ -66,7 +66,7 @@ const NN_LuuVucSong = () => {
       id: 'capSong',
       label: 'Cấp sông',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#2',
@@ -78,7 +78,7 @@ const NN_LuuVucSong = () => {
       id: 'tenSongSuoi',
       label: 'Tên sông, suối',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#3',
@@ -90,7 +90,7 @@ const NN_LuuVucSong = () => {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#4',
@@ -102,7 +102,7 @@ const NN_LuuVucSong = () => {
       id: 'chieuDai',
       label: 'Chiều dài (km)',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#5',
@@ -114,7 +114,7 @@ const NN_LuuVucSong = () => {
       id: 'dienTich',
       label: 'Diện tích lưu vực (km2)',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#6',
@@ -126,7 +126,7 @@ const NN_LuuVucSong = () => {
       id: 'tinh',
       label: 'Tỉnh/ Thành phố',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#9',
@@ -138,7 +138,7 @@ const NN_LuuVucSong = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#10',
@@ -150,7 +150,7 @@ const NN_LuuVucSong = () => {
       id: 'loaiSongSuoi',
       label: 'Loại sông, suối',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#10',
@@ -162,7 +162,7 @@ const NN_LuuVucSong = () => {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      rowspan: 2,
+      
       children: [
         {
           id: '#10',
@@ -171,7 +171,7 @@ const NN_LuuVucSong = () => {
       ]
     },
 
-    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
+    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150,  }
   ]
 
   return (
