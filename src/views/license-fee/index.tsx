@@ -116,9 +116,13 @@ const LicenseFee = (props: LicenseFeeProps) => {
     };
     getDataLicenseFee();
   }, [path, postSuccess]);
+  console.log(resData);
 
   // Calculate the total of resData.totalMoney
-  const totalMoneySum = resData.reduce((sum, item: any) => sum + (item.totalMoney || 0), 0);
+  const totalMoneySum = resData.reduce((sum, item: any) => sum + (item.tongTienCQ || 0), 0);
+
+  console.log(totalMoneySum);
+  
 
   return (
     <Grid container spacing={3}>

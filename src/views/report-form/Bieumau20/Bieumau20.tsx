@@ -1,177 +1,249 @@
-import Paper from '@mui/material/Paper'
-import {
-  Grid,
-  TextField,
-  Typography,
-  Link,
-  Box,
-  IconButton,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow
-} from '@mui/material'
-import DownloadIcon from '@mui/icons-material/Download';
+//React Imports
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+
+//MUI Imports
+//import { Box, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
+import DownloadIcon from '@mui/icons-material/Download'
+import { getData } from 'src/api/axios'
+import { Box, Grid, IconButton, Link, Paper, TextField, Typography } from '@mui/material'
+import TableComponent, { TableColumn } from 'src/@core/components/table'
+import DeleteData from 'src/@core/components/delete-data'
 import DialogControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 import HeaderReport from '../HeaderReport'
 import FooterReport from '../FooterReport'
 
-const FormContruction = () => {
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const BieuMauHaiMuoi = () => {
+  //Init columnTable
+
+  // const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
+  // const [mapZoom, setMapZoom] = useState(9)
+  // const [showLabel, setShowLabel] = useState(false)
+  const columnsTable: TableColumn[] = [
+    { id: 'stt', label: 'STT' },
+    {
+      id: 'tenCT',
+      label: 'Tên công trình',
+      align: 'left',
+      minWidth: 300
+    },
+    {
+      id: '#',
+      label: (
+        <>
+          Loại hình công trình <br />
+          (hồ,đập,cống,trạm bơm,giếng khoan,khác)
+        </>
+      ),
+      align: 'left',
+      minWidth: 300,
+      elm: (row: any) => (
+        <Typography>
+          {row?.loaiCT.tenLoaiCT}
+        </Typography>
+      )
+    },
+    {
+      id: 'nguonNuocKT',
+      label: (
+        <>
+          Nguồn nước khai thác
+          <br />
+          (hồ,đập,cống,trạm bơm,giếng khoan,khác)
+        </>
+      ),
+      align: 'left',
+      minWidth: 300
+    },
+
+    {
+      id: '#',
+      label: 'Vị trí',
+      children: [
+        {
+          id: '#',
+          label: 'Xã',
+          elm: (row: any) => (
+            <Typography>
+              {row?.xa?.tenXa}
+            </Typography>
+          ),
+          minWidth: 150
+        },
+        {
+          id: '#',
+          label: 'Huyện',
+          elm: (row: any) => (
+            <Typography>
+              {row?.huyen?.tenHuyen}
+            </Typography>
+          ),
+          minWidth: 150
+        },
+        {
+          id: '#',
+          label: 'Tỉnh',
+          elm: () => (
+            <Typography>
+              Quảng Ngãi
+            </Typography>
+          ),
+          minWidth: 150
+        }
+      ]
+    },
+
+    {
+      id: '#',
+      label: 'Thông số cơ bản',
+      children: [
+        {
+          id: 'A#',
+          label: 'Hồ chứa,đập',
+          children: [
+            {
+              id: 'dungTichToanBo',
+              label: 'Dung tích toàn bộ (triệu m3)',
+              elm: () => (
+                <Typography>
+                  Quảng Ngãi
+                </Typography>
+              )
+            },
+            {
+              id: 'dungTichHuuIch',
+              label: 'Dung tích hữu ích (triệu m3)',
+              elm: () => (
+                <Typography>
+                  Quảng Ngãi
+                </Typography>
+              )
+            },
+            {
+              id: 'congSuatDamBao',
+              label: 'Công suất (MW)	',
+              elm: () => (
+                <Typography>
+                  Quảng Ngãi
+                </Typography>
+              )
+            }
+          ]
+        },
+        {
+          id: '#',
+          label: (
+            <>
+              Giếng khoan và <br /> loại hình khác
+            </>
+          ),
+          children: [
+            {
+              id: 'qThietKe',
+              label: 'Lưu lượng thiết kế(m3/ngày đêm)',
+              elm: () => (
+                <Typography>
+                  Quảng Ngãi
+                </Typography>
+              )
+            },
+            {
+              id: 'qThucTe',
+              label: 'Lưu lượng thực tế (m3/ngày đêm)',
+              elm: () => (
+                <Typography>
+                  Quảng Ngãi
+                </Typography>
+              )
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+  const [data, setData] = useState([])
+  console.log(data);
+  
+  const [loading, setLoading] = useState(false)
+  const [postSuccess, setPostSuccess] = useState(false)
+  const handlePostSuccess = () => {
+    setPostSuccess(prevState => !prevState)
+  }
+
+  useEffect(() => {
+    async function getDataReport1() {
+      setLoading(true)
+      await getData('BieuMauSoHaiMuoi/danhsach')
+        .then(data => {
+          setData(data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }
+
+    getDataReport1()
+  }, [postSuccess])
+
+  // const zoomConstruction = (coords: any) => {
+  //   setMapCenter(coords)
+  //   setMapZoom(13)
+  // }
+  // const handleConsTypeChange = (data: any) => {
+  //   setInitConstype(data);
+  // };
+
   return (
-    <Paper sx={{ p: 8 }}>
-      {/* dautrang */}
-      <Grid container>
-        <Grid md={11}>
-          <Typography variant='h5'>
-            Biểu mẫu số 20. Danh mục các công trình khai thác, sử dụng tài nguyên nước
+    <Grid container spacing={2}>
+      <Grid xs={12} md={12}>
+        <Grid container>
+          <Grid md={11}>
+            <Typography variant='h5'>
+              Biểu mẫu số 20. Danh mục các công trình khai thác, sử dụng tài nguyên nước
+            </Typography>
+          </Grid>
+          <Grid md={1}>
+            <IconButton>
+              <DownloadIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
+
+        <HeaderReport />
+
+        <Grid className='_text_center'>
+          <Typography className='font-weight-bold ' variant='h4'>
+            BÁO CÁO
+          </Typography>
+          <Typography className='font-weight-bold ' variant='h6'>
+            Danh mục các công trình khai thác, sử dụng tài nguyên nước
+          </Typography>
+          <Typography className='font-weight-bold ' variant='h6'>
+            (Kỳ báo cáo: <TextField size='small' sx={{ width: '50px' }}></TextField>)
           </Typography>
         </Grid>
-        <Grid md={1}>
-          <IconButton>
-            <DownloadIcon />
-          </IconButton>
-        </Grid>
+        <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
+          <TableComponent
+            columns={columnsTable}
+            rows={data}
+            id='phan_doan_song'
+            loading={loading}
+            pagination
+            actions={(row: any) => (
+              <Box display={'flex'}>
+                <DeleteData url={'du-lieu-nguon-nhan'} data={row} setPostSuccess={handlePostSuccess} />
+              </Box>
+            )}
+          />
+          <FooterReport />
+        </Paper>
       </Grid>
-      <HeaderReport />
-
-      <Grid className='_text_center'>
-        <Typography className='font-weight-bold ' variant='h4'>
-          BÁO CÁO
-        </Typography>
-        <Typography className='font-weight-bold ' variant='h6'>
-          Danh mục các công trình khai thác, sử dụng tài nguyên nước
-        </Typography>
-        <Typography className='font-weight-bold ' variant='h6'>
-          (Kỳ báo cáo: <TextField size='small' sx={{ width: '50px' }}></TextField>)
-        </Typography>
-      </Grid>
-
-      <Grid className='_text_center' sx={{ mt: 3 }}>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-            <TableHead className='tableHead'>
-              <TableRow>
-                <TableCell size='small' align='center' rowSpan={4}>
-                  STT
-                </TableCell>
-                <TableCell size='small' align='center' rowSpan={3}>
-                  Tên công trình
-                </TableCell>
-                <TableCell size='small' align='center' rowSpan={3}>
-                  Loại hình công trình <br />
-                  (hồ,đập,cống,trạm bơm,giếng khoan,khác)
-                </TableCell>
-                <TableCell size='small' align='center' rowSpan={3}>
-                  Nguồn nước khai thác <br /> (hồ,đập,cống,trạm bơm,giếng khoan,khác)
-                </TableCell>
-                <TableCell size='small' align='center' colSpan={3} >
-                  Vị trí
-                </TableCell>
-                <TableCell size='small' align='center' colSpan={5}>
-                  Thông số cơ bản
-                </TableCell>
-              </TableRow>
-
-              <TableRow>
-                <TableCell size='small' align='center' rowSpan={2}>
-                  Xã
-                </TableCell>
-                <TableCell size='small' align='center' rowSpan={2}>
-                  Huyện
-                </TableCell>
-                <TableCell size='small' align='center' rowSpan={2}>
-                  Tỉnh
-                </TableCell>
-
-                <TableCell size='small' align='center' colSpan={3}>
-                  Hồ chứa,đập
-                </TableCell>
-                <TableCell size='small' align='center' colSpan={2}>
-                  Giếng khoan và <br /> loại hình khác
-                </TableCell>
-              </TableRow>
-
-              <TableRow>
-                <TableCell size='small' align='center'>
-                  Dung tích toàn bộ (triệu m3)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  Dung tích hữu ích (triệu m3)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  Công suất (MW)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  Lưu lượng thiết kế(m3/ngày đêm)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  Lưu lượng thực tế (m3/ngày đêm)
-                </TableCell>
-              </TableRow>
-
-              <TableRow>
-                <TableCell size='small' align='center'>
-                  (1)&nbsp;
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (2)&nbsp;
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (3)=(2)-(1)
-                </TableCell>
-
-                <TableCell size='small' align='center'>
-                  (4)&nbsp;
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (5)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (6)
-                </TableCell>
-
-                <TableCell size='small' align='center'>
-                  (7)&nbsp;
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (8)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (9)
-                </TableCell>
-
-                <TableCell size='small' align='center'>
-                  (10)
-                </TableCell>
-                <TableCell size='small' align='center'>
-                  (11)
-                </TableCell>
-              </TableRow>
-            </TableHead>
-
-            <TableBody className='tableBody'>
-              <TableRow>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-                <TableCell className="text-center  size='small' align-middle font-13">1</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
-      <FooterReport />
-    </Paper>
+    </Grid>
   )
 }
 
@@ -182,7 +254,7 @@ const Bieumau20 = () => {
     <DialogControlFullScreen>
       {(openDialogs: (content: React.ReactNode, title: React.ReactNode) => void) => (
         <>
-          <Link className='formReport_box' onClick={() => openDialogs(<FormContruction />, formTitle)}>
+          <Link className='formReport_box' onClick={() => openDialogs(<BieuMauHaiMuoi />, formTitle)}>
             <Grid item xs={8}>
               <Typography className='text-danger text-weight-bold'>Biểu mẫu 20</Typography>
               <Typography className='text-success text-weight-bold _font12'>
