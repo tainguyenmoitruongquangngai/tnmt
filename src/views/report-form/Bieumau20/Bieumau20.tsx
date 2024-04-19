@@ -29,7 +29,7 @@ const BieuMauHaiMuoi = () => {
       minWidth: 300
     },
     {
-      id: '#',
+      id: 'loaiCT',
       label: (
         <>
           Loại hình công trình <br />
@@ -62,7 +62,7 @@ const BieuMauHaiMuoi = () => {
       label: 'Vị trí',
       children: [
         {
-          id: '#',
+          id: 'xa',
           label: 'Xã',
           elm: (row: any) => (
             <Typography>
@@ -72,7 +72,7 @@ const BieuMauHaiMuoi = () => {
           minWidth: 150
         },
         {
-          id: '#',
+          id: 'huyen',
           label: 'Huyện',
           elm: (row: any) => (
             <Typography>
@@ -82,7 +82,7 @@ const BieuMauHaiMuoi = () => {
           minWidth: 150
         },
         {
-          id: '#',
+          id: 'tinh',
           label: 'Tỉnh',
           elm: () => (
             <Typography>
@@ -99,7 +99,7 @@ const BieuMauHaiMuoi = () => {
       label: 'Thông số cơ bản',
       children: [
         {
-          id: 'A#',
+          id: '#',
           label: 'Hồ chứa,đập',
           children: [
             {
@@ -107,7 +107,7 @@ const BieuMauHaiMuoi = () => {
               label: 'Dung tích toàn bộ (triệu m3)',
               elm: () => (
                 <Typography>
-                  Quảng Ngãi
+                  Dung tích toàn bộ
                 </Typography>
               )
             },
@@ -116,7 +116,7 @@ const BieuMauHaiMuoi = () => {
               label: 'Dung tích hữu ích (triệu m3)',
               elm: () => (
                 <Typography>
-                  Quảng Ngãi
+                  Dung tích hữu ích
                 </Typography>
               )
             },
@@ -164,8 +164,7 @@ const BieuMauHaiMuoi = () => {
   ]
 
   const [data, setData] = useState([])
-  console.log(data);
-  
+
   const [loading, setLoading] = useState(false)
   const [postSuccess, setPostSuccess] = useState(false)
   const handlePostSuccess = () => {
@@ -235,8 +234,10 @@ const BieuMauHaiMuoi = () => {
             loading={loading}
             pagination
             actions={(row: any) => (
-              <Box display={'flex'}>
-                <DeleteData url={'du-lieu-nguon-nhan'} data={row} setPostSuccess={handlePostSuccess} />
+              <Box display={'none'}>
+
+                {row ? null : null}
+                <DeleteData url={'BieuMauSoHaiMuoi'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />

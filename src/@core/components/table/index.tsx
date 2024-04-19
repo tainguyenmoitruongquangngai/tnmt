@@ -87,7 +87,7 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
       </TableContainer>
       {pagination ? (
         <TablePagination
-          rowsPerPageOptions={[10, 25, 50]}
+          rowsPerPageOptions={[10, 25, 50, rows?.length]}
           component='div'
           count={rows?.length}
           rowsPerPage={rowsPerPage}
