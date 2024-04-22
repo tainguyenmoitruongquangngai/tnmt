@@ -53,7 +53,6 @@ function exportTableToExcel(tableId: string, filename: string) {
     XLSX.writeFile(wb, filename);
 }
 
-
 const ExportTableToExcel = ({ tableId, filename }: any) => {
 
     const handleExport = () => {

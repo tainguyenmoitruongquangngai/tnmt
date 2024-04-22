@@ -3,28 +3,22 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 //MUI Imports
-//import { Box, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
-import DownloadIcon from '@mui/icons-material/Download'
 import { getData } from 'src/api/axios'
-import { Box, Grid, IconButton, Link, Paper, TextField, Typography } from '@mui/material'
+import { Box, Grid, Link, Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
 import DialogControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 import HeaderReport from '../HeaderReport'
 import FooterReport from '../FooterReport'
+import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
 const BieuMauHaiMuoi = () => {
-  //Init columnTable
-
-  // const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
-  // const [mapZoom, setMapZoom] = useState(9)
-  // const [showLabel, setShowLabel] = useState(false)
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT' },
     {
       id: 'tenCT',
       label: 'Tên công trình',
+      pinned: 'left',
       align: 'left',
       minWidth: 300
     },
@@ -33,11 +27,11 @@ const BieuMauHaiMuoi = () => {
       label: (
         <>
           Loại hình công trình <br />
-          (hồ,đập,cống,trạm bơm,giếng khoan,khác)
+          (hồ, đập, cống, <br />trạm bơm, giếng khoan,khác)
         </>
       ),
       align: 'left',
-      minWidth: 300,
+      minWidth: 200,
       elm: (row: any) => (
         <Typography>
           {row?.loaiCT.tenLoaiCT}
@@ -50,7 +44,7 @@ const BieuMauHaiMuoi = () => {
         <>
           Nguồn nước khai thác
           <br />
-          (hồ,đập,cống,trạm bơm,giếng khoan,khác)
+          (hồ, đập, cống, trạm bơm, giếng khoan, khác)
         </>
       ),
       align: 'left',
@@ -69,7 +63,7 @@ const BieuMauHaiMuoi = () => {
               {row?.xa?.tenXa}
             </Typography>
           ),
-          minWidth: 150
+          minWidth: 200
         },
         {
           id: 'huyen',
@@ -79,7 +73,7 @@ const BieuMauHaiMuoi = () => {
               {row?.huyen?.tenHuyen}
             </Typography>
           ),
-          minWidth: 150
+          minWidth: 200
         },
         {
           id: 'tinh',
@@ -89,7 +83,7 @@ const BieuMauHaiMuoi = () => {
               Quảng Ngãi
             </Typography>
           ),
-          minWidth: 150
+          minWidth: 200
         }
       ]
     },
@@ -105,28 +99,28 @@ const BieuMauHaiMuoi = () => {
             {
               id: 'dungTichToanBo',
               label: 'Dung tích toàn bộ (triệu m3)',
-              elm: () => (
+              elm: (row: any) => (
                 <Typography>
-                  Dung tích toàn bộ
-                </Typography>
+                  {row?.thongso?.dungTichToanBo}
+                </Typography >
               )
             },
             {
               id: 'dungTichHuuIch',
               label: 'Dung tích hữu ích (triệu m3)',
-              elm: () => (
+              elm: (row: any) => (
                 <Typography>
-                  Dung tích hữu ích
-                </Typography>
+                  {row?.thongso?.dungTichHuuIch}
+                </Typography >
               )
             },
             {
               id: 'congSuatDamBao',
               label: 'Công suất (MW)	',
-              elm: () => (
+              elm: (row: any) => (
                 <Typography>
-                  Quảng Ngãi
-                </Typography>
+                  {row?.thongso?.congSuatDamBao}
+                </Typography >
               )
             }
           ]
@@ -135,26 +129,26 @@ const BieuMauHaiMuoi = () => {
           id: '#',
           label: (
             <>
-              Giếng khoan và <br /> loại hình khác
+              Giếng khoan và loại hình khác
             </>
           ),
           children: [
             {
               id: 'qThietKe',
               label: 'Lưu lượng thiết kế(m3/ngày đêm)',
-              elm: () => (
+              elm: (row: any) => (
                 <Typography>
-                  Quảng Ngãi
-                </Typography>
+                  {row?.thongso?.qThietKe}
+                </Typography >
               )
             },
             {
               id: 'qThucTe',
               label: 'Lưu lượng thực tế (m3/ngày đêm)',
-              elm: () => (
+              elm: (row: any) => (
                 <Typography>
-                  Quảng Ngãi
-                </Typography>
+                  {row?.thongso?.qThucTe}
+                </Typography >
               )
             }
           ]
@@ -189,50 +183,19 @@ const BieuMauHaiMuoi = () => {
     getDataReport1()
   }, [postSuccess])
 
-  // const zoomConstruction = (coords: any) => {
-  //   setMapCenter(coords)
-  //   setMapZoom(13)
-  // }
-  // const handleConsTypeChange = (data: any) => {
-  //   setInitConstype(data);
-  // };
-
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={12}>
-        <Grid container>
-          <Grid md={11}>
-            <Typography variant='h5'>
-              Biểu mẫu số 20. Danh mục các công trình khai thác, sử dụng tài nguyên nước
-            </Typography>
-          </Grid>
-          <Grid md={1}>
-            <IconButton>
-              <DownloadIcon />
-            </IconButton>
-          </Grid>
-        </Grid>
 
         <HeaderReport />
 
-        <Grid className='_text_center'>
-          <Typography className='font-weight-bold ' variant='h4'>
-            BÁO CÁO
-          </Typography>
-          <Typography className='font-weight-bold ' variant='h6'>
-            Danh mục các công trình khai thác, sử dụng tài nguyên nước
-          </Typography>
-          <Typography className='font-weight-bold ' variant='h6'>
-            (Kỳ báo cáo: <TextField size='small' sx={{ width: '50px' }}></TextField>)
-          </Typography>
-        </Grid>
-        <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
+        <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
+          <Box sx={{ width: 'max-content' }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'danh-muc-ct-ktsd-tnn.xlsx'} /></Box>
           <TableComponent
             columns={columnsTable}
             rows={data}
-            id='phan_doan_song'
+            id='danh-muc-ct-ktsd-tnn'
             loading={loading}
-            pagination
             actions={(row: any) => (
               <Box display={'none'}>
 

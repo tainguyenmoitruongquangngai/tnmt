@@ -194,7 +194,7 @@ const Bieumau6A = () => {
             <Grid item xs={8}>
               <Typography className='text-danger text-weight-bold'>Biểu mẫu 6A</Typography>
               <Typography className='text-success text-weight-bold _font12'>
-                Tổng dung tích các hồ chứa thủy lợi
+                Tổng dung tích các hồ chứa thủy điện
               </Typography>
             </Grid>
             <Grid item xs={4}>

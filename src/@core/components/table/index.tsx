@@ -80,9 +80,9 @@ const TableComponent: FC<TableProps> = (props: TableProps) => {
   ) : (
     <Paper>
       <TableContainer style={{ borderRadius: 4 }}>
-        <Table className='mainTable' id={id}>
+        <Table className={`mainTable`} id={id} >
           {renderTableHead(tableColumns)}
-          {renderTableBody(tableColumns, rows, actions || null, page, rowsPerPage)}
+          {renderTableBody(tableColumns, rows, actions || null, page, pagination ? rowsPerPage : rows?.length)}
         </Table>
       </TableContainer>
       {pagination ? (

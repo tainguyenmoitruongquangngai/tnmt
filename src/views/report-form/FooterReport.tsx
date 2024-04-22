@@ -10,7 +10,7 @@ const FooterReport = () => {
       </Grid>
 
       <Grid>
-        <Typography className='font-weight-bold' variant='h6'>
+        <Typography className='font-weight-bold'>
           Người thống kê
         </Typography>
       </Grid>
