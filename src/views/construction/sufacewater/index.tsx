@@ -36,7 +36,6 @@ const SurfaceConstruction = () => {
   const [resData, setResData] = useState([])
   const [dataFiltered, setDataFiltered] = useState([])
   const [loading, setLoading] = useState(false)
-
   const router = useRouter()
 
   const columnsTable: TableColumn[] = [
@@ -74,7 +73,7 @@ const SurfaceConstruction = () => {
     { id: 'nguonNuocKT', label: 'Nguồn nước khai thác', rowspan: 2, align: 'left', minWidth: 200 },
     { id: 'phuongThucKT', label: 'Phương thức khai thác', rowspan: 2, align: 'left', minWidth: 600 },
     { id: 'cheDoKT', label: 'Chế độ khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row?.thongso?.cheDoKT}</span>) },
-    { id: 'mucDichKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row?.thongso?.mucDichKT}</span>) },
+    { id: 'mucDichKT', label: 'Mục đích khai thác', rowspan: 2, align: 'left', minWidth: 200, elm: (row: any) => (<span>{row?.mucDichKT}</span>) },
     { id: 'namBatDauVanHanh', label: 'Năm vận hành', rowspan: 2, align: 'left' },
     { id: 'tieuvung_quyhoach', label: 'Tiểu vùng quy hoạch', rowspan: 2, align: 'left', minWidth: 150 },
     {
@@ -82,8 +81,8 @@ const SurfaceConstruction = () => {
       label: 'Thông số công trình',
       align: 'left',
       children: [
-        { id: 'capCT', label: 'Cấp công trình', align: 'left', },
-        { id: 'dienTichLuuVuc', label: 'Diện tích lưu vực', align: 'left' },
+        { id: 'capCT', label: 'Cấp công trình', align: 'left', elm: (row: any) => row?.thongso?.capCT },
+        { id: 'dienTichLuuVuc', label: 'Diện tích lưu vực', align: 'left', elm: (row: any) => row?.thongso?.dienTichLuuVuc },
         {
           id: 'muaTrungBinhNam',
           label: (
@@ -91,8 +90,7 @@ const SurfaceConstruction = () => {
               X <sub>TB năm</sub> (m)
             </span>
           ),
-
-
+          elm: (row: any) => row?.thongso?.muaTrungBinhNam,
           align: 'left'
         },
         {
@@ -102,13 +100,14 @@ const SurfaceConstruction = () => {
               Q <sub>TB năm</sub>(m3/s)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qTrungBinhNam,
           align: 'left'
         },
-        { id: 'congSuatLM', label: 'Công suất lắp máy', align: 'left' },
-        { id: 'congSuatDamBao', label: 'Công suất đảm bảo', align: 'left' },
-        { id: 'chieuCaoDap', label: 'Chiều cao đập', align: 'left' },
-        { id: 'chieuDaiDap', label: 'Chiều dài đập', align: 'left' },
-        { id: 'caoTrinhDap', label: 'Cao trình đập', align: 'left' },
+        { id: 'congSuatLM', label: 'Công suất lắp máy', align: 'left', elm: (row: any) => row?.thongso?.congSuatLM, },
+        { id: 'congSuatDamBao', label: 'Công suất đảm bảo', align: 'left', elm: (row: any) => row?.thongso?.congSuatDamBao, },
+        { id: 'chieuCaoDap', label: 'Chiều cao đập', align: 'left', elm: (row: any) => row?.thongso?.chieuCaoDap, },
+        { id: 'chieuDaiDap', label: 'Chiều dài đập', align: 'left', elm: (row: any) => row?.thongso?.chieuDaiDap, },
+        { id: 'caoTrinhDap', label: 'Cao trình đập', align: 'left', elm: (row: any) => row?.thongso?.caoTrinhDap, },
         {
           id: 'qmaxNM',
           label: (
@@ -116,6 +115,7 @@ const SurfaceConstruction = () => {
               Q<sub>max</sub>(m<sup>3</sup>/s)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qmaxNM,
           align: 'left'
         },
         {
@@ -125,6 +125,7 @@ const SurfaceConstruction = () => {
               Q<sub>TT</sub>(m<sup>3</sup>/s)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qtt,
           align: 'left'
         },
         {
@@ -134,6 +135,7 @@ const SurfaceConstruction = () => {
               Q<sub>đảm bảo</sub>(m<sup>3</sup>/s)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qDamBao,
           align: 'left'
         },
         {
@@ -143,6 +145,7 @@ const SurfaceConstruction = () => {
               H<sub>max</sub> (m)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.hmax,
           align: 'left'
         },
         {
@@ -152,6 +155,7 @@ const SurfaceConstruction = () => {
               H<sub>min</sub> (m)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.hmin,
           align: 'left'
         },
         {
@@ -161,12 +165,13 @@ const SurfaceConstruction = () => {
               H<sub>TT</sub> (m)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.htoiThieu,
           align: 'left'
         },
-        { id: 'mnc', label: 'MNC', align: 'left' },
-        { id: 'mndbt', label: 'MNDBT(m)', align: 'left' },
-        { id: 'mnltk', label: 'MNLTK(m)', align: 'left' },
-        { id: 'mnlkt', label: 'MNLKT(m)', align: 'left' },
+        { id: 'mnc', label: 'MNC', align: 'left', elm: (row: any) => row?.thongso?.mnc, },
+        { id: 'mndbt', label: 'MNDBT(m)', align: 'left', elm: (row: any) => row?.thongso?.mndbt, },
+        { id: 'mnltk', label: 'MNLTK(m)', align: 'left', elm: (row: any) => row?.thongso?.mnltk, },
+        { id: 'mnlkt', label: 'MNLKT(m)', align: 'left', elm: (row: any) => row?.thongso?.mnlkt, },
         {
           id: 'dungTichToanBo',
           label: (
@@ -174,6 +179,7 @@ const SurfaceConstruction = () => {
               W<sub>toàn bộ</sub>(triệu m<sup>3</sup>)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.dungTichToanBo,
           align: 'left'
         },
         {
@@ -183,6 +189,7 @@ const SurfaceConstruction = () => {
               W<sub> chết </sub>(triệu m<sup>3</sup>)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.dungTichChet,
           align: 'left'
         },
         {
@@ -192,13 +199,13 @@ const SurfaceConstruction = () => {
               W<sub>hữu ích</sub>(triệu m<sup>3</sup>)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.dungTichHuuIch,
           align: 'left'
         },
         {
           id: 'soLuongMayBom',
           label: 'Số máy bơm',
-
-
+          elm: (row: any) => row?.thongso?.soLuongMayBom,
           align: 'left'
         },
         {
@@ -208,6 +215,7 @@ const SurfaceConstruction = () => {
               Q<sub>TK</sub> (m<sup>3</sup>/h)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qThietKe,
           align: 'left'
         },
         {
@@ -217,6 +225,7 @@ const SurfaceConstruction = () => {
               Q<sub>TT</sub> (m<sup>3</sup>/h)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qThucTe,
           align: 'left'
         },
         {
@@ -226,6 +235,7 @@ const SurfaceConstruction = () => {
               F<sub>tưới TK</sub> (ha)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.dienTichTuoiThietKe,
           align: 'left'
         },
         {
@@ -235,6 +245,7 @@ const SurfaceConstruction = () => {
               F<sub>tưới TT</sub> (ha)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.dienTichTuoiThucTe,
           align: 'left'
         },
         {
@@ -244,6 +255,7 @@ const SurfaceConstruction = () => {
               T<sub>bơm TB</sub>(h)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.thoiGianBomTB,
           align: 'left'
         },
         {
@@ -253,6 +265,7 @@ const SurfaceConstruction = () => {
               T<sub>bơm min</sub>(h)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.thoiGianBomNhoNhat,
           align: 'left'
         },
         {
@@ -262,6 +275,7 @@ const SurfaceConstruction = () => {
               T<sub>bơm max</sub>(h)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.thoiGianBomLonNhat,
           align: 'left'
         }
       ]
@@ -277,11 +291,31 @@ const SurfaceConstruction = () => {
           id: 'soGP',
           label: 'Số GP',
           align: 'left',
-          pinned: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row?.soGP} src={row?.fileGiayPhep} />
+          elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep.map((e: any) => (
+                <div key={e.id}>
+                  <ShowFilePDF
+                    name={e?.soGP}
+                    src={e?.fileGiayPhep}
+                  />
+                </div>
+              ))}
+            </div>
+          )
         },
-        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row?.thoiHan }
+        {
+          id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                <div key={e.id}>
+                  {FormatDate(e.ngayKy)}
+                </div>
+              ))}
+            </div>
+          )
+        }
       ]
     },
     {
@@ -294,14 +328,51 @@ const SurfaceConstruction = () => {
           label: 'Số QĐ',
           align: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
+          elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    <ShowFilePDF
+                      name={c?.soQDTCQ}
+                      src={c?.filePDF}
+                    />
+                  </div>
+                ))
+              ))}
+            </div>
+          )
         },
-        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row?.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row?.tongTienCQ }
+        {
+          id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    {FormatDate(c.ngayKy)}
+                  </div>
+                ))
+              ))}
+            </div>
+          )
+        },
+        {
+          id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    {c.tongTienCQ}
+                  </div>
+                ))
+              ))}
+            </div>
+          )
+        }
       ]
     },
 
-    { id: 'actions', label: '#', rowspan: 2, align: 'center', pinned: 'right' }
+    { id: 'actions', label: '#', align: 'center', pinned: 'right' }
   ]
 
   const [paramsFilter, setParamsFilter] = useState({

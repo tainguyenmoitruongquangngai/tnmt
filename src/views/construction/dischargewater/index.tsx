@@ -85,7 +85,8 @@ const DischargeConstruction = () => {
               Q<sub>xả trung bình</sub> (m<sup>3</sup>/ngày đêm){' '}
             </span>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => row?.thongso?.qXaThaiTB,
         },
         {
           id: 'qXaThaiLonNhat',
@@ -94,12 +95,14 @@ const DischargeConstruction = () => {
               Q<sub>xả lớn nhất</sub> (m<sup>3</sup>/ngày đêm)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qXaThaiLonNhat,
           align: 'left'
         },
 
         {
           id: 'kqKf',
           label: 'Chất lượng nước thải (hệ số Kq và Kf)',
+          elm: (row: any) => row?.thongso?.kqKf,
           align: 'left'
         },
 
@@ -116,11 +119,31 @@ const DischargeConstruction = () => {
           id: 'soGP',
           label: 'Số GP',
           align: 'left',
-          pinned: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />
+          elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep.map((e: any) => (
+                <div key={e.id}>
+                  <ShowFilePDF
+                    name={e?.soGP}
+                    src={e?.fileGiayPhep}
+                  />
+                </div>
+              ))}
+            </div>
+          )
         },
-        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row.thoiHan }
+        {
+          id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                <div key={e.id}>
+                  {FormatDate(e.ngayKy)}
+                </div>
+              ))}
+            </div>
+          )
+        }
       ]
     },
     {
@@ -133,10 +156,47 @@ const DischargeConstruction = () => {
           label: 'Số QĐ',
           align: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
+          elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    <ShowFilePDF
+                      name={c?.soQDTCQ}
+                      src={c?.filePDF}
+                    />
+                  </div>
+                ))
+              ))}
+            </div>
+          )
         },
-        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row.tongTienCQ }
+        {
+          id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    {FormatDate(c.ngayKy)}
+                  </div>
+                ))
+              ))}
+            </div>
+          )
+        },
+        {
+          id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    {c.tongTienCQ}
+                  </div>
+                ))
+              ))}
+            </div>
+          )
+        }
       ]
     },
 

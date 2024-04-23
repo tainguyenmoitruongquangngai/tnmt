@@ -69,17 +69,17 @@ const GroundConstruction = () => {
       )
     },
     { id: 'mucDichKT', label: 'Mục đích khai thác', align: 'left', minWidth: 300 },
-    { id: 'soLuongGiengKT', label: 'Số giếng khai thác', align: 'left' },
-    { id: 'cheDoKT', label: 'Chế độ khai thác', align: 'left', minWidth: 300 },
-    { id: 'namBatDauVanHanh', label: 'Năm vận hành', align: 'left' },
-    { id: 'sohieu', label: 'Số hiệu', align: 'left' },
+    { id: 'soLuongGiengKT', label: 'Số giếng khai thác', align: 'left', elm: (row: any) => row?.thongso?.soLuongGiengKT, },
+    { id: 'cheDoKT', label: 'Chế độ khai thác', align: 'left', minWidth: 300, elm: (row: any) => row?.thongso?.cheDoKT, },
+    { id: 'namBatDauVanHanh', label: 'Năm vận hành', align: 'left', elm: (row: any) => row?.thongso?.namBatDauVanHanh, },
+    { id: 'sohieu', label: 'Số hiệu', align: 'left', elm: (row: any) => row?.thongso?.sohieu,},
     { id: 'thoiGianHNK', label: 'Thời gian hành nghề khoan', align: 'left' },
     {
       id: '#',
       label: 'Chiều sâu đoạn thu nước từ',
       children: [
-        { id: 'chieuSauDoanThuNuocTu', label: 'Từ', align: 'left' },
-        { id: 'chieuSauDoanThuNuocDen', label: 'Đến', align: 'left' },
+        { id: 'chieuSauDoanThuNuocTu', label: 'Từ', align: 'left', elm: (row: any) => row?.thongso?.chieuSauDoanThuNuocTu, },
+        { id: 'chieuSauDoanThuNuocDen', label: 'Đến', align: 'left', elm: (row: any) => row?.thongso?.chieuSauDoanThuNuocDen, },
       ]
     },
     {
@@ -95,6 +95,7 @@ const GroundConstruction = () => {
               Q<sub>khai thác</sub> (m<sup>3</sup>/ng.đêm)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qKhaiThac,
           align: 'left'
         },
         {
@@ -104,6 +105,7 @@ const GroundConstruction = () => {
               H<sub>giếng khai thác</sub>
             </span>
           ),
+          elm: (row: any) => row?.thongso?.hGiengKT,
           align: 'left'
         },
 
@@ -114,6 +116,7 @@ const GroundConstruction = () => {
               H<sub>giếng quan trắc</sub>
             </span>
           ),
+          elm: (row: any) => row?.thongso?.hgieng,
           align: 'left'
         },
         {
@@ -123,31 +126,37 @@ const GroundConstruction = () => {
               Q<sub>TT</sub>(m<sup>3</sup>/s)
             </span>
           ),
+          elm: (row: any) => row?.thongso?.qtt,
           align: 'left'
         },
         {
           id: 'cheDoKT',
           label: 'Chế độ KT (giờ/ng.đêm)',
+          elm: (row: any) => row?.thongso?.cheDoKT,
           align: 'left'
         },
         {
           id: 'mucNuocTinh',
           label: 'Chiều sâu MN tĩnh(m)',
+          elm: (row: any) => row?.thongso?.mucNuocTinh,
           align: 'left'
         },
         {
           id: 'mucNuocDong',
           label: 'Chiều sâu MN động (m)',
+          elm: (row: any) => row?.thongso?.mucNuocDong,
           align: 'left'
         },
         {
           id: 'tangChuaNuocKT',
           label: 'Tầng chứa nước KT',
+          elm: (row: any) => row?.thongso?.tangChuaNuocKT,
           align: 'left'
         },
         {
           id: 'hHaThap',
           label: 'Mực nước hạ thấp',
+          elm: (row: any) => row?.thongso?.hHaThap,
           align: 'left'
         },
       ]
@@ -164,9 +173,30 @@ const GroundConstruction = () => {
           label: 'Số GP',
           align: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row?.soGP} src={row?.fileGiayPhep} />
+          elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep.map((e: any) => (
+                <div key={e.id}>
+                  <ShowFilePDF
+                    name={e?.soGP}
+                    src={e?.fileGiayPhep}
+                  />
+                </div>
+              ))}
+            </div>
+          )
         },
-        { id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => row?.thoiHan }
+        {
+          id: 'thoihan', label: 'Thời hạn', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                <div key={e.id}>
+                  {FormatDate(e.ngayKy)}
+                </div>
+              ))}
+            </div>
+          )
+        }
       ]
     },
     {
@@ -179,10 +209,47 @@ const GroundConstruction = () => {
           label: 'Số QĐ',
           align: 'left',
           minWidth: 200,
-          elm: (row: any) => <ShowFilePDF name={row?.soQDTCQ} src={row?.filePDF} />
+          elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    <ShowFilePDF
+                      name={c?.soQDTCQ}
+                      src={c?.filePDF}
+                    />
+                  </div>
+                ))
+              ))}
+            </div>
+          )
         },
-        { id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => FormatDate(row?.ngayKy) },
-        { id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => row?.tongTienCQ }
+        {
+          id: 'ngayKy', label: 'Ngày ký', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    {FormatDate(c.ngayKy)}
+                  </div>
+                ))
+              ))}
+            </div>
+          )
+        },
+        {
+          id: 'tongTienCQ', label: 'Tổng tiền', align: 'left', minWidth: 150, elm: (row: any) => (
+            <div style={{ width: '100%' }}>
+              {row.giayphep?.map((e: any) => (
+                e.tiencq.map((c: any) => (
+                  <div key={c.id}>
+                    {c.tongTienCQ}
+                  </div>
+                ))
+              ))}
+            </div>
+          )
+        }
       ]
     },
     { id: 'actions', label: '#', align: 'center', pinned: 'right' }

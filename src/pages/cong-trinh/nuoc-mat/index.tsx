@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
 import Error401 from "src/pages/401";
-import SurfaceWater from "src/views/construction/groundwater"
+import SurfaceConstruction from 'src/views/construction/sufacewater';
 
-const GroundWater = () => {
+const SurfaceWaterPages = () => {
     const router = useRouter();
     const routePath = router.pathname; // Use router.pathname to get the current pathname
 
@@ -25,7 +25,7 @@ const GroundWater = () => {
     }, [])
 
     // Use routeSegment in your conditional rendering
-    return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <SurfaceWater /> : <Error401 />;
+    return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <SurfaceConstruction /> : <Error401 />;
 }
 
-export default GroundWater
+export default SurfaceWaterPages
