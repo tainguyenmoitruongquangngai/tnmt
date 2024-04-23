@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { EditNote, PersonAddAlt, Save } from '@mui/icons-material'
-import { Grid, Button, DialogActions, IconButton, Typography, TextField, CircularProgress } from '@mui/material'
+import { Add, EditNote, Save } from '@mui/icons-material'
+import { Grid, Button, DialogActions, TextField, CircularProgress } from '@mui/material'
 import DialogsControl from 'src/@core/components/dialog-control'
 import { saveData } from 'src/api/axios'
 
@@ -343,15 +343,15 @@ const CreateNN_AoHoKhongSanLap = ({ data, setPostSuccess, isEdit }: any) => {
               }
             />
           ) : (
-            <IconButton
-              aria-label='add user'
+            <Button
+              variant='outlined' size='small' fullWidth sx={{ borderRadius: 0 }}
+              startIcon={<Add />}
               onClick={() =>
-                openDialogs(<Form setPostSuccess={setPostSuccess} closeDialogs={closeDialogs} />, formTitle)
+                openDialogs(<Form data={data} closeDialogs={closeDialogs} setPostSuccess={setPostSuccess} />, formTitle)
               }
             >
-              <PersonAddAlt sx={{ mr: 2 }} />
-              <Typography>Thêm mới</Typography>
-            </IconButton>
+              Thêm
+            </Button>
           )}
         </>
       )}
