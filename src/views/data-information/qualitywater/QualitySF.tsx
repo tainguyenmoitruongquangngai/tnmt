@@ -1,4 +1,4 @@
-import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp, Replay, Search } from '@mui/icons-material'
+import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp, Search } from '@mui/icons-material'
 import {
   Box,
   Button,
@@ -14,12 +14,12 @@ import { getData } from 'src/api/axios'
 
 import dynamic from 'next/dynamic'
 import BoxLoading from 'src/@core/components/box-loading'
-import CreateNN_AoKhongSanLap from '../create-form/CreateNN_AoHoKhongSanLap'
 import DeleteData from 'src/@core/components/delete-data'
 import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import dayjs from 'dayjs'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import CreateCL_NuocMat from '../create-form/CreateCL_NuowcMat'
 
 //khai bao map
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
@@ -263,7 +263,7 @@ const QualitySuface = () => {
       ]
     },
     {
-      align: 'center', id: 'actions', label: '#', minWidth: 70,
+      align: 'center', id: 'actions', label: '#',
     }
   ]
 
@@ -282,8 +282,7 @@ const QualitySuface = () => {
 
   return (
     <Paper sx={{ p: 8 }}>
-
-      <Grid xs={12} md={12} sx={{ height: 'calc(50vh - 82px)' }}>
+      <Grid sx={{ height: 'calc(50vh - 82px)' }}>
         <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
           <Button
             className='toggle-legend'
@@ -294,87 +293,79 @@ const QualitySuface = () => {
           >
             {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
           </Button>
-          <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={null} loading={false} />
+          <Map center={mapCenter} zoom={mapZoom} showLabel={false} mapData={data} loading={false} />
         </Paper>
       </Grid>
       <Grid className='_text_center'>
 
       </Grid>
-      {loading ? (
-        <BoxLoading />
-      ) : (
-        <Grid className='_text_center' sx={{ mt: 3 }}>
-          <Toolbar variant='dense'>
-            <Grid container spacing={2} sx={{ paddingY: 3 }} className='_flexEnd '>
-              <Grid item xs={12} md={2} py={0}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
-                    label='Từ năm'
-                    views={["year"]}
-                    value={dayjs(new Date(paramsFilter.tu_nam, 1, 1))}
-                    onChange={(newVal: any) => handleChange(newVal.year())('tu_nam')}
-                    slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
-                  />
-                </LocalizationProvider>
+      {
+        loading ? (
+          <BoxLoading />
+        ) : (
+          <Grid className='_text_center' sx={{ mt: 3 }}>
+            <Toolbar variant='dense'>
+              <Grid container spacing={2} sx={{ paddingY: 3 }} className='_flexEnd '>
+                <Grid item xs={12} md={2} py={0}>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                      label='Từ năm'
+                      views={["year"]}
+                      value={dayjs(new Date(paramsFilter.tu_nam, 1, 1))}
+                      onChange={(newVal: any) => handleChange(newVal.year())('tu_nam')}
+                      slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
+                    />
+                  </LocalizationProvider>
+                </Grid>
+                <Grid item xs={12} md={2} py={0}>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                      label='Đến năm'
+                      views={["year"]}
+                      value={dayjs(new Date(paramsFilter.den_nam, 1, 1))}
+                      onChange={(newVal: any) => handleChange(newVal.year())('den_nam')}
+                      slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
+                    />
+                  </LocalizationProvider>
+                </Grid>
+                <Grid item xs={6} md={1.5} py={0}>
+                  <Button
+                    variant='outlined'
+                    size='small'
+                    fullWidth
+                    sx={{ borderRadius: 0 }}
+                    startIcon={<Search />}
+                  >
+                    Tìm kiếm
+                  </Button>
+                </Grid>
+                <Grid item xs={6} md={1.5} py={0}>
+                  <ExportTableToExcel tableId={'chatluong_nuocmat'} filename={'chatluong_nuocmat'} />
+                </Grid>
+                <Grid item xs={6} md={1.5} py={0}>
+                  <CreateCL_NuocMat isEdit={false} setPostSuccess={handlePostSuccess} />
+                </Grid>
               </Grid>
-              <Grid item xs={12} md={2} py={0}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
-                    label='Đến năm'
-                    views={["year"]}
-                    value={dayjs(new Date(paramsFilter.den_nam, 1, 1))}
-                    onChange={(newVal: any) => handleChange(newVal.year())('den_nam')}
-                    slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
-                  />
-                </LocalizationProvider>
-              </Grid>
-              <Grid item xs={6} md={1.5} py={0}>
-                <Button
-                  variant='outlined'
-                  size='small'
-                  fullWidth
-                  sx={{ borderRadius: 0 }}
-                  startIcon={<Search />}
-                >
-                  Tìm kiếm
-                </Button>
-              </Grid>
-              <Grid item xs={6} md={1.5} py={0}>
-                <Button
-                  variant='outlined'
-                  size='small'
-                  fullWidth
-                  sx={{ borderRadius: 0 }}
-                  startIcon={<Replay />}
-                >
-                  Tải lại
-                </Button>
-              </Grid>
-              <Grid item xs={6} md={1.5} py={0}>
-                <ExportTableToExcel tableId={'cl_nuoc_mat'} filename={'chatluong_nuocmat'} />
-              </Grid>
-              <Grid item xs={6} md={1.5} py={0}>
-                <CreateNN_AoKhongSanLap isEdit={false} setPostSuccess={handlePostSuccess} />
-              </Grid>
-            </Grid>
-          </Toolbar>
-          <TableComponent
-            columns={columnsTable}
-            rows={data}
-            id='cl_nuoc_mat'
-            loading={loading}
-            pagination
-            actions={(row: any) => (
-              <Box >
-                <DeleteData url={'CLN_NuocMat'} data={row} setPostSuccess={handlePostSuccess} />
-              </Box>
-            )}
-          />
-        </Grid>
-      )}
+            </Toolbar>
+            <TableComponent
+              columns={columnsTable}
+              rows={data}
+              id='chatluong_nuocmat'
+              loading={loading}
+              pagination
+              actions={(row: any) => (
+                <Box display={'flex'} justifyContent={'center'} alignItems={'center'} >
+                  <DeleteData url={'CLN_NuocMat'} data={row} setPostSuccess={handlePostSuccess} />
+                  <CreateCL_NuocMat data={row} isEdit={true} setPostSuccess={handlePostSuccess} />
+                </Box>
+              )}
+            />
+          </Grid>
+        )
+      }
 
 
-    </Paper>
+    </Paper >
   )
 }
 

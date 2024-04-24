@@ -1,6 +1,6 @@
 //import { Replay, Search } from '@mui/icons-material'
 import { Button, Grid, TextField, Toolbar } from '@mui/material'
-import CreateNN_AoKhongSanLap from '../create-form/CreateNN_AoHoKhongSanLap'
+import CreateNN_AoKhongSanLap from '../create-form/CreateCL_NuowcMat'
 import { FC, useState } from 'react'
 import ExportToExcel from 'src/@core/components/export-excel'
 import { TableColumn } from 'src/@core/components/table'
