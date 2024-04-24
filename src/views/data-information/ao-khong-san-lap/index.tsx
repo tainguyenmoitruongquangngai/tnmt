@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import BoxLoading from 'src/@core/components/box-loading'
 import dayjs from 'dayjs'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import CreateNN_AoHoKhongSanLap from '../create-form/CreateCL_NuowcMat'
+import CreateNN_AoHoKhongSanLap from '../create-form/CreateCL_NuocMat'
 import DeleteData from 'src/@core/components/delete-data'
 import ToolBar from '../ao-khong-san-lap/toolbar'
 

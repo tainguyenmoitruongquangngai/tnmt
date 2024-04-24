@@ -19,7 +19,7 @@ import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import dayjs from 'dayjs'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import CreateCL_NuocMat from '../create-form/CreateCL_NuowcMat'
+import CreateCL_NuocMat from '../create-form/CreateCL_NuocMat'
 
 //khai bao map
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Add, EditNote, Save } from '@mui/icons-material'
 import { Grid, Button, DialogActions, TextField, CircularProgress, Typography } from '@mui/material'
-import DialogsControl from 'src/@core/components/dialog-control'
 import { saveData } from 'src/api/axios'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 
