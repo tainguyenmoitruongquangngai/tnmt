@@ -85,7 +85,7 @@ const getIcon = (type: any) => {
 				return createIcon('/images/icon/khaithac_nuocbien.png');
 				break;
 			default:
-				return createIcon('/images/icon/thuydien.png');
+				return createIcon('/images/icon/marker.jpg');
 				break;
 		}
 	}
