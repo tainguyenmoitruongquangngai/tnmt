@@ -48,7 +48,7 @@ const QualitySuface = () => {
   useEffect(() => {
     async function getDataNN_LuuVucSong() {
       setLoading(true)
-      await getData(`CLN_NuocMat/danh-sach/${paramsFilter.tu_nam}/${paramsFilter.den_nam}`)
+      await getData(`CLN_NuocMat/danh-sach`, paramsFilter)
 
         .then(data => {
           setData(data)
@@ -70,33 +70,47 @@ const QualitySuface = () => {
       label: 'STT',
     },
     {
-      id: '#',
+      id: 'thoiGianQuanTrac',
       label: (<>Thời gian <br /> quan trắc</>),
       minWidth: 100,
-      children: [{ id: '#', children: [{ id: 'thoiGianQuanTrac', label: '(1)', align: 'left' }] }]
     },
     {
       id: 'luuVucSong',
       label: <>Lưu vực sông <br /> Vùng/Tỉnh</>,
       align: 'left',
       minWidth: 200,
-      children: [{ id: '#', children: [{ id: 'luuVucSong', label: '(2)', align: 'left' }] }]
     },
     {
       id: 'songSuoiHoChua',
       label: <>Sông, suối <br /> hồ chứa</>,
       align: 'left',
       minWidth: 200,
-      children: [{ id: '#', children: [{ id: 'songSuoiHoChua', label: '(3)', align: 'left' }] }]
     },
     {
       id: 'viTriQuanTrac',
       label: <>Vị trí <br /> quan trắc</>,
       align: 'left',
       minWidth: 200,
-      children: [{ id: '#', children: [{ id: 'viTriQuanTrac', label: '(4)', align: 'left' }] }]
     },
-
+    {
+      id: '#',
+      label: (<>Tọa độ quan trắc <br /> (WGS 84)</>),
+      align: 'left',
+      children: [
+        {
+          id: 'x',
+          label: 'Vĩ độ',
+          align: 'left',
+          minWidth: 70,
+        },
+        {
+          id: 'y',
+          label: 'Kinh độ',
+          align: 'left',
+          minWidth: 70,
+        }
+      ]
+    },
     {
       id: '#',
       label: <>Kết quả phân tích <br /> chỉ tiêu pH [-]</>,
@@ -107,21 +121,18 @@ const QualitySuface = () => {
           label: 'Đợt 1',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'phDot1', label: '(5)', align: 'left' }]
         },
         {
           id: 'phDot2',
           label: 'Đợt 2',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'phDot2', label: '(6)', align: 'left' }]
         },
         {
           id: 'phDot3',
           label: 'Đợt 3',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'phDot3', label: '(7)', align: 'left' }]
         },
       ]
     },
@@ -135,21 +146,18 @@ const QualitySuface = () => {
           label: 'Đợt 1',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'boD5Dot1', label: '(8)', align: 'left' }]
         },
         {
           id: 'boD5Dot2',
           label: 'Đợt 2',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'boD5Dot2', label: '(9)', align: 'left' }]
         },
         {
           id: 'boD5Dot3',
           label: 'Đợt 3',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'boD5Dot3', label: '(10)', align: 'left' }]
         },
       ]
     },
@@ -163,21 +171,18 @@ const QualitySuface = () => {
           label: 'Đợt 1',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'codDot1', label: '(11)', align: 'left' }]
         },
         {
           id: 'codDot2',
           label: 'Đợt 2',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'codDot2', label: '(12)', align: 'left' }]
         },
         {
           id: 'codDot3',
           label: 'Đợt 3',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'codDot3', label: '(13)', align: 'left' }]
         },
       ]
     },
@@ -192,21 +197,18 @@ const QualitySuface = () => {
           label: 'Đợt 1',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'doDot1', label: '(14)', align: 'left' }]
         },
         {
           id: 'doDot2',
           label: 'Đợt 2',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'doDot2', label: '(15)', align: 'left' }]
         },
         {
           id: 'doDot3',
           label: 'Đợt 3',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'doDot3', label: '(16)', align: 'left' }]
         },
       ]
     },
@@ -220,21 +222,18 @@ const QualitySuface = () => {
           label: 'Đợt 1',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'photphoDot1', label: '(17)', align: 'left' }]
         },
         {
           id: 'photphoDot2',
           label: 'Đợt 2',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'photphoDot2', label: '(18)', align: 'left' }]
         },
         {
           id: 'photphoDot3',
           label: 'Đợt 3',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'photphoDot3', label: '(19)', align: 'left' }]
         },
       ]
     },
@@ -248,21 +247,18 @@ const QualitySuface = () => {
           label: 'Đợt 1',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'nitoDot1', label: '(20)', align: 'left' }]
         },
         {
           id: 'nitoDot2',
           label: 'Đợt 2',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'nitoDot2', label: '(21)', align: 'left' }]
         },
         {
           id: 'nitoDot3',
           label: 'Đợt 3',
           align: 'left',
           minWidth: 70,
-          children: [{ id: 'nitoDot3', label: '(22)', align: 'left' }]
         },
       ]
     },
@@ -355,7 +351,7 @@ const QualitySuface = () => {
                 </Button>
               </Grid>
               <Grid item xs={6} md={1.5} py={0}>
-                <ExportTableToExcel resData={data} columnsTable={columnsTable} />
+                <ExportTableToExcel tableId={'cl_nuoc_mat'} filename={'chatluong_nuocmat'} />
               </Grid>
               <Grid item xs={6} md={1.5} py={0}>
                 <CreateNN_AoKhongSanLap isEdit={false} setPostSuccess={handlePostSuccess} />
@@ -365,6 +361,7 @@ const QualitySuface = () => {
           <TableComponent
             columns={columnsTable}
             rows={data}
+            id='cl_nuoc_mat'
             loading={loading}
             pagination
             actions={(row: any) => (

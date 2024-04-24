@@ -50,10 +50,14 @@ function exportTableToExcel(tableId: string, filename: string) {
 
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-    XLSX.writeFile(wb, filename);
+    XLSX.writeFile(wb, `${filename}.xlsx`);
 }
 
-const ExportTableToExcel = ({ tableId, filename }: any) => {
+interface ExportTableToExcelProps {
+    tableId: string
+    filename: string
+}
+const ExportTableToExcel = ({ tableId, filename }: ExportTableToExcelProps) => {
 
     const handleExport = () => {
         exportTableToExcel(tableId, filename);
