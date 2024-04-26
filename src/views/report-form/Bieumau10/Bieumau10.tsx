@@ -1,23 +1,16 @@
 import Paper from '@mui/material/Paper'
-import {
-  Grid,
-  TextField,
-  Typography,
-  Link,
-  Box,
-} from '@mui/material'
-import DialogControlFullScreen from 'src/@core/components/dialog-control-full-screen'
+import { Grid, TextField, Typography, Link, Box, } from '@mui/material';
+import DialogControlFullScreen from 'src/@core/components/dialog-control-full-screen';
 import HeaderReport from '../HeaderReport';
 import FooterReport from '../FooterReport';
-import { getData } from 'src/api/axios'
-import { useEffect, useState } from 'react'
-import BoxLoading from 'src/@core/components/box-loading'
-import { Report10State } from './Report10InterFace';
+import { getData } from 'src/api/axios';
+import { useEffect, useState } from 'react';
+import BoxLoading from 'src/@core/components/box-loading';
 import TableComponent, { TableColumn } from 'src/@core/components/table';
 import ExportTableToExcel from 'src/@core/components/export-excel/export-csv';
 
 const FormContruction = () => {
-  const [data, setData] = useState<Report10State[]>([])
+  const [data, setData] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -65,7 +58,7 @@ const FormContruction = () => {
         },
         { id: 'ctThuyDien', label: 'Thủy điện' },
         {
-          id: 'tuoi', label: 'Mục đích khác', children: [
+          id: 'mucdichkhac', label: 'Mục đích khác', children: [
             { id: 'ctMucDichKhacNuocMat', label: 'Nguồn nước mặt' },
             { id: 'ctMucDichKhacNuocDuoiDat', label: 'Nguồn nước dưới đất' }
           ]
@@ -101,7 +94,6 @@ const FormContruction = () => {
             id='bieumau10'
             rows={data}
             loading={loading}
-            pagination
             actions={() => (
               <Box >
               </Box>
