@@ -45,13 +45,13 @@ const NN_NguonNuoc_AoHoDamPha = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
+      
     },
     {
       id: 'tenHoChua',
       label: 'Tên hồ chứa',
       align: 'left',
-      rowspan: 2,
+     
       minWidth: 100,
       children: [
         {
@@ -64,7 +64,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'nguonNuoc',
       label: 'Nguồn nước',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#2',
@@ -76,7 +76,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#3',
@@ -88,7 +88,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'dienTichMatNuoc',
       label: 'Diện tích mặt nước (km2)',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#4',
@@ -100,7 +100,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'xaPhuongTT',
       label: 'Xã phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#5',
@@ -112,7 +112,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#6',
@@ -124,7 +124,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'dungTichToanBo',
       label: 'Dung tích toàn bộ (triệu m3)',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#7',
@@ -136,7 +136,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'dungTichHuuIch',
       label: 'Dung tích hữu ích',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#8',
@@ -148,7 +148,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'dungTichPhongLu',
       label: 'Dung tích phòng lũ',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#9',
@@ -160,7 +160,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'mndbt',
       label: 'Mực nước dâng bình thường',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#10',
@@ -172,7 +172,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'mnc',
       label: 'Mực nước chết',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#11',
@@ -184,7 +184,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'namXayDung',
       label: 'Năm xây dựng',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#12',
@@ -196,7 +196,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'donViQuanLyVanHanh',
       label: 'Đơn vị quản lý vận hành',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#13',
@@ -208,7 +208,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'phamViHanhLang',
       label: 'Phạm vi hành lang',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#14',
@@ -220,7 +220,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
       id: 'thuocDienCamMocHanhLang',
       label: 'Thuộc diện cắm mốc hành lang',
       align: 'left',
-      rowspan: 2,
+     
       children: [
         {
           id: '#15',
@@ -228,7 +228,7 @@ const NN_NguonNuoc_AoHoDamPha = () => {
         }
       ]
     },
-    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
+    {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150,  }
   ]
 
   return (
