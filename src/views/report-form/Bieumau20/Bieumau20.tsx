@@ -190,7 +190,7 @@ const BieuMauHaiMuoi = () => {
         <HeaderReport />
 
         <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
-          <Box sx={{ width: 'max-content' }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'danh-muc-ct-ktsd-tnn.xlsx'} /></Box>
+          <Box sx={{ width: 'max-content',p:3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'bieumau11.xlsx'} /></Box>
           <TableComponent
             columns={columnsTable}
             rows={data}
