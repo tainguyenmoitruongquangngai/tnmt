@@ -406,7 +406,7 @@ const DischargeConstruction = () => {
     <Grid container spacing={2}>
       <Grid xs={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
         <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
-          <Box className='map-legend' sx={{ background: 'white', pl: 2 }}>
+          <Box className='map-legend' sx={{ background: 'white', pl: 2, zIndex: 999, height: 'auto', top: '15px' }}>
             <FormGroup>
               <FormControlLabel
                 control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}

@@ -192,7 +192,7 @@ const SurfaceWaterMonitoring = () => {
         </Paper>
       </Grid>
       <Grid item xs={12} sm={5} md={3}>
-        <Typography>Tổng số bản ghi đã tìm thấy: {total}</Typography>
+        <Typography sx={{ fontStyle: 'italic' }}>Thời gian cập nhật: </Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={12}>
         <MonitoringSystemToolBar onChange={handleFilterChange} />
