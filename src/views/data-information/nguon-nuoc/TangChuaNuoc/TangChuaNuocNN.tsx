@@ -45,92 +45,41 @@ const NN_NguonNuoc_TangChuaNuoc = () => {
     {
       id: 'stt',
       label: 'STT',
-      rowspan: 3
     },
     {
       id: 'tenTangChuaNuoc',
       label: 'Tên tầng chứa nước',
       align: 'left',
-      rowspan: 2,
-      minWidth: 100,
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'loaiChuaNuoc',
       label: 'Loại chứa nước (lổ hổng, khe nứt)',
       align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'dungTichPhanBo',
       label: 'Diện tích phân bố (km2)',
       align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'khoangChieuSauPhanBo',
       label: 'Khoảng chiều sâu phân bố (m)',
       align: 'left',
-      rowspan: 2,
-      children: [
-        {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

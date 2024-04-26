@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { checkAccessPermission } from 'src/@core/layouts/checkAccessPermission';
 import Error401 from "src/pages/401";
-import LuuVucSongPage from "src/views/data-information/luu-vuc-song"
+import LuuVucSong from "src/views/data-information/luu-vuc-song"
 
-const LuuVucSong = () => {
+const LuuVucSongPage = () => {
     const router = useRouter();
     const routePath = router.pathname; // Use router.pathname to get the current pathname
 
@@ -25,8 +25,8 @@ const LuuVucSong = () => {
     }, [])
 
     // Use routeSegment in your conditional rendering
-    return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <LuuVucSongPage /> : <Error401 />;
+    return loading ? <Typography align='center'><CircularProgress /></Typography> : accessView ? <LuuVucSong /> : <Error401 />;
 }
 
 
-export default LuuVucSong 
+export default LuuVucSongPage 
