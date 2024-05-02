@@ -141,7 +141,7 @@ const FormContruction = () => {
           <Box sx={{ width: 100, ml: 2, display: 'inline-block' }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                label='Từ năm'
+                label='Năm'
                 views={["year"]}
                 value={dayjs(new Date(year, 1, 1))}
                 onChange={(newVal: any) => setYear(dayjs(newVal).year())}

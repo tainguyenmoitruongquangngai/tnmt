@@ -6,7 +6,6 @@ import { useState } from 'react'
 import { getData } from 'src/api/axios'
 import { Box, Grid, Link, Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import DeleteData from 'src/@core/components/delete-data'
 import DialogControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 import HeaderReport from '../HeaderReport'
 import FooterReport from '../FooterReport'
@@ -14,30 +13,30 @@ import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 
 const BieuMauMuoiMot = () => {
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT',minWidth:60,align: 'center', },
+    { id: 'stt', label: 'STT', minWidth: 60, align: 'center', },
     {
       id: 'luuVucSong',
       label: (
         <>
-         Lưu vực sông/<br />
+          Lưu vực sông/<br />
           Vùng/Tỉnh
         </>
       ),
       pinned: 'left',
       align: 'center',
-   
+
     },
     {
       id: 'tongSoCongTrinh',
       label: (
         <>
-         Tổng số <br />
-         công trình
+          Tổng số <br />
+          công trình
         </>
       ),
       align: 'center',
     },
-   
+
     {
       id: '#',
       label: 'Số lượng công trình phân theo loại hình',
@@ -45,7 +44,7 @@ const BieuMauMuoiMot = () => {
         {
           id: 'xa',
           label: 'Khai thác nước mặt',
-       
+
           children: [
             {
               id: 'congTrinhHoChua',
@@ -72,29 +71,29 @@ const BieuMauMuoiMot = () => {
               label: 'Khác',
               align: 'center',
             },
-           
+
           ]
         },
         {
           id: 'huyen',
           label: 'Khai thác nước dưới đất',
-       
+
           children: [
             {
               id: 'congTrinhGieng',
               label: 'Giếng khoan',
               align: 'center',
-           
+
             },
             {
               id: 'congTrinhKhacNDD',
               label: 'Khác',
               align: 'center',
             },
-           
+
           ]
         },
-       
+
       ]
     },
 
@@ -102,10 +101,6 @@ const BieuMauMuoiMot = () => {
 
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const [postSuccess, setPostSuccess] = useState(false)
-  const handlePostSuccess = () => {
-    setPostSuccess(prevState => !prevState)
-  }
 
   useEffect(() => {
     async function getDataReport1() {
@@ -123,28 +118,28 @@ const BieuMauMuoiMot = () => {
     }
 
     getDataReport1()
-  }, [postSuccess])
+  }, [])
 
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={12}>
-
         <HeaderReport />
+        <Grid className='_text_center'>
+          <Typography className='font-weight-bold ' variant='h4'>
+            BÁO CÁO
+          </Typography>
+          <Typography className='font-weight-bold ' variant='h6'>
+            Số lượng công trình khai thác nước mặt, nước dưới đất phân theo loại hình
+          </Typography>
+        </Grid>
 
         <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
-          <Box sx={{ width: 'max-content',p:3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'danh-muc-ct-ktsd-tnn.xlsx'} /></Box>
+          <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'danh-muc-ct-ktsd-tnn.xlsx'} /></Box>
           <TableComponent
             columns={columnsTable}
             rows={data}
             id='danh-muc-ct-ktsd-tnn'
             loading={loading}
-            actions={(row: any) => (
-              <Box display={'none'}>
-
-                {row ? null : null}
-                <DeleteData url={'BieuMauSoHaiMuoi'} data={row} setPostSuccess={handlePostSuccess} />
-              </Box>
-            )}
           />
           <FooterReport />
         </Paper>

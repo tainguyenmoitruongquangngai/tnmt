@@ -14,11 +14,10 @@ import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 
 const BieuMauHaiMuoi = () => {
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT' },
+    { id: 'stt', label: 'STT', align: 'center' },
     {
       id: 'tenCT',
       label: 'Tên công trình',
-      pinned: 'left',
       align: 'left',
       minWidth: 300
     },
@@ -44,11 +43,11 @@ const BieuMauHaiMuoi = () => {
         <>
           Nguồn nước khai thác
           <br />
-          (hồ, đập, cống, trạm bơm, giếng khoan, khác)
+          (hồ, đập, cống, <br /> trạm bơm, giếng khoan, khác)
         </>
       ),
       align: 'left',
-      minWidth: 300
+      minWidth: 250
     },
 
     {
@@ -63,7 +62,7 @@ const BieuMauHaiMuoi = () => {
               {row?.xa?.tenXa}
             </Typography>
           ),
-          minWidth: 200
+          minWidth: 150
         },
         {
           id: 'huyen',
@@ -73,7 +72,7 @@ const BieuMauHaiMuoi = () => {
               {row?.huyen?.tenHuyen}
             </Typography>
           ),
-          minWidth: 200
+          minWidth: 150
         },
         {
           id: 'tinh',
@@ -83,7 +82,7 @@ const BieuMauHaiMuoi = () => {
               Quảng Ngãi
             </Typography>
           ),
-          minWidth: 200
+          minWidth: 150
         }
       ]
     },
@@ -98,7 +97,7 @@ const BieuMauHaiMuoi = () => {
           children: [
             {
               id: 'dungTichToanBo',
-              label: 'Dung tích toàn bộ (triệu m3)',
+              label: (<>Dung tích <br /> toàn bộ <br /> (triệu m3)</>),
               elm: (row: any) => (
                 <Typography>
                   {row?.thongso?.dungTichToanBo}
@@ -107,7 +106,7 @@ const BieuMauHaiMuoi = () => {
             },
             {
               id: 'dungTichHuuIch',
-              label: 'Dung tích hữu ích (triệu m3)',
+              label: (<>Dung tích <br /> hữu ích <br /> (triệu m3)</>),
               elm: (row: any) => (
                 <Typography>
                   {row?.thongso?.dungTichHuuIch}
@@ -116,7 +115,7 @@ const BieuMauHaiMuoi = () => {
             },
             {
               id: 'congSuatDamBao',
-              label: 'Công suất (MW)	',
+              label: (<>Công suất <br /> (MW)</>),
               elm: (row: any) => (
                 <Typography>
                   {row?.thongso?.congSuatDamBao}
@@ -129,13 +128,13 @@ const BieuMauHaiMuoi = () => {
           id: '#',
           label: (
             <>
-              Giếng khoan và loại hình khác
+              Giếng khoan <br /> và <br /> loại hình khác
             </>
           ),
           children: [
             {
               id: 'qThietKe',
-              label: 'Lưu lượng thiết kế(m3/ngày đêm)',
+              label: (<>Lưu lượng <br /> thiết kế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
                   {row?.thongso?.qThietKe}
@@ -144,7 +143,7 @@ const BieuMauHaiMuoi = () => {
             },
             {
               id: 'qThucTe',
-              label: 'Lưu lượng thực tế (m3/ngày đêm)',
+              label: (<>Lưu lượng <br /> thực tế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
                   {row?.thongso?.qThucTe}
@@ -190,7 +189,7 @@ const BieuMauHaiMuoi = () => {
         <HeaderReport />
 
         <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
-          <Box sx={{ width: 'max-content',p:3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'bieumau11.xlsx'} /></Box>
+          <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'bieumau11.xlsx'} /></Box>
           <TableComponent
             columns={columnsTable}
             rows={data}
