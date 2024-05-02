@@ -49,7 +49,7 @@ const FormContruction = () => {
     },
     {
       id: '#',
-      label: 'Số lượng công trình',
+      label: (<>Lượng nước khai thác, sử dụng (quy mô) <br /> đã được cấp giấy phép khai thác tài nguyên nước</>),
       children: [
         {
           id: 'tuoi', label: 'Tưới(m³/s)', children: [
