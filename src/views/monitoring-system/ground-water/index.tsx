@@ -156,7 +156,7 @@ const GroundwaterMonitoring = () => {
     <Grid container spacing={4}>
       <Grid item xs={12} sm={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
         <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
-          <Box className='map-legend' sx={{ background: 'white', pl: 2 }}>
+          <Box className='map-legend' sx={{ background: 'white', pl: 2, zIndex: 999, height: 'auto', top: '15px' }}>
             <FormGroup>
               <FormControlLabel
                 control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
@@ -169,7 +169,7 @@ const GroundwaterMonitoring = () => {
         </Paper>
       </Grid>
       <Grid item xs={12} sm={5} md={3}>
-        <Typography>Tổng số bản ghi đã tìm thấy: {total}</Typography>
+        <Typography sx={{ fontStyle: 'italic' }}>Thời gian cập nhật: </Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={12}>
         <MonitoringSystemToolBar onChange={handleFilterChange} />

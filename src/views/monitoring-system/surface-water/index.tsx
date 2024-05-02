@@ -27,7 +27,6 @@ const SurfaceWaterMonitoring = () => {
   const [resData, setResData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false)
   const [total, setTotal] = useState(0)
-  console.log(total);
   
 
   const [dataFiltered, setDataFiltered] = useState([]);
@@ -145,7 +144,7 @@ const SurfaceWaterMonitoring = () => {
 
   const [paramsFilter, setParamsFilter] = useState({
     tenct: null,
-    loaict: GetConstructionTypeId(router),
+    loai_ct: GetConstructionTypeId(router),
     tochuc_canhan: 0,
   });
 
@@ -181,7 +180,7 @@ const SurfaceWaterMonitoring = () => {
     <Grid container spacing={4}>
       <Grid item xs={12} sm={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
         <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
-          <Box className='map-legend' sx={{ background: 'white', pl: 2, height: 'auto' }}>
+          <Box className='map-legend' sx={{ background: 'white', pl: 2, zIndex: 999, height: 'auto', top: '15px' }}>
             <FormGroup>
               <FormControlLabel
                 control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
