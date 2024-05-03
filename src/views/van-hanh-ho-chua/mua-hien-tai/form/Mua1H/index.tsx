@@ -3,16 +3,16 @@ import { Assessment } from '@mui/icons-material'
 import { Grid, IconButton, Tooltip, Box, Tab } from '@mui/material'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 import { TabContext, TabList, TabPanel } from "@mui/lab"
-import MonitoringSFData from './rain-data'
-import MonitoringSFChart from './rain-chart'
+import Mua1HourChart from '../Mua1H/rain-chart'  
+import Mua1HourData from '../Mua1H/rain-data'
 
 interface FormAmountRainProps {
     data: any
 }
 
-const FormAmountRain: React.FC<FormAmountRainProps> = () => {
+const FormAmountRain: React.FC<FormAmountRainProps> = (props) => {
     const [value, setValue] = useState('1');
-
+    const {data} = props;
     const handleChangeTab = (event: SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
@@ -26,8 +26,8 @@ const FormAmountRain: React.FC<FormAmountRainProps> = () => {
                     <Tab label="Đồ thị vận hành" value="2" />
                 </TabList>
             </Box>
-            <TabPanel value="1"><MonitoringSFData /></TabPanel>
-            <TabPanel value="2"><MonitoringSFChart /></TabPanel>
+            <TabPanel value="1"><Mua1HourData stationdata={data} /></TabPanel>
+            <TabPanel value="2"><Mua1HourChart stationdata={data} /></TabPanel>
            
         </TabContext>
         </Grid>
@@ -38,7 +38,7 @@ interface AmountRainProps {
     data?: any
 }
 
-const ViewAmountRainData: React.FC<AmountRainProps> = ({ data }) => {
+const ViewAmountRain1HourData: React.FC<AmountRainProps> = ({ data }) => {
     const formTitle = 'Thông tin tổng lượng mưa theo thời đoạn mưa'
 
     return (
@@ -64,4 +64,4 @@ const ViewAmountRainData: React.FC<AmountRainProps> = ({ data }) => {
     )
 }
 
-export default ViewAmountRainData
+export default ViewAmountRain1HourData

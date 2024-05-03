@@ -13,7 +13,10 @@ import ToolBar from './toolbar'
 import dynamic from 'next/dynamic'
 import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material'
 import React from 'react'
-import ViewAmountRainData from './form'
+import ViewAmountRain1HourData from '../mua-hien-tai/form/Mua1H'
+import ViewAmountRain6HourData from '../mua-hien-tai/form/Mua6H'
+import ViewAmountRain12HourData from '../mua-hien-tai/form/Mua12H'
+import ViewAmountRain24HourData from '../mua-hien-tai/form/Mua24H'
 
 const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 
@@ -33,9 +36,9 @@ const LuongMuaHienTai = () => {
     setPostSuccess(prevState => !prevState);
   };
   useEffect(() => {
-    async function getDataNN_LuuVucSong() {
+    async function getDataDuLieuTram() {
       setLoading(true)
-      await getData('MuaHienTai/danh-sach')
+      await getData('DuLieuTram/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -47,9 +50,8 @@ const LuongMuaHienTai = () => {
         })
     }
 
-    getDataNN_LuuVucSong()
+    getDataDuLieuTram()
   }, [postSuccess])
-  console.log(data);
   
   const columnsTable: TableColumn[] = [
     {
@@ -59,11 +61,11 @@ const LuongMuaHienTai = () => {
      
     },
     {
-      id: 'tramMua',
-      label: 'Trạm mưa',
-      align: 'left',
-      rowspan: 2,
-      minWidth: 120,
+      id: 'tenTram',
+      label: 'Tên trạm đo mưa',
+      align: 'center',
+      minWidth: 150,
+      pinned: 'left'
       
     },
 
@@ -75,24 +77,10 @@ const LuongMuaHienTai = () => {
       children: [
         { id: 'luongMua1Gio', label: 'Lượng mưa 1 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:(row:any)=>(<>
         <Button>
-          <ViewAmountRainData />
+          <ViewAmountRain1HourData data={row}/>
         </Button></>)},
-      ]
-    },
-    {
-      id: '#',
-      label: 'Tổng lượng mưa theo thời đoạn mưa 3h',
-      align: 'left',
-     
-      children: [
-        { id: '#2.1', label: 'Lượng mưa 3 giờ', align: 'left', },
-        { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
-          <Button>
-            <ViewAmountRainData />
-          </Button></>)},
       ]
     },
     {
@@ -103,9 +91,9 @@ const LuongMuaHienTai = () => {
       children: [
         { id: '#2.1', label: 'Lượng mưa 6 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:(row:any)=>(<>
           <Button>
-            <ViewAmountRainData />
+            <ViewAmountRain6HourData data={row}/>
           </Button></>)},
       ]
     },
@@ -118,9 +106,9 @@ const LuongMuaHienTai = () => {
       children: [
         { id: '#2.1', label: 'Lượng mưa 12 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:(row:any)=>(<>
           <Button>
-            <ViewAmountRainData />
+            <ViewAmountRain12HourData data={row}/>
           </Button></>)},
       ]
     },
@@ -133,9 +121,9 @@ const LuongMuaHienTai = () => {
       children: [
         { id: '#2.1', label: 'Lượng mưa 24 giờ', align: 'left', },
         { id: '#2.2', label: 'Ngưỡng mưa', align: 'left',   },
-        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:()=>(<>
+        { id: 'chayra', label: 'Xem chi tiết', align: 'left', elm:(row:any)=>(<>
           <Button>
-            <ViewAmountRainData />
+            <ViewAmountRain24HourData data={row}/>
           </Button></>)},
       ]
     },
@@ -183,7 +171,7 @@ const LuongMuaHienTai = () => {
             pagination
             actions={(row: any) => (
               <Box >
-                <DeleteData url={'NN_LuuVucSong'} data={row} setPostSuccess={handlePostSuccess} />
+                <DeleteData url={'DuLieuTram'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
           />
