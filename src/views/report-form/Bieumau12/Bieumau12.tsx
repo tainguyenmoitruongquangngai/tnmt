@@ -54,14 +54,14 @@ const FormContruction = () => {
         {
           id: 'tuoi', label: 'Tưới(m³/s)', children: [
             { id: 'tuoiNguonNuocMat', label: 'Nguồn nước mặt', align: 'center' },
-            { id: 'tuoiNguonNuocDuoiDat', label: 'Nguồn nước dưới đất', align: 'center', }
+            { id: 'tuoiNguonNuocDuoiDat', label: 'Nguồn nước dưới đất', align: 'center' },
           ]
         },
         { id: 'khaiThacThuyDien', label: 'Thủy điện(MW)', align: 'center' },
         {
           id: 'mucdichkhac', label: 'Mục đích khác(m³/Ngày đêm)', children: [
             { id: 'mucDichKhacNguonNuocMat', label: 'Nguồn nước mặt', align: 'center' },
-            { id: 'mucDichKhacNguonNuocDD', label: 'Nguồn nước dưới đất', align: 'center', }
+            { id: 'mucDichKhacNguonNuocDD', label: 'Nguồn nước dưới đất', align: 'center' },
           ]
         }
       ]
@@ -95,10 +95,6 @@ const FormContruction = () => {
             id='bieumau12'
             rows={data}
             loading={loading}
-            actions={() => (
-              <Box >
-              </Box>
-            )}
           />
         </Grid>
       )}

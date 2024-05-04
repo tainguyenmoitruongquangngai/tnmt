@@ -20,12 +20,13 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                         ? actions && actions(rowData)
                         : currentColumn.id === 'stt'
 
-                            ? (currentPage * rowsPerPage + rowIndex + 1)
+                            ? rowData['id'] !== -1
+                                ? (currentPage * rowsPerPage + rowIndex + 1) : null
                             : typeof currentColumn.elm === 'function'
                                 ? currentColumn.elm(rowData)
                                 : currentColumn.format
                                     ? currentColumn.format(rowData[currentColumn.id])
-                                    : rowData[currentColumn.id]}
+                                    : rowData['id'] !== -1 ? rowData[currentColumn.id] : (<span style={{ fontWeight: 700 }}>{rowData[currentColumn.id]}</span>)}
                 </TableCell>
             );
         }
