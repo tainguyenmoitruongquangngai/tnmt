@@ -137,7 +137,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Lưu lượng <br /> thiết kế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 ? row?.thongso?.qThietKe : null}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.thongso?.qThietKe : null}
                 </Typography >
               )
             },
@@ -146,7 +146,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Lưu lượng <br /> thực tế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 ? row?.thongso?.qktLonNhat : null}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.thongso?.qktLonNhat : null}
                 </Typography >
               )
             }
@@ -187,7 +187,14 @@ const BieuMauHaiMuoi = () => {
       <Grid xs={12} md={12}>
 
         <HeaderReport />
-
+        <Grid className='_text_center'>
+          <Typography className='font-weight-bold ' variant='h4'>
+            BÁO CÁO
+          </Typography>
+          <Typography className='font-weight-bold ' variant='h6'>
+            Danh mục các công trình khai thác, sử dụng tài nguyên nước
+          </Typography>
+        </Grid>
         <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
           <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'bieumau11.xlsx'} /></Box>
           <TableComponent
