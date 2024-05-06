@@ -35,7 +35,6 @@ const DischargeWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
     nguonNuocKT: propData.congtrinh?.nguonNuocKT || null,
     mucDichKT: propData.congtrinh?.mucDichKT || null,
     phuongThucKT: propData.congtrinh?.phuongThucKT || null,
-    nguonNuocXT: propData.congtrinh?.nguonNuocXT || null,
     thoiGianKT: propData.congtrinh?.thoiGianKT || null,
     thoiGianHNK: propData.congtrinh?.thoiGianHNK || null,
     mucDichHNK: propData.congtrinh?.mucDichHNK || null,
@@ -59,6 +58,7 @@ const DischargeWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
     idHangMucCT: propData.thongso_ct?.idHangMucCT || null,
     caoTrinhCong: propData.thongso_ct?.caoTrinhCong || null,
     cheDoKT: propData.thongso_ct?.cheDoKT || null,
+    nguonNuocXT: propData.thongso_ct?.nguonNuocXT || null,
     caoTrinhDap: propData.thongso_ct?.caoTrinhDap || null,
     cheDoXT: propData.thongso_ct?.cheDoXT || null,
     chieuCaoDap: propData.thongso_ct?.chieuCaoDap || null,
@@ -541,7 +541,7 @@ const DischargeWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 type='text'
                 fullWidth
                 placeholder=''
-                defaultValue={congtrinh?.nguonNuocXT}
+                defaultValue={thongso_ct?.nguonNuocXT}
                 onChange={event => handleChange('nguonNuocXT')(event.target.value)}
                 label='Nguồn tiếp nhận xả thải'
               />
