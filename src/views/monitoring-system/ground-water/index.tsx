@@ -29,6 +29,8 @@ const GroundwaterMonitoring = () => {
   const [loading, setLoading] = useState(false)
   const [total, setTotal] = useState(0)
 
+console.log(total)
+
   const [dataFiltered, setDataFiltered] = useState([]);
 
   const columnsTable: TableColumn[] = [

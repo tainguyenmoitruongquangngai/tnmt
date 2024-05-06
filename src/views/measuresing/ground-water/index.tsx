@@ -26,6 +26,7 @@ const GroundwaterMeasuresing = () => {
   const [columns, setColumns] = useState<any[]>([]);
   const [loading, setLoading] = useState(false)
   const [total, setTotal] = useState(0)
+  console.log(total)
 
   const [dataFiltered, setDataFiltered] = useState([]);
 
