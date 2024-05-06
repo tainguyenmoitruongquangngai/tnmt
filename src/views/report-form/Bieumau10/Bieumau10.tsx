@@ -88,10 +88,10 @@ const FormContruction = () => {
         <BoxLoading />
       ) : (
         <Grid className='_text_center' sx={{ mt: 3 }}>
-          <Box sx={{ width: 'max-content' }}><ExportTableToExcel tableId={'bieumau10'} filename={'bieumau10'} /></Box>
+          <Box sx={{ width: 'max-content' }}><ExportTableToExcel tableId={'BieuMau10'} filename={'BieuMau10'} /></Box>
           <TableComponent
             columns={columnsTable}
-            id='bieumau10'
+            id='BieuMau10'
             rows={data}
             loading={loading}
             actions={() => (

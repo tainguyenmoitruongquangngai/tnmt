@@ -134,11 +134,11 @@ const BieuMauMuoiMot = () => {
         </Grid>
 
         <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
-          <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'danh-muc-ct-ktsd-tnn.xlsx'} /></Box>
+          <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'BieuMau11'} filename={'BieuMau11'} /></Box>
           <TableComponent
             columns={columnsTable}
             rows={data}
-            id='danh-muc-ct-ktsd-tnn'
+            id='BieuMau11'
             loading={loading}
           />
           <FooterReport />
