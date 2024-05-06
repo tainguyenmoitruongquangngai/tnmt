@@ -196,11 +196,11 @@ const BieuMauHaiMuoi = () => {
           </Typography>
         </Grid>
         <Paper elevation={3} sx={{ p: 5, height: '100%' }}>
-          <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'danh-muc-ct-ktsd-tnn'} filename={'bieumau11.xlsx'} /></Box>
+          <Box sx={{ width: 'max-content', p: 3 }}><ExportTableToExcel tableId={'BieuMau20'} filename={'BieuMau20'} /></Box>
           <TableComponent
             columns={columnsTable}
             rows={data}
-            id='danh-muc-ct-ktsd-tnn'
+            id='BieuMau20'
             loading={loading}
             actions={(row: any) => (
               <Box display={'none'}>
