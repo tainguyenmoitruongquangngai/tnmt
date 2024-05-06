@@ -118,7 +118,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Công suất <br /> (MW)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.thongso?.congSuatDamBao}
+                  {row?.thongso?.congSuatLM}
                 </Typography >
               )
             }
@@ -137,7 +137,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Lưu lượng <br /> thiết kế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.thongso?.qThietKe}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 ? row?.thongso?.qThietKe : null}
                 </Typography >
               )
             },
@@ -146,7 +146,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Lưu lượng <br /> thực tế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.thongso?.qThucTe}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 ? row?.thongso?.qktLonNhat : null}
                 </Typography >
               )
             }
