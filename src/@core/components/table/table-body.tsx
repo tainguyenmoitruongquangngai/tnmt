@@ -20,8 +20,7 @@ function renderTableCell(column: TableColumn, row: any, rowIndex: number, colInd
                         ? actions && actions(rowData)
                         : currentColumn.id === 'stt'
 
-                            ? rowData['id'] !== -1
-                                ? (currentPage * rowsPerPage + rowIndex + 1) : null
+                            ? (currentPage * rowsPerPage + rowIndex + 1)
                             : typeof currentColumn.elm === 'function'
                                 ? currentColumn.elm(rowData)
                                 : currentColumn.format
