@@ -298,7 +298,7 @@ const BieuMau14 = () => {
               <Typography className='text-success text-weight-bold _font12'>Chất lượng nước dưới đất</Typography>
             </Grid>
             <Grid item xs={4}>
-              <Box component='img' src='/images/report-form/ANHBIEUMAU14.png' className='formReport_img' alt='' />
+            <Box component='img' src='/images/report-form/ANHBIEUMAU14.png' className='formReport_img' alt='' />
             </Grid>
           </Link>
         </>
