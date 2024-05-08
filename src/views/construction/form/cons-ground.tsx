@@ -35,7 +35,6 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
     nguonNuocKT: propData.congtrinh?.nguonNuocKT || null,
     mucDichKT: propData.congtrinh?.mucDichKT || null,
     phuongThucKT: propData.congtrinh?.phuongThucKT || null,
-    nguonNuocXT: propData.congtrinh?.nguonNuocXT || null,
     thoiGianKT: propData.congtrinh?.thoiGianKT || null,
     thoiGianHNK: propData.congtrinh?.thoiGianHNK || null,
     mucDichHNK: propData.congtrinh?.mucDichHNK || null,
