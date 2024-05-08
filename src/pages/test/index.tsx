@@ -1,6 +1,6 @@
 
 import ExportTableToExcel from "src/@core/components/export-excel/export-csv";
-import DikeConstructions from "src/@core/components/map/doansong";
+import RiverTable from "src/@core/components/map/doansong";
 import TableComponent, { TableColumn } from "src/@core/components/table";
 
 
@@ -86,7 +86,8 @@ const Test = () => {
         <>
             <TableComponent id="export_table" columns={column} rows={[]} />
             <ExportTableToExcel tableId='export_table' filename="Test1.csv" />
-            <DikeConstructions />
+            <RiverTable/>
+
 
         </>
 

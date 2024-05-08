@@ -26,7 +26,6 @@ export interface ConstructionState {
   nguonNuocKT?: string | null | undefined;
   mucDichKT?: string | null | undefined;
   phuongThucKT?: string | null | undefined;
-  nguonNuocXT?: string | null | undefined;
   thoiGianKT?: string | null | undefined;
   thoiGianHNK?: string | null | undefined;
   mucDichHNK?: string | null | undefined;
@@ -52,6 +51,7 @@ export interface ConstructionSpecState {
   cheDoKT?: string | null;
   caoTrinhDap?: string | null;
   cheDoXT?: string | null;
+  nguonNuocXT?: string | null ;
   chieuCaoDap?: number | null;
   chieuDaiCong?: number | null;
   chieuDaiDap?: number | null;
@@ -139,7 +139,6 @@ export const emptyConstructionData: ConstructionState = {
   nguonNuocKT: null,
   mucDichKT: null,
   phuongThucKT: null,
-  nguonNuocXT: null,
   thoiGianKT: null,
   thoiGianHNK: null,
   mucDichHNK: null,
@@ -165,6 +164,7 @@ export const emptyConstructionSpec: ConstructionSpecState = {
   cheDoKT: null,
   caoTrinhDap: null,
   cheDoXT: null,
+  nguonNuocXT: null,
   chieuCaoDap: null,
   chieuDaiCong: null,
   chieuDaiDap: null,
