@@ -58,21 +58,27 @@ const BieuMauHaiMuoi = () => {
           id: 'xa',
           label: 'Xã',
           elm: (row: any) => (
-            <Typography>
-              {row?.xa?.tenXa}
-            </Typography>
+            row?.vitri?.map((h: any, key: number) => (
+              h?.xa?.map((x: any) => (
+                <Typography key={key}>
+                  {x?.tenXa}
+                </Typography>
+              ))
+            ))
           ),
-          minWidth: 150
+          minWidth: 300
         },
         {
           id: 'huyen',
           label: 'Huyện',
           elm: (row: any) => (
-            <Typography>
-              {row?.huyen?.tenHuyen}
-            </Typography>
+            row?.vitri?.map((h: any, key: number) => (
+              <Typography key={key}>
+                {h?.tenHuyen}
+              </Typography>
+            ))
           ),
-          minWidth: 150
+          minWidth: 300
         },
         {
           id: 'tinh',
