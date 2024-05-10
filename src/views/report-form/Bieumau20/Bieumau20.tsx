@@ -43,7 +43,7 @@ const BieuMauHaiMuoi = () => {
         <>
           Nguồn nước khai thác
           <br />
-          (hồ, đập, cống, <br /> trạm bơm, giếng khoan, khác)
+          (sông, suối, hồ, <br /> đập, nước dưới đất)
         </>
       ),
       align: 'left',

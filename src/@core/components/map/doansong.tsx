@@ -6,8 +6,10 @@ const MapDoanSong = dynamic(() => import('src/@core/components/map/map'), { ssr:
 
 // Dữ liệu về các đoạn sông và tên file KML
 const riverData = [
-  { id: 1, name: 'Sông Trà Bồng', file: 'songtrabong1.kml' },
-  { id: 2, name: 'Sông Hà Đồi', file: 'songhadoi.kml' }
+  { id: 1, name: 'Sông Trà Bồng 1', file: 'songtrabong1.kml', },
+  { id: 2, name: 'Sông Hà Đồi', file: 'songhadoi.kml' },
+  { id: 3, name: 'Sông Bin Dần', file: 'songbindan.kml' },
+  { id: 4, name: 'Sông Sâu', file: 'songsau.kml' }
 
   // Thêm các đoạn sông khác nếu cần
 ]
