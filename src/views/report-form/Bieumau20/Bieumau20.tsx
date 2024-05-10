@@ -47,7 +47,12 @@ const BieuMauHaiMuoi = () => {
         </>
       ),
       align: 'left',
-      minWidth: 250
+      minWidth: 250,
+      elm: (row: any) => (
+        <Typography>
+          {row?.idLoaiCT !== 7 ? row?.nguonNuocKT : 'Nước dưới đất'}
+        </Typography >
+      )
     },
 
     {
