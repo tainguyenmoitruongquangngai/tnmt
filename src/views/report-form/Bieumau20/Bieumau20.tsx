@@ -63,9 +63,9 @@ const BieuMauHaiMuoi = () => {
           id: 'xa',
           label: 'Xã',
           elm: (row: any) => (
-            row?.xa?.map((x: any, key: number) => (
+            row?.xa?.map((x: any, key: number, arr: any[]) => (
               <Typography key={key}>
-                {x?.tenXa}
+                {x?.tenXa}{key < arr.length - 1 ? ', ' : ''}
               </Typography>
             ))
           ),
@@ -75,9 +75,9 @@ const BieuMauHaiMuoi = () => {
           id: 'huyen',
           label: 'Huyện',
           elm: (row: any) => (
-            row?.huyen?.map((h: any, key: number) => (
+            row?.huyen?.map((h: any, key: number, arr: any[]) => (
               <Typography key={key}>
-                {h?.tenHuyen}
+                {h?.tenHuyen}{key < arr.length - 1 ? ', ' : ''}
               </Typography>
             ))
           ),
