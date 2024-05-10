@@ -63,12 +63,10 @@ const BieuMauHaiMuoi = () => {
           id: 'xa',
           label: 'Xã',
           elm: (row: any) => (
-            row?.vitri?.map((h: any, key: number) => (
-              h?.xa?.map((x: any) => (
-                <Typography key={key}>
-                  {x?.tenXa}
-                </Typography>
-              ))
+            row?.xa?.map((x: any, key: number) => (
+              <Typography key={key}>
+                {x?.tenXa}
+              </Typography>
             ))
           ),
           minWidth: 300
@@ -77,7 +75,7 @@ const BieuMauHaiMuoi = () => {
           id: 'huyen',
           label: 'Huyện',
           elm: (row: any) => (
-            row?.vitri?.map((h: any, key: number) => (
+            row?.huyen?.map((h: any, key: number) => (
               <Typography key={key}>
                 {h?.tenHuyen}
               </Typography>
@@ -178,7 +176,7 @@ const BieuMauHaiMuoi = () => {
   useEffect(() => {
     async function getDataReport1() {
       setLoading(true)
-      await getData('BieuMauSoHaiMuoi/danhsach')
+      await getData('BaoCaoBieuMau/so20')
         .then(data => {
           setData(data)
         })
