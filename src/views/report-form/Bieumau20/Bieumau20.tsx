@@ -139,11 +139,11 @@ const BieuMauHaiMuoi = () => {
           ),
           children: [
             {
-              id: 'qThietKe',
+              id: 'qThucTe',
               label: (<>Lưu lượng <br /> thiết kế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.thongso?.qThietKe : null}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.thongso?.qktLonNhat : null}
                 </Typography >
               )
             },
@@ -208,6 +208,7 @@ const BieuMauHaiMuoi = () => {
             rows={data}
             id='BieuMau20'
             loading={loading}
+            pagination
             actions={(row: any) => (
               <Box display={'none'}>
 
