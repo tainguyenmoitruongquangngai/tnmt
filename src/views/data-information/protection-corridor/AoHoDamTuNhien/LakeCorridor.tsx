@@ -15,7 +15,6 @@ import CreateNN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao from '../../create-form/Cr
 
 const NN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao = () => {
   const [data, setData] = useState<any[]>([])
-
   const [loading, setLoading] = useState(false)
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
@@ -51,82 +50,41 @@ const NN_HanhLangBaoVeNN_AoHoDamTuNhienNhanTao = () => {
       label: 'Tên',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
+     
     },
     {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      minWidth: 200,
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
+      minWidth: 200
     },
     {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'dungTichHo106m3',
       label: 'Dung tích hồ',
       align: 'left',
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'phamViHanhLang',
       label: 'Phạm vi hành lang',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thuocDienCamMocHanhLang',
       label: 'Thuộc diện cắm mốc hành lang',
       align: 'left',
-      children: [
-        {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
