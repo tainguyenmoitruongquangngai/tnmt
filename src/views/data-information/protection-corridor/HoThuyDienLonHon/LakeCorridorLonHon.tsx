@@ -15,7 +15,6 @@ import CreateNN_HanhLangBaoVeNN_HoThuyDienLonHon from '../../create-form/CreateN
 
 const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
   const [data, setData] = useState<any[]>([])
-
   const [loading, setLoading] = useState(false)
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
@@ -49,6 +48,12 @@ const NN_HanhLangBaoVeNN_HoThuyLoiNhieuHon1m3 = () => {
     {
       id: 'ten',
       label: 'Tên',
+      align: 'left',
+      minWidth: 200,
+    },
+    {
+      id: 'loaiHo',
+      label: 'Loại hồ',
       align: 'left',
       minWidth: 200,
     },

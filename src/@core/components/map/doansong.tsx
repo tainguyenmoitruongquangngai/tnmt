@@ -16,8 +16,8 @@ const riverData = [
 
 // Component bảng hiển thị dữ liệu
 const RiverTable = () => {
-    const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
-    const [mapZoom] = useState(9)
+    const [mapCenter] = useState([15.012172, 108.676488])
+    const [mapZoom] = useState(10)
     const [selectedRiver, setSelectedRiver] = useState<any>(null)
 
     const handleRiverSelection = (river:any) => {
@@ -28,7 +28,7 @@ const RiverTable = () => {
   return (
     <div>
       <Grid xs={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
-      <MapDoanSong center={mapCenter} setMapCenter={setMapCenter} zoom={mapZoom} mapData={riverData} selectedKmlFile={selectedRiver ? selectedRiver.file : null} loading={false} />
+      <MapDoanSong center={mapCenter} zoom={mapZoom} mapData={riverData} selectedKmlFile={selectedRiver ? selectedRiver.file : null} loading={false} />
       </Grid>
 
       <table>

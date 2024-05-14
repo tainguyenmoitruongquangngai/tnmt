@@ -15,7 +15,6 @@ import CreateNN_HanhLangBaoVeNN_SongSuoi from '../../create-form/CreateNN_Hanhla
 
 const NN_HanhLangBaoVeNN_SongSuoi = () => {
   const [data, setData] = useState<any[]>([])
-
   const [loading, setLoading] = useState(false)
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
 
