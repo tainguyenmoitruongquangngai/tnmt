@@ -53,6 +53,12 @@ const NN_HanhLangBaoVeNN_HoThuyLoiItHon1m3 = () => {
       minWidth: 200,
     },
     {
+      id: 'loaiHo',
+      label: 'Loại hồ',
+      align: 'left',
+      minWidth: 200,
+    },
+    {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
