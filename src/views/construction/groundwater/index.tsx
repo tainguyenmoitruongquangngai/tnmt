@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 //MUI Imports
-import { Box, Typography, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
+import { Box, Typography, Paper} from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
 
 //Other Imports
@@ -25,7 +25,6 @@ const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 const GroundConstruction = () => {
   const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
   const [mapZoom, setMapZoom] = useState(9)
-  const [showLabel, setShowLabel] = useState(false)
   const [postSuccess, setPostSuccess] = useState(false)
 
   const [columnVisibility, setColumnVisibility] = useState<string[]>()
@@ -459,15 +458,9 @@ const GroundConstruction = () => {
       <Grid xs={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
         <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
           <Box className='map-legend' sx={{ background: 'white', pl: 2, zIndex: 999, height: 'auto', top: '15px' }}>
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
-                label='Hiển thị tên công trình'
-              />
-            </FormGroup>
             <MapLegend onChange={handleConsTypeChange} />
           </Box>
-          <Map center={mapCenter} zoom={mapZoom} showLabel={showLabel} mapData={dataFiltered} loading={false} />
+          <Map center={mapCenter} zoom={mapZoom} mapData={dataFiltered} loading={false} />
         </Paper>
       </Grid>
       <Grid xs={12} md={12}>

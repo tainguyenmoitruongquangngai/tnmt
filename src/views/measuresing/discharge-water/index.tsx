@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 // ** MUI Imports
-import { Grid, Box, Typography, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
+import { Grid, Box, Typography, Paper } from '@mui/material';
 
 // ** Components Imports
 import MonitoringSystemToolBar from '../tool-bar';
@@ -21,7 +21,6 @@ const DischargewaterMeasuresing = () => {
   const router = useRouter();
   const [mapCenter, setMapCenter] = useState([15.012172, 108.676488]);
   const [mapZoom, setMapZoom] = useState(9);
-  const [showLabel, setShowLabel] = useState(false)
   const [resData, setResData] = useState<any[]>([]);
   const [columns, setColumns] = useState<any[]>([]);
   const [loading, setLoading] = useState(false)
@@ -140,15 +139,9 @@ const DischargewaterMeasuresing = () => {
       <Grid item xs={12} sm={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
         <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
           <Box className='map-legend' sx={{ background: 'white', pl: 2, zIndex: 999, height: 'auto', top: '15px' }}>
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
-                label='Hiển thị tên công trình'
-              />
-            </FormGroup>
             <MapLegend onChange={handleConsTypeChange} />
           </Box>
-          <Map center={mapCenter} zoom={mapZoom} showLabel={showLabel} mapData={dataFiltered} loading={false} />
+          <Map center={mapCenter} zoom={mapZoom} mapData={dataFiltered} loading={false} />
         </Paper>
       </Grid>
       <Grid item xs={12} sm={12} md={12}>

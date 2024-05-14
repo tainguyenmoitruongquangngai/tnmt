@@ -189,18 +189,6 @@ const KhaNangTiepNhanNuocThaiSong = () => {
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
-        {/* <Paper elevation={3} sx={{ height: '100%', position: 'relative' }}>
-          <Box className='map-legend' sx={{ background: 'white', pl: 2 }}>
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
-                label='Hiển thị tên công trình'
-              />
-            </FormGroup>
-            <MapLegend onChange={handleConsTypeChange} />
-          </Box>
-          <Map center={mapCenter} zoom={mapZoom} showLabel={showLabel} loading={false} />
-        </Paper> */}
         <Map center={mapCenter} zoom={mapZoom} loading={false} />
       </Grid>
       <Grid xs={12} md={12}>
