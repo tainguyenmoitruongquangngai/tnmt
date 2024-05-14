@@ -6,7 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Add, Cancel, CloudUpload, Delete, Edit, Save } from '@mui/icons-material';
 import { LicenseFeeState } from './license-fee-interface';
 import { VisuallyHiddenInput } from 'src/@core/theme/VisuallyHiddenInput';
-import FormatDate from 'src/@core/components/format-date';
+import { formatDate} from 'src/@core/components/formater';
 
 interface LicenseFeeFieldsetProps {
     data?: LicenseFeeState[] | null;
@@ -278,7 +278,7 @@ const LicenseFeeFeild: FC<LicenseFeeFieldsetProps> = ({ data, onChange }) => {
                                     {item.soQDTCQ}
                                 </TableCell>
                                 <TableCell>
-                                    {FormatDate(item.ngayKy)}
+                                    {formatDate(item.ngayKy)}
                                 </TableCell>
                                 <TableCell>
                                     {item.tongTienCQ}

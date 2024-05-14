@@ -17,7 +17,7 @@ import DeleteData from 'src/@core/components/delete-data'
 import MapLegend from '../MapLegend'
 import GetConstructionTypeId from 'src/@core/components/get-construction-type'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import FormatDate from 'src/@core/components/format-date'
+import { formatDate} from 'src/@core/components/formater';
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
@@ -309,7 +309,7 @@ const SurfaceConstruction = () => {
             <div style={{ width: '100%' }}>
               {row.giayphep?.map((e: any) => (
                 <div key={e.id}>
-                  {FormatDate(e.ngayKy)}
+                  {formatDate(e.ngayKy)}
                 </div>
               ))}
             </div>
@@ -348,7 +348,7 @@ const SurfaceConstruction = () => {
               {row.giayphep?.map((e: any) => (
                 e.tiencq.map((c: any) => (
                   <div key={c.id}>
-                    {FormatDate(c.ngayKy)}
+                    {formatDate(c.ngayKy)}
                   </div>
                 ))
               ))}

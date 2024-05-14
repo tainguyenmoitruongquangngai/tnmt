@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Grid, Typography, Paper, Box, Toolbar } from '@mui/material'
-import FormatDate from 'src/@core/components/format-date';
+import { formatDate} from 'src/@core/components/formater';
 import FormLicenseFee from 'src/views/license-fee/form'
 import DataGridComponent from 'src/@core/components/data-grid'
 import { GridColDef } from '@mui/x-data-grid'
@@ -34,7 +34,7 @@ const LicenseFee = (props: LicenseFeeProps) => {
         />
       ),
     },
-    { field: 'ngayKy', headerAlign: 'center', headerName: 'Ngày ký', minWidth: 180, renderCell: (data: any) => FormatDate(data.row.ngayKy) },
+    { field: 'ngayKy', headerAlign: 'center', headerName: 'Ngày ký', minWidth: 180, renderCell: (data: any) => formatDate(data.row.ngayKy) },
     {
       field: 'qd_bosung', headerAlign: 'center', headerName: 'Quyết định bổ sung', minWidth: 180, renderCell: (data: any) => (
         <ShowFilePDF

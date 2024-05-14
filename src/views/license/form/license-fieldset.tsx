@@ -16,7 +16,7 @@ import { VisuallyHiddenInput } from 'src/@core/theme/VisuallyHiddenInput';
 import { getData } from 'src/api/axios';
 import { useRouter } from 'next/router';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
-import FormatDate from 'src/@core/components/format-date';
+import { formatDate} from 'src/@core/components/formater';
 
 const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
 
@@ -230,7 +230,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                                     <Autocomplete
                                         size="small"
                                         options={listLic}
-                                        getOptionLabel={(option: any) => `${option.soGP} (Ký ngày: ${FormatDate(option.ngayKy)})`}
+                                        getOptionLabel={(option: any) => `${option.soGP} (Ký ngày: ${formatDate(option.ngayKy)})`}
                                         isOptionEqualToValue={(option: any) => option.id}
                                         value={listLic.find((option: any) => option.id === giayphep.idCon) || null}
                                         onChange={(_, value) => { handleChange('idCon')(value?.id || 0); setOldLic(value || []) }}
