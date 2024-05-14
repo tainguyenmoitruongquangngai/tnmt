@@ -50,7 +50,7 @@ const BieuMauHaiMuoi = () => {
       minWidth: 250,
       elm: (row: any) => (
         <Typography>
-          {row?.idLoaiCT !== 7 ? row?.nguonNuocKT : 'Nước dưới đất'}
+          {row?.nguonNuocKT}
         </Typography >
       )
     },
@@ -146,7 +146,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Lưu lượng <br /> thiết kế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.thongso?.qktLonNhat : null}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.tongLuuLuong != 0 ? row?.tongLuuLuong : null : null}
                 </Typography >
               )
             },
@@ -155,7 +155,7 @@ const BieuMauHaiMuoi = () => {
               label: (<>Lưu lượng <br /> thực tế <br /> (m3/ngày đêm)</>),
               elm: (row: any) => (
                 <Typography>
-                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.thongso?.qktLonNhat : null}
+                  {row?.idLoaiCT !== 4 && row?.idLoaiCT !== 5 && row?.idLoaiCT !== 11 ? row?.tongLuuLuong != 0 ? row?.tongLuuLuong : null : null}
                 </Typography >
               )
             }

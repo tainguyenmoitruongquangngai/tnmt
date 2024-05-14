@@ -78,7 +78,8 @@ const ListLicenses = () => {
                 {
                     id: "mucdich_kt", label: "Lưu lượng cấp phép", align: 'left', children: [
                         { id: "mucDich", label: "Mục đích", align: 'left', minWidth: 350, elm: (row: any) => (row.congtrinh?.mucdich_kt?.map((e: any, key: number, arr: any[]) => (<>{e.mucDich}{key < arr.length - 1 ? ', ' : ''}</>))) },
-                        { id: "tongluuluong", label: (<>Lưu lượng<br />(m3/ngày đêm)</>), align: 'center', minWidth: 150, elm: (row: any) => (row.congtrinh?.tongLuuLuong == 0 ? null : row.congtrinh?.tongLuuLuong) },
+                        { id: "luuLuong", label: "Lưu lượng", align: 'center', minWidth: 150, elm: (row: any) => (row.congtrinh?.tongLuuLuong == 0 ? null : row.congtrinh?.tongLuuLuong) },
+                        { id: "donViTinhLuuLuong", label: "Đơn vị đo", align: 'center', minWidth: 150, elm: (row: any) => (row.congtrinh?.tongLuuLuong == 0 ? null : row.congtrinh?.donViTinhLuuLuong) },
                     ]
                 }
             ]
