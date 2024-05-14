@@ -13,7 +13,7 @@
 <Folder><name>phandoansong_wgs84_1</name>
   <Placemark>
 	<name>Sông Trà Bồng (Đoạn 4)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">0</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bồng (Đoạn 4)</SimpleData>
@@ -27,7 +27,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Hà Doi</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">1</SimpleData>
 		<SimpleData name="Field_1">Sông Hà Doi</SimpleData>
@@ -41,7 +41,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Bối</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">2</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bối</SimpleData>
@@ -55,7 +55,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Sâu</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">3</SimpleData>
 		<SimpleData name="Field_1">Sông Sâu</SimpleData>
@@ -69,7 +69,7 @@
   </Placemark>
   <Placemark>
 	<name>Phụ lưu số 1</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">4</SimpleData>
 		<SimpleData name="Field_1">Phụ lưu số 1</SimpleData>
@@ -83,7 +83,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Bin Dần</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">5</SimpleData>
 		<SimpleData name="Field_1">Sông Bin Dần</SimpleData>
@@ -97,7 +97,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Ô Sông</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">6</SimpleData>
 		<SimpleData name="Field_1">Sông Ô Sông</SimpleData>
@@ -111,7 +111,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Bài Ca</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">7</SimpleData>
 		<SimpleData name="Field_1">Sông Bài Ca</SimpleData>
@@ -125,7 +125,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Bàu Mạch</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">8</SimpleData>
 		<SimpleData name="Field_1">Sông Bàu Mạch</SimpleData>
@@ -139,7 +139,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Châu Me Đông</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">9</SimpleData>
 		<SimpleData name="Field_1">Sông Châu Me Đông</SimpleData>
@@ -153,7 +153,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 6)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">10</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 6)</SimpleData>
@@ -167,7 +167,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Xô Riêng</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">11</SimpleData>
 		<SimpleData name="Field_1">Suối Xô Riêng</SimpleData>
@@ -181,7 +181,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Nước Lác</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">12</SimpleData>
 		<SimpleData name="Field_1">Sông Nước Lác</SimpleData>
@@ -195,7 +195,7 @@
   </Placemark>
   <Placemark>
 	<name>Phụ lưu số 1</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">13</SimpleData>
 		<SimpleData name="Field_1">Phụ lưu số 1</SimpleData>
@@ -209,7 +209,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Xà Ây</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">14</SimpleData>
 		<SimpleData name="Field_1">Suối Xà Ây</SimpleData>
@@ -223,7 +223,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Định</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">15</SimpleData>
 		<SimpleData name="Field_1">Sông Định</SimpleData>
@@ -237,7 +237,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Tam Rào</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">16</SimpleData>
 		<SimpleData name="Field_1">Sông Tam Rào</SimpleData>
@@ -251,7 +251,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Lâm</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">17</SimpleData>
 		<SimpleData name="Field_1">Sông Lâm</SimpleData>
@@ -265,7 +265,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Tó</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">18</SimpleData>
 		<SimpleData name="Field_1">Suối Tó</SimpleData>
@@ -279,7 +279,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Rai</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">19</SimpleData>
 		<SimpleData name="Field_1">Suối Rai</SimpleData>
@@ -293,7 +293,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Tang</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">20</SimpleData>
 		<SimpleData name="Field_1">Suối Tang</SimpleData>
@@ -307,7 +307,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Ren</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">21</SimpleData>
 		<SimpleData name="Field_1">Suối Ren</SimpleData>
@@ -321,7 +321,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Đắk Lô (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">22</SimpleData>
 		<SimpleData name="Field_1">Sông Đắk Lô (đoạn 2)</SimpleData>
@@ -335,7 +335,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Xà Rùng</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">23</SimpleData>
 		<SimpleData name="Field_1">Sông Xà Rùng</SimpleData>
@@ -349,7 +349,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Xà Ruông</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">24</SimpleData>
 		<SimpleData name="Field_1">Suối Xà Ruông</SimpleData>
@@ -363,7 +363,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Giang</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">25</SimpleData>
 		<SimpleData name="Field_1">Sông Giang</SimpleData>
@@ -377,7 +377,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Đăk Ring (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">26</SimpleData>
 		<SimpleData name="Field_1">Sông Đăk Ring (đoạn 2)</SimpleData>
@@ -391,7 +391,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Rêng</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">27</SimpleData>
 		<SimpleData name="Field_1">Sông Rêng</SimpleData>
@@ -405,7 +405,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Tang (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">28</SimpleData>
 		<SimpleData name="Field_1">Sông Tang (đoạn 2)</SimpleData>
@@ -419,7 +419,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Trà Ích</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">29</SimpleData>
 		<SimpleData name="Field_1">Suối Trà Ích</SimpleData>
@@ -433,7 +433,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Nước Biếc</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">30</SimpleData>
 		<SimpleData name="Field_1">Suối Nước Biếc</SimpleData>
@@ -447,7 +447,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Nước Nia</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">31</SimpleData>
 		<SimpleData name="Field_1">Suối Nước Nia</SimpleData>
@@ -461,7 +461,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Nước Bao</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">32</SimpleData>
 		<SimpleData name="Field_1">Suối Nước Bao</SimpleData>
@@ -475,7 +475,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Phú Thọ</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">33</SimpleData>
 		<SimpleData name="Field_1">Sông Phú Thọ</SimpleData>
@@ -489,7 +489,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vệ (đoạn 4)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">34</SimpleData>
 		<SimpleData name="Field_1">Sông Vệ (đoạn 4)</SimpleData>
@@ -503,7 +503,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vực Hồng (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">35</SimpleData>
 		<SimpleData name="Field_1">Sông Vực Hồng (đoạn 1)</SimpleData>
@@ -517,7 +517,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Cây Bứa</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">36</SimpleData>
 		<SimpleData name="Field_1">Sông Cây Bứa</SimpleData>
@@ -531,7 +531,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Nề</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">37</SimpleData>
 		<SimpleData name="Field_1">Sông Nề</SimpleData>
@@ -545,7 +545,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Nước Ren</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">38</SimpleData>
 		<SimpleData name="Field_1">Suối Nước Ren</SimpleData>
@@ -559,7 +559,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Tô</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">39</SimpleData>
 		<SimpleData name="Field_1">Sông Tô</SimpleData>
@@ -573,7 +573,7 @@
   </Placemark>
   <Placemark>
 	<name>Phụ Lưu số 2</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">40</SimpleData>
 		<SimpleData name="Field_1">Phụ Lưu số 2</SimpleData>
@@ -587,7 +587,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Nô</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">41</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Nô</SimpleData>
@@ -601,7 +601,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Nước Lếch</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">42</SimpleData>
 		<SimpleData name="Field_1">Suối Nước Lếch</SimpleData>
@@ -615,7 +615,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Đò Mốc</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">43</SimpleData>
 		<SimpleData name="Field_1">Sông Đò Mốc</SimpleData>
@@ -629,7 +629,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Kim (La Vi)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">44</SimpleData>
 		<SimpleData name="Field_1">Sông Kim (La Vi)</SimpleData>
@@ -643,7 +643,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trường</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">45</SimpleData>
 		<SimpleData name="Field_1">Sông Trường</SimpleData>
@@ -657,7 +657,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Quán</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">46</SimpleData>
 		<SimpleData name="Field_1">Sông Quán</SimpleData>
@@ -671,7 +671,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Câu (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">47</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Câu (đoạn 2)</SimpleData>
@@ -685,7 +685,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Ba Khan</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">48</SimpleData>
 		<SimpleData name="Field_1">Suối Ba Khan</SimpleData>
@@ -699,7 +699,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Lổ Bung</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">49</SimpleData>
 		<SimpleData name="Field_1">Sông Lổ Bung</SimpleData>
@@ -713,7 +713,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông La Hà</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">50</SimpleData>
 		<SimpleData name="Field_1">Sông La Hà</SimpleData>
@@ -727,7 +727,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông An Định</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">51</SimpleData>
 		<SimpleData name="Field_1">Sông An Định</SimpleData>
@@ -741,7 +741,7 @@
   </Placemark>
   <Placemark>
 	<name>Suối Ba Mao</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">52</SimpleData>
 		<SimpleData name="Field_1">Suối Ba Mao</SimpleData>
@@ -755,7 +755,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Bồng (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">53</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bồng (đoạn 1)</SimpleData>
@@ -769,7 +769,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Bồng (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">54</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bồng (đoạn 2)</SimpleData>
@@ -783,7 +783,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Bồng (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">55</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bồng (đoạn 3)</SimpleData>
@@ -797,7 +797,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Bồng (đoạn 5)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">56</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bồng (đoạn 5)</SimpleData>
@@ -811,7 +811,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Tang (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">57</SimpleData>
 		<SimpleData name="Field_1">Sông Tang (đoạn 1)</SimpleData>
@@ -825,7 +825,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Tang (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">58</SimpleData>
 		<SimpleData name="Field_1">Sông Tang (đoạn 3)</SimpleData>
@@ -839,7 +839,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Đăk Ring (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">59</SimpleData>
 		<SimpleData name="Field_1">Sông Đăk Ring (đoạn 1)</SimpleData>
@@ -853,7 +853,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Đắk Lô (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">60</SimpleData>
 		<SimpleData name="Field_1">Sông Đắk Lô (đoạn 1)</SimpleData>
@@ -867,7 +867,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">61</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 1)</SimpleData>
@@ -881,7 +881,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">62</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 3)</SimpleData>
@@ -895,7 +895,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 4)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">63</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 4)</SimpleData>
@@ -909,7 +909,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vực Hồng (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">64</SimpleData>
 		<SimpleData name="Field_1">Sông Vực Hồng (đoạn 2)</SimpleData>
@@ -923,7 +923,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 5)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">65</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 5)</SimpleData>
@@ -937,7 +937,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 7)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">66</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 7)</SimpleData>
@@ -951,7 +951,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vệ (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">67</SimpleData>
 		<SimpleData name="Field_1">Sông Vệ (đoạn 1)</SimpleData>
@@ -965,7 +965,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vệ (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">68</SimpleData>
 		<SimpleData name="Field_1">Sông Vệ (đoạn 2)</SimpleData>
@@ -979,7 +979,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vệ (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">69</SimpleData>
 		<SimpleData name="Field_1">Sông Vệ (đoạn 3)</SimpleData>
@@ -993,7 +993,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vệ (đoạn 5)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">70</SimpleData>
 		<SimpleData name="Field_1">Sông Vệ (đoạn 5)</SimpleData>
@@ -1007,7 +1007,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Vực Hồng (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">71</SimpleData>
 		<SimpleData name="Field_1">Sông Vực Hồng (đoạn 3)</SimpleData>
@@ -1021,7 +1021,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Câu (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">72</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Câu (đoạn 3)</SimpleData>
@@ -1035,7 +1035,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Khúc (đoạn 2)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">73</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Khúc (đoạn 2)</SimpleData>
@@ -1049,7 +1049,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Câu (đoạn 1)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">74</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Câu (đoạn 1)</SimpleData>
@@ -1063,7 +1063,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Nước Bua</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">75</SimpleData>
 		<SimpleData name="Field_1">Sông Nước Bua</SimpleData>
@@ -1077,7 +1077,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Trà Bồng 2</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">76</SimpleData>
 		<SimpleData name="Field_1">Sông Trà Bồng 2</SimpleData>
@@ -1091,7 +1091,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Xà Roát</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">77</SimpleData>
 		<SimpleData name="Field_1">Sông Xà Roát</SimpleData>
@@ -1105,7 +1105,7 @@
   </Placemark>
   <Placemark>
 	<name>Sông Đắk Lô (đoạn 3)</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff619ce6</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#phandoansong_wgs84_1">
 		<SimpleData name="FID">78</SimpleData>
 		<SimpleData name="Field_1">Sông Đắk Lô (đoạn 3)</SimpleData>
