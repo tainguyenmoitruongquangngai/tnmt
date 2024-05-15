@@ -46,10 +46,10 @@ const ListLicenses = () => {
     //Init columnTable
     const columnsTable: TableColumn[] = [
         { id: "soGP", label: "Số GP", align: 'left', pinned: "left", minWidth: 200, elm: (row: any) => (<ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />) },
-        { id: "hieuluc_gp", label: "Hiệu lực GP", align: 'left', minWidth: 200, elm: (row: any) => (<CheckEffect data={row} />) },
         { id: "ngayKy", label: "Ngày ký", align: 'left', minWidth: 200, elm: (row: any) => (formatDate(row.ngayKy)) },
+        { id: "hieuluc_gp", label: "Hiệu lực GP", align: 'left', minWidth: 200, elm: (row: any) => (<CheckEffect data={row} />) },
         { id: "ngayCoHieuLuc", label: "Ngày có hiệu lực", align: 'left', minWidth: 200, elm: (row: any) => (formatDate(row.ngayCoHieuLuc)) },
-        { id: "ngayHetHieuLuc", label: "Ngày hểt hiệu lực", align: 'left', minWidth: 200, elm: (row: any) => (formatDate(row.ngayHetHieuLuc)) },
+        { id: "thoiHan", label: "Thời hạn cấp phép", align: 'left', minWidth: 200, elm: (row: any) => (row.thoiHan) },
         {
             id: "tochuc_canhan", label: "Cơ quan/cá nhân được CP", align: 'left', children: [
                 { id: "tenTCCN", label: "Tên", align: 'left', minWidth: 400, elm: (row: any) => row.tochuc_canhan?.tenTCCN },
@@ -58,8 +58,8 @@ const ListLicenses = () => {
         },
         {
             id: "giayphep_cu", label: "GP cũ", align: 'left', children: [
-                { id: "soGP", label: "Số GP", align: 'left', minWidth: 200, elm: (row: any) => (<ShowFilePDF name={row.soGP} src={row.fileGiayPhep} />) },
-                { id: "ngayKy", label: "Ngày ký", align: 'left', minWidth: 200, elm: (row: any) => (formatDate(row.ngayKy)) },
+                { id: "soGP", label: "Số GP", align: 'left', minWidth: 200, elm: (row: any) => (<ShowFilePDF name={row.giayphep_cu?.soGP} src={row.giayphep_cu?.fileGiayPhep} />) },
+                { id: "ngayKy", label: "Ngày ký", align: 'left', minWidth: 200, elm: (row: any) => (formatDate(row.giayphep_cu?.ngayKy)) },
             ]
         },
         {
