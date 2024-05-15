@@ -52,7 +52,9 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
     const coQuanCapPhep = [
         { title: 'BTNMT', value: 'BTNMT' },
         { title: 'UBND Tỉnh', value: 'UBNDT' },
+        ...(router.pathname === '/giay-phep/nuoc-duoi-dat/tham-do' ? [{ title: 'STNMT', value: 'STNMT' }] : [])
     ];
+
 
     useEffect(() => {
         const getDataForSelect = async () => {

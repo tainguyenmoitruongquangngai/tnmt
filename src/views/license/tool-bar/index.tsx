@@ -50,9 +50,10 @@ const LicenseToolBar: FC<LicenseToolBarProps> = ({ onChange, onExport }) => {
 
     //Cơ quan cấp phép
     const coquan_cp = [
-        { label: 'Bộ TNMT', value: 'btnmt' },
-        { label: 'UBND Tỉnh', value: 'ubndt' }
-    ]
+        { label: 'BTNMT', value: 'BTNMT' },
+        { label: 'UBND Tỉnh', value: 'UBNDT' },
+        ...(router.pathname === '/giay-phep/nuoc-duoi-dat/tham-do' ? [{ label: 'STNMT', value: 'STNMT' }] : [])
+    ];
 
     const [open, setOpen] = useState(false);
 
