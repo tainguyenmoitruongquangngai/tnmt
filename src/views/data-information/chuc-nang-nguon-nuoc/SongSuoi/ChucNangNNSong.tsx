@@ -47,15 +47,45 @@ const NN_CNNN_SongSuoi = () => {
       label: 'STT',
     },
     {
-      id: 'maSong',
+      id: '#',
       label: 'Mã sông',
       align: 'left',
-      minWidth: 200,
+      minWidth: 100,
       children: [
         {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
+          id: 'maSong1',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong2',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong3',
+          label: '',
+          align: 'left',
+         
+        },{
+          id: 'maSong4',
+          label: '',
+          align: 'left',
+         
+        },{
+          id: 'maSong5',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong6',
+          label: '',
+          align: 'left',
+         
+        },
       ]
     },
     {
@@ -63,60 +93,36 @@ const NN_CNNN_SongSuoi = () => {
       label: 'Tên sông,suối',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
+    },
+    {
+      id: 'phanDoan',
+      label: 'Phân đoạn',
+      align: 'left',
+      minWidth: 200,
     },
     {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'chieuDai',
       label: 'Chiều dài (km)',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {
       id: '#',
@@ -129,7 +135,6 @@ const NN_CNNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xDiemDau == null ? "-" : row.xDiemDau}</Typography>,
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
         },
         {
           id: 'yDiemDau',
@@ -137,7 +142,6 @@ const NN_CNNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yDiemDau == null ? "-" : row.yDiemDau}</Typography>,
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
         }
       ]
     },
@@ -152,7 +156,6 @@ const NN_CNNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xDiemCuoi == null ? "-" : row.xDiemCuoi}</Typography>,
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
         },
         {
           id: 'yDiemCuoi',
@@ -160,7 +163,6 @@ const NN_CNNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yDiemCuoi == null ? "-" : row.yDiemCuoi}</Typography>,
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
         }
       ]
     },
@@ -168,34 +170,16 @@ const NN_CNNN_SongSuoi = () => {
       id: 'chucNangNguonNuoc',
       label: 'Chức năng nguồn nước',
       align: 'left',
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'mucTieuChatLuong',
       label: 'Mục tiêu chất lượng',
       align: 'left',
-      children: [
-        {
-          id: '#12',
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
-        }
-      ]
     },
     {
       id: '#',
       label: 'Thời gian thực hiện',
       align: 'left',
-      children: [
-        {
-          id: '#13',
-          children: [{ id: '#13.1', label: '(13)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

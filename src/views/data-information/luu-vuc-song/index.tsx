@@ -18,7 +18,6 @@ import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 
 const LuuVucSong = () => {
   const [data, setData] = useState<any[]>([])
-
   const [loading, setLoading] = useState(false)
 
   // const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear())
@@ -52,10 +51,40 @@ const LuuVucSong = () => {
 
     },
     {
-      id: 'maSong',
+      id: '#',
       label: 'Mã sông',
       align: 'left',
       minWidth: 100,
+      children: [
+        {
+          id: 'maSong1',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong2',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong3',
+          label: '',
+          align: 'left',
+         
+        },{
+          id: 'maSong4',
+          label: '',
+          align: 'left',
+         
+        },{
+          id: 'maSong5',
+          label: '',
+          align: 'left',
+         
+        },
+      ]
     },
     {
       id: 'capSong',
@@ -66,11 +95,13 @@ const LuuVucSong = () => {
       id: 'tenSongSuoi',
       label: 'Tên sông',
       align: 'left',
+      minWidth:150
     },
     {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
+      minWidth:150
     },
     {
       id: 'chieuDai',
@@ -86,6 +117,7 @@ const LuuVucSong = () => {
       id: 'tinh',
       label: 'Tỉnh/ Thành phố',
       align: 'left',
+      minWidth:150
     },
     {
       id: 'thuocLVS',

@@ -47,37 +47,52 @@ const DanhMucNN_LienTinh = () => {
       label: 'STT',
     },
     {
-      id: 'maSong',
+      id: '#',
       label: 'Mã sông',
       align: 'left',
+      minWidth: 100,
       children: [
         {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
+          id: 'maSong1',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong2',
+          label: '',
+          align: 'left',
+         
+        },
+        {
+          id: 'maSong3',
+          label: '',
+          align: 'left',
+         
+        },{
+          id: 'maSong4',
+          label: '',
+          align: 'left',
+         
+        },{
+          id: 'maSong5',
+          label: '',
+          align: 'left',
+         
+        },
       ]
     },
     {
       id: 'tenSongSuoi',
       label: 'Tên sông,suối',
       align: 'left',
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
+      minWidth:150
     },
     {
       id: 'chayRa',
       label: 'Chảy ra',
       align: 'left',
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
+      minWidth:150
     },
     {
       id: '#',
@@ -89,8 +104,7 @@ const DanhMucNN_LienTinh = () => {
           label: 'X điểm đầu',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xDiemDau == null ? "-" : row.xDiemDau}</Typography>,
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.xDiemDau == null ? "-" : row.xDiemDau}</Typography>
         },
         {
           id: 'yDiemDau',
@@ -98,31 +112,27 @@ const DanhMucNN_LienTinh = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yDiemDau == null ? "-" : row.yDiemDau}</Typography>,
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
         },
         {
           id: 'thonDiemDau',
           label: 'Thôn điểm đầu',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.thonDiemDau == null ? "-" : row.thonDiemDau}</Typography>,
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thonDiemDau == null ? "-" : row.thonDiemDau}</Typography>
         },
         {
           id: 'xaPhuongTTDiemDau',
           label: 'Xã/Phường/Thị trấn điểm đầu',
           align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xaPhuongTTDiemDau == null ? "-" : row.xaPhuongTTDiemDau}</Typography>,
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
+          minWidth: 250,
+          elm: (row: any) => <Typography className='f_14'>{row.xaPhuongTTDiemDau == null ? "-" : row.xaPhuongTTDiemDau}</Typography>
         },
         {
           id: 'huyenTPDiemDau',
           label: 'Huyện/Thành phố điểm đầu',
           align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyenTPDiemDau == null ? "-" : row.huyenTPDiemDau}</Typography>,
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
+          minWidth: 250,
+          elm: (row: any) => <Typography className='f_14'>{row.huyenTPDiemDau == null ? "-" : row.huyenTPDiemDau}</Typography>
         }
       ]
     },
@@ -136,8 +146,7 @@ const DanhMucNN_LienTinh = () => {
           label: 'X điểm cuối',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xDiemCuoi == null ? "-" : row.xDiemCuoi}</Typography>,
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.xDiemCuoi == null ? "-" : row.xDiemCuoi}</Typography>
         },
         {
           id: 'yDiemCuoi',
@@ -145,44 +154,34 @@ const DanhMucNN_LienTinh = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yDiemCuoi == null ? "-" : row.yDiemCuoi}</Typography>,
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
         },
         {
           id: 'thonDiemCuoi',
           label: 'Thôn điểm cuối',
           align: 'left',
           minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.thonDiemCuoi == null ? "-" : row.thonDiemCuoi}</Typography>,
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
+          elm: (row: any) => <Typography className='f_14'>{row.thonDiemCuoi == null ? "-" : row.thonDiemCuoi}</Typography>
         },
         {
           id: 'xaPhuongTTDiemCuoi',
           label: 'Xã/Phường/Thị trấn điểm cuối',
           align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.xaPhuongTTDiemCuoi == null ? "-" : row.xaPhuongTTDiemCuoi}</Typography>,
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
+          minWidth: 250,
+          elm: (row: any) => <Typography className='f_14'>{row.xaPhuongTTDiemCuoi == null ? "-" : row.xaPhuongTTDiemCuoi}</Typography>
         },
         {
           id: 'huyenTPDiemCuoi',
           label: 'Huyện/Thành phố điểm cuối',
           align: 'left',
-          minWidth: 150,
-          elm: (row: any) => <Typography className='f_14'>{row.huyenTPDiemCuoi == null ? "-" : row.huyenTPDiemCuoi}</Typography>,
-          children: [{ id: '#13.1', label: '(13)', align: 'left' }]
+          minWidth: 250,
+          elm: (row: any) => <Typography className='f_14'>{row.huyenTPDiemCuoi == null ? "-" : row.huyenTPDiemCuoi}</Typography>
         }
       ]
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
-      align: 'left',
-      children: [
-        {
-          id: '#14',
-          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
-        }
-      ]
+      align: 'left'
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

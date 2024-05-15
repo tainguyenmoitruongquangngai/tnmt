@@ -50,48 +50,30 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       label: 'Đoạn sông',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
+    },
+    {
+      id: 'tenSong',
+      label: 'Tên sông',
+      align: 'left',
+      minWidth: 200,
     },
     {
       id: 'chieuDai',
       label: 'Chiều dài',
       align: 'left',
       minWidth: 100,
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'diaPhanHanhChinh',
       label: 'Địa phận hành chính',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: '#',
@@ -104,7 +86,7 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xDiemDau == null ? "-" : row.xDiemDau}</Typography>,
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
+         
         },
         {
           id: 'yDiemDau',
@@ -112,7 +94,7 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yDiemDau == null ? "-" : row.yDiemDau}</Typography>,
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
+          
         }
       ]
     },
@@ -127,7 +109,7 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xDiemCuoi == null ? "-" : row.xDiemCuoi}</Typography>,
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
+          
         },
         {
           id: 'yDiemCuoi',
@@ -135,7 +117,7 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yDiemCuoi == null ? "-" : row.yDiemCuoi}</Typography>,
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
+          
         }
       ]
     },
@@ -143,34 +125,17 @@ const NN_HanhLangBaoVeNN_SongSuoi = () => {
       id: 'chucNang',
       label: 'Chức năng',
       align: 'left',
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
+      minWidth: 250,
     },
     {
       id: 'phamViHanhLangBaoVe',
       label: 'Phạm vi hành lang bảo vệ',
       align: 'left',
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thoiGianThucHien',
       label: 'Thời gian thực hiện',
       align: 'left',
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
