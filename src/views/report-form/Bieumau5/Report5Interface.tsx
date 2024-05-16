@@ -1,5 +1,6 @@
 export interface Report5State {
     id: number
+    nam: number
     tenTram: string
     luuLuongThang1: number
     luuLuongThang2: number

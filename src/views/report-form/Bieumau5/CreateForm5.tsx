@@ -8,6 +8,7 @@ import { Report5State } from './Report5Interface'
 const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const [report5Data, setreport5Data] = useState<Report5State>({
     id: data?.id || 0,
+    nam: data?.nam || '',
     tenTram: data?.tenTram || '',
     luuLuongThang1: data?.luuLuongThang1 || 0,
     luuLuongThang2: data?.luuLuongThang2 || 0,
@@ -20,7 +21,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     luuLuongThang9: data?.luuLuongThang9 || 0,
     luuLuongThang10: data?.luuLuongThang10 || 0,
     luuLuongThang11: data?.luuLuongThang11 || 0,
-    luuLuongThang12: data?.luuLuongThang21 || 0,
+    luuLuongThang12: data?.luuLuongThang12 || 0,
     ghiChu: data?.ghiChu || ''
   })
 
@@ -41,6 +42,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           // Reset form fields
           setreport5Data({
             id: 0,
+            nam:0,
             tenTram: '',
             luuLuongThang1: 0,
             luuLuongThang2: 0,
@@ -75,6 +77,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   const handleClose = () => {
     setreport5Data({
       id: 0,
+      nam:0,
       tenTram: '',
       luuLuongThang1: 0,
       luuLuongThang2: 0,
@@ -97,6 +100,17 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
   return (
     <>
       <Grid container spacing={3}>
+      <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Năm'
+            fullWidth
+            placeholder=''
+            value={report5Data.nam || ''}
+            onChange={event => handleChange('nam')(event.target.value)}
+          />
+        </Grid>
         <Grid item xs={12} md={12} sm={12} sx={{ my: 2 }}>
           <TextField
             size='small'
