@@ -118,3 +118,18 @@ export interface FormDuLieuNguonThaiTrongRungState {
   ctTrongRungColiform: number
   ghiChu: string
 }
+
+export interface FormDuLieuNguonThaiThuySanState {
+  id: number
+  idPhanDoanSong: number
+  dienTichThuySan:number
+  heSoSuyGiam: number
+  ctThuySanBOD: number
+  ctThuySanCOD: number
+  ctThuySanAmoni: number
+  ctThuySanTongN: number
+  ctThuySanTongP: number
+  ctThuySanTSS: number
+  ctThuySanColiform: number
+  ghiChu: string
+}

@@ -272,9 +272,11 @@ code[class*='language-'] {
   text-transform: uppercase !important;
 }
 .text_table{
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-weight: 400 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.25px !important;
+  color: rgba(58, 53, 65, 0.87) !important;
 }
 
 /* Loading */

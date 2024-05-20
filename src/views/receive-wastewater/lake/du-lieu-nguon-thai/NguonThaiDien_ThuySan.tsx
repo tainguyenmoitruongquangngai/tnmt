@@ -6,26 +6,23 @@ import { useState } from 'react'
 //import { Box, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
 
-//import dynamic from 'next/dynamic'
-import dynamic from 'next/dynamic'
 import { getData } from 'src/api/axios'
-import { Box, Paper } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
-import CreateWasteForm from './wasteWaterForm'
+import ThaiThuySanForm from './form/NguoiThaiThuySanForm'
 
-const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
-const WasteWaterDetails = () => {
+const NguonThaiThuySan = () => {
   //Init columnTable
 
   // const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
   // const [mapZoom, setMapZoom] = useState(9)
   // const [showLabel, setShowLabel] = useState(false)
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT' },
-    { id: '#', label: 'Sông', align: 'left', minWidth: 200,
+    { id: 'stt', label: 'STT', rowspan: 2 },
+    { id: '#', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200,
     elm: (row: any) => (
       <span>
         {row.phanDoanSong.song}
@@ -38,9 +35,9 @@ const WasteWaterDetails = () => {
           Tên đoạn <br /> sông
         </>
       ),
-      
+      rowspan: 2,
       align: 'left',
-      minWidth: 150,
+      minWidth: 100,
       elm: (row: any) => (
         <span>
           {row.phanDoanSong.tenDoanSong}
@@ -51,10 +48,10 @@ const WasteWaterDetails = () => {
       id: 'chieuDai',
       label: (
         <>
-          Chiều dài <br /> đoạn sông <br /> (km)
+          Chiều dài <br /> đoạn sông <br /> (ha)
         </>
       ),
-      
+      rowspan: 2,
       align: 'left',
       minWidth: 100,
       elm: (row: any) => (
@@ -64,29 +61,39 @@ const WasteWaterDetails = () => {
       )
     },
     {
-      id: 'luuLuongDongChay',
+      id: 'dienTichThuySan',
       label: (
         <>
-          {' '}
-          Lưu lượng <br /> dòng chảy <br /> Qs(m3/s)
+          Diện tích thủy sản<br /> (ha) 
         </>
       ),
-      
+      rowspan: 2,
+      align: 'left',
+      minWidth: 150
+    },
+  
+    {
+      id: 'heSoSuyGiam',
+      label: (
+        <>
+         Hệ số suy giảm dọc đường <br /> hay hệ số dòng chảy
+        </>
+      ),
+      rowspan: 2,
       align: 'left'
     },
     {
       id: '#',
       label: (
         <>
-          {' '}
-          KẾT QUẢ PHÂN TÍCH THÔNG SỐ CHẤT LƯƠNG NƯỚC MẶT <br />
-          Cnn[-]
+         TẢI LƯỢNG Ô NHIỄM (PLU) NGUỒN THẢI DIỆN (THỦY SẢN) <br />
+          (g/ha/ngày)
         </>
       ),
       align: 'left',
       children: [
         {
-          id: 'cnnBOD',
+          id: 'ctThuySanBOD',
           label: (
             <>
               BOD5 <br />
@@ -96,7 +103,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnCOD',
+          id: 'ctThuySanCOD',
           label: (
             <>
               COD <br />
@@ -106,7 +113,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnAmoni',
+          id: 'ctThuySanAmoni',
           label: (
             <>
               Amoni <br />
@@ -116,7 +123,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnTongN',
+          id: 'ctThuySanTongN',
           label: (
             <>
               Tổng N <br />
@@ -126,7 +133,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnTongP',
+          id: 'ctThuySanTongP',
           label: (
             <>
               Tổng P <br />
@@ -136,7 +143,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnTSS',
+          id: 'ctThuySanTSS',
           label: (
             <>
               Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
@@ -145,7 +152,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnColiform',
+          id: 'ctThuySanColiform',
           label: (
             <>
               Tổng P <br /> coliform
@@ -162,15 +169,14 @@ const WasteWaterDetails = () => {
       id: '#',
       label: (
         <>
-          {' '}
-          TẢI LƯỢNG Ô NHIỄM NGUỒN NƯỚC HIỆN CÓ <br />
-          Lnn (kg/ngày)
+       TẢI LƯỢNG THÔNG SỐ CHẤT LƯỢNG NƯỚC CÓ TRONG NGUỒN THẢI DIỆN (TRỒNG LÚA)
+  <br/> Lt_dien_ThuySan 
         </>
       ),
       align: 'left',
       children: [
         {
-          id: 'lnnBOD',
+          id: 'ltThuySanBOD',
           label: (
             <>
               BOD5 <br />
@@ -180,7 +186,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'lnnCOD',
+          id: 'ltThuySanCOD',
           label: (
             <>
               COD <br />
@@ -190,7 +196,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'lnnAmoni',
+          id: 'ltThuySanAmoni',
           label: (
             <>
               Amoni <br />
@@ -200,7 +206,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'lnnTongN',
+          id: 'ltThuySanTongN',
           label: (
             <>
               Tổng N <br />
@@ -210,7 +216,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'lnnTongP',
+          id: 'ltThuySanTongP',
           label: (
             <>
               Tổng P <br />
@@ -220,7 +226,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'lnnTSS',
+          id: 'ltThuySanTSS',
           label: (
             <>
               Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
@@ -229,172 +235,7 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'lnnColiform',
-          label: (
-            <>
-              Tổng P <br /> coliform
-              <br /> (MPN/100ml)
-            </>
-          ),
-          align: 'left'
-        }
-      ]
-    },
-
-    {
-      id: '#',
-      label: (
-        <>
-          {' '}
-          GIÁ TRỊ GIỚI HẠN THÔNG SỐ CHẤT LƯỢNG NƯỚC THEO TIÊU CHUẨN QCVN 08:2023/BTNMT <br />
-          Cqc [-]
-        </>
-      ),
-      align: 'left',
-      children: [
-        {
-          id: 'cqcBOD',
-          label: (
-            <>
-              BOD5 <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cqcCOD',
-          label: (
-            <>
-              COD <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cqcAmoni',
-          label: (
-            <>
-              Amoni <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cqcTongN',
-          label: (
-            <>
-              Tổng N <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cqcTongP',
-          label: (
-            <>
-              Tổng P <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cqcTSS',
-          label: (
-            <>
-              Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cqcColiform',
-          label: (
-            <>
-              Tổng P <br /> coliform
-              <br /> (MPN/100ml)
-            </>
-          ),
-          align: 'left'
-        }
-      ]
-    },
-    {
-      id: '#',
-      label: (
-        <>
-          {' '}
-          TẢI LƯỢNG TỐI ĐA CỦA THÔNG SỐ CHẤT LƯỢNG NƯỚC MẶT <br />
-          Ltd (kg/ngày)
-        </>
-      ),
-      align: 'left',
-      children: [
-        {
-          id: 'ltdBOD',
-          label: (
-            <>
-              BOD5 <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'ltdCOD',
-          label: (
-            <>
-              COD <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'ltdAmoni',
-          label: (
-            <>
-              Amoni <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'ltdTongN',
-          label: (
-            <>
-              Tổng N <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'ltdTongP',
-          label: (
-            <>
-              Tổng P <br />
-              (mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'ltdTSS',
-          label: (
-            <>
-              Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
-            </>
-          ),
-          align: 'left'
-        },
-        {
-          id: 'cnnColiform',
+          id: 'ltThuySanColiform',
           label: (
             <>
               Tổng P <br /> coliform
@@ -408,15 +249,13 @@ const WasteWaterDetails = () => {
     {
       id: 'ghiChu',
       label: 'Ghi chú',
-      
+      rowspan: 2,
       align: 'left'
     },
 
-    { id: 'actions', label: 'Thao tác', align: 'center', pinned: 'right' }
+    { id: 'actions', label: 'Thao tác', rowspan: 2, align: 'center', pinned: 'right' }
   ]
 
-  const [mapCenter] = useState([15.012172, 108.676488])
-  const [mapZoom] = useState(9)
   const [data, setData] = useState([])
   console.log(data)
 
@@ -429,7 +268,7 @@ const WasteWaterDetails = () => {
   useEffect(() => {
     async function getDataReport1() {
       setLoading(true)
-      await getData('DuLieuNguonNuocNhan/danh-sach')
+      await getData('DuLieuNguonNuocThaiThuySan/danh-sach')
         .then(data => {
           setData(data)
         })
@@ -454,13 +293,15 @@ const WasteWaterDetails = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid xs={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
-        <Map center={mapCenter} zoom={mapZoom} loading={false} />
-      </Grid>
       <Grid xs={12} md={12}>
+      <Grid className='_text_center'>
+          <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
+            THỐNG KÊ TẢI LƯỢNG CHẤT Ô NHIỄM TỪ NGUỒN THẢI THỦY SẢN XẢ VÀO ĐOẠN SÔNG SUỐI TỈNH QUẢNG NGÃI
+          </Typography>
+        </Grid>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
           <Grid className="_flexEnd">
-            <CreateWasteForm isEdit={false} setPostSuccess={handlePostSuccess} />
+            <ThaiThuySanForm isEdit={false} setPostSuccess={handlePostSuccess} />
           </Grid>
           <TableComponent
             columns={columnsTable}
@@ -469,7 +310,7 @@ const WasteWaterDetails = () => {
             pagination
             actions={(row: any) => (
               <Box display={'flex'}>
-                <CreateWasteForm isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
+                <ThaiThuySanForm isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
                 <DeleteData url={'du-lieu-nguon-nhan'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>
             )}
@@ -480,4 +321,4 @@ const WasteWaterDetails = () => {
   )
 }
 
-export default WasteWaterDetails
+export default NguonThaiThuySan

@@ -9,7 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 //import dynamic from 'next/dynamic'
 import dynamic from 'next/dynamic'
 import { getData } from 'src/api/axios'
-import {  Paper } from '@mui/material'
+import { Paper, Typography } from '@mui/material'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
@@ -25,21 +25,19 @@ const TaiLuongONhiem = () => {
     return parseFloat(num?.toFixed(2))
   }
   const columnsTable: TableColumn[] = [
-    { id: 'stt', label: 'STT', rowspan: 2 },
-    { id: 'luuVucSong', label: 'Lưu vực sông', rowspan: 2, align: 'left', minWidth: 200},
+    { id: 'stt', label: 'STT' },
+    { id: 'luuVucSong', label: 'Lưu vực sông', align: 'left', minWidth: 200 },
 
-    { id: 'song', label: 'Sông', rowspan: 2, align: 'left', minWidth: 200},
+    { id: 'song', label: 'Sông', align: 'left', minWidth: 200 },
     {
       id: 'tenDoanSong',
       label: 'Tên đoạn sông',
-      rowspan: 2,
       align: 'left',
-      minWidth: 100
+      minWidth: 150
     },
     {
       id: 'phanDoan',
       label: 'Phân đoạn sông',
-      rowspan: 2,
       align: 'left',
       minWidth: 200
     },
@@ -50,16 +48,16 @@ const TaiLuongONhiem = () => {
           Chiều dài <br /> đoạn sông <br /> (km)
         </>
       ),
-      rowspan: 2,
       align: 'left',
-      minWidth: 100,
+      minWidth: 100
     },
-    
+
     {
       id: 'duLieuNguonNuocNhan',
       label: (
         <>
-          TẢI LƯỢNG TỐI ĐA CỦA THÔNG SỐ CHẤT LƯỢNG NƯỚC MẶT<br />
+          TẢI LƯỢNG TỐI ĐA CỦA THÔNG SỐ CHẤT LƯỢNG NƯỚC MẶT
+          <br />
           Ltd (kg/ngày)
         </>
       ),
@@ -73,7 +71,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdBOD}</Typography>
         },
         {
           id: 'ltdCOD',
@@ -83,7 +82,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdCOD}</Typography>
         },
         {
           id: 'ltdAmoni',
@@ -93,7 +93,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdAmoni}</Typography>
         },
         {
           id: 'ltdTongN',
@@ -103,7 +104,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdTongN}</Typography>
         },
         {
           id: 'ltdTongP',
@@ -113,7 +115,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdTongP}</Typography>
         },
         {
           id: 'ltdTSS',
@@ -122,7 +125,8 @@ const TaiLuongONhiem = () => {
               Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdTSS}</Typography>
         },
         {
           id: 'ltdColiform',
@@ -132,7 +136,8 @@ const TaiLuongONhiem = () => {
               <br /> (MPN/100ml)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.ltdColiform}</Typography>
         }
       ]
     },
@@ -157,7 +162,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnBOD}</Typography>
         },
         {
           id: 'lnnCOD',
@@ -167,7 +173,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnCOD}</Typography>
         },
         {
           id: 'lnnAmoni',
@@ -177,7 +184,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnAmoni}</Typography>
         },
         {
           id: 'lnnTongN',
@@ -187,7 +195,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnTongN}</Typography>
         },
         {
           id: 'lnnTongP',
@@ -197,7 +206,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnTongP}</Typography>
         },
         {
           id: 'lnnTSS',
@@ -206,7 +216,8 @@ const TaiLuongONhiem = () => {
               Tổng <br /> chất rắn <br /> lơ lửng <br /> TSS(mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnTSS}</Typography>
         },
         {
           id: 'lnnColiform',
@@ -216,7 +227,8 @@ const TaiLuongONhiem = () => {
               <br /> (MPN/100ml)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => <Typography className='text_table'>{row.duLieuNguonNuocNhan.lnnColiform}</Typography>
         }
       ]
     },
@@ -239,7 +251,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltBod)
         },
         {
           id: 'ltCod',
@@ -249,7 +262,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltCod)
         },
         {
           id: 'ltAmoni',
@@ -259,7 +273,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltAmoni)
         },
         {
           id: 'ltTongN',
@@ -269,7 +284,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltTongN)
         },
         {
           id: 'ltTongP',
@@ -279,7 +295,8 @@ const TaiLuongONhiem = () => {
               (mg/l)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltTongP)
         },
         {
           id: 'ltTSS',
@@ -306,15 +323,13 @@ const TaiLuongONhiem = () => {
     {
       id: '#',
       label: 'Hệ số an toàn ',
-      rowspan: 2,
       align: 'left'
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
-      rowspan: 2,
       align: 'left'
-    },
+    }
   ]
 
   const [mapCenter] = useState([15.012172, 108.676488])
@@ -357,13 +372,7 @@ const TaiLuongONhiem = () => {
       </Grid>
       <Grid xs={12} md={12}>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
-        
-          <TableComponent
-            columns={columnsTable}
-            rows={data}
-            loading={loading}
-            pagination
-          />
+          <TableComponent columns={columnsTable} rows={data} loading={loading} pagination />
         </Paper>
       </Grid>
     </Grid>
