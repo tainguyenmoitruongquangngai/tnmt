@@ -1,17 +1,6 @@
-export interface propConsDataState {
-  congtrinh?: ConstructionState | null | undefined;
-  thongso_ct?: ConstructionSpecState | null | undefined;
-  hangmuc_ct?: ConstructionItemState[] | null | undefined;
-  hangmuc_ct_xoa?: ConstructionItemState[] | null | undefined;
-  luuluongtheo_mucdich?: MiningPurposeState[] | null | undefined;
-  luuluongtheo_mucdich_xoa?: MiningPurposeState[] | null | undefined;
-}
-
 export interface ConstructionState {
   id?: number | null | undefined;
   idLoaiCT?: number | null | undefined;
-  idHuyen?: string | null | undefined;
-  idXa?: string | null | undefined;
   idSong?: number | null | undefined;
   idLuuVuc?: number | null | undefined;
   idTieuLuuVuc?: number | null | undefined;
@@ -42,89 +31,125 @@ export interface ConstructionState {
   viTriXT?: string | null | undefined;
   taiKhoan?: string | null | undefined;
   chuThich?: string | null | undefined;
+  hangmuc?: ConstructionItemState[] | null | undefined;
+  luuluong_theomd?: MiningPurposeState[] | null | undefined;
+  thongso?: ConstructionSpecState | null | undefined;
+  vitri?: ConstructionLocationState[] | null | undefined;
+}
+
+export interface ConstructionItemState {
+  id: number | null | undefined;
+  idCT?: number | null | undefined;
+  idTangChuaNuoc?: number | null | undefined;
+  tenHangMuc?: string | null | undefined;
+  viTriHangMuc?: string | null | undefined;
+  x?: number | null | undefined;
+  y?: number | null | undefined;
+  chuThich?: string | null | undefined;
+  daXoa?: boolean | null | undefined;
+  thongso?: ConstructionSpecState | null | undefined;
+}
+
+export interface MiningPurposeState {
+  id: number | null | undefined;
+  idCT?: number | null | undefined;
+  idMucDich?: number | null | undefined;
+  mucDich?: string | null | undefined;
+  luuLuong?: number | null | undefined;
+  donViDo?: string | null | undefined;
+  ghiChu?: string | null | undefined;
+  daXoa?: boolean | null | undefined;
+}
+
+export interface ConstructionLocationState {
+  id: number | null | undefined;
+  idCongTrinh?: number | null | undefined;
+  idXa?: string | null | undefined;
+  idHuyen?: string | null | undefined;
 }
 
 export interface ConstructionSpecState {
-  idCT?: number | null;
-  idHangMucCT?: number | null;
-  caoTrinhCong?: string | null;
-  cheDoKT?: string | null;
-  caoTrinhDap?: string | null;
-  cheDoXT?: string | null;
-  nguonNuocXT?: string | null ;
-  chieuCaoDap?: number | null;
-  chieuDaiCong?: number | null;
-  chieuDaiDap?: number | null;
-  duongKinhCong?: string | null;
-  chieuRongDap?: number | null;
-  nguongTran?: number | null;
-  chieuSauDoanThuNuocDen?: number | null;
-  chieuSauDoanThuNuocTu?: number | null;
-  congSuatBom?: number | null;
-  congSuatDamBao?: number | null;
-  congSuatLM?: number | null;
-  dienTichLuuVuc?: number | null;
-  dienTichTuoiThietKe?: number | null;
-  dienTichTuoiThucTe?: number | null;
-  dungTichChet?: number | null;
-  dungTichHuuIch?: number | null;
-  dungTichToanBo?: number | null;
-  hBeHut?: number | null;
-  hDatOngLocDen?: number | null;
-  hDatOngLocTu?: number | null;
-  hDoanThuNuocDen?: number | null;
-  hDoanThuNuocTu?: number | null;
-  hDong?: number | null;
-  hgieng?: number | null;
-  hGiengKT?: number | null;
-  hHaLuu?: number | null;
-  hHaThap?: number | null;
-  hlu?: number | null;
-  hmax?: number | null;
-  hmin?: number | null;
-  hThuongLuu?: number | null;
-  hTinh?: number | null;
-  htoiThieu?: number | null;
-  kichThuocCong?: string | null;
-  kqKf?: number | null;
-  luongNuocKT?: number | null;
-  mnc?: number | null;
-  mndbt?: number | null;
-  mnlkt?: number | null;
-  mnltk?: number | null;
-  muaTrungBinhNam?: number | null;
-  mucNuocDong?: number | null;
-  mucNuocTinh?: number | null;
-  phuongThucXT?: string | null;
-  qBomLonNhat?: number | null;
-  qBomThietKe?: number | null;
-  qDamBao?: number | null;
-  qKhaiThac?: number | null;
-  qktCapNuocSinhHoat?: number | null;
-  qktLonNhat?: number | null;
-  qLonNhatTruocLu?: number | null;
-  qMaxKT?: number | null;
-  qmaxNM?: number | null;
-  qMaxXaThai?: number | null;
-  qThietKe?: number | null;
-  qThucTe?: number | null;
-  qTrungBinhNam?: number | null;
-  qtt?: number | null;
-  qXaThai?: number | null;
-  qXaThaiLonNhat?: number | null;
-  qXaThaiTB?: number | null;
-  qXaTran?: number | null;
-  soLuongMayBom?: number | null;
-  thoiGianBomLonNhat?: string | null;
-  thoiGianBomNhoNhat?: string | null;
-  thoiGianBomTB?: string | null;
+  id: number | null | undefined;
+  idCT: null | null | undefined;
+  idHangMucCT: number | null | undefined;
+  caoTrinhCong?: string | null | undefined;
+  cheDoKT?: string | null | undefined;
+  caoTrinhDap?: string | null | undefined;
+  cheDoXT?: string | null | undefined;
+  nguonNuocXT?: string | null | undefined;
+  chieuCaoDap?: number | null | undefined;
+  chieuDaiCong?: number | null | undefined;
+  chieuDaiDap?: number | null | undefined;
+  duongKinhCong?: string | null | undefined;
+  chieuRongDap?: number | null | undefined;
+  nguongTran?: number | null | undefined;
+  chieuSauDoanThuNuocDen?: number | null | undefined;
+  chieuSauDoanThuNuocTu?: number | null | undefined;
+  congSuatBom?: number | null | undefined;
+  congSuatDamBao?: number | null | undefined;
+  congSuatLM?: number | null | undefined;
+  dienTichLuuVuc?: number | null | undefined;
+  dienTichTuoiThietKe?: number | null | undefined;
+  dienTichTuoiThucTe?: number | null | undefined;
+  dungTichChet?: number | null | undefined;
+  dungTichHuuIch?: number | null | undefined;
+  dungTichToanBo?: number | null | undefined;
+  hBeHut?: number | null | undefined;
+  hDatOngLocDen?: number | null | undefined;
+  hDatOngLocTu?: number | null | undefined;
+  hDoanThuNuocDen?: number | null | undefined;
+  hDoanThuNuocTu?: number | null | undefined;
+  hDong?: number | null | undefined;
+  hgieng?: number | null | undefined;
+  hGiengKT?: number | null | undefined;
+  hHaLuu?: number | null | undefined;
+  hHaThap?: number | null | undefined;
+  hlu?: number | null | undefined;
+  hmax?: number | null | undefined;
+  hmin?: number | null | undefined;
+  hThuongLuu?: number | null | undefined;
+  hTinh?: number | null | undefined;
+  htoiThieu?: number | null | undefined;
+  kichThuocCong?: string | null | undefined;
+  kqKf?: number | null | undefined;
+  luongNuocKT?: number | null | undefined;
+  mnc?: number | null | undefined;
+  mndbt?: number | null | undefined;
+  mnlkt?: number | null | undefined;
+  mnltk?: number | null | undefined;
+  muaTrungBinhNam?: number | null | undefined;
+  mucNuocDong?: number | null | undefined;
+  mucNuocTinh?: number | null | undefined;
+  phuongThucXT?: string | null | undefined;
+  qBomLonNhat?: number | null | undefined;
+  qBomThietKe?: number | null | undefined;
+  qDamBao?: number | null | undefined;
+  qKhaiThac?: number | null | undefined;
+  qktCapNuocSinhHoat?: number | null | undefined;
+  qktLonNhat?: number | null | undefined;
+  qLonNhatTruocLu?: number | null | undefined;
+  qMaxKT?: number | null | undefined;
+  qmaxNM?: number | null | undefined;
+  qMaxXaThai?: number | null | undefined;
+  qThietKe?: number | null | undefined;
+  qThucTe?: number | null | undefined;
+  qTrungBinhNam?: number | null | undefined;
+  qtt?: number | null | undefined;
+  qXaThai?: number | null | undefined;
+  qXaThaiLonNhat?: number | null | undefined;
+  qXaThaiTB?: number | null | undefined;
+  qXaTran?: number | null | undefined;
+  soLuongMayBom?: number | null | undefined;
+  thoiGianBomLonNhat?: string | null | undefined;
+  thoiGianBomNhoNhat?: string | null | undefined;
+  thoiGianBomTB?: string | null | undefined;
+  daXoa?: boolean;
 }
+
 
 export const emptyConstructionData: ConstructionState = {
   id: null,
   idLoaiCT: null,
-  idHuyen: null,
-  idXa: null,
   idSong: null,
   idLuuVuc: null,
   idTieuLuuVuc: null,
@@ -155,9 +180,14 @@ export const emptyConstructionData: ConstructionState = {
   viTriXT: null,
   taiKhoan: null,
   chuThich: null,
+  hangmuc: null,
+  luuluong_theomd: null,
+  thongso: null,
+  vitri: null,
 }
 
 export const emptyConstructionSpec: ConstructionSpecState = {
+  id: null,
   idCT: null,
   idHangMucCT: null,
   caoTrinhCong: null,
@@ -231,24 +261,5 @@ export const emptyConstructionSpec: ConstructionSpecState = {
   thoiGianBomLonNhat: null,
   thoiGianBomNhoNhat: null,
   thoiGianBomTB: null,
-}
-
-export interface ConstructionItemState {
-  id?: number
-  idCT?: number
-  idTangChuaNuoc?: number
-  tenHangMuc?: string
-  viTriHangMuc?: string
-  x?: number
-  y?: number
-  thongso?: ConstructionSpecState
-}
-
-export interface MiningPurposeState {
-  id?: number
-  idCT?: number
-  mucDich?: string
-  luuLuong?: number
-  donViDo?: string
-  ghiChu?: string
+  daXoa: false,
 }

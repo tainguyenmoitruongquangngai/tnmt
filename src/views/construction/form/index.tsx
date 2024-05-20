@@ -6,8 +6,8 @@ import { useRouter } from 'next/router'
 import GroundWaterField from './cons-ground'
 import SurfaceWaterField from './cons-suface'
 import DischargeWaterField from './cons-discharge'
-import { deleteData, saveData } from 'src/api/axios'
-import { ConstructionItemState, ConstructionSpecState, ConstructionState, propConsDataState } from './construction-interface'
+import { saveData } from 'src/api/axios'
+import { ConstructionState } from './construction-interface'
 
 interface FormConstructionProps {
   data: any
@@ -16,60 +16,30 @@ interface FormConstructionProps {
 }
 
 const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs, setPostSuccess }) => {
-  const propData: propConsDataState = { congtrinh: data, thongso_ct: data?.thongso, hangmuc_ct: data?.hangmuc }
   const route = useRouter()
 
   //Construction
   const [congtrinh, SetCongTrinh] = useState<ConstructionState>(data || {})
-  const [thongSoCT, SetThongSoCT] = useState<ConstructionSpecState>(data?.thongso || {})
-  const [hangMucCT, SetHangMucCT] = useState<ConstructionItemState[]>(data?.hangmuc || [])
-  const [hangMucCT_xoa, SetHangMucCT_xoa] = useState<ConstructionItemState[]>(data?.hangmuc || [])
   const [saving, setSaving] = useState(false)
 
-  const handleConsChange = (data: propConsDataState) => {
-    SetCongTrinh(data.congtrinh ? { ...data.congtrinh } : {});
-    SetThongSoCT(data.thongso_ct ? { ...data.thongso_ct } : {})
-    SetHangMucCT(data.hangmuc_ct || [])
-    SetHangMucCT_xoa(data.hangmuc_ct_xoa || [])
+  const handleConsChange = (data: any) => {
+    console.log(data)
+
+    SetCongTrinh({ ...data });
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
     const handleApiCall = async () => {
+      console.log(congtrinh)
       try {
         setSaving(true)
         const res = await saveData('cong-trinh/luu', congtrinh)
-
         if (res) {
-          await saveData('thong-so-ct/luu', { ...thongSoCT, idCT: res.id, idHangMucCT: null })
-
-          hangMucCT_xoa?.map(async (e: any) => {
-            await deleteData('hang-muc-ct/xoa', e)
-          })
-
-          hangMucCT?.map(async (e: any) => {
-            const newConsItem: ConstructionItemState = {
-              id: e.Id,
-              idCT: res.Id,
-              idTangChuaNuoc: e.idTangChuaNuoc,
-              tenHangMuc: e.tenHangMuc,
-              viTriHangMuc: e.viTriHangMuc,
-              x: e.x,
-              y: e.y,
-            }
-            await saveData('hang-muc-ct/luu', newConsItem)
-          })
-
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
-
-          SetCongTrinh({})
-          SetThongSoCT({})
-          SetHangMucCT([])
-          SetHangMucCT_xoa([])
-
-          closeDialogs()
         }
+
       } catch (error) {
       } finally {
         setSaving(false)
@@ -83,9 +53,6 @@ const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs,
 
   const handleClose = () => {
     SetCongTrinh({})
-    SetThongSoCT({})
-    SetHangMucCT([])
-    SetHangMucCT_xoa([])
 
     closeDialogs()
   }
@@ -95,11 +62,11 @@ const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs,
       <Grid container gap={3}>
         <Grid item xs={12}>
           {route.pathname.split('/')[2] == 'nuoc-mat' ? (
-            <SurfaceWaterField data={propData} onChange={handleConsChange} />
+            <SurfaceWaterField props={data} onChange={handleConsChange} />
           ) : route.pathname.split('/')[2] == 'nuoc-duoi-dat' ? (
-            <GroundWaterField data={propData} onChange={handleConsChange} />
+            <GroundWaterField props={data} onChange={handleConsChange} />
           ) : route.pathname.split('/')[2] == 'xa-thai' ? (
-            <DischargeWaterField data={propData} onChange={handleConsChange} />
+            <DischargeWaterField props={data} onChange={handleConsChange} />
           ) : (
             ''
           )}

@@ -1,7 +1,8 @@
-import { FC, useEffect, useState } from 'react';
-import { Alert, Backdrop, Box, Button, ButtonGroup, Fade, Grid, IconButton, Modal, Paper, Popover, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material"
+import { FC, Fragment, useEffect, useState } from 'react';
+import { Alert, Autocomplete, Backdrop, Box, Button, ButtonGroup, CircularProgress, Fade, Grid, IconButton, Modal, Paper, Popover, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material"
 import { MiningPurposeState } from './construction-interface';
 import { Add, Cancel, Delete, Edit, Save } from '@mui/icons-material';
+import { getData } from 'src/api/axios';
 
 interface MiningPurposeFieldProps {
   data?: MiningPurposeState[]
@@ -14,6 +15,7 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
     ? data.map((e: MiningPurposeState) => ({
       id: e.id || undefined,
       idCT: e.idCT || undefined,
+      idMucDich: e.idMucDich || undefined,
       mucDich: e.mucDich || undefined,
       luuLuong: e.luuLuong || undefined,
       donViDo: e.donViDo || undefined,
@@ -22,12 +24,14 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
     : []
 
   const [miningPurposes, setMiningPurposes] = useState<MiningPurposeState[]>(initialLicenseFees);
+  const [listMiningPurposes, setListMiningPurposes] = useState<any>([]);
   const [newMiniPurposeIndex, setNewMiniPurposeIndex] = useState(-1)
   const [newMiniPurpose, setNewMiniPurpose] = useState<MiningPurposeState>({
     id: 0,
     idCT: 0,
+    idMucDich: 0,
     mucDich: '',
-    luuLuong: undefined,
+    luuLuong: 0,
     donViDo: '',
     ghiChu: ''
   })
@@ -36,6 +40,7 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
   const deleteConfirmOpen = Boolean(deleteConfirmAnchorEl);
   const [deleteTargetIndex, setDeleteTargetIndex] = useState<number | null>(null);
   const [required, setRequire] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const DeleteRowData = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
     setDeleteConfirmAnchorEl(event.currentTarget);
@@ -60,7 +65,7 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
       const newItems = [...prevItems];
       const removedItem = newItems.splice(index, 1)[0];
 
-      if (removedItem?.id !== undefined && removedItem?.id > 0) {
+      if (removedItem?.id !== undefined && removedItem?.id !== null && removedItem?.id > 0) {
         setItemDelete(prevDeletedItems => [...prevDeletedItems, removedItem])
       }
 
@@ -76,6 +81,10 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
     setNewMiniPurpose(prevItem => {
       const newItem: MiningPurposeState = { ...prevItem };
       (newItem as any)[prop] = value;
+      if (prop === 'idMucDich' && value) {
+        (newItem as any)['idMucDich'] = value.id;
+        (newItem as any)['mucDich'] = value.mucDich;
+      }
 
       return newItem;
     });
@@ -92,7 +101,7 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
         Object.keys(newMiniPurpose || {}).map(key => [key, null])
       );
 
-      setNewMiniPurpose({ ...nullValue });
+      setNewMiniPurpose({ ...nullValue, id: 0 });
     }
 
     if (func === 'update') {
@@ -101,7 +110,7 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
   }
 
   const handleSave = () => {
-    if (newMiniPurpose.mucDich !== undefined) {
+    if (newMiniPurpose.idMucDich !== undefined) {
       if (newMiniPurposeIndex > 0) {
         setMiningPurposes(prevItems => {
           const updatedItems = [...prevItems];
@@ -120,6 +129,27 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
       setRequire("Mục đích không được để trống");
     }
   }
+
+  useEffect(() => {
+    const getListData = async () => {
+      try {
+        setLoading(true)
+
+        //muc-dich-kt
+        const miningpp = await getData('muc-dich-kt/danh-sach')
+        setListMiningPurposes(miningpp)
+
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    getListData()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const style = {
     position: 'absolute' as const,
@@ -198,14 +228,31 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
                         {required ? <Alert sx={{ my: 2 }} severity="warning">{required}</Alert> : null}
                         <Grid container spacing={4}>
                           <Grid item md={12}>
-                            <TextField
-                              name='mucDich'
-                              fullWidth
-                              label='Mục đích'
-                              placeholder='Mục đích'
+                            <Autocomplete
+                              disabled={loading}
                               size='small'
-                              value={newMiniPurpose.mucDich || ''}
-                              onChange={event => handleChange('mucDich')(event.target.value)}
+                              options={listMiningPurposes}
+                              getOptionLabel={(option: any) => option.mucDich}
+                              value={listMiningPurposes.find((option: any) => option.id === newMiniPurpose?.idMucDich) || null}
+                              isOptionEqualToValue={(option: any) => option.id}
+                              onChange={(_, value) => handleChange('idMucDich')(value)}
+                              renderInput={params => (
+                                <TextField
+                                  required
+                                  {...params}
+                                  fullWidth
+                                  label='Chọn mục đích'
+                                  InputProps={{
+                                    ...params.InputProps,
+                                    endAdornment: (
+                                      <Fragment>
+                                        {loading && <CircularProgress color='primary' size={20} />}
+                                        {params.InputProps.endAdornment}
+                                      </Fragment>
+                                    )
+                                  }}
+                                />
+                              )}
                             />
                           </Grid>
                           <Grid item md={6}>
@@ -286,21 +333,21 @@ const MiningPurpose: FC<MiningPurposeFieldProps> = ({ data, type, onChange }) =>
                 <TableCell size='small' align='center' padding='checkbox'>
                   <Box display={'flex'}>
                     <IconButton
-                      aria-describedby={`${item.mucDich}-${index}`}
+                      aria-describedby={`${item.idMucDich}-${index}`}
                       onClick={() => handleOpenModal(index, item, 'update')}
-                      data-row-id={`${item.mucDich}-${index}`}
+                      data-row-id={`${item.idMucDich}-${index}`}
                     >
                       <Edit className='tableActionBtn' />
                     </IconButton>
                     <IconButton
-                      aria-describedby={`${item.mucDich}-${index}`}
+                      aria-describedby={`${item.idMucDich}-${index}`}
                       onClick={(event) => DeleteRowData(event, index)}
-                      data-row-id={`${item.mucDich}-${index}`}
+                      data-row-id={`${item.idMucDich}-${index}`}
                     >
                       <Delete className='tableActionBtn deleteBtn' />
                     </IconButton>
                     <Popover
-                      id={deleteConfirmOpen ? `${item.mucDich}-${index}` : undefined}
+                      id={deleteConfirmOpen ? `${item.idMucDich}-${index}` : undefined}
                       open={deleteConfirmOpen}
                       anchorEl={deleteConfirmAnchorEl}
                       onClose={handleDeleteCancel}

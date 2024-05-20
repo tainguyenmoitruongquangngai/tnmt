@@ -11,13 +11,13 @@ import LicenseFeeFeild from 'src/views/license-fee/form/licensefee-feild';
 import FormBusiness from 'src/views/business/form';
 
 // API Imports
-import { deleteData, getData, saveData, uploadFile } from 'src/api/axios';
+import { getData, saveData, uploadFile } from 'src/api/axios';
 
 //Notistack Imports
 import { enqueueSnackbar } from 'notistack';
 
 //Interface Imports
-import { ConstructionItemState, ConstructionSpecState, ConstructionState, MiningPurposeState, emptyConstructionData, propConsDataState } from 'src/views/construction/form/construction-interface';
+import { ConstructionState, emptyConstructionData } from 'src/views/construction/form/construction-interface';
 import { LicenseFeeState } from 'src/views/license-fee/form/license-fee-interface';
 import { FormLicenseProps, LicenseState, emptyLicenseData } from './license-interface';
 import { useRouter } from 'next/router';
@@ -51,21 +51,11 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
   };
 
   //Construction
-  const [congtrinh, setCongTrinh] = useState<ConstructionState | null>(data?.congtrinh || null);
-  const [thongso_congtrinh, setThongSoCongTrinh] = useState<ConstructionSpecState | null>(data?.congtrinh?.thongso || null);
-  const [hangmuc_ct, setHangMucCT] = useState<ConstructionItemState[]>(data?.hangmuc || null);
-  const [hangmucct_xoa, setHangMucCTXoa] = useState<any>(null);
-  const [luuluongtheo_mucdich, setLuuLuongTheoMucDich] = useState<MiningPurposeState[]>(data?.congtrinh?.luuluongtheo_mucdich || null);
-  const [luuluongtheo_mucdich_xoa, setLuuLuongTheoMucDichXoa] = useState<any>(null);
-  const propConsData: propConsDataState = { congtrinh: data?.congtrinh, thongso_ct: data?.congtrinh?.thongso, hangmuc_ct: data?.congtrinh?.hangmuc, luuluongtheo_mucdich: data?.congtrinh?.luuluongtheo_mucdich }
+  const [congtrinh, setCongTrinh] = useState<ConstructionState | null>(data || null);
 
   const handleConstructionChange = (data: any) => {
-    data.congtrinh ? setCongTrinh(data?.congtrinh) : setCongTrinh(null);
-    data.thongso_ct ? setThongSoCongTrinh(data.thongso_ct) : setThongSoCongTrinh(null);
-    data.hangmuc_ct ? setHangMucCT(data.hangmuc_ct) : setHangMucCT([]);
-    data.hangmuc_ct_xoa ? setHangMucCTXoa(data.hangmuc_ct_xoa) : setHangMucCTXoa([]);
-    data.luuluongtheo_mucdich ? setLuuLuongTheoMucDich(data.luuluongtheo_mucdich) : setLuuLuongTheoMucDich([]);
-    data.luuluongtheo_mucdich_xoa ? setLuuLuongTheoMucDichXoa(data.luuluongtheo_mucdich_xoa) : setLuuLuongTheoMucDichXoa([]);
+    data.congtrinh ? setCongTrinh(data) : setCongTrinh(null);
+    console.log(data)
   };
 
   //licenseFee
@@ -124,81 +114,47 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
     setFetching(true)
     try {
       const newCons: ConstructionState = {
-        id: congtrinh?.id,
-        idLoaiCT: congtrinh?.idLoaiCT,
-        idHuyen: congtrinh?.idHuyen,
-        idXa: congtrinh?.idXa,
-        idSong: congtrinh?.idSong,
-        idLuuVuc: congtrinh?.idLuuVuc,
-        idTieuLuuVuc: congtrinh?.idTieuLuuVuc,
-        idTangChuaNuoc: congtrinh?.idTangChuaNuoc,
-        tenCT: congtrinh?.tenCT,
-        maCT: congtrinh?.maCT,
-        viTriCT: congtrinh?.viTriCT,
-        x: congtrinh?.x,
-        y: congtrinh?.y,
-        capCT: congtrinh?.capCT,
-        namBatDauVanHanh: congtrinh?.namBatDauVanHanh,
-        nguonNuocKT: congtrinh?.nguonNuocKT,
-        mucDichKT: congtrinh?.mucDichKT,
-        phuongThucKT: congtrinh?.phuongThucKT,
-        thoiGianKT: congtrinh?.thoiGianKT,
-        thoiGianHNK: congtrinh?.thoiGianHNK,
-        mucDichHNK: congtrinh?.mucDichHNK,
-        mucDichhTD: congtrinh?.mucDichhTD,
-        quyMoHNK: congtrinh?.quyMoHNK,
-        thoiGianXD: congtrinh?.thoiGianXD,
-        soLuongGiengKT: congtrinh?.soLuongGiengKT,
-        soLuongGiengQT: congtrinh?.soLuongGiengQT,
-        soDiemXaThai: congtrinh?.soDiemXaThai,
-        soLuongGieng: congtrinh?.soLuongGieng,
-        khoiLuongCacHangMucTD: congtrinh?.khoiLuongCacHangMucTD,
-        qktThietKe: congtrinh?.qktThietKe,
-        qktThucTe: congtrinh?.qktThucTe,
-        viTriXT: congtrinh?.viTriXT,
-        taiKhoan: congtrinh?.taiKhoan,
-        chuThich: congtrinh?.chuThich,
+        id: congtrinh?.id || null,
+        idLoaiCT: congtrinh?.idLoaiCT || null,
+        idSong: congtrinh?.idSong || null,
+        idLuuVuc: congtrinh?.idLuuVuc || null,
+        idTieuLuuVuc: congtrinh?.idTieuLuuVuc || null,
+        idTangChuaNuoc: congtrinh?.idTangChuaNuoc || null,
+        tenCT: congtrinh?.tenCT || null,
+        maCT: congtrinh?.maCT || null,
+        viTriCT: congtrinh?.viTriCT || null,
+        x: congtrinh?.x || null,
+        y: congtrinh?.y || null,
+        capCT: congtrinh?.capCT || null,
+        namBatDauVanHanh: congtrinh?.namBatDauVanHanh || null,
+        nguonNuocKT: congtrinh?.nguonNuocKT || null,
+        mucDichKT: congtrinh?.mucDichKT || null,
+        phuongThucKT: congtrinh?.phuongThucKT || null,
+        thoiGianKT: congtrinh?.thoiGianKT || null,
+        thoiGianHNK: congtrinh?.thoiGianHNK || null,
+        mucDichHNK: congtrinh?.mucDichHNK || null,
+        mucDichhTD: congtrinh?.mucDichhTD || null,
+        quyMoHNK: congtrinh?.quyMoHNK || null,
+        thoiGianXD: congtrinh?.thoiGianXD || null,
+        soLuongGiengKT: congtrinh?.soLuongGiengKT || null,
+        soLuongGiengQT: congtrinh?.soLuongGiengQT || null,
+        soDiemXaThai: congtrinh?.soDiemXaThai || null,
+        soLuongGieng: congtrinh?.soLuongGieng || null,
+        khoiLuongCacHangMucTD: congtrinh?.khoiLuongCacHangMucTD || null,
+        qktThietKe: congtrinh?.qktThietKe || null,
+        qktThucTe: congtrinh?.qktThucTe || null,
+        viTriXT: congtrinh?.viTriXT || null,
+        taiKhoan: congtrinh?.taiKhoan || null,
+        chuThich: congtrinh?.chuThich || null,
+        hangmuc: congtrinh?.hangmuc || null,
+        luuluong_theomd: congtrinh?.luuluong_theomd || null,
+        thongso: congtrinh?.thongso || null,
+        vitri: congtrinh?.vitri || null
       }
+
       const saveCons = await saveData('cong-trinh/luu', newCons);
 
       if (saveCons) {
-
-        if (thongso_congtrinh !== null) {
-          await saveData('thong-so-ct/luu', { ...thongso_congtrinh, idCT: saveCons.id, idHangMucCT: null })
-        }
-
-        hangmucct_xoa !== null ? hangmucct_xoa?.map(async (e: any) => {
-          await deleteData('hang-muc-ct/xoa', e.id);
-        }) : ""
-
-        hangmuc_ct !== null ? hangmuc_ct?.map(async (e: any) => {
-          const newConsItem: ConstructionItemState = {
-            id: e.Id,
-            idCT: saveCons.Id,
-            idTangChuaNuoc: e.idTangChuaNuoc,
-            tenHangMuc: e.tenHangMuc,
-            viTriHangMuc: e.viTriHangMuc,
-            x: e.x,
-            y: e.y,
-          }
-
-          const saveConsItem = await saveData('hang-muc-ct/luu', newConsItem);
-          if (saveConsItem && e.thongso !== null) {
-            {
-              await saveData('thong-so-ct/luu', { ...e.thongso, idCT: null, idHangMucCT: saveConsItem.id })
-            }
-          }
-        }) : ""
-
-        luuluongtheo_mucdich_xoa !== null ? luuluongtheo_mucdich_xoa?.map(async (e: any) => {
-          await saveData('luu-luong-theo-muc-dich/xoa', e.id);
-        }) : ""
-
-        luuluongtheo_mucdich !== null ? luuluongtheo_mucdich?.map(async (e: any) => {
-          e.idCT = saveCons.id;
-          await saveData('luu-luong-theo-muc-dich/luu', e);
-        }) : ""
-
         const filePath = `pdf/giay-phep/${giayphep?.coQuanCapPhep?.toLowerCase()}/${router.pathname.split('/')[2]}/${dayjs(giayphep?.ngayKy).year()}/${giayphep?.soGP?.replace(/\//g, "_").toLowerCase()}`;
 
         const newfileGiayPhep = {
@@ -374,13 +330,13 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         <Grid item xs={12}>
           {
             router.pathname.split('/')[2] == 'nuoc-mat' ?
-              <SurfaceWaterField data={propConsData} onChange={handleConstructionChange} />
+              <SurfaceWaterField props={data?.congtrinh} onChange={handleConstructionChange} />
               :
               router.pathname.split('/')[2] == 'nuoc-duoi-dat' ?
-                <GroundWaterField data={propConsData} onChange={handleConstructionChange} />
+                <GroundWaterField props={data?.congtrinh} onChange={handleConstructionChange} />
                 :
                 router.pathname.split('/')[2] == 'xa-thai' ?
-                  <DischargeWaterField data={propConsData} onChange={handleConstructionChange} />
+                  <DischargeWaterField props={data?.congtrinh} onChange={handleConstructionChange} />
                   : ''
           }
 

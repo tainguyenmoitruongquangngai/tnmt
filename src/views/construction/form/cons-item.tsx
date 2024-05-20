@@ -19,6 +19,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
       x: e.x,
       y: e.y,
       thongso: {
+        id: e.thongso?.id || null,
         idCT: e.thongso?.idCT || null,
         idHangMucCT: e.thongso?.idHangMucCT || null,
         caoTrinhCong: e.thongso?.caoTrinhCong || null,
@@ -99,13 +100,14 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
   const [itemDelete, setItemDelete] = useState<ConstructionItemState[]>([]);
   const [newConsItemIndex, setNewConsItemIndex] = useState(-1)
   const [newConsItem, setNewConsItem] = useState<ConstructionItemState>({
-    id: undefined,
-    idCT: undefined,
-    tenHangMuc: undefined,
-    viTriHangMuc: undefined,
-    x: undefined,
-    y: undefined,
+    id: null,
+    idCT: null,
+    tenHangMuc: null,
+    viTriHangMuc: null,
+    x: null,
+    y: null,
     thongso: {
+      id: null,
       idCT: null,
       idHangMucCT: null,
       caoTrinhCong: null,
@@ -178,6 +180,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
       thoiGianBomLonNhat: null,
       thoiGianBomNhoNhat: null,
       thoiGianBomTB: null,
+      daXoa: false
     }
   })
 
@@ -207,20 +210,33 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
 
   const deleteItem = (index: number) => {
     setConstructionItems((prevItems) => {
-      const newItems = [...prevItems];
-      const removedItem = newItems.splice(index, 1)[0];
+      const newItems = prevItems.map((item, idx) => {
+        if (idx === index) {
+          // Mark as deleted by setting daXoa to true
 
-      if (removedItem?.id !== undefined && removedItem?.id > 0) {
-        setItemDelete(prevDeletedItems => [...prevDeletedItems, removedItem])
+          return { ...item, daXoa: true };
+        }
+
+        return item;
+      });
+
+      return newItems;
+    });
+
+    // If you need to keep track of items that have been marked as deleted:
+    setItemDelete(prevDeletedItems => {
+      const deletedItem = prevDeletedItems[index];
+      if (deletedItem?.id !== undefined && deletedItem?.id !== null && deletedItem.id > 0) {
+        return [...prevDeletedItems, deletedItem];
       }
 
-      return newItems
-    })
+      return prevDeletedItems;
+    });
 
-    // Call onChange after the state update
-    onChange([...constructionItems], itemDelete);
+    onChange([...constructionItems].map((item, idx) => idx === index ? { ...item, daXoa: true } : item), itemDelete);
     setDeleteConfirmAnchorEl(null);
   };
+
 
   const handleChange = (prop: keyof ConstructionItemState | keyof ConstructionSpecState) => (value: any) => {
     setNewConsItem(prevItem => {
@@ -251,7 +267,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
         Object.keys(newConsItem.thongso || {}).map(key => [key, null])
       );
 
-      setNewConsItem({ tenHangMuc: undefined, viTriHangMuc: undefined, x: undefined, y: undefined, thongso: nullThongso });
+      setNewConsItem({ id: null, tenHangMuc: null, viTriHangMuc: null, x: null, y: null, thongso: { ...nullThongso, id: null, idCT: null, idHangMucCT: null } });
     }
 
     if (func === 'update') {
@@ -656,7 +672,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
             </TableRow>
           </TableHead>
           <TableBody>
-            {constructionItems.map((item, index) => (
+            {constructionItems.filter(item => !item.daXoa).map((item, index) => (
               <TableRow key={index}>
                 <TableCell className="text-center  size='small' align-middle font-13">{index + 1}</TableCell>
                 <TableCell padding='checkbox'>

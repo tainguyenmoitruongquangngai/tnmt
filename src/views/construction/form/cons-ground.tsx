@@ -1,6 +1,7 @@
-import { Typography, Grid, Autocomplete, TextField, CircularProgress, Button } from '@mui/material'
+import { Typography, Grid, Autocomplete, TextField, CircularProgress, Button, MenuItem, InputLabel, FormControl, OutlinedInput, Box, Chip } from '@mui/material'
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useEffect, FC, useState, Fragment } from 'react'
-import { ConstructionSpecState, ConstructionState, emptyConstructionData, propConsDataState } from './construction-interface'
+import { ConstructionItemState, ConstructionLocationState, ConstructionState, MiningPurposeState, emptyConstructionData } from './construction-interface'
 import { getData } from 'src/api/axios'
 import { useRouter } from 'next/router'
 import GetConstructionTypeId from 'src/@core/components/get-construction-type'
@@ -10,149 +11,90 @@ import { Add } from '@mui/icons-material'
 import MiningPurpose from './mining-purpose'
 
 interface ConsTypeFieldsetProps {
-  data?: any
+  props?: any
   onChange: (data: any) => void
 }
 
-const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
-  const propData: propConsDataState = { congtrinh: data?.congtrinh, thongso_ct: data?.thongso_ct, hangmuc_ct: data?.hangmuc_ct }
-  const [congtrinh, setCongTrinh] = useState<ConstructionState>({
-    id: propData.congtrinh?.id || null,
-    idLoaiCT: propData.congtrinh?.idLoaiCT || null,
-    idHuyen: propData.congtrinh?.idHuyen || null,
-    idXa: propData.congtrinh?.idXa || null,
-    idSong: propData.congtrinh?.idSong || null,
-    idLuuVuc: propData.congtrinh?.idLuuVuc || null,
-    idTieuLuuVuc: propData.congtrinh?.idTieuLuuVuc || null,
-    idTangChuaNuoc: propData.congtrinh?.idTangChuaNuoc || null,
-    tenCT: propData.congtrinh?.tenCT || null,
-    maCT: propData.congtrinh?.maCT || null,
-    viTriCT: propData.congtrinh?.viTriCT || null,
-    x: propData.congtrinh?.x || null,
-    y: propData.congtrinh?.y || null,
-    capCT: propData.congtrinh?.capCT || null,
-    namBatDauVanHanh: propData.congtrinh?.namBatDauVanHanh || null,
-    nguonNuocKT: propData.congtrinh?.nguonNuocKT || null,
-    mucDichKT: propData.congtrinh?.mucDichKT || null,
-    phuongThucKT: propData.congtrinh?.phuongThucKT || null,
-    thoiGianKT: propData.congtrinh?.thoiGianKT || null,
-    thoiGianHNK: propData.congtrinh?.thoiGianHNK || null,
-    mucDichHNK: propData.congtrinh?.mucDichHNK || null,
-    mucDichhTD: propData.congtrinh?.mucDichhTD || null,
-    quyMoHNK: propData.congtrinh?.quyMoHNK || null,
-    thoiGianXD: propData.congtrinh?.thoiGianXD || null,
-    soLuongGiengKT: propData.congtrinh?.soLuongGiengKT || null,
-    soLuongGiengQT: propData.congtrinh?.soLuongGiengQT || null,
-    soDiemXaThai: propData.congtrinh?.soDiemXaThai || null,
-    soLuongGieng: propData.congtrinh?.soLuongGieng || null,
-    khoiLuongCacHangMucTD: propData.congtrinh?.khoiLuongCacHangMucTD || null,
-    qktThietKe: propData.congtrinh?.qktThietKe || null,
-    qktThucTe: propData.congtrinh?.qktThucTe || null,
-    viTriXT: propData.congtrinh?.viTriXT || null,
-    taiKhoan: propData.congtrinh?.taiKhoan || null,
-    chuThich: propData.congtrinh?.chuThich || null,
-  })
+const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ props, onChange }) => {
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false)
+  const initialState: ConstructionState =
+  {
+    id: props?.id || null,
+    idLoaiCT: props?.idLoaiCT || null,
+    idSong: props?.idSong || null,
+    idLuuVuc: props?.idLuuVuc || null,
+    idTieuLuuVuc: props?.idTieuLuuVuc || null,
+    idTangChuaNuoc: props?.idTangChuaNuoc || null,
+    tenCT: props?.tenCT || null,
+    maCT: props?.maCT || null,
+    viTriCT: props?.viTriCT || null,
+    x: props?.x || null,
+    y: props?.y || null,
+    capCT: props?.capCT || null,
+    namBatDauVanHanh: props?.namBatDauVanHanh || null,
+    nguonNuocKT: props?.nguonNuocKT || null,
+    mucDichKT: props?.mucDichKT || null,
+    phuongThucKT: props?.phuongThucKT || null,
+    thoiGianKT: props?.thoiGianKT || null,
+    thoiGianHNK: props?.thoiGianHNK || null,
+    mucDichHNK: props?.mucDichHNK || null,
+    mucDichhTD: props?.mucDichhTD || null,
+    quyMoHNK: props?.quyMoHNK || null,
+    thoiGianXD: props?.thoiGianXD || null,
+    soLuongGiengKT: props?.soLuongGiengKT || null,
+    soLuongGiengQT: props?.soLuongGiengQT || null,
+    soDiemXaThai: props?.soDiemXaThai || null,
+    soLuongGieng: props?.soLuongGieng || null,
+    khoiLuongCacHangMucTD: props?.khoiLuongCacHangMucTD || null,
+    qktThietKe: props?.qktThietKe || null,
+    qktThucTe: props?.qktThucTe || null,
+    viTriXT: props?.viTriXT || null,
+    taiKhoan: props?.taiKhoan || null,
+    chuThich: props?.chuThich || null,
+    hangmuc: props?.hangmuc || null,
+    luuluong_theomd: props?.luuluong_theomd || null,
+    thongso: props?.thongso || null,
+    vitri: props?.vitri || null
+  }
 
-  const [thongso_ct, setThongsoCt] = useState<ConstructionSpecState>({
-    idCT: propData.thongso_ct?.idCT || null,
-    idHangMucCT: propData.thongso_ct?.idHangMucCT || null,
-    caoTrinhCong: propData.thongso_ct?.caoTrinhCong || null,
-    cheDoKT: propData.thongso_ct?.cheDoKT || null,
-    caoTrinhDap: propData.thongso_ct?.caoTrinhDap || null,
-    cheDoXT: propData.thongso_ct?.cheDoXT || null,
-    chieuCaoDap: propData.thongso_ct?.chieuCaoDap || null,
-    chieuDaiCong: propData.thongso_ct?.chieuDaiCong || null,
-    chieuDaiDap: propData.thongso_ct?.chieuDaiDap || null,
-    duongKinhCong: propData.thongso_ct?.duongKinhCong || null,
-    chieuRongDap: propData.thongso_ct?.chieuRongDap || null,
-    nguongTran: propData.thongso_ct?.nguongTran || null,
-    chieuSauDoanThuNuocDen: propData.thongso_ct?.chieuSauDoanThuNuocDen || null,
-    chieuSauDoanThuNuocTu: propData.thongso_ct?.chieuSauDoanThuNuocTu || null,
-    congSuatBom: propData.thongso_ct?.congSuatBom || null,
-    congSuatDamBao: propData.thongso_ct?.congSuatDamBao || null,
-    congSuatLM: propData.thongso_ct?.congSuatLM || null,
-    dienTichLuuVuc: propData.thongso_ct?.dienTichLuuVuc || null,
-    dienTichTuoiThietKe: propData.thongso_ct?.dienTichTuoiThietKe || null,
-    dienTichTuoiThucTe: propData.thongso_ct?.dienTichTuoiThucTe || null,
-    dungTichChet: propData.thongso_ct?.dungTichChet || null,
-    dungTichHuuIch: propData.thongso_ct?.dungTichHuuIch || null,
-    dungTichToanBo: propData.thongso_ct?.dungTichToanBo || null,
-    hBeHut: propData.thongso_ct?.hBeHut || null,
-    hDatOngLocDen: propData.thongso_ct?.hDatOngLocDen || null,
-    hDatOngLocTu: propData.thongso_ct?.hDatOngLocTu || null,
-    hDoanThuNuocDen: propData.thongso_ct?.hDoanThuNuocDen || null,
-    hDoanThuNuocTu: propData.thongso_ct?.hDoanThuNuocTu || null,
-    hDong: propData.thongso_ct?.hDong || null,
-    hgieng: propData.thongso_ct?.hgieng || null,
-    hGiengKT: propData.thongso_ct?.hGiengKT || null,
-    hHaLuu: propData.thongso_ct?.hHaLuu || null,
-    hHaThap: propData.thongso_ct?.hHaThap || null,
-    hlu: propData.thongso_ct?.hlu || null,
-    hmax: propData.thongso_ct?.hmax || null,
-    hmin: propData.thongso_ct?.hmin || null,
-    hThuongLuu: propData.thongso_ct?.hThuongLuu || null,
-    hTinh: propData.thongso_ct?.hTinh || null,
-    htoiThieu: propData.thongso_ct?.htoiThieu || null,
-    kichThuocCong: propData.thongso_ct?.kichThuocCong || null,
-    kqKf: propData.thongso_ct?.kqKf || null,
-    luongNuocKT: propData.thongso_ct?.luongNuocKT || null,
-    mnc: propData.thongso_ct?.mnc || null,
-    mndbt: propData.thongso_ct?.mndbt || null,
-    mnlkt: propData.thongso_ct?.mnlkt || null,
-    mnltk: propData.thongso_ct?.mnltk || null,
-    muaTrungBinhNam: propData.thongso_ct?.muaTrungBinhNam || null,
-    mucNuocDong: propData.thongso_ct?.mucNuocDong || null,
-    mucNuocTinh: propData.thongso_ct?.mucNuocTinh || null,
-    phuongThucXT: propData.thongso_ct?.phuongThucXT || null,
-    qBomLonNhat: propData.thongso_ct?.qBomLonNhat || null,
-    qBomThietKe: propData.thongso_ct?.qBomThietKe || null,
-    qDamBao: propData.thongso_ct?.qDamBao || null,
-    qKhaiThac: propData.thongso_ct?.qKhaiThac || null,
-    qktCapNuocSinhHoat: propData.thongso_ct?.qktCapNuocSinhHoat || null,
-    qktLonNhat: propData.thongso_ct?.qktLonNhat || null,
-    qLonNhatTruocLu: propData.thongso_ct?.qLonNhatTruocLu || null,
-    qMaxKT: propData.thongso_ct?.qMaxKT || null,
-    qmaxNM: propData.thongso_ct?.qmaxNM || null,
-    qMaxXaThai: propData.thongso_ct?.qMaxXaThai || null,
-    qThietKe: propData.thongso_ct?.qThietKe || null,
-    qThucTe: propData.thongso_ct?.qThucTe || null,
-    qTrungBinhNam: propData.thongso_ct?.qTrungBinhNam || null,
-    qtt: propData.thongso_ct?.qtt || null,
-    qXaThai: propData.thongso_ct?.qXaThai || null,
-    qXaThaiLonNhat: propData.thongso_ct?.qXaThaiLonNhat || null,
-    qXaThaiTB: propData.thongso_ct?.qXaThaiTB || null,
-    qXaTran: propData.thongso_ct?.qXaTran || null,
-    soLuongMayBom: propData.thongso_ct?.soLuongMayBom || null,
-    thoiGianBomLonNhat: propData.thongso_ct?.thoiGianBomLonNhat || null,
-    thoiGianBomNhoNhat: propData.thongso_ct?.thoiGianBomNhoNhat || null,
-    thoiGianBomTB: propData.thongso_ct?.thoiGianBomTB || null,
-  })
+  const [construction, setConstruction] = useState<ConstructionState>(initialState);
 
   const [consType, setconsType] = useState<any>([])
-  const [district, setDistrict] = useState<any>([])
-  const [commune, setCommune] = useState<any>([])
-  const [loading, setLoading] = useState<boolean>(false)
+  const [districts, setDistrict] = useState<any>([])
+  const [selectedDistricts, setSelectedDistricts] = useState<string[]>([]);
+  const [communes, setCommunes] = useState<any[]>([]);
+  const [selectedCommunes, setSelectedCommunes] = useState<string[]>([]);
   const [showDataCons, setShowDataCons] = useState<boolean>(false)
-  const [ds_congtrinh, setDSCongtrinh] = useState<any>([])
-
-  const router = useRouter();
   const isLicensepage = router.pathname.split('/')[1] == "giay-phep";
   const loai_ct = router.pathname.split('/')[2] == "nuoc-duoi-dat" ? router.pathname.split('/')[3] : "";
+  const [ds_construction, setDSconstruction] = useState<any>([])
 
   useEffect(() => {
-    const getDataForSelect = async () => {
+    isLicensepage ? setShowDataCons(construction?.id !== null) : setShowDataCons(true);
+  }, [construction?.id, isLicensepage])
+
+
+  useEffect(() => {
+    const getDataConstruction = async () => {
       try {
         setLoading(true)
+
+
+        if (props?.id !== undefined) {
+          const cons = await getData(`cong-trinh/${props?.id}`)
+          setConstruction(cons)
+        }
 
         //constructionType
         const consTypes = await getData('loai-ct/danh-sach')
         const filteredData = consTypes.filter((item: any) => item.idCha === GetConstructionTypeId(router))
         setconsType(filteredData)
 
-        //cons
-        const dscongtrinh = await getData('cong-trinh/danh-sach', {
+        //List construction for license pages
+        const dsconstruction = await getData('cong-trinh/danh-sach', {
           tenct: null,
-          loai_ct: congtrinh?.idLoaiCT !== null ? congtrinh?.idLoaiCT : GetConstructionTypeId(router),
+          loai_ct: construction.idLoaiCT !== null ? construction.idLoaiCT : GetConstructionTypeId(router),
           huyen: 0,
           xa: 0,
           song: 0,
@@ -162,16 +104,13 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
           tochuc_canhan: 0,
           nguonnuoc_kt: null
         })
-        setDSCongtrinh(dscongtrinh)
+        setDSconstruction(dsconstruction)
 
         //district
         const distric = await getData('hanh-chinh/huyen/danh-sach')
         setDistrict(distric)
 
-        //commune
-        const communes = await getData(`hanh-chinh/xa/danh-sach`)
-        const communeFiltered = communes.filter((item: any) => item.idHuyen == congtrinh?.idHuyen?.toString())
-        setCommune(communeFiltered)
+
       } catch (error) {
         console.log(error)
       } finally {
@@ -179,52 +118,96 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
       }
     }
 
-    getDataForSelect()
-    setCommune([])
-    isLicensepage ? setShowDataCons(congtrinh?.id !== null) : setShowDataCons(true);
+    getDataConstruction()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [congtrinh?.idHuyen, congtrinh?.idLoaiCT, router])
+  }, [props?.id, router])
 
-  const handleChange = (property: keyof ConstructionState | keyof ConstructionSpecState) => (value: any) => {
-    const updatedCT: ConstructionState = { ...congtrinh };
-    const updatedTSCT: ConstructionSpecState = { ...thongso_ct };
+  const handleChangeDistrict = async (event: SelectChangeEvent<string[]>) => {
+    const newDistrictIds = typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value;
+    setSelectedDistricts(newDistrictIds,)
 
-    if (property in updatedCT) {
-      updatedCT.maCT = createConsCode({ ...updatedCT, [property]: value });
-      updatedCT.taiKhoan = createConsUser({ ...updatedCT, [property]: value });
-      (updatedCT as any)[property] = value;
+    // Fetch communes for the selected districts
+    const allCommunes = await Promise.all(newDistrictIds.map(async (districtId) => {
+      const idHuyen = districtId.split('-')[1];
 
-      setCongTrinh({ ...updatedCT });
-    } else {
-      (updatedTSCT as any)[property] = value;
-      setThongsoCt({ ...updatedTSCT });
-    }
+      return await getData(`hanh-chinh/xa/danh-sach/${idHuyen}`);
+    }));
+
+    // Flatten the array of arrays and set it to state
+    setCommunes(allCommunes.flat());
+
   };
 
-  const handleConsItemChange = (dataSave: any, dataDelete: any) => {
-    onChange({ congtrinh: congtrinh, thongso_ct: thongso_ct, hangmuc_ct: dataSave, hangmuc_ct_xoa: dataDelete })
-  };
-  const handleMiningPurposeChange = (dataSave: any, dataDelete: any) => {
-    onChange({ congtrinh: congtrinh, thongso_ct: thongso_ct, luuluongtheo_mucdich: dataSave, luuluongtheo_mucdich_xoa: dataDelete })
-  };
+  const handleChangeCommune = (event: SelectChangeEvent<string[]>) => {
+    const newCommuneIds = typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value;
+    setSelectedCommunes(newCommuneIds);
 
-  useEffect(() => {
-    onChange({ congtrinh: congtrinh, thongso_ct: thongso_ct })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [congtrinh, thongso_ct])
+    const newVitriArray: ConstructionLocationState[] = newCommuneIds.map(communeStr => {
+
+      const idHuyen = communeStr.split('-')[2];
+      const idXa = communeStr.split('-')[1];
+
+      return {
+        id: 0, // Temporary ID generation, replace as needed
+        idconstruction: 0, // Adjust accordingly
+        idHuyen: idHuyen,
+        idXa: idXa,
+      };
+    });
+
+    setConstruction(prev => ({
+      ...prev,
+      vitri: newVitriArray
+    }));
+  };
 
   const handleSetCons = (data: any) => {
     const cons: ConstructionState = data;
     setShowDataCons(true)
-    setCongTrinh({ ...cons });
-    onChange({ congtrinh: congtrinh, thongso_ct: thongso_ct })
+    setConstruction({ ...cons });
+    onChange({ ...construction })
   }
 
   const handleAddNewCons = () => {
     setShowDataCons(true)
-    setCongTrinh(emptyConstructionData);
+    setConstruction(emptyConstructionData);
   }
+
+  const setNestedProperty = (obj: any, path: string, value: any) => {
+    const keys = path.split('.');
+    let current = obj;
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (!current[keys[i]]) {
+        current[keys[i]] = {};
+      }
+      current = current[keys[i]];
+    }
+    current[keys[keys.length - 1]] = value;
+
+    return obj;
+  };
+
+  const handleChange = (property: string) => (value: any) => {
+    setConstruction((prev) => {
+      const newState = { ...prev, maCT: createConsCode({ ...prev, [property]: value }), taiKhoan: createConsUser({ ...prev, [property]: value }) };
+      setNestedProperty(newState, property, value);
+
+      return newState;
+    });
+  };
+
+  const handleConsItemChange = (dataSave: ConstructionItemState[]) => {
+    onChange({ ...construction, hangmuc: [...dataSave] })
+  };
+  const handleMiningPurposeChange = (dataSave: MiningPurposeState[]) => {
+    onChange({ ...construction, luuluong_theomd: [...dataSave] })
+  };
+
+  useEffect(() => {
+    onChange({ ...construction })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [construction])
 
   return (
     <>
@@ -244,7 +227,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   size='small'
                   options={consType}
                   getOptionLabel={(option: any) => option.tenLoaiCT}
-                  value={consType.find((option: any) => option.id === congtrinh?.idLoaiCT) || null}
+                  value={consType.find((option: any) => option.id === construction?.idLoaiCT) || null}
                   isOptionEqualToValue={(option: any) => option.id}
                   onChange={(_, value) => handleChange('idLoaiCT')(value?.id || 0)}
                   renderInput={params => (
@@ -273,9 +256,9 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 <Autocomplete
                   disabled={loading}
                   size='small'
-                  options={ds_congtrinh}
+                  options={ds_construction}
                   getOptionLabel={(option: any) => `${option.tenCT} ${option.donvi_hanhchinh !== null ? `(${option.donvi_hanhchinh?.tenHuyen})` : ''}`}
-                  value={ds_congtrinh.find((option: any) => option.tenCT.toLowerCase() === congtrinh?.tenCT?.toLowerCase()) || null}
+                  value={ds_construction.find((option: any) => option.tenCT.toLowerCase() === construction?.tenCT?.toLowerCase()) || null}
                   isOptionEqualToValue={(option: any) => option.tenCT}
                   onChange={(_, value) => handleSetCons(value || emptyConstructionData)}
                   renderInput={params => (
@@ -323,7 +306,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 label='Tên công trình'
                 fullWidth
                 placeholder=''
-                value={congtrinh?.tenCT || ''}
+                value={construction?.tenCT || ''}
                 onChange={event => handleChange('tenCT')(event.target.value)}
               />
             </Grid>
@@ -335,7 +318,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 fullWidth
                 placeholder=''
                 disabled
-                value={congtrinh?.maCT || ''}
+                value={construction?.maCT || ''}
                 onChange={event => handleChange('maCT')(event.target.value)}
               />
             </Grid>
@@ -347,65 +330,69 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 label='Địa điểm công trình'
                 multiline
                 maxRows={4}
-                value={congtrinh?.viTriCT || ''}
+                value={construction?.viTriCT || ''}
                 onChange={event => handleChange('viTriCT')(event.target.value)}
               />
             </Grid>
-            <Grid item xs={12} md={3} sm={12}>
-              <Autocomplete
-                disabled={loading}
-                size='small'
-                options={district}
-                getOptionLabel={(option: any) => option.tenHuyen}
-                value={district.find((option: any) => option.idHuyen === propData.congtrinh?.idHuyen?.toString()) || null}
-                isOptionEqualToValue={(option: any) => option.idHuyen}
-                onChange={(_, value) => handleChange('idHuyen')(value?.idHuyen || 0)}
-                renderInput={params => (
-                  <TextField
-                    required
-                    {...params}
-                    fullWidth
-                    label='Chọn Quận/Huyện'
-                    InputProps={{
-                      ...params.InputProps,
-                      endAdornment: (
-                        <Fragment>
-                          {loading && <CircularProgress color='primary' size={20} />}
-                          {params.InputProps.endAdornment}
-                        </Fragment>
-                      )
-                    }}
-                  />
-                )}
-              />
+            <Grid item xs={6} md={3} sx={{ my: 2 }}>
+              <FormControl fullWidth>
+                <InputLabel id="district_select_label">Quận/Huyện</InputLabel>
+                <Select
+                  labelId="district_select_label"
+                  id="district_select"
+                  multiple
+                  size='small'
+                  value={selectedDistricts}
+                  onChange={handleChangeDistrict}
+                  input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                  renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {selected.map((value) => (
+                        <Chip key={value} label={value.split('-')[0]} />
+                      ))}
+                    </Box>
+                  )}
+                >
+                  {districts.map((dict: any) => (
+                    <MenuItem
+                      key={dict.idHuyen}
+                      value={`${dict.tenHuyen}-${dict.idHuyen}`}
+                    >
+                      {dict.tenHuyen}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
-            <Grid item xs={12} md={3} sm={12}>
-              <Autocomplete
-                disabled={congtrinh?.idHuyen !== undefined && congtrinh?.idHuyen == null}
-                size='small'
-                options={commune}
-                getOptionLabel={(option: any) => option.tenXa}
-                value={commune.find((option: any) => option.idXa === congtrinh?.idXa?.toString()) || null}
-                isOptionEqualToValue={(option: any) => option.idXa}
-                onChange={(_, value) => handleChange('idXa')(value?.idXa || 0)}
-                renderInput={params => (
-                  <TextField
-                    {...params}
-                    variant='outlined'
-                    fullWidth
-                    label='Chọn Xã/phường'
-                    InputProps={{
-                      ...params.InputProps,
-                      endAdornment: (
-                        <Fragment>
-                          {loading && <CircularProgress color='primary' size={20} />}
-                          {params.InputProps.endAdornment}
-                        </Fragment>
-                      )
-                    }}
-                  />
-                )}
-              />
+            <Grid item xs={6} md={3} sx={{ my: 2 }}>
+              <FormControl fullWidth>
+                <InputLabel id="commune_select_label">Xã/Phường/Thị trấn</InputLabel>
+                <Select
+                  labelId="commune_select_label"
+                  id="commune_select"
+                  multiple
+                  size='small'
+                  value={selectedCommunes}
+                  onChange={handleChangeCommune}
+                  input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                  renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {selected.map((value) => (
+                        <Chip key={value} label={value.split('-')[0]} />
+                      ))}
+                    </Box>
+                  )}
+                >
+                  {communes.map((dict: any) => (
+                    <MenuItem
+                      key={dict.idXa}
+                      value={`${dict.tenXa}-${dict.idXa}-${dict.idHuyen}`}
+                    >
+                      {dict.tenXa}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
             <Grid item xs={12} md={3} sm={12}>
               <TextField
@@ -414,7 +401,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 fullWidth
                 placeholder=''
                 label='Toạ độ X (VN2000)'
-                value={congtrinh?.x || ''}
+                value={construction?.x || ''}
                 onChange={event => handleChange('x')(event.target.value)}
               />
             </Grid>
@@ -424,7 +411,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 type='text'
                 fullWidth
                 placeholder=''
-                value={congtrinh?.y || ''}
+                value={construction?.y || ''}
                 onChange={event => handleChange('y')(event.target.value)}
                 label='Toạ độ Y (VN2000)'
               />
@@ -435,7 +422,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 type='text'
                 fullWidth
                 placeholder=''
-                defaultValue={congtrinh?.namBatDauVanHanh}
+                defaultValue={construction?.namBatDauVanHanh}
                 onChange={event => handleChange('namBatDauVanHanh')(event.target.value)}
                 label='Năm vận hành'
               />
@@ -446,12 +433,12 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                 type='text'
                 fullWidth
                 placeholder=''
-                defaultValue={congtrinh?.thoiGianHNK}
+                defaultValue={construction?.thoiGianHNK}
                 onChange={event => handleChange('thoiGianHNK')(event.target.value)}
                 label='Thời gian hành nghề'
               />
             </Grid>
-            {propData.congtrinh?.idLoaiCT === 7 ? (
+            {construction?.idLoaiCT === 7 ? (
               <Grid item xs={12} md={3} sm={12}>
                 <TextField
                   size='small'
@@ -459,12 +446,12 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Số giếng khai thác'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.soLuongGieng}
+                  defaultValue={construction?.soLuongGieng}
                   onChange={event => handleChange('soLuongGieng')(event.target.value)}
                 />
               </Grid>
             ) : ""}
-            {propData.congtrinh?.idLoaiCT === 7 ? (
+            {construction?.idLoaiCT === 7 ? (
               <Grid item xs={12} md={3} sm={12}>
                 <TextField
                   size='small'
@@ -472,12 +459,12 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Tổng lượng nước khai thác(m3/ngày đêm)'
                   fullWidth
                   placeholder=''
-                  defaultValue={thongso_ct?.luongNuocKT}
+                  defaultValue={construction.thongso?.luongNuocKT}
                   onChange={event => handleChange('luongNuocKT')(event.target.value)}
                 />
               </Grid>
             ) : ""}
-            {propData.congtrinh?.idLoaiCT === 8 ? (
+            {construction?.idLoaiCT === 8 ? (
               <Grid item xs={12} md={3} sm={12}>
                 <TextField
                   size='small'
@@ -485,12 +472,12 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Thời gian thi công'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.thoiGianXD}
+                  defaultValue={construction?.thoiGianXD}
                   onChange={event => handleChange('thoiGianXD')(event.target.value)}
                 />
               </Grid>
             ) : ""}
-            {propData.congtrinh?.idLoaiCT === 8 ? (
+            {construction?.idLoaiCT === 8 ? (
               <Grid item xs={12} md={3} sm={12}>
                 <TextField
                   size='small'
@@ -498,12 +485,12 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Quy mô khoan thăm dò'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.quyMoHNK}
+                  defaultValue={construction?.quyMoHNK}
                   onChange={event => handleChange('quyMoHNK')(event.target.value)}
                 />
               </Grid>
             ) : ""}
-            {propData.congtrinh?.idLoaiCT === 8 ? (
+            {construction?.idLoaiCT === 8 ? (
               <Grid item xs={12} md={6} sm={12}>
                 <TextField
                   size='small'
@@ -511,7 +498,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Tầng chứa nước thăm dò'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.quyMoHNK}
+                  defaultValue={construction?.quyMoHNK}
                   onChange={event => handleChange('quyMoHNK')(event.target.value)}
                 />
               </Grid>
@@ -522,7 +509,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
 
       {/* check form tram bom */}
       {
-        propData.congtrinh?.idLoaiCT === 9 ? (
+        construction?.idLoaiCT === 9 ? (
           <fieldset>
             <legend>
               <Typography variant={'subtitle1'} className='legend__title'>
@@ -537,7 +524,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Lưu trữ khai thác(m3/ngày đêm)'
                   fullWidth
                   placeholder=''
-                  defaultValue={thongso_ct?.qktCapNuocSinhHoat}
+                  defaultValue={construction.thongso?.qktCapNuocSinhHoat}
                   onChange={event => handleChange('qktCapNuocSinhHoat')(event.target.value)}
                 />
               </Grid>
@@ -548,7 +535,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Chế độ khai thác(giờ/ngày đêm)'
                   fullWidth
                   placeholder=''
-                  defaultValue={thongso_ct?.cheDoKT}
+                  defaultValue={construction.thongso?.cheDoKT}
                   onChange={event => handleChange('cheDoKT')(event.target.value)}
                 />
               </Grid>
@@ -559,7 +546,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Thời gian thi công'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.thoiGianXD}
+                  defaultValue={construction?.thoiGianXD}
                   onChange={event => handleChange('thoiGianXD')(event.target.value)}
                 />
               </Grid>
@@ -572,7 +559,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Tầng chứa nước thăm dò'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.quyMoHNK}
+                  defaultValue={construction?.quyMoHNK}
                   onChange={event => handleChange('quyMoHNK')(event.target.value)}
                 />
               </Grid>
@@ -583,7 +570,7 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
                   label='Khối lượng các hạng mục thăm dò'
                   fullWidth
                   placeholder=''
-                  defaultValue={congtrinh?.khoiLuongCacHangMucTD}
+                  defaultValue={construction?.khoiLuongCacHangMucTD}
                   onChange={event => handleChange('khoiLuongCacHangMucTD')(event.target.value)}
                 />
               </Grid>
@@ -595,8 +582,8 @@ const GroundWaterField: FC<ConsTypeFieldsetProps> = ({ data, onChange }) => {
       }
       {showDataCons ?
         <Grid item xs={12}>
-          {isLicensepage ? loai_ct !== "hanh-nghe-khoan" ? <MiningPurpose data={propData.luuluongtheo_mucdich || []} type={GetConstructionTypeId(router)} onChange={handleMiningPurposeChange} /> : "" : ""}
-          <ConstructionItem data={propData.hangmuc_ct || []} type={isLicensepage ? GetConstructionTypeId(router) : congtrinh.idLoaiCT} onChange={handleConsItemChange} />
+          {isLicensepage ? loai_ct !== "hanh-nghe-khoan" ? <MiningPurpose data={construction.luuluong_theomd || []} type={GetConstructionTypeId(router)} onChange={handleMiningPurposeChange} /> : "" : ""}
+          <ConstructionItem data={construction.hangmuc || []} type={isLicensepage ? GetConstructionTypeId(router) : construction.idLoaiCT} onChange={handleConsItemChange} />
         </Grid> : ""}
     </>
   )
