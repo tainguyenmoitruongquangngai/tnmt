@@ -17,7 +17,7 @@ import DeleteData from 'src/@core/components/delete-data'
 import MapLegend from '../MapLegend'
 import GetConstructionTypeId from 'src/@core/components/get-construction-type'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import { formatDate} from 'src/@core/components/formater';
+import { formatDate } from 'src/@core/components/formater';
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
@@ -55,7 +55,7 @@ const DischargeConstruction = () => {
       id: 'viTriCT',
       label: 'Địa điểm',
       align: 'left',
-      minWidth: 200,
+      minWidth: 300,
     },
     {
       id: '#',
@@ -67,9 +67,9 @@ const DischargeConstruction = () => {
         </span>
       )
     },
-    { id: 'nguonNuocXT', label: 'Nguồn tiếp nhận nước thải', align: 'left', minWidth: 300 },
-    { id: 'phuongThucXT', label: 'Phương thức xả nước thải', align: 'left', minWidth: 900 },
-    { id: 'cHeDoXT', label: 'Chế độ xả nước thải', align: 'left', minWidth: 300 },
+    { id: 'nguonNuocXT', label: 'Nguồn tiếp nhận nước thải', align: 'left', minWidth: 300, elm: (row: any) => (row.thongso?.nguonNuocXT) },
+    { id: 'phuongThucXT', label: 'Phương thức xả nước thải', align: 'left', minWidth: 300, elm: (row: any) => (row.thongso?.phuongThucXT) },
+    { id: 'cheDoXT', label: 'Chế độ xả nước thải', align: 'left', minWidth: 300, elm: (row: any) => (row.thongso?.cheDoXT) },
 
     {
       id: 'thongso',
@@ -421,7 +421,7 @@ const DischargeConstruction = () => {
             columnVisibility={columnVisibility}
             pagination
             actions={(row: any) => (
-              <Box>
+              <Box display={"flex"}>
                 <CreateConstruction isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
                 <DeleteData url={'cong-trinh'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>

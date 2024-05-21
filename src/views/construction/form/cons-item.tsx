@@ -6,98 +6,13 @@ import { Add, Cancel, Delete, Edit, Save } from '@mui/icons-material';
 interface ConstructionItemFieldProps {
   data?: ConstructionItemState[]
   type?: any
-  onChange: (data: ConstructionItemState[], dataDeleted?: ConstructionItemState[]) => void
+  onChange: (data: ConstructionItemState[]) => void
 }
 
 const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange }) => {
-  const initialConsItems: ConstructionItemState[] = data
-    ? data.map((e: ConstructionItemState) => ({
-      id: e.id,
-      idCT: e.idCT,
-      tenHangMuc: e.tenHangMuc,
-      viTriHangMuc: e.viTriHangMuc,
-      x: e.x,
-      y: e.y,
-      thongso: {
-        id: e.thongso?.id || null,
-        idCT: e.thongso?.idCT || null,
-        idHangMucCT: e.thongso?.idHangMucCT || null,
-        caoTrinhCong: e.thongso?.caoTrinhCong || null,
-        cheDoKT: e.thongso?.cheDoKT || null,
-        caoTrinhDap: e.thongso?.caoTrinhDap || null,
-        cheDoXT: e.thongso?.cheDoXT || null,
-        chieuCaoDap: e.thongso?.chieuCaoDap || null,
-        chieuDaiCong: e.thongso?.chieuDaiCong || null,
-        chieuDaiDap: e.thongso?.chieuDaiDap || null,
-        duongKinhCong: e.thongso?.duongKinhCong || null,
-        chieuRongDap: e.thongso?.chieuRongDap || null,
-        nguongTran: e.thongso?.nguongTran || null,
-        chieuSauDoanThuNuocDen: e.thongso?.chieuSauDoanThuNuocDen || null,
-        chieuSauDoanThuNuocTu: e.thongso?.chieuSauDoanThuNuocTu || null,
-        congSuatBom: e.thongso?.congSuatBom || null,
-        congSuatDamBao: e.thongso?.congSuatDamBao || null,
-        congSuatLM: e.thongso?.congSuatLM || null,
-        dienTichLuuVuc: e.thongso?.dienTichLuuVuc || null,
-        dienTichTuoiThietKe: e.thongso?.dienTichTuoiThietKe || null,
-        dienTichTuoiThucTe: e.thongso?.dienTichTuoiThucTe || null,
-        dungTichChet: e.thongso?.dungTichChet || null,
-        dungTichHuuIch: e.thongso?.dungTichHuuIch || null,
-        dungTichToanBo: e.thongso?.dungTichToanBo || null,
-        hBeHut: e.thongso?.hBeHut || null,
-        hDatOngLocDen: e.thongso?.hDatOngLocDen || null,
-        hDatOngLocTu: e.thongso?.hDatOngLocTu || null,
-        hDoanThuNuocDen: e.thongso?.hDoanThuNuocDen || null,
-        hDoanThuNuocTu: e.thongso?.hDoanThuNuocTu || null,
-        hDong: e.thongso?.hDong || null,
-        hgieng: e.thongso?.hgieng || null,
-        hGiengKT: e.thongso?.hGiengKT || null,
-        hHaLuu: e.thongso?.hHaLuu || null,
-        hHaThap: e.thongso?.hHaThap || null,
-        hlu: e.thongso?.hlu || null,
-        hmax: e.thongso?.hmax || null,
-        hmin: e.thongso?.hmin || null,
-        hThuongLuu: e.thongso?.hThuongLuu || null,
-        hTinh: e.thongso?.hTinh || null,
-        htoiThieu: e.thongso?.htoiThieu || null,
-        kichThuocCong: e.thongso?.kichThuocCong || null,
-        kqKf: e.thongso?.kqKf || null,
-        luongNuocKT: e.thongso?.luongNuocKT || null,
-        mnc: e.thongso?.mnc || null,
-        mndbt: e.thongso?.mndbt || null,
-        mnlkt: e.thongso?.mnlkt || null,
-        mnltk: e.thongso?.mnltk || null,
-        muaTrungBinhNam: e.thongso?.muaTrungBinhNam || null,
-        mucNuocDong: e.thongso?.mucNuocDong || null,
-        mucNuocTinh: e.thongso?.mucNuocTinh || null,
-        phuongThucXT: e.thongso?.phuongThucXT || null,
-        qBomLonNhat: e.thongso?.qBomLonNhat || null,
-        qBomThietKe: e.thongso?.qBomThietKe || null,
-        qDamBao: e.thongso?.qDamBao || null,
-        qKhaiThac: e.thongso?.qKhaiThac || null,
-        qktCapNuocSinhHoat: e.thongso?.qktCapNuocSinhHoat || null,
-        qktLonNhat: e.thongso?.qktLonNhat || null,
-        qLonNhatTruocLu: e.thongso?.qLonNhatTruocLu || null,
-        qMaxKT: e.thongso?.qMaxKT || null,
-        qmaxNM: e.thongso?.qmaxNM || null,
-        qMaxXaThai: e.thongso?.qMaxXaThai || null,
-        qThietKe: e.thongso?.qThietKe || null,
-        qThucTe: e.thongso?.qThucTe || null,
-        qTrungBinhNam: e.thongso?.qTrungBinhNam || null,
-        qtt: e.thongso?.qtt || null,
-        qXaThai: e.thongso?.qXaThai || null,
-        qXaThaiLonNhat: e.thongso?.qXaThaiLonNhat || null,
-        qXaThaiTB: e.thongso?.qXaThaiTB || null,
-        qXaTran: e.thongso?.qXaTran || null,
-        soLuongMayBom: e.thongso?.soLuongMayBom || null,
-        thoiGianBomLonNhat: e.thongso?.thoiGianBomLonNhat || null,
-        thoiGianBomNhoNhat: e.thongso?.thoiGianBomNhoNhat || null,
-        thoiGianBomTB: e.thongso?.thoiGianBomTB || null,
-      }
-    }))
-    : []
 
-  const [constructionItems, setConstructionItems] = useState<ConstructionItemState[]>(initialConsItems);
-  const [itemDelete, setItemDelete] = useState<ConstructionItemState[]>([]);
+  const [constructionItems, setConstructionItems] = useState<ConstructionItemState[]>(data ?? []);
+
   const [newConsItemIndex, setNewConsItemIndex] = useState(-1)
   const [newConsItem, setNewConsItem] = useState<ConstructionItemState>({
     id: null,
@@ -110,76 +25,6 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
       id: null,
       idCT: null,
       idHangMucCT: null,
-      caoTrinhCong: null,
-      cheDoKT: null,
-      caoTrinhDap: null,
-      cheDoXT: null,
-      chieuCaoDap: null,
-      chieuDaiCong: null,
-      chieuDaiDap: null,
-      duongKinhCong: null,
-      chieuRongDap: null,
-      nguongTran: null,
-      chieuSauDoanThuNuocDen: null,
-      chieuSauDoanThuNuocTu: null,
-      congSuatBom: null,
-      congSuatDamBao: null,
-      congSuatLM: null,
-      dienTichLuuVuc: null,
-      dienTichTuoiThietKe: null,
-      dienTichTuoiThucTe: null,
-      dungTichChet: null,
-      dungTichHuuIch: null,
-      dungTichToanBo: null,
-      hBeHut: null,
-      hDatOngLocDen: null,
-      hDatOngLocTu: null,
-      hDoanThuNuocDen: null,
-      hDoanThuNuocTu: null,
-      hDong: null,
-      hgieng: null,
-      hGiengKT: null,
-      hHaLuu: null,
-      hHaThap: null,
-      hlu: null,
-      hmax: null,
-      hmin: null,
-      hThuongLuu: null,
-      hTinh: null,
-      htoiThieu: null,
-      kichThuocCong: null,
-      kqKf: null,
-      luongNuocKT: null,
-      mnc: null,
-      mndbt: null,
-      mnlkt: null,
-      mnltk: null,
-      muaTrungBinhNam: null,
-      mucNuocDong: null,
-      mucNuocTinh: null,
-      phuongThucXT: null,
-      qBomLonNhat: null,
-      qBomThietKe: null,
-      qDamBao: null,
-      qKhaiThac: null,
-      qktCapNuocSinhHoat: null,
-      qktLonNhat: null,
-      qLonNhatTruocLu: null,
-      qMaxKT: null,
-      qmaxNM: null,
-      qMaxXaThai: null,
-      qThietKe: null,
-      qThucTe: null,
-      qTrungBinhNam: null,
-      qtt: null,
-      qXaThai: null,
-      qXaThaiLonNhat: null,
-      qXaThaiTB: null,
-      qXaTran: null,
-      soLuongMayBom: null,
-      thoiGianBomLonNhat: null,
-      thoiGianBomNhoNhat: null,
-      thoiGianBomTB: null,
       daXoa: false
     }
   })
@@ -223,17 +68,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
       return newItems;
     });
 
-    // If you need to keep track of items that have been marked as deleted:
-    setItemDelete(prevDeletedItems => {
-      const deletedItem = prevDeletedItems[index];
-      if (deletedItem?.id !== undefined && deletedItem?.id !== null && deletedItem.id > 0) {
-        return [...prevDeletedItems, deletedItem];
-      }
-
-      return prevDeletedItems;
-    });
-
-    onChange([...constructionItems].map((item, idx) => idx === index ? { ...item, daXoa: true } : item), itemDelete);
+    onChange([...constructionItems].map((item, idx) => idx === index ? { ...item, daXoa: true } : item));
     setDeleteConfirmAnchorEl(null);
   };
 
@@ -248,6 +83,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
 
       if (newItem.thongso && prop in newItem.thongso) {
         (newItem.thongso as any)[prop] = value;
+        (newItem.thongso as any)['daXoa'] = false;
       }
 
       return newItem;
@@ -267,7 +103,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
         Object.keys(newConsItem.thongso || {}).map(key => [key, null])
       );
 
-      setNewConsItem({ id: null, tenHangMuc: null, viTriHangMuc: null, x: null, y: null, thongso: { ...nullThongso, id: null, idCT: null, idHangMucCT: null } });
+      setNewConsItem({ id: null, tenHangMuc: null, viTriHangMuc: null, x: null, y: null, daXoa: false, thongso: { ...nullThongso, id: null, idCT: null, idHangMucCT: null } });
     }
 
     if (func === 'update') {
@@ -276,7 +112,7 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
   }
 
   const handleSave = () => {
-    if (newConsItem.tenHangMuc !== undefined) {
+    if (newConsItem.tenHangMuc && newConsItem.tenHangMuc !== null && newConsItem.tenHangMuc !== '') {
       if (newConsItemIndex >= 0) {
         setConstructionItems(prevItems => {
           const updatedItems = [...prevItems];
@@ -288,8 +124,9 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
         setConstructionItems(prevItems => [...prevItems, newConsItem]);
       }
 
-      onChange([...constructionItems], [...itemDelete]);
+      onChange([...constructionItems]);
       setNewConsItemIndex(-1)
+
       handleCloseModal();
     } else {
       setRequire("Tên hạng mục không được để trống");
@@ -310,10 +147,9 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
   };
 
   useEffect(() => {
-    onChange([...constructionItems], [...itemDelete])
-
+    onChange(constructionItems);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [constructionItems, itemDelete])
+  }, [constructionItems]);
 
   return (
     <fieldset>
@@ -373,6 +209,12 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
               {type == 3 ?
                 <TableCell size='small' align='center' rowSpan={2} width={250}>
                   Vị trí xả thải
+                </TableCell>
+                : ""
+              }
+              {type == 3 ?
+                <TableCell size='small' align='center' rowSpan={2} width={250}>
+                  Nguồn nước xả thải
                 </TableCell>
                 : ""
               }
@@ -579,6 +421,18 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
                               </Grid>
                               <Grid item md={12}>
                                 <TextField
+                                  name='nguonNuocXT'
+                                  fullWidth
+                                  label='Nguồn nước xả thải'
+                                  placeholder='Nguồn nước xả thải'
+                                  size='small'
+                                  value={newConsItem.thongso?.nguonNuocXT == null ? '' : newConsItem.thongso?.nguonNuocXT}
+                                  onChange={event => handleChange('nguonNuocXT')(event.target.value)}
+                                  multiline
+                                />
+                              </Grid>
+                              <Grid item md={12}>
+                                <TextField
                                   name='cheDoXT'
                                   fullWidth
                                   label='Chế độ xả thải'
@@ -727,6 +581,11 @@ const ConstructionItem: FC<ConstructionItemFieldProps> = ({ data, type, onChange
                 {type == 3 ?
                   <TableCell padding='checkbox'>
                     {item.viTriHangMuc}
+                  </TableCell> : ""
+                }
+                {type == 3 ?
+                  <TableCell padding='checkbox'>
+                    {item.thongso?.nguonNuocXT}
                   </TableCell> : ""
                 }
                 {type == 3 ?

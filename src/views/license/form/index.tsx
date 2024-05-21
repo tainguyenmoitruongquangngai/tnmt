@@ -54,8 +54,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
   const [congtrinh, setCongTrinh] = useState<ConstructionState | null>(data || null);
 
   const handleConstructionChange = (data: any) => {
-    data.congtrinh ? setCongTrinh(data) : setCongTrinh(null);
-    console.log(data)
+    data ? setCongTrinh(data) : setCongTrinh(null);
   };
 
   //licenseFee
@@ -113,47 +112,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
     setSaving(true)
     setFetching(true)
     try {
-      const newCons: ConstructionState = {
-        id: congtrinh?.id || null,
-        idLoaiCT: congtrinh?.idLoaiCT || null,
-        idSong: congtrinh?.idSong || null,
-        idLuuVuc: congtrinh?.idLuuVuc || null,
-        idTieuLuuVuc: congtrinh?.idTieuLuuVuc || null,
-        idTangChuaNuoc: congtrinh?.idTangChuaNuoc || null,
-        tenCT: congtrinh?.tenCT || null,
-        maCT: congtrinh?.maCT || null,
-        viTriCT: congtrinh?.viTriCT || null,
-        x: congtrinh?.x || null,
-        y: congtrinh?.y || null,
-        capCT: congtrinh?.capCT || null,
-        namBatDauVanHanh: congtrinh?.namBatDauVanHanh || null,
-        nguonNuocKT: congtrinh?.nguonNuocKT || null,
-        mucDichKT: congtrinh?.mucDichKT || null,
-        phuongThucKT: congtrinh?.phuongThucKT || null,
-        thoiGianKT: congtrinh?.thoiGianKT || null,
-        thoiGianHNK: congtrinh?.thoiGianHNK || null,
-        mucDichHNK: congtrinh?.mucDichHNK || null,
-        mucDichhTD: congtrinh?.mucDichhTD || null,
-        quyMoHNK: congtrinh?.quyMoHNK || null,
-        thoiGianXD: congtrinh?.thoiGianXD || null,
-        soLuongGiengKT: congtrinh?.soLuongGiengKT || null,
-        soLuongGiengQT: congtrinh?.soLuongGiengQT || null,
-        soDiemXaThai: congtrinh?.soDiemXaThai || null,
-        soLuongGieng: congtrinh?.soLuongGieng || null,
-        khoiLuongCacHangMucTD: congtrinh?.khoiLuongCacHangMucTD || null,
-        qktThietKe: congtrinh?.qktThietKe || null,
-        qktThucTe: congtrinh?.qktThucTe || null,
-        viTriXT: congtrinh?.viTriXT || null,
-        taiKhoan: congtrinh?.taiKhoan || null,
-        chuThich: congtrinh?.chuThich || null,
-        hangmuc: congtrinh?.hangmuc || null,
-        luuluong_theomd: congtrinh?.luuluong_theomd || null,
-        thongso: congtrinh?.thongso || null,
-        vitri: congtrinh?.vitri || null
-      }
-
-      const saveCons = await saveData('cong-trinh/luu', newCons);
-
+      const saveCons = await saveData('cong-trinh/luu', congtrinh);
       if (saveCons) {
         const filePath = `pdf/giay-phep/${giayphep?.coQuanCapPhep?.toLowerCase()}/${router.pathname.split('/')[2]}/${dayjs(giayphep?.ngayKy).year()}/${giayphep?.soGP?.replace(/\//g, "_").toLowerCase()}`;
 
@@ -164,15 +123,15 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         }
 
         const newfileDonXinCP = {
-          filePath: filePath,
+          filePath: giayphep?.fileDonXinCP && giayphep?.fileDonXinCP !== null ? filePath : null,
           fileName: giayphep?.fileDonXinCP && 'donxincapphep.pdf',
-          file: fileUpload.fileDonXinCP
+          file: giayphep?.fileDonXinCP && giayphep?.fileDonXinCP !== null ? fileUpload.fileDonXinCP : null
         }
 
         const newfileGiayToLienQuan = {
-          filePath: filePath,
-          fileName: giayphep?.fileGiayToLienQuan && fileUpload.fileGiayToLienQuan.name,
-          file: fileUpload.fileGiayToLienQuan
+          filePath: giayphep?.fileDonXinCP && giayphep?.fileDonXinCP !== null ? filePath : null,
+          fileName: giayphep?.fileGiayToLienQuan && fileUpload.fileGiayToLienQuan?.name ? fileUpload.fileGiayToLienQuan.name : null,
+          file: giayphep?.fileGiayToLienQuan && giayphep?.fileGiayToLienQuan !== null ? fileUpload.fileGiayToLienQuan : null
         }
 
         const newLic: LicenseState = {
@@ -232,6 +191,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         typeof (setPostSuccess) === 'function' ? setPostSuccess(true) : '';
       }
     } catch (error) {
+      console.error('Error in handleApiCall:', error);
     } finally {
       setSaving(false)
       setFetching(false)
@@ -285,7 +245,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
               <Typography variant={'subtitle1'} className="legend__title">THÔNG TIN TỔ CHỨC/CÁ NHÂN</Typography>
             </legend>
             {fetching ? <CircularProgress size={20} /> : (
-              <Grid container spacing={4} alignContent={'center'}>
+              <Grid container spacing={6} alignContent={'center'}>
                 <Grid item xs={12} md={4} sm={12}>
                   <Autocomplete
                     size="small"
@@ -330,7 +290,7 @@ const FormLicense: FC<FormLicenseProps> = ({ data, closeDialogs, setPostSuccess 
         <Grid item xs={12}>
           {
             router.pathname.split('/')[2] == 'nuoc-mat' ?
-              <SurfaceWaterField props={data?.congtrinh} onChange={handleConstructionChange} />
+              <SurfaceWaterField props={data?.congtrinh.id} onChange={handleConstructionChange} />
               :
               router.pathname.split('/')[2] == 'nuoc-duoi-dat' ?
                 <GroundWaterField props={data?.congtrinh} onChange={handleConstructionChange} />

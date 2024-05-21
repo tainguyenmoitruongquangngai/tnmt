@@ -16,7 +16,7 @@ import { VisuallyHiddenInput } from 'src/@core/theme/VisuallyHiddenInput';
 import { getData } from 'src/api/axios';
 import { useRouter } from 'next/router';
 import GetConstructionTypeId from 'src/@core/components/get-construction-type';
-import { formatDate} from 'src/@core/components/formater';
+import { formatDate } from 'src/@core/components/formater';
 
 const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
 
@@ -119,8 +119,8 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                         THÔNG TIN GIẤY PHÉP
                     </Typography>
                 </legend>
-                <Grid container spacing={4} rowSpacing={1}>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                <Grid container spacing={6}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <TextField
                             required
                             size='small'
@@ -132,7 +132,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                             onChange={(event) => handleChange('soGP')(event.target.value)}
                         />
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 label='Ngày ký'
@@ -143,7 +143,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                             />
                         </LocalizationProvider>
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <TextField
                             size='small'
                             type='text'
@@ -153,7 +153,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                             value={giayphep.tenGP || ''}
                             onChange={(event) => handleChange('tenGP')(event.target.value)} />
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 label="Ngày có hiệu lực"
@@ -163,7 +163,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                                 format="DD/MM/YYYY" />
                         </LocalizationProvider>
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <Autocomplete
                             size="small"
                             options={loaiGP}
@@ -181,7 +181,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                             )}
                         />
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <TextField
                             size='small'
                             type='text'
@@ -191,7 +191,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                             value={giayphep.thoiHan || ''}
                             onChange={(event) => handleChange('thoiHan')(event.target.value)} />
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <Autocomplete
                             size="small"
                             options={coQuanCapPhep}
@@ -209,7 +209,7 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                             )}
                         />
                     </Grid>
-                    <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+                    <Grid item xs={12} md={6} sm={12}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker label="Ngày hết hiệu lực"
                                 value={dayjs(giayphep.ngayHetHieuLuc)}
@@ -224,39 +224,39 @@ const LicenseFieldset: FC<LicenseFieldsetProps> = ({ data, onChange }) => {
                                 format="DD/MM/YYYY" />
                         </LocalizationProvider>
                     </Grid>
-
                     {giayphep.idLoaiGP && giayphep.idLoaiGP > 1 && giayphep.idLoaiGP <= 5 ?
                         fetching ? (<CircularProgress size={20} />) : (
-                            <Grid container spacing={4} rowSpacing={1} ml={0} >
-                                <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }} >
-                                    <Autocomplete
-                                        size="small"
-                                        options={listLic}
-                                        getOptionLabel={(option: any) => `${option.soGP} (Ký ngày: ${formatDate(option.ngayKy)})`}
-                                        isOptionEqualToValue={(option: any) => option.id}
-                                        value={listLic.find((option: any) => option.id === giayphep.idCon) || null}
-                                        onChange={(_, value) => { handleChange('idCon')(value?.id || 0); setOldLic(value || []) }}
-                                        renderInput={(params) => (
-                                            <TextField
-                                                required
-                                                {...params}
-                                                fullWidth
-                                                label="Số giấy phép cũ"
-                                            />
-                                        )}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <DatePicker
-                                            disabled
-                                            label='Ngày ký giấy phép cũ'
-                                            value={dayjs(oldLic.ngayKy) || null}
-                                            slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
-                                            format='DD/MM/YYYY'
+                            <Grid item xs={12} md={6} sm={12} >
+                                <Autocomplete
+                                    size="small"
+                                    options={listLic}
+                                    getOptionLabel={(option: any) => `${option.soGP} (Ký ngày: ${formatDate(option.ngayKy)})`}
+                                    isOptionEqualToValue={(option: any) => option.id}
+                                    value={listLic.find((option: any) => option.id === giayphep.idCon) || null}
+                                    onChange={(_, value) => { handleChange('idCon')(value?.id || 0); setOldLic(value || []) }}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            required
+                                            {...params}
+                                            fullWidth
+                                            label="Số giấy phép cũ"
                                         />
-                                    </LocalizationProvider>
-                                </Grid>
+                                    )}
+                                />
+                            </Grid>
+                        ) : ''}
+                    {giayphep.idLoaiGP && giayphep.idLoaiGP > 1 && giayphep.idLoaiGP <= 5 ?
+                        fetching ? (<CircularProgress size={20} />) : (
+                            <Grid item xs={12} md={6} sm={12}>
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DatePicker
+                                        disabled
+                                        label='Ngày ký giấy phép cũ'
+                                        value={dayjs(oldLic.ngayKy) || null}
+                                        slotProps={{ textField: { size: 'small', fullWidth: true, required: true } }}
+                                        format='DD/MM/YYYY'
+                                    />
+                                </LocalizationProvider>
                             </Grid>
                         ) : ''}
                 </Grid>

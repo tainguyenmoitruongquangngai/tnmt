@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 //MUI Imports
-import { Box, Typography, Paper} from '@mui/material'
+import { Box, Typography, Paper } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
 
 //Other Imports
@@ -17,7 +17,7 @@ import DeleteData from 'src/@core/components/delete-data'
 import MapLegend from '../MapLegend'
 import GetConstructionTypeId from 'src/@core/components/get-construction-type'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import { formatDate} from 'src/@core/components/formater';
+import { formatDate } from 'src/@core/components/formater';
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
@@ -71,7 +71,7 @@ const GroundConstruction = () => {
     { id: 'soLuongGiengKT', label: 'Số giếng khai thác', align: 'left', elm: (row: any) => row?.thongso?.soLuongGiengKT, },
     { id: 'cheDoKT', label: 'Chế độ khai thác', align: 'left', minWidth: 300, elm: (row: any) => row?.thongso?.cheDoKT, },
     { id: 'namBatDauVanHanh', label: 'Năm vận hành', align: 'left', elm: (row: any) => row?.thongso?.namBatDauVanHanh, },
-    { id: 'sohieu', label: 'Số hiệu', align: 'left', elm: (row: any) => row?.thongso?.sohieu,},
+    { id: 'sohieu', label: 'Số hiệu', align: 'left', elm: (row: any) => row?.thongso?.sohieu, },
     { id: 'thoiGianHNK', label: 'Thời gian hành nghề khoan', align: 'left' },
     {
       id: '#',
@@ -473,7 +473,7 @@ const GroundConstruction = () => {
             columnVisibility={columnVisibility}
             pagination
             actions={(row: any) => (
-              <Box>
+              <Box display={"flex"}>
                 <CreateConstruction isEdit={true} data={row} setPostSuccess={handlePostSuccess} />
                 <DeleteData url={'cong-trinh'} data={row} setPostSuccess={handlePostSuccess} />
               </Box>

@@ -19,20 +19,17 @@ const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs,
   const route = useRouter()
 
   //Construction
-  const [congtrinh, SetCongTrinh] = useState<ConstructionState>(data || {})
+  const [congtrinh, SetCongTrinh] = useState<ConstructionState | null>(data || null)
   const [saving, setSaving] = useState(false)
 
-  const handleConsChange = (data: any) => {
-    console.log(data)
-
-    SetCongTrinh({ ...data });
+  const handleConsChange = (updatedData: ConstructionState) => {
+    SetCongTrinh(updatedData);
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
     const handleApiCall = async () => {
-      console.log(congtrinh)
       try {
         setSaving(true)
         const res = await saveData('cong-trinh/luu', congtrinh)
@@ -52,7 +49,7 @@ const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs,
   }
 
   const handleClose = () => {
-    SetCongTrinh({})
+    SetCongTrinh(null)
 
     closeDialogs()
   }
@@ -62,11 +59,11 @@ const FormConstruction: React.FC<FormConstructionProps> = ({ data, closeDialogs,
       <Grid container gap={3}>
         <Grid item xs={12}>
           {route.pathname.split('/')[2] == 'nuoc-mat' ? (
-            <SurfaceWaterField props={data} onChange={handleConsChange} />
+            <SurfaceWaterField props={data?.id} onChange={handleConsChange} />
           ) : route.pathname.split('/')[2] == 'nuoc-duoi-dat' ? (
-            <GroundWaterField props={data} onChange={handleConsChange} />
+            <GroundWaterField props={data?.id} onChange={handleConsChange} />
           ) : route.pathname.split('/')[2] == 'xa-thai' ? (
-            <DischargeWaterField props={data} onChange={handleConsChange} />
+            <DischargeWaterField props={data?.id} onChange={handleConsChange} />
           ) : (
             ''
           )}

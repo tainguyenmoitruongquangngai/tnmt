@@ -56,7 +56,7 @@ const SurfaceConstruction = () => {
       label: 'Địa điểm',
       rowspan: 2,
       align: 'left',
-      minWidth: 250,
+      minWidth: 300,
     },
     {
       id: '#',
