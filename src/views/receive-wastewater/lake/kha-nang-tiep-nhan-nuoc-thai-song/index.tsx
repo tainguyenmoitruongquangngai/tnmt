@@ -215,7 +215,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
         <MapDoanSong
           center={mapCenter}
           zoom={mapZoom}
-          mapData={data}
+          mapData={selectedRiver}
           selectedKmlFile={selectedRiver ? selectedRiver.fileKML : null}
           loading={loading}
         />

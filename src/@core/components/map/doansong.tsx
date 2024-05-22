@@ -11,6 +11,8 @@ const RiverTable = () => {
     const [mapCenter, setMapCenter] = useState([15.012172, 108.676488]);
     const [mapZoom, setMapZoom] = useState(9);
     const [selectedRiver, setSelectedRiver] = useState<any>(null);
+    console.log(selectedRiver);
+    
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -18,13 +20,10 @@ const RiverTable = () => {
         setSelectedRiver(river);
         try {
             const kmlDoc = await fetchAndParseKML(`${river.fileKML}`);
-            console.log(kmlDoc);
-            
             const bounds = calculateBounds(kmlDoc);
             if (bounds) {
                 setMapCenter(bounds.center);
                 setMapZoom(bounds.zoom);
-                console.log("New center coordinates:", bounds.center, "New zoom level:", bounds.zoom);
             }
         } catch (error) {
             console.error('Error loading KML:', error);
@@ -53,6 +52,7 @@ const RiverTable = () => {
             setMapZoom(9); // Mặc định zoom
         }
     }, [selectedRiver]);
+console.log(selectedRiver);
 
     return (
         <div>
@@ -63,6 +63,7 @@ const RiverTable = () => {
                     mapData={data} 
                     selectedKmlFile={selectedRiver ? selectedRiver.fileKML : null} 
                     loading={loading} 
+                    selectedRiver={selectedRiver}
                 />
             </Grid>
 

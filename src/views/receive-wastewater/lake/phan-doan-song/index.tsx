@@ -130,9 +130,6 @@ const PhanDoanSongTiepNhanNuocThai = () => {
     { id: 'actions', label: 'Thao tác', align: 'center', pinned: 'right' }
   ]
 
- 
-
-
   useEffect(() => {
     async function getDataReport1() {
       setLoading(true)
@@ -159,14 +156,7 @@ const PhanDoanSongTiepNhanNuocThai = () => {
 }, [selectedRiver]);
 
 
-
-  // const zoomConstruction = (coords: any) => {
-  //   setMapCenter(coords)
-  //   setMapZoom(13)
-  // }
-  // const handleConsTypeChange = (data: any) => {
-  //   setInitConstype(data);
-  // };
+console.log(data);
 
   return (
     <Grid container spacing={2}>

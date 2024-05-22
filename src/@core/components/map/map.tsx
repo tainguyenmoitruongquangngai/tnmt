@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { MapContainer, TileLayer, LayersControl, Marker, Tooltip } from 'react-leaflet'
+import { MapContainer, TileLayer, LayersControl, Marker, Tooltip, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import ReactLeafletKml from 'react-leaflet-kml'
 import { BingLayer } from '../bingmap'
 import { fetchAndParseKML } from './utils'
+import { Typography } from '@mui/material'
+import DoanSongPopup from './popup'
 
 const { BaseLayer } = LayersControl
 
-export default function MapDoanSong({ center, zoom, selectedKmlFile }: any) {
+export default function MapDoanSong({ center, zoom, selectedKmlFile, mapData }: any) {
+  console.log(mapData);
+  
   const [bing_key] = useState('AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L')
   const [defaultKmls, setDefaultKmls] = useState<(Document | null)[]>([])
   const [selectedKmlData, setSelectedKmlData] = useState<Document | null>(null)
@@ -59,10 +63,19 @@ export default function MapDoanSong({ center, zoom, selectedKmlFile }: any) {
         </BaseLayer>
       </LayersControl>
       {selectedKmlFile != null ? (
+
         <Marker icon={createIcon('/images/icon/marker.png')} key={1} position={center}>
+    
+
           <Tooltip direction='top' offset={[-10, -18]} opacity={1}>
-            {selectedKmlFile}
+          {mapData.phanDoan}
           </Tooltip>
+          <Popup>
+            <Typography sx={{ color: '#035291', textAlign: 'center', fontWeight: 'bold', margin: '0 !important' }}>
+            {mapData.phanDoan}
+            </Typography>
+            <DoanSongPopup popupData={mapData} />
+          </Popup>
         </Marker>
       ) : (
         ''
