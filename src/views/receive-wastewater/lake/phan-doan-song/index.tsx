@@ -1,6 +1,6 @@
 //React Imports
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useState, useCallback, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 
 //MUI Imports
 //import { Box, Paper, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
@@ -12,16 +12,50 @@ import TableComponent, { TableColumn } from 'src/@core/components/table'
 import DeleteData from 'src/@core/components/delete-data'
 import PhanDoanSongForm from './PhanDoanSongForm'
 import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
+import { calculateBounds, fetchAndParseKML } from 'src/@core/components/map/utils';
+
+const MapDoanSong = dynamic(() => import('src/@core/components/map/map'), { ssr: false });
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const PhanDoanSongTiepNhanNuocThai = () => {
-  //Init columnTable
+  const [data, setData] = useState([])
+  const [mapCenter, setMapCenter] = useState([15.012172, 108.676488]);
+  const [mapZoom, setMapZoom] = useState(9);
+  const [selectedRiver, setSelectedRiver] = useState<any>(null);
 
-  // const [mapCenter, setMapCenter] = useState([15.012172, 108.676488])
-  // const [mapZoom, setMapZoom] = useState(9)
-  // const [showLabel, setShowLabel] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [postSuccess, setPostSuccess] = useState(false)
+  const handlePostSuccess = () => {
+    setPostSuccess(prevState => !prevState)
+  }
+
+  const handleRiverSelection = useCallback(async (river) => {
+    setSelectedRiver(river);
+    try {
+        const kmlDoc = await fetchAndParseKML(`${river.fileKML}`);
+        
+        const bounds = calculateBounds(kmlDoc);
+        if (bounds) {
+            setMapCenter(bounds.center);
+            setMapZoom(bounds.zoom);
+        }
+    } catch (error) {
+        console.error('Error loading KML:', error);
+    }
+}, []);
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT' },
+    {
+      id: 'phanDoan',
+      label: 'Phân đoạn sông',
+      align: 'left',
+      minWidth: 200,
+      elm: (row: any) => (
+        <Typography className='btnShowFilePdf'  onClick={() => handleRiverSelection(row)}>
+          {row?.phanDoan}
+        </Typography>
+      )
+    },
     {
       id: 'luuVucSong',
       label: 'Lưu vực sông',
@@ -40,12 +74,7 @@ const PhanDoanSongTiepNhanNuocThai = () => {
       align: 'left',
       minWidth: 200
     },
-    {
-      id: 'phanDoan',
-      label: 'Phân đoạn sông',
-      align: 'left',
-      minWidth: 200
-    },
+   
     {
       id: '#',
       label: 'Tọa độ (VN2000, múi chiếu 30, kinh tuyến trục 107045’)',
@@ -101,12 +130,8 @@ const PhanDoanSongTiepNhanNuocThai = () => {
     { id: 'actions', label: 'Thao tác', align: 'center', pinned: 'right' }
   ]
 
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [postSuccess, setPostSuccess] = useState(false)
-  const handlePostSuccess = () => {
-    setPostSuccess(prevState => !prevState)
-  }
+ 
+
 
   useEffect(() => {
     async function getDataReport1() {
@@ -126,6 +151,15 @@ const PhanDoanSongTiepNhanNuocThai = () => {
     getDataReport1()
   }, [postSuccess])
 
+  useEffect(() => {
+    if (!selectedRiver) {
+        setMapCenter([15.012172, 108.676488]); // Mặc định trung tâm
+        setMapZoom(9); // Mặc định zoom
+    }
+}, [selectedRiver]);
+
+
+
   // const zoomConstruction = (coords: any) => {
   //   setMapCenter(coords)
   //   setMapZoom(13)
@@ -136,23 +170,33 @@ const PhanDoanSongTiepNhanNuocThai = () => {
 
   return (
     <Grid container spacing={2}>
+      <Grid xs={12} md={12 }sx={{ height: '55vh', overflow: 'hidden' }}>
+        <MapDoanSong
+          center={mapCenter}
+          zoom={mapZoom}
+          mapData={data}
+          selectedKmlFile={selectedRiver ? selectedRiver.fileKML : null}
+          loading={loading}
+        />
+      </Grid>
+
       <Grid xs={12} md={12}>
         <Grid className='_text_center'>
           <Typography className='font-weight-bold' sx={{ mt: 3 }} variant='h6'>
-           TỔNG HỢP PHÂN ĐOẠN SÔNG TỈNH QUẢNG NGÃI
+            TỔNG HỢP PHÂN ĐOẠN SÔNG TỈNH QUẢNG NGÃI
           </Typography>
         </Grid>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>
-          <Grid container className='_flexEnd' spacing={2} sx={{p:2}}>
-            <Grid >
-            <ExportTableToExcel tableId='phan_doan_song' filename="phandoansong.csv" />
+          <Grid container className='_flexEnd' spacing={2} sx={{ p: 2 }}>
+            <Grid>
+              <ExportTableToExcel tableId='phan_doan_song' filename='phandoansong.csv' />
             </Grid>
 
-            <Grid >
-            <PhanDoanSongForm isEdit={false} setPostSuccess={handlePostSuccess} />
+            <Grid>
+              <PhanDoanSongForm isEdit={false} setPostSuccess={handlePostSuccess} />
+            </Grid>
           </Grid>
-          </Grid>
-          
+
           <TableComponent
             columns={columnsTable}
             rows={data}

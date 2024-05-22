@@ -312,7 +312,7 @@ const TaiLuongONhiem = () => {
           id: 'ltColiform',
           label: (
             <>
-              Tổng P <br /> coliform
+              Tổng  <br /> coliform
               <br /> (MPN/100ml)
             </>
           ),

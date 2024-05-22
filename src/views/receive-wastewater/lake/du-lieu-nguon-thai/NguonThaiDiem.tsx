@@ -38,7 +38,7 @@ const NguonThaiDiem = () => {
       ),
       rowspan: 2,
       align: 'left',
-      minWidth: 100,
+      minWidth: 150,
       elm: (row: any) => <span>{row.phanDoanSong.tenDoanSong}</span>
     },
     {
@@ -63,7 +63,7 @@ const NguonThaiDiem = () => {
       ),
       rowspan: 2,
       align: 'left',
-      minWidth: 100
+      minWidth: 250
     },
     {
       id: '#',

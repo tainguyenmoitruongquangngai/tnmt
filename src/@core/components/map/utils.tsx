@@ -1,3 +1,5 @@
+import apiUrl from "src/api/config";
+
 export function calculateBounds(kmlDoc:any) {
     const coords = kmlDoc.getElementsByTagName('coordinates');
     let minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
@@ -17,13 +19,22 @@ export function calculateBounds(kmlDoc:any) {
   
     return (minLat === Infinity || maxLat === -Infinity || minLng === Infinity || maxLng === -Infinity) ? null : {
       center: [(minLat + maxLat) / 2, (minLng + maxLng) / 2],
-      zoom: 11  // Zoom level can be adjusted based on your specific needs
+      zoom: 9  // Zoom level can be adjusted based on your specific needs
     };
   }
 
+
   export async function fetchAndParseKML(fileUrl:any) {
+    
     try {
-      const response = await fetch(fileUrl);
+      let response;
+      if (fileUrl.startsWith('/')) {
+          // Load from local project folder
+          response = await fetch(fileUrl);
+      } else {
+          // Load from API
+          response = await fetch(`${apiUrl}/file/readfile?FilePath=kml&FileName=${fileUrl}`);
+      }
       if (!response.ok) {
         console.error(`Failed to load KML file from ${fileUrl}: Status ${response.status}`);
 

@@ -8,7 +8,6 @@ import { fetchAndParseKML } from './utils'
 const { BaseLayer } = LayersControl
 
 export default function MapDoanSong({ center, zoom, selectedKmlFile }: any) {
-  console.log(selectedKmlFile)
   const [bing_key] = useState('AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L')
   const [defaultKmls, setDefaultKmls] = useState<(Document | null)[]>([])
   const [selectedKmlData, setSelectedKmlData] = useState<Document | null>(null)
@@ -29,7 +28,7 @@ export default function MapDoanSong({ center, zoom, selectedKmlFile }: any) {
   useEffect(() => {
     if (selectedKmlFile) {
       const loadSelectedKml = async () => {
-        const kmlDoc = await fetchAndParseKML(`/kml/doansong/${selectedKmlFile}`)
+        const kmlDoc = await fetchAndParseKML(`${selectedKmlFile}`)
         setSelectedKmlData(kmlDoc)
       }
       loadSelectedKml()
