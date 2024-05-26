@@ -23,7 +23,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     mucDichSuDung: data?.mucDichSuDung || '',
     chatLuongNuoc: data?.chatLuongNuoc || '',
     ghiChu: data?.ghiChu || '',
-    fileKML: data?.fileKML || ''
+    fileKML: data?.fileKML || '',
+    heSoFS: data?.heSoFS || 0,
   })
 
   const [saving, setSaving] = useState(false)
@@ -79,7 +80,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             mucDichSuDung: '',
             chatLuongNuoc: '',
             ghiChu: '',
-            fileKML: ''
+            fileKML: '',
+            heSoFS: 0
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
@@ -114,7 +116,8 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
       mucDichSuDung: '',
       chatLuongNuoc: '',
       ghiChu: '',
-      fileKML: ''
+      fileKML: '',
+      heSoFS: 0
     })
 
     closeDialogs()
@@ -287,6 +290,17 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           <TextField
             size='small'
             type='text'
+            label='Hệ số an toàn FS'
+            fullWidth
+            placeholder=''
+            value={report1Data.heSoFS || ''}
+            onChange={event => handleChange('heSoFS')(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
             label='Ghi chú'
             fullWidth
             placeholder=''
@@ -309,7 +323,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
 }
 
 const PhanDoanSongForm = ({ data, setPostSuccess, isEdit }: any) => {
-  const formTitle = isEdit ? 'Thay đổi thông tin ' : 'Thêm mới'
+  const formTitle = isEdit ? 'Thay đổi thông tin phân đoạn sông' : 'Thêm mới phân đoạn sông'
 
   return (
     <DialogsControlFullScreen>

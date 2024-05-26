@@ -23,6 +23,14 @@ const NguonThaiDiem = () => {
     { id: 'stt', label: 'STT', rowspan: 2 },
     {
       id: '#',
+      label: 'Phân đoạn sông',
+      rowspan: 2,
+      align: 'left',
+      minWidth: 200,
+      elm: (row: any) => <span>{row.phanDoanSong.phanDoan}</span>
+    },
+    {
+      id: '#',
       label: 'Sông',
       rowspan: 2,
       align: 'left',

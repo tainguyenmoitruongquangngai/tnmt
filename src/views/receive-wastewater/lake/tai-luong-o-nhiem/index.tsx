@@ -316,12 +316,13 @@ const TaiLuongONhiem = () => {
               <br /> (MPN/100ml)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltColiform)
         }
       ]
     },
     {
-      id: '#',
+      id: 'heSoFS',
       label: 'Hệ số an toàn ',
       align: 'left'
     },

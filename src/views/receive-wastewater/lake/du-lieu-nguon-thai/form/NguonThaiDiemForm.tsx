@@ -20,7 +20,10 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     ctdiemTongP: data?.ctdiemTongP || 0,
     ctdiemTSS: data?.ctdiemTSS || 0,
     ctdiemColiform: data?.ctdiemColiform || 0,
-    ghiChu: data?.ghiChu || ''
+    ghiChu: data?.ghiChu || '',
+    nguonThaiCongTrinh: data?.nguonThaiCongTrinh || '',
+    toaDoX: data?.toaDoX || 0,
+    toaDoY: data?.toaDoY || 0,
   })
 
   const [saving, setSaving] = useState(false)
@@ -66,7 +69,10 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             ctdiemTongP: 0,
             ctdiemTSS: 0,
             ctdiemColiform: 0,
-            ghiChu: ''
+            ghiChu: '',
+            nguonThaiCongTrinh: '',
+            toaDoX: 0,
+            toaDoY: 0,
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
@@ -96,7 +102,10 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
       ctdiemTongP: 0,
       ctdiemTSS: 0,
       ctdiemColiform: 0,
-      ghiChu: ''
+      ghiChu: '',
+      nguonThaiCongTrinh: '',
+      toaDoX: 0,
+      toaDoY: 0,
     })
 
     closeDialogs()
@@ -133,6 +142,39 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           />
         </Grid>
         <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Nguồn thải công trình'
+            fullWidth
+            placeholder=''
+            value={thaiDiem.nguonThaiCongTrinh || ''}
+            onChange={event => handleChange('nguonThaiCongTrinh')(event.target.value)}
+          />
+        </Grid>    
+        <Grid item xs={12} md={4} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Tọa độ X'
+            fullWidth
+            placeholder=''
+            value={thaiDiem.toaDoX || ''}
+            onChange={event => handleChange('toaDoX')(event.target.value)}
+          />
+        </Grid>    
+        <Grid item xs={12} md={4} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Tọa độ y'
+            fullWidth
+            placeholder=''
+            value={thaiDiem.toaDoY || ''}
+            onChange={event => handleChange('toaDoY')(event.target.value)}
+          />
+        </Grid>    
+        <Grid item xs={12} md={4} sm={12} sx={{ my: 2 }}>
           <TextField
             size='small'
             type='text'

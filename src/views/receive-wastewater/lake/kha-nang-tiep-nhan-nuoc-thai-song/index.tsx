@@ -56,6 +56,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
     { id: 'song', label: 'Sông', rowspan: 2, align: 'left', minWidth: 250 },
     { id: 'tenDoanSong', label: 'Tên đoạn sông', rowspan: 2, align: 'left', minWidth: 250 },
     { id: 'chieuDai', label: <>Chiều dài<br/> đoạn sông (km)</>, rowspan: 2, align: 'left', minWidth: 120 },
+    { id: 'heSoFS', label: 'Hệ số an toàn(Fs)', rowspan: 2, align: 'left' },
     {
       id: '#',
       label: 'KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI Ltd (kg/ngày)',
@@ -70,6 +71,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
         { id: 'ltnColiform', label: 'Tổng P coliform (MPN/100ml)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnColiform) },
       ]
     },
+  
     { id: 'ghiChu', label: 'Ghi chú', rowspan: 2, align: 'left' }
   ];
 
