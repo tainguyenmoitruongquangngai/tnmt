@@ -358,14 +358,6 @@ const TaiLuongONhiem = () => {
     getDataReport1()
   }, [])
 
-  // const zoomConstruction = (coords: any) => {
-  //   setMapCenter(coords)
-  //   setMapZoom(13)
-  // }
-  // const handleConsTypeChange = (data: any) => {
-  //   setInitConstype(data);
-  // };
-
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={12} sx={{ height: '55vh', overflow: 'hidden' }}>
