@@ -17,7 +17,7 @@ import DeleteData from 'src/@core/components/delete-data'
 import MapLegend from '../MapLegend'
 import GetConstructionTypeId from 'src/@core/components/get-construction-type'
 import TableComponent, { TableColumn } from 'src/@core/components/table'
-import { formatDate } from 'src/@core/components/formater';
+import { formatDate, formatNum } from 'src/@core/components/formater';
 
 const Map = dynamic(() => import('src/@core/components/map'), { ssr: false })
 
@@ -59,8 +59,9 @@ const GroundConstruction = () => {
     },
     {
       id: '#',
-      label: 'Toạ độ đập chính (VN2000)',
-
+      label: <>Toạ độ đập chính<br /> (VN2000)</>,
+      minWidth: 150,
+      rowspan: 2,
       elm: (row: any) => (
         <span>
           X: {row?.x}<br /> Y: {row?.y}
@@ -242,7 +243,7 @@ const GroundConstruction = () => {
               {row.giayphep?.map((e: any) => (
                 e.tiencq.map((c: any) => (
                   <div key={c.id}>
-                    {c.tongTienCQ}
+                    {formatNum(c.tongTienCQ)}
                   </div>
                 ))
               ))}

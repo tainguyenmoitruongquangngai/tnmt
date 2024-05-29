@@ -51,123 +51,57 @@ const NN_NguongKhaiThacNDD = () => {
       label: 'Tên tầng chứa nước',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'loaiChuaNuoc',
       label: 'Loại chứa nước (lỗ hổng, khe nứt)',
       align: 'left',
       minWidth: 300,
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'xa',
       label: 'Xã',
       align: 'left',
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tinhTP',
       label: 'Tỉnh/Thành phố',
       align: 'left',
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'dienTichPhanBo',
       label: 'Diện tích phân bố (km2)',
       align: 'left',
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'khoangChieuSauPhanBo',
       label: 'Khoảng chiều sâu phân bố (m)',
       align: 'left',
-      children: [
-        {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'nguongGHKTLuuLuong',
       label: 'Ngưỡng GHKT về mực nước (m)',
       align: 'left',
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'nguongGHKTMucNuoc',
       label: 'Ngưỡng GHKT về mực nước (m)',
       align: 'left',
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'qdPheDuyetNguongGioiHanKT',
       label: 'QĐ phê duyệt ngưỡng giới hạn KT',
       align: 'left',
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

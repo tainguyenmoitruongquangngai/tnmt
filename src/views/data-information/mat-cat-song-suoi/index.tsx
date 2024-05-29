@@ -50,34 +50,16 @@ const NN_MatCatSongSuoi = () => {
       id: 'soHieuMatCat',
       label: 'Số hiệu mặt cắt',
       align: 'left',
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tenSongSuoi',
       label: 'Tên sông suối',
       align: 'left',
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: '#',
@@ -90,7 +72,6 @@ const NN_MatCatSongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xBoTrai == null ? "-" : row.xBoTrai}</Typography>,
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
         },
         {
           id: 'yBoTrai',
@@ -98,7 +79,6 @@ const NN_MatCatSongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yBoTrai == null ? "-" : row.yBoTrai}</Typography>,
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
         }
       ]
     },
@@ -113,7 +93,6 @@ const NN_MatCatSongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xBoPhai == null ? "-" : row.xBoPhai}</Typography>,
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
         },
         {
           id: 'yBoPhai',
@@ -121,7 +100,6 @@ const NN_MatCatSongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.yBoPhai == null ? "-" : row.yBoPhai}</Typography>,
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
         }
       ]
     },
@@ -129,111 +107,51 @@ const NN_MatCatSongSuoi = () => {
       id: 'xa',
       label: 'Xã',
       align: 'left',
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tinhTP',
       label: 'Tỉnh/Thành phố',
       align: 'left',
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'soHieuDiem',
       label: 'Số hiệu điểm',
       align: 'left',
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'khoangCach',
       label: 'Khoảng cách (m)',
       align: 'left',
-      children: [
-        {
-          id: '#12',
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'caoDoDaySong',
       label: 'Cao độ đáy sông (m)',
       align: 'left',
-      children: [
-        {
-          id: '#13',
-          children: [{ id: '#13.1', label: '(13)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thoiGianDo',
       label: 'Thời gian đo',
       align: 'left',
-      children: [
-        {
-          id: '#14',
-          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'mucNuocSong',
       label: 'Mực nước sông (m)',
       align: 'left',
-      children: [
-        {
-          id: '#15',
-          children: [{ id: '#15.1', label: '(15)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'donViDoDacKhaoSat',
       label: 'Đơn vị đo đạc khảo sát',
       align: 'left',
-      children: [
-        {
-          id: '#16',
-          children: [{ id: '#16.1', label: '(16)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      children: [
-        {
-          id: '#17',
-          children: [{ id: '#17.1', label: '(17)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

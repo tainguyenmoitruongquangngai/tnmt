@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Grid, Typography, Paper, Box, Toolbar } from '@mui/material'
-import { formatDate} from 'src/@core/components/formater';
+import { formatDate, formatNum } from 'src/@core/components/formater';
 import FormLicenseFee from 'src/views/license-fee/form'
 import DataGridComponent from 'src/@core/components/data-grid'
 import { GridColDef } from '@mui/x-data-grid'
 import ShowFilePDF from 'src/@core/components/show-file-pdf';
-import { formatVndCost } from '../home/count-license-fee';
 import DeleteData from 'src/@core/components/delete-data';
 import { getData } from 'src/api/axios';
 
@@ -43,7 +42,7 @@ const LicenseFee = (props: LicenseFeeProps) => {
         />
       )
     },
-    { field: 'tongTienCQ', headerAlign: 'center', headerName: 'Tổng số tiền cấp quyền(VNĐ)', minWidth: 180, type: 'number' },
+    { field: 'tongTienCQ', headerAlign: 'center', headerName: 'Tổng số tiền cấp quyền(VNĐ)', minWidth: 180, renderCell: (data: any) => formatNum(data.row.tongTienCQ) },
     { field: 'ghiChu', headerAlign: 'center', flex: 1, minWidth: 280, headerName: 'Ghi chú' },
 
     //license
@@ -116,13 +115,9 @@ const LicenseFee = (props: LicenseFeeProps) => {
     };
     getDataLicenseFee();
   }, [path, postSuccess]);
-  console.log(resData);
 
   // Calculate the total of resData.totalMoney
   const totalMoneySum = resData.reduce((sum, item: any) => sum + (item.tongTienCQ || 0), 0);
-
-  console.log(totalMoneySum);
-  
 
   return (
     <Grid container spacing={3}>
@@ -135,7 +130,7 @@ const LicenseFee = (props: LicenseFeeProps) => {
         </Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={12}>
-        <Typography >Tổng số tiền cấp quyền: {formatVndCost(totalMoneySum)}</Typography>
+        <Typography >Tổng số tiền cấp quyền: {formatNum(totalMoneySum)}</Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={12}>
         <Paper elevation={3} sx={{ p: 0, height: '100%' }}>

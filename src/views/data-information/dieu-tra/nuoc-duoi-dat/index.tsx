@@ -50,12 +50,6 @@ const SLDTKTSDN_NDD = () => {
       id: 'tenChuHoCT',
       label: 'Tên chủ hộ/Công trình',
       align: 'left',
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: '#',
@@ -68,7 +62,6 @@ const SLDTKTSDN_NDD = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.xa == null ? "-" : row.xa}</Typography>,
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
         },
         {
           id: 'huyen',
@@ -76,7 +69,6 @@ const SLDTKTSDN_NDD = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.huyen == null ? "-" : row.huyen}</Typography>,
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
         }
       ]
     },
@@ -84,100 +76,46 @@ const SLDTKTSDN_NDD = () => {
       id: 'soLuongGieng',
       label: 'Số lượng giếng',
       align: 'left',
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'uocTinhLuongNuocKT',
       label: 'Ước tính lượng nước khai thác (m3/ngày)',
       align: 'left',
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'loaiCT',
       label: 'Loại công trình',
       align: 'left',
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'hinhThucKT',
       label: 'Hình thức khai thác',
       align: 'left',
-      children: [
-        {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'chieuSauKT',
       label: 'Chiều sâu khai thác',
       align: 'left',
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'mucDichSD',
       label: 'Mục đích sử dụng',
       align: 'left',
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tinhTrangSD',
       label: 'Tình trạng sử dụng',
       align: 'left',
-      children: [
-        {
-          id: '#10',
-          children: [{ id: '#10.1', label: '(10)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'phieuDieuTraPDF',
       label: 'File phiếu điều tra (pdf)',
       align: 'left',
-      children: [
-        {
-          id: '#11',
-          children: [{ id: '#11.1', label: '(11)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      children: [
-        {
-          id: '#12',
-          children: [{ id: '#12.1', label: '(12)', align: 'left' }]
-        }
-      ]
     },
     { align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

@@ -50,67 +50,31 @@ const HSKTT_NDD = () => {
       id: 'kyHieuCT',
       label: 'Ký hiệu công trình',
       align: 'left',
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tenTaiLieuHoSo',
       label: 'Tên tài liệu hồ sơ',
       align: 'left',
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tenToChucThucHienQuanTrac',
       label: 'Tên tổ chức thực hiện quan trắc',
       align: 'left',
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'nguoiThanhLapHoSo',
       label: 'Người thành lập hồ sơ',
       align: 'left',
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'nguoiKiemTraHoSo',
       label: 'Người kiểm tra hồ sơ',
       align: 'left',
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'filePDF',
       label: 'File DPF',
       align: 'left',
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

@@ -50,100 +50,46 @@ const NN_VungCamHanCheKTNDD = () => {
       id: 'tenVungCamHanChe',
       label: 'Tên vùng cấm/vùng hạn chế',
       align: 'left',
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'dienTichVungCamHanChe',
       label: 'Diện tích vùng cấm/vùng hạn chế (km2)',
       align: 'left',
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'xa',
       label: 'Xã',
       align: 'left',
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyen',
       label: 'Huyện',
       align: 'left',
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tinhTP',
       label: 'Tỉnh/ Thành phố',
       align: 'left',
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'phamViChieuSau',
       label: 'Phạm vi chiều sâu hoặc tầng chứa nước hạn chế KT (m)',
       align: 'left',
-      children: [
-        {
-          id: '#6',
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'cacBienPhapHanCheKT',
       label: 'Các biện pháp hạn chế khai thác',
       align: 'left',
-      children: [
-        {
-          id: '#7',
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'qdPheDuyetVungCamKT',
       label: 'QĐ phê duyệt vùng cấm khai thác',
       align: 'left',
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

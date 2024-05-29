@@ -51,60 +51,30 @@ const NN_DCTT_SongSuoi = () => {
       label: 'Tên sông',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thuocLVS',
       label: 'Thuộc lưu vực sông',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tenDiem',
       label: 'Tên điểm',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyenTP',
       label: 'Huyện/ Thành phố',
       align: 'left',
       minWidth: 200,
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: '#',
@@ -117,7 +87,6 @@ const NN_DCTT_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.x == null ? "-" : row.x}</Typography>,
-          children: [{ id: '#6.1', label: '(6)', align: 'left' }]
         },
         {
           id: 'y',
@@ -125,7 +94,6 @@ const NN_DCTT_SongSuoi = () => {
           align: 'left',
           minWidth: 150,
           elm: (row: any) => <Typography className='f_14'>{row.y == null ? "-" : row.y}</Typography>,
-          children: [{ id: '#7.1', label: '(7)', align: 'left' }]
         }
       ]
     },
@@ -134,24 +102,12 @@ const NN_DCTT_SongSuoi = () => {
       label: 'Diện tích đến vị trí xác định Qtt (km2)',
       align: 'left',
       minWidth: 300,
-      children: [
-        {
-          id: '#8',
-          children: [{ id: '#8.1', label: '(8)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'qtt',
       label: 'Qtt (m3/s)',
       align: 'left',
       minWidth: 100,
-      children: [
-        {
-          id: '#9',
-          children: [{ id: '#9.1', label: '(9)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]

@@ -50,78 +50,36 @@ const DanhMucNN_NoiTinh_AoHo = () => {
       id: 'maHo',
       label: 'Mã hồ',
       align: 'left',
-      children: [
-        {
-          id: '#1',
-          children: [{ id: '#1.1', label: '(1)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'tenHoChua',
       label: 'Tên hồ chứa',
       align: 'left',
-      children: [
-        {
-          id: '#2',
-          children: [{ id: '#2.1', label: '(2)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'xaPhuongTT',
       label: 'Xã/Phường/Thị trấn',
       align: 'left',
-      children: [
-        {
-          id: '#3',
-          children: [{ id: '#3.1', label: '(3)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'huyenTP',
       label: 'Huyện/Thành phố',
       align: 'left',
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'nguonNuoc',
       label: 'Nguồn nước',
       align: 'left',
-      children: [
-        {
-          id: '#5',
-          children: [{ id: '#5.1', label: '(5)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'thuocHeThongSong',
       label: 'Thuộc hệ thống sông',
       align: 'left',
-      children: [
-        {
-          id: '#4',
-          children: [{ id: '#4.1', label: '(4)', align: 'left' }]
-        }
-      ]
     },
     {
       id: 'ghiChu',
       label: 'Ghi chú',
       align: 'left',
-      children: [
-        {
-          id: '#14',
-          children: [{ id: '#14.1', label: '(14)', align: 'left' }]
-        }
-      ]
     },
     {align: 'center', id: 'actions', label: 'Thao tác', minWidth: 150, rowspan: 3 }
   ]
