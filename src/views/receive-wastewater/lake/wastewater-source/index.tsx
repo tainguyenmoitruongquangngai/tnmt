@@ -394,10 +394,10 @@ const WasteWaterDetails = () => {
           align: 'left'
         },
         {
-          id: 'cnnColiform',
+          id: 'ltdColiform',
           label: (
             <>
-              Tổng P <br /> coliform
+              Tổng <br /> coliform
               <br /> (MPN/100ml)
             </>
           ),

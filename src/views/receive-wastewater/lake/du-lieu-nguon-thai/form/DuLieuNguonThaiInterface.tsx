@@ -10,6 +10,9 @@ export interface FormDuLieuNguonThaiDiemState {
   ctdiemTSS: number
   ctdiemColiform: number
   ghiChu: string
+  nguonThaiCongTrinh:string
+  toaDoX:number
+  toaDoY:number
 }
 
 export interface FormDuLieuNguonThaiSinhHoatState {

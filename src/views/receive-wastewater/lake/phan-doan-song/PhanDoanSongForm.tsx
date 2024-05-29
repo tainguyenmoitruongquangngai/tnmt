@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Add, Edit, Save } from '@mui/icons-material'
-import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip } from '@mui/material'
-import { saveData } from 'src/api/axios'
+import { Add, Edit, CloudUpload, Save } from '@mui/icons-material'
+import { Grid, Button, DialogActions, IconButton, TextField, CircularProgress, Tooltip, Typography } from '@mui/material'
+import { saveData, uploadFile } from 'src/api/axios'
+import { VisuallyHiddenInput } from 'src/@core/theme/VisuallyHiddenInput'
 import DialogsControlFullScreen from 'src/@core/components/dialog-control-full-screen'
 import { PhanDoanSongState } from './PhanDoanSongInterface'
 
@@ -21,10 +22,17 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     diaGioiHanhChinh: data?.diaGioiHanhChinh || '',
     mucDichSuDung: data?.mucDichSuDung || '',
     chatLuongNuoc: data?.chatLuongNuoc || '',
-    ghiChu: data?.ghiChu || ''
+    ghiChu: data?.ghiChu || '',
+    fileKML: data?.fileKML || '',
+    heSoFS: data?.heSoFS || 0,
   })
 
   const [saving, setSaving] = useState(false)
+  const [fileUpload, setFileUpload] = useState<any>()
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
+    setFileUpload(file);
+};
 
   const handleChange = (prop: keyof PhanDoanSongState) => (value: any) => {
     setreport1Data({ ...report1Data, [prop]: value })
@@ -34,10 +42,27 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
     e.preventDefault()
 
     const handleApiCall = async () => {
+
+      const newValues = {
+        ...report1Data,
+        fileKML: `${fileUpload.name?.replace(/\//g, '_').toLowerCase()}`,
+      };
+
+      const newFile = {
+        filePath: `kml/`,
+        fileName: `${fileUpload.name?.replace(/\//g, '_').toLowerCase()}`,
+        file: fileUpload
+      }
+
       setSaving(true)
       try {
-        const res = await saveData('PhanDoanSong/luu', report1Data)
+        const res = await saveData('PhanDoanSong/luu', newValues)
+        
+        console.log(newValues);
         if (res) {
+          
+          await uploadFile(newFile)
+
           // Reset form fields
           setreport1Data({
             id: 0,
@@ -54,7 +79,9 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
             diaGioiHanhChinh: '',
             mucDichSuDung: '',
             chatLuongNuoc: '',
-            ghiChu: ''
+            ghiChu: '',
+            fileKML: '',
+            heSoFS: 0
           })
 
           typeof setPostSuccess === 'function' ? setPostSuccess(true) : ''
@@ -88,7 +115,9 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
       diaGioiHanhChinh: '',
       mucDichSuDung: '',
       chatLuongNuoc: '',
-      ghiChu: ''
+      ghiChu: '',
+      fileKML: '',
+      heSoFS: 0
     })
 
     closeDialogs()
@@ -242,6 +271,32 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
           />
         </Grid>
 
+        <Grid item xs={12} md={6} sx={{ my: 2 }}>
+        {fileUpload?.name && (
+          <Typography mb={3}>{fileUpload?.name}</Typography>
+        )}
+          <Button
+            className="uploadBtn"
+            component="label"
+            variant="contained"
+            startIcon={<CloudUpload />}
+            href={`#file-upload`}
+          >
+            Upload file
+            <VisuallyHiddenInput type="file" onChange={handleFileChange} accept='.kml' />
+          </Button>
+        </Grid>
+        <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
+          <TextField
+            size='small'
+            type='text'
+            label='Hệ số an toàn FS'
+            fullWidth
+            placeholder=''
+            value={report1Data.heSoFS || ''}
+            onChange={event => handleChange('heSoFS')(event.target.value)}
+          />
+        </Grid>
         <Grid item xs={12} md={6} sm={12} sx={{ my: 2 }}>
           <TextField
             size='small'
@@ -268,7 +323,7 @@ const Form = ({ data, setPostSuccess, closeDialogs }: any) => {
 }
 
 const PhanDoanSongForm = ({ data, setPostSuccess, isEdit }: any) => {
-  const formTitle = isEdit ? 'Thay đổi thông tin ' : 'Thêm mới'
+  const formTitle = isEdit ? 'Thay đổi thông tin phân đoạn sông' : 'Thêm mới phân đoạn sông'
 
   return (
     <DialogsControlFullScreen>

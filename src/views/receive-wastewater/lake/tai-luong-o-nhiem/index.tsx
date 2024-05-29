@@ -312,16 +312,17 @@ const TaiLuongONhiem = () => {
           id: 'ltColiform',
           label: (
             <>
-              Tổng P <br /> coliform
+              Tổng  <br /> coliform
               <br /> (MPN/100ml)
             </>
           ),
-          align: 'left'
+          align: 'left',
+          elm: (row: any) => roundToTwoDecimalPlaces(row.ltColiform)
         }
       ]
     },
     {
-      id: '#',
+      id: 'heSoFS',
       label: 'Hệ số an toàn ',
       align: 'left'
     },
@@ -356,14 +357,6 @@ const TaiLuongONhiem = () => {
 
     getDataReport1()
   }, [])
-
-  // const zoomConstruction = (coords: any) => {
-  //   setMapCenter(coords)
-  //   setMapZoom(13)
-  // }
-  // const handleConsTypeChange = (data: any) => {
-  //   setInitConstype(data);
-  // };
 
   return (
     <Grid container spacing={2}>

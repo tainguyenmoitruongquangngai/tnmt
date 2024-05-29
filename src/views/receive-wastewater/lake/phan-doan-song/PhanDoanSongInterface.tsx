@@ -14,4 +14,6 @@ export interface PhanDoanSongState {
   mucDichSuDung: string
   chatLuongNuoc: string
   ghiChu: string
+  fileKML:string
+  heSoFS:number
 }
