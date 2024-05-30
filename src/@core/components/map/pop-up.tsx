@@ -3,6 +3,7 @@ import { TabContext, TabList, TabPanel} from '@mui/lab';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import MonitoringDataChart from 'src/views/home/monitoring-data';
+import { formatDate } from 'src/@core/components/formater';
 
 const MapPopup = ({ popupData }: any) => {
     const router = useRouter();
@@ -515,6 +516,29 @@ const MapPopup = ({ popupData }: any) => {
         }
     }
 
+    const showLicenseRow = (data: any) => {console.log(data);
+        if(data.giayphep.length > 0){
+            return (
+                <TableBody className='table-license'>
+                    <TableRow>
+                        <TableCell align='center' sx={{ p: '0 !important' }}>
+                            <Typography sx={{ fontSize: 12, my: '5px !important', fontWeight: 500 }}>Số giấy phép</Typography>
+                        </TableCell>
+                        <TableCell align='center' sx={{ p: '0 !important' }}>
+                            <Typography sx={{ fontSize: 12, my: '5px !important', fontWeight: 500 }}>Ngày hết hiệu lực</Typography>
+                        </TableCell>
+                    </TableRow>
+                    {data.giayphep.map((row:any, rowIndex:any) => (
+                        <TableRow key={rowIndex}>
+                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important', color: '#087eba !important' }}>{row.soGP}</TableCell>
+                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{formatDate(row.ngayHetHieuLuc)}</TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            )
+        }
+    }
+
     return (
         <Box>
             {section == 'cong-trinh' || section == 'giay-phep' || section == 'kn-tiep-nhan-nuoc-thai' || section == 'van-hanh-ho-chua' ? (
@@ -522,6 +546,7 @@ const MapPopup = ({ popupData }: any) => {
                 // Popup content for construction & license */
                 <TableContainer component={Paper} sx={{ height: 200, overFlowY: 'scroll' }} className='cons-info-table'>
                     <Table aria-label="simple table">
+                        {showLicenseRow(popupData)}
                         {showTableRow(popupData)}
                     </Table>
                 </TableContainer>

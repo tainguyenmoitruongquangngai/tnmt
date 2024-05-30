@@ -463,6 +463,10 @@ code[class*='language-'] {
   z-index: 0;
 }
 
+.table-license td {
+  background: #d6edff;
+}
+
 @media (max-width: 768px) {
   .back_ground_dam{
     left: 500px;
