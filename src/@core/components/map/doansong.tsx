@@ -1,92 +1,88 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { Grid } from '@mui/material';
+import React, { useState, useEffect, useMemo } from 'react'
+import { MapContainer, TileLayer, LayersControl, Marker, Tooltip, Popup } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import ReactLeafletKml from 'react-leaflet-kml'
+import { BingLayer } from '../bingmap'
+import { fetchAndParseKML } from './utils'
+import { Typography } from '@mui/material'
+import DoanSongPopup from './popup-river'
 
-import { getData } from 'src/api/axios';
-import { calculateBounds, fetchAndParseKML } from 'src/@core/components/map/utils';
+const { BaseLayer } = LayersControl
 
-const MapDoanSong = dynamic(() => import('src/@core/components/map/map'), { ssr: false });
+export default function MapDoanSong({ center, zoom, selectedKmlFile, mapData }: any) {
+  console.log(mapData);
+  
+  const [bing_key] = useState('AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L')
+  const [defaultKmls, setDefaultKmls] = useState<(Document | null)[]>([])
+  const [selectedKmlData, setSelectedKmlData] = useState<Document | null>(null)
+  const kmlKey = useMemo(
+    () => (selectedKmlFile ? `selected-${Date.now()}` : `default-${Date.now()}`),
+    [selectedKmlFile]
+  )
 
-const RiverTable = () => {
-    const [mapCenter, setMapCenter] = useState([15.012172, 108.676488]);
-    const [mapZoom, setMapZoom] = useState(9);
-    const [selectedRiver, setSelectedRiver] = useState<any>(null);
-    console.log(selectedRiver);
+  useEffect(() => {
+    const kmlFiles = ['/kml/doansong/phandoansong79song_QN.kml', '/kml/tinh-quangngai.kml']
+    const loadKmlFiles = async () => {
+      const loadedKmls = await Promise.all(kmlFiles.map(file => fetchAndParseKML(file)))
+      setDefaultKmls(loadedKmls.filter(kml => kml !== null))
+    }
+    loadKmlFiles()
+  }, [])
+
+  useEffect(() => {
+    if (selectedKmlFile) {
+      const loadSelectedKml = async () => {
+        const kmlDoc = await fetchAndParseKML(`${selectedKmlFile}`)
+        setSelectedKmlData(kmlDoc)
+      }
+      loadSelectedKml()
+    }
+  }, [selectedKmlFile])
+
+  // Create icon for map marker
+  const createIcon = (url: any) => {
+    return new L.Icon({
+      iconUrl: url,
+      iconSize: [18, 18],
+      iconAnchor: [18, 18],
+      popupAnchor: [-9, -18]
+    })
+  }
+
+  return (
+    <MapContainer attributionControl={false} center={center} zoom={zoom} style={{ height: '100%' }} key={kmlKey}>
+      <LayersControl position='topright'>
+        <BaseLayer name='Bản đồ hành chính'>
+          <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
+        </BaseLayer>
+        <BaseLayer name='Bản đồ đường'>
+          <BingLayer bingkey={bing_key} type='Road' />
+        </BaseLayer>
+        <BaseLayer checked name='Bản đồ vệ tinh'>
+          <BingLayer bingkey={bing_key} type='AerialWithLabels' />
+        </BaseLayer>
+      </LayersControl>
+      {selectedKmlFile != null ? (
+
+        <Marker icon={createIcon('/images/icon/marker.png')} key={1} position={center}>
     
-    const [data, setData] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
 
-    const handleRiverSelection = useCallback(async (river) => {
-        setSelectedRiver(river);
-        try {
-            const kmlDoc = await fetchAndParseKML(`${river.fileKML}`);
-            const bounds = calculateBounds(kmlDoc);
-            if (bounds) {
-                setMapCenter(bounds.center);
-                setMapZoom(bounds.zoom);
-            }
-        } catch (error) {
-            console.error('Error loading KML:', error);
-        }
-    }, []);
+          <Tooltip direction='top' offset={[-10, -18]} opacity={1}>
+          {mapData.phanDoan}
+          </Tooltip>
+          <Popup>
+            <Typography sx={{ color: '#035291', textAlign: 'center', fontWeight: 'bold', margin: '0 !important' }}>
+           Khả năng tiếp nhận nước thải
+            </Typography>
+            <DoanSongPopup popupData={mapData} />
+          </Popup>
+        </Marker>
+      ) : (
+        ''
+      )}
 
-    useEffect(() => {
-        async function getDataReport1() {
-            setLoading(true);
-            try {
-                const response = await getData('PhanDoanSong/danh-sach');
-                setData(response);
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        getDataReport1();
-    }, []);
-
-    useEffect(() => {
-        if (!selectedRiver) {
-            setMapCenter([15.012172, 108.676488]); // Mặc định trung tâm
-            setMapZoom(9); // Mặc định zoom
-        }
-    }, [selectedRiver]);
-console.log(selectedRiver);
-
-    return (
-        <div>
-            <Grid sx={{ height: '55vh', overflow: 'hidden' }}>
-                <MapDoanSong 
-                    center={mapCenter} 
-                    zoom={mapZoom} 
-                    mapData={data} 
-                    selectedKmlFile={selectedRiver ? selectedRiver.fileKML : null} 
-                    loading={loading} 
-                    selectedRiver={selectedRiver}
-                />
-            </Grid>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên Sông</th>
-                        <th>File KML</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map(river => (
-                        <tr key={river.id} onClick={() => handleRiverSelection(river)}>
-                            <td>{river.id}</td>
-                            <td>{river.phanDoan}</td>
-                            <td>{river.fileKML}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
-};
-
-export default RiverTable;
+      {defaultKmls.map((kml, index) => kml && <ReactLeafletKml key={`default-${index}`} kml={kml} />)}
+      {selectedKmlData && <ReactLeafletKml kml={selectedKmlData} key={`selected-${Date.now()}`} />}
+    </MapContainer>
+  )
+}

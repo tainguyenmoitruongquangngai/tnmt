@@ -5,8 +5,9 @@ import { Grid, Paper, Typography } from '@mui/material';
 import TableComponent, { TableColumn } from 'src/@core/components/table';
 import ExportTableToExcel from 'src/@core/components/export-excel/export-csv';
 import { calculateBounds, fetchAndParseKML } from 'src/@core/components/map/utils';
+import FormatCellValue from 'src/@core/components/calculate-data-river';
 
-const MapDoanSong = dynamic(() => import('src/@core/components/map/map'), { ssr: false });
+const MapDoanSong = dynamic(() => import('src/@core/components/map/doansong'), { ssr: false });
 
 const KhaNangTiepNhanNuocThaiSong = () => {
   const [data, setData] = useState([]);
@@ -18,7 +19,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
   // Tạo ref cho container chứa bản đồ
   const mapRef = useRef<HTMLDivElement>(null);
 
-  const roundToTwoDecimalPlaces = (num: number): number => parseFloat(num?.toFixed(2));
+ 
 
   const handleRiverSelection = useCallback(async (river) => {
     setSelectedRiver(river);
@@ -38,6 +39,7 @@ const KhaNangTiepNhanNuocThaiSong = () => {
       console.error('Error loading KML:', error);
     }
   }, []);
+
 
   const columnsTable: TableColumn[] = [
     { id: 'stt', label: 'STT', rowspan: 2 },
@@ -62,13 +64,13 @@ const KhaNangTiepNhanNuocThaiSong = () => {
       label: 'KHẢ NĂNG TIẾP NHẬN NƯỚC THẢI, SỨC CHỊU TẢI Ltd (kg/ngày)',
       align: 'left',
       children: [
-        { id: 'ltnBod', label: 'BOD5 (mg/l)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnBod) },
-        { id: 'ltnCod', label: 'COD (mg/l)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnCod) },
-        { id: 'ltnAmoni', label: 'Amoni (mg/l)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnAmoni) },
-        { id: 'ltnTongN', label: 'Tổng N (mg/l)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnTongN) },
-        { id: 'ltnTongP', label: 'Tổng P (mg/l)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnTongP) },
-        { id: 'ltnTSS', label: 'Tổng chất rắn lơ lửng TSS (mg/l)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnTSS) },
-        { id: 'ltnColiform', label: 'Tổng P coliform (MPN/100ml)', align: 'left', elm: (row: any) => roundToTwoDecimalPlaces(row.ltnColiform) },
+        { id: 'ltnBod', label: 'BOD5 (mg/l)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnBod) },
+        { id: 'ltnCod', label: 'COD (mg/l)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnCod) },
+        { id: 'ltnAmoni', label: 'Amoni (mg/l)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnAmoni) },
+        { id: 'ltnTongN', label: 'Tổng N (mg/l)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnTongN) },
+        { id: 'ltnTongP', label: 'Tổng P (mg/l)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnTongP) },
+        { id: 'ltnTSS', label: 'Tổng chất rắn lơ lửng TSS (mg/l)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnTSS) },
+        { id: 'ltnColiform', label: 'Tổng P coliform (MPN/100ml)', align: 'left', elm: (row: any) => FormatCellValue(row.ltnColiform) },
       ]
     },
   

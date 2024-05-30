@@ -14,7 +14,7 @@ import PhanDoanSongForm from './PhanDoanSongForm'
 import ExportTableToExcel from 'src/@core/components/export-excel/export-csv'
 import { calculateBounds, fetchAndParseKML } from 'src/@core/components/map/utils';
 
-const MapDoanSong = dynamic(() => import('src/@core/components/map/map'), { ssr: false });
+const MapDoanSong = dynamic(() => import('src/@core/components/map/doansong'), { ssr: false });
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const PhanDoanSongTiepNhanNuocThai = () => {
