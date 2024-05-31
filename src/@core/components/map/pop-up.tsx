@@ -530,8 +530,8 @@ const MapPopup = ({ popupData }: any) => {
                     </TableRow>
                     {data.giayphep.map((row:any, rowIndex:any) => (
                         <TableRow key={rowIndex}>
-                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important', color: '#087eba !important' }}>{row.soGP}</TableCell>
-                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{formatDate(row.ngayHetHieuLuc)}</TableCell>
+                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important', color: '#087eba !important' }}>{row?.soGP}</TableCell>
+                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{formatDate(row?.ngayHetHieuLuc)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
