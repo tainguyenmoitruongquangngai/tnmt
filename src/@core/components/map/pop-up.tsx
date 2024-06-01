@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import MonitoringDataChart from 'src/views/home/monitoring-data';
 import { formatDate } from 'src/@core/components/formater';
+import ShowFilePDF from 'src/@core/components/show-file-pdf';
 
 const MapPopup = ({ popupData }: any) => {
     const router = useRouter();
@@ -530,8 +531,8 @@ const MapPopup = ({ popupData }: any) => {
                     </TableRow>
                     {data.giayphep.map((row:any, rowIndex:any) => (
                         <TableRow key={rowIndex}>
-                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important', color: '#087eba !important' }}>{row?.soGP}</TableCell>
-                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{formatDate(row?.ngayHetHieuLuc)}</TableCell>
+                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important', color: '#087eba !important' }}><ShowFilePDF name={row.soGP} src={row.fileGiayPhep} /></TableCell>
+                            <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{formatDate(row.ngayHetHieuLuc)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

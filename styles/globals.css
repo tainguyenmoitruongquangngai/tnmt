@@ -465,6 +465,12 @@ code[class*='language-'] {
 
 .table-license td {
   background: #d6edff;
+  padding: 0 0 5px !important;
+}
+
+.table-license .btnShowFilePdf {
+  font-size: 12px !important;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
