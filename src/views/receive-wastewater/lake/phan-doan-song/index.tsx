@@ -161,10 +161,10 @@ console.log(data);
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={12 }sx={{ height: '55vh', overflow: 'hidden' }}>
-        <MapDoanSong
+      <MapDoanSong
           center={mapCenter}
           zoom={mapZoom}
-          mapData={data}
+          mapData={selectedRiver}
           selectedKmlFile={selectedRiver ? selectedRiver.fileKML : null}
           loading={loading}
         />

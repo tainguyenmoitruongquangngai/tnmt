@@ -464,7 +464,7 @@ code[class*='language-'] {
 }
 
 .table-license td {
-  background: #d6edff;
+  background: #e4f0f9;
   padding: 0 0 5px !important;
 }
 
@@ -548,7 +548,7 @@ code[class*='language-'] {
     z-index: 0;
   }
 }
-.cons-info-table td { border: none !important; }
+
 
 .cons-info-table td:nth-child(odd) { width: 33%; }
 
