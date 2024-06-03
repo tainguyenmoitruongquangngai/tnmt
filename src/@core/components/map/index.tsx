@@ -91,7 +91,7 @@ const getIcon = (type: any) => {
 	}
 }
 
-export default function Map({ center, zoom, mapData, loading }: any) {
+export default function Map({ center, zoom, showLabel, mapData, loading }: any) {
 	const [bing_key, setBingKey] = useState("AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L")
 	const [kml, setKml] = useState<any>(null);
 
@@ -134,10 +134,13 @@ export default function Map({ center, zoom, mapData, loading }: any) {
 						if (data.x !== null || data.y !== null) {
 							return (
 								<Marker icon={getIcon(data.loaiCT?.maLoaiCT || '')} key={data.id} position={[ConverterCood(data?.y, data?.x)[0], ConverterCood(data.y, data.x)[1]]}>
-									<Tooltip direction="top" offset={[-10, -18]} opacity={1}>{data.tenCT}</Tooltip>
+									{showLabel === true &&
+										<Tooltip direction="top" offset={[-10, -18]} opacity={1} permanent>{data.tenCT}</Tooltip>
+									}
 									<Popup>
 										<Typography sx={{ color: '#035291', textAlign: 'center', fontWeight: 'bold', margin: '0 !important' }}>{data.tenCT}</Typography>
 										<Typography sx={{ textAlign: 'center', fontSize: 12, margin: '0 !important', fontStyle: 'italic'}}>{data.viTriCT}</Typography>
+										<Typography sx={{ textAlign: 'center', fontSize: 12, margin: '0 !important'}}>Kinh độ (X):{data.x} &nbsp; Vĩ độ (Y):{data.y}</Typography>
 										<MapPopup popupData={data} />
 									</Popup>
 								</Marker>

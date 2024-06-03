@@ -1,4 +1,4 @@
-import { Paper, Typography, Box, Button, Fade } from "@mui/material"
+import { Paper, Typography, Box, Button, Fade, FormGroup, FormControlLabel, Checkbox } from "@mui/material"
 import React, { useState, useEffect, useRef } from 'react';
 import { getData } from 'src/api/axios'
 import { KeyboardDoubleArrowDown, KeyboardDoubleArrowUp } from '@mui/icons-material';
@@ -12,6 +12,7 @@ const Map = dynamic(() => import("src/@core/components/map"), { ssr: false });
 const HomeMap = () => {
     const [mapCenter] = useState([15.012172, 108.676488]);
     const [mapZoom] = useState(9);
+    const [showLabel, setShowLabel] = useState(false)
 
     const [initConsType, setInitConstype] = useState<any>([
         "nuocmat",
@@ -102,6 +103,12 @@ const HomeMap = () => {
             </Paper>
             <Fade in={selected}>
                 <Box className="map-legend" sx={{ background: 'white', zIndex: `${loading ? -1 : 999}` }}>
+                    <FormGroup>
+                        <FormControlLabel
+                            sx={{ m: 0}}
+                            control={<Checkbox onClick={() => setShowLabel(!showLabel)} />}
+                            label='Hiển thị tên công trình' />
+                    </FormGroup>
                     <MapLegend onChange={handleConsTypeChange} />
                 </Box>
             </Fade>
@@ -109,7 +116,7 @@ const HomeMap = () => {
             <Button className="toggle-legend" variant="outlined" onClick={() => { setSelected(!selected); }} >
                 {selected ? <KeyboardDoubleArrowDown /> : <KeyboardDoubleArrowUp />}
             </Button>
-            <Map center={mapCenter} zoom={mapZoom} mapData={dataFiltered} loading={loading} />
+            <Map center={mapCenter} zoom={mapZoom} showLabel={showLabel} mapData={dataFiltered} loading={loading} />
         </Paper>
     )
 }

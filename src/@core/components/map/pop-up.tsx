@@ -540,27 +540,6 @@ const MapPopup = ({ popupData }: any) => {
         }
     }
 
-    const showCoordinatesRow = (data: any) => {
-
-        return (
-            <TableBody >
-                <TableRow>
-                    <TableCell align='center' sx={{ p: '0 !important' }}>
-                        <Typography sx={{ fontSize: 12, my: '5px !important', fontWeight: 500 }}>Vĩ độ</Typography>
-                    </TableCell>
-                    <TableCell align='center' sx={{ p: '0 !important' }}>
-                        <Typography sx={{ fontSize: 12, my: '5px !important', fontWeight: 500 }}>Kinh độ</Typography>
-                    </TableCell>
-                </TableRow>
-                <TableRow >
-                       <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{data.x}</TableCell>
-                        <TableCell align="center" sx={{ fontSize: 12, my: '5px !important', padding: '0 !important' }}>{data.y}</TableCell>
-                    </TableRow>
-            </TableBody>
-        )
-    }
-
-
     return (
         <Box>
             {section == 'cong-trinh' || section == 'giay-phep' || section == 'kn-tiep-nhan-nuoc-thai' || section == 'van-hanh-ho-chua' ? (
@@ -568,7 +547,6 @@ const MapPopup = ({ popupData }: any) => {
                 // Popup content for construction & license */
                 <TableContainer component={Paper} sx={{ height: 200, overFlowY: 'scroll' }} className='cons-info-table'>
                     <Table aria-label="simple table">
-                        {showCoordinatesRow(popupData)}
                         {showLicenseRow(popupData)}
                         {showTableRow(popupData)}
                     </Table>
