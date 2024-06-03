@@ -7,6 +7,7 @@ import MapPopup from './pop-up';
 import { Box, Typography } from '@mui/material';
 import { ConverterCood } from './convert-coord';
 import { EditControl } from "react-leaflet-draw";
+import { useRouter } from 'next/router';
 import BoxLoading from '../box-loading';
 
 import 'leaflet/dist/leaflet.css';
@@ -100,6 +101,11 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 	const [bing_key, setBingKey] = useState("AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L")
 	const [kml, setKml] = useState<any>(null);
 
+	const router = useRouter();
+    const pathSegments = router.pathname.split('/');
+    const section = pathSegments[1];
+	const section2 = pathSegments[2];
+
 	useEffect(() => {
 		setBingKey("AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L")
 		fetch(
@@ -152,6 +158,7 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 							)
 						} else return null;
 					})}
+					{(section == 'cong-trinh' && section2 == undefined) && 
 					<FeatureGroup>
 						<EditControl
 						position='topleft'
@@ -160,6 +167,7 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 						}}
 						/>
 					</FeatureGroup>
+					}
 					<SetViewOnClick coords={center} zoom={zoom} />
 					{kml && <ReactLeafletKml kml={kml} />}
 				</MapContainer>
