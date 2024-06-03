@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, LayersControl, useMap, Marker, Popup, Tooltip } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer, LayersControl, useMap, Marker, Popup, Tooltip, FeatureGroup } from 'react-leaflet';
+
 import { BingLayer } from 'src/@core/components/bingmap';
 import ReactLeafletKml from "react-leaflet-kml";
 import MapPopup from './pop-up';
 import { Box, Typography } from '@mui/material';
 import { ConverterCood } from './convert-coord';
+import { EditControl } from "react-leaflet-draw";
 import BoxLoading from '../box-loading';
+
+import 'leaflet/dist/leaflet.css';
+import 'node_modules/leaflet/dist/leaflet.css';
+import 'node_modules/leaflet-draw/dist/leaflet.draw.css';
 
 const { BaseLayer } = LayersControl;
 
@@ -147,6 +152,14 @@ export default function Map({ center, zoom, showLabel, mapData, loading }: any) 
 							)
 						} else return null;
 					})}
+					<FeatureGroup>
+						<EditControl
+						position='topleft'
+						draw={{
+							rectangle: false
+						}}
+						/>
+					</FeatureGroup>
 					<SetViewOnClick coords={center} zoom={zoom} />
 					{kml && <ReactLeafletKml kml={kml} />}
 				</MapContainer>
